@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Video Library &middot; Talbert House Staff Resource Library</title>
+<style>
+:root{--th-teal:#02777C;--th-teal-dark:#015B5F;--th-teal-light:#E6F2F2;--th-orange:#E8622C;--th-orange-soft:#FDEAE0;--hmh-forest:#2E5D4A;--hmh-cream:#FAF5EC;--hmh-coral:#E28F6E;--hmh-gold:#D9A441;--slate-900:#1F2937;--slate-700:#374151;--slate-500:#6B7280;--slate-300:#D1D5DB;--slate-100:#F3F4F6;--radius-sm:6px;--radius-md:12px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(2,119,124,.08),0 2px 4px rgba(0,0,0,.04);--font-display:Georgia,"Playfair Display",Cambria,serif;--font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55}
+a{color:var(--th-teal);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,2.8rem)}h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var(--slate-500)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.container-narrow{max-width:860px;margin:0 auto;padding:0 24px}
+.section{padding:56px 0}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);margin-bottom:8px}
+
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFC7B0}.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px;color:inherit}
+.brand-mark{width:42px;height:42px;background:var(--th-teal);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-family:var(--font-display);position:relative}
+.brand-mark::after{content:"";position:absolute;right:-4px;bottom:-4px;width:14px;height:14px;background:var(--th-orange);border-radius:50%;border:2px solid #fff}
+.brand-text{display:flex;flex-direction:column;line-height:1.1}
+.brand-text .top{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-500)}
+.brand-text .main{font-family:var(--font-display);font-weight:700;color:var(--slate-900);font-size:1.05rem}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem}
+.nav-links a:hover{background:var(--th-teal-light);color:var(--th-teal-dark);text-decoration:none}
+.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
+.nav-cta{background:var(--th-teal);color:#fff !important;padding:9px 16px !important;border-radius:999px !important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer}
+@media(max-width:860px){.nav-toggle{display:inline-block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+.nav-links.open{display:flex}.nav-links a{padding:12px}}
+
+.page-head{background:linear-gradient(135deg,var(--hmh-forest),var(--th-teal-dark));color:#fff;padding:60px 0 48px;position:relative;overflow:hidden}
+.page-head::after{content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:var(--hmh-gold);opacity:.18;border-radius:50%;filter:blur(8px)}
+.page-head .container{position:relative;z-index:1}
+.page-head h1{color:#fff;max-width:20ch}.page-head .lead{color:rgba(255,255,255,.92);max-width:60ch}.page-head .eyebrow{color:var(--hmh-cream)}
+
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.video-card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease;cursor:pointer}
+.video-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.video-cover{aspect-ratio:16/9;display:grid;place-items:center;font-family:var(--font-display);color:#fff;font-size:1.8rem;position:relative}
+.video-cover.v1{background:linear-gradient(135deg,var(--hmh-coral),var(--hmh-gold))}
+.video-cover.v2{background:linear-gradient(135deg,var(--hmh-forest),var(--th-teal))}
+.video-cover.v3{background:linear-gradient(135deg,var(--th-teal-dark),var(--th-teal))}
+.video-cover.v4{background:linear-gradient(135deg,var(--th-orange),var(--hmh-coral))}
+.video-cover .play{width:60px;height:60px;background:rgba(255,255,255,.92);color:var(--th-teal-dark);border-radius:50%;display:grid;place-items:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,.14)}
+.video-cover .dur{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.7);color:#fff;padding:2px 8px;border-radius:4px;font-family:var(--font-body);font-size:.8rem}
+.video-body{padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.video-body .topic{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--th-teal)}
+.video-body h3{margin:0;font-size:1.1rem}
+.video-body p{color:var(--slate-700);font-size:.92rem;margin:4px 0 0}
+.video-body .meta{font-size:.84rem;color:var(--slate-500);margin-top:6px}
+
+.video-player{display:none;background:#000;padding:30px 0}
+.video-player.visible{display:block}
+.video-player .wrap{max-width:960px;margin:0 auto;padding:0 20px;color:#fff}
+.video-player h2{color:#fff;margin-top:12px}
+.video-player .meta{color:#C7CED6}
+.video-player .frame{aspect-ratio:16/9;background:#111;border-radius:var(--radius-md);overflow:hidden;margin-top:18px;display:grid;place-items:center;text-align:center;padding:20px;color:#C7CED6}
+.video-player .frame iframe{width:100%;height:100%;border:0}
+.video-player .back{display:inline-block;color:#FFE1D1;font-weight:600;margin-bottom:6px;cursor:pointer}
+.video-player .back::before{content:"\2190 ";}
+
+.callout{background:var(--hmh-cream);border-left:5px solid var(--hmh-forest);border-radius:var(--radius-md);padding:22px 24px;color:var(--slate-900);font-size:1.02rem;margin:24px 0}
+.callout strong{color:var(--hmh-forest)}
+
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
+.site-footer a{color:var(--th-teal-light)}
+.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--hmh-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--hmh-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="crisis-banner"><strong>IN A CRISIS?</strong> Call or text <a href="tel:988">988</a> &middot; Talbert House 24/7 <a href="tel:5132812273">(513) 281-CARE</a> &middot; Text "Talbert" to <a>839863</a></div>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand-lockup"><span class="brand-mark">T</span><span class="brand-text"><span class="top">Talbert House</span><span class="main">Staff Resource Library</span></span></a>
+    <button class="nav-toggle" aria-expanded="false">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="providers.html" data-page="providers.html">Providers</a>
+      <a href="workplace-wellness.html" data-page="workplace-wellness.html">Workplace wellness</a>
+      <a href="resources.html" data-page="resources.html">Mental health resources</a>
+      <a href="blog.html" data-page="blog.html">Blog</a>
+      <a href="videos.html" data-page="videos.html">Videos</a>
+      <a href="podcast.html" data-page="podcast.html">Podcast</a>
+      <a href="providers.html" class="nav-cta">Find a provider</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">Watchable between sessions</span>
+    <h1>Video library.</h1>
+    <p class="lead">Short, practical videos from Hello Mental Health &mdash; grounding exercises, clinical skills, and reflective supervision series. Most are under 15 minutes.</p>
+  </div>
+</section>
+
+<section id="player" class="video-player">
+  <div class="wrap">
+    <a class="back" id="player-back">Back to all videos</a>
+    <div id="player-meta"></div>
+    <div class="frame" id="player-frame"></div>
+  </div>
+</section>
+
+<section id="video-list-section" class="section">
+  <div class="container">
+    <div id="video-list" class="video-grid"></div>
+    <div class="callout">
+      <strong>Have a topic you want us to cover?</strong>
+      <p style="margin:6px 0 0">Send suggestions to <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> &mdash; we&rsquo;re producing one new video a month on topics staff tell us matter most.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About this library</h4>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div><h4>Library</h4><ul><li><a href="providers.html">Providers</a></li><li><a href="workplace-wellness.html">Workplace wellness</a></li><li><a href="resources.html">Resources</a></li><li><a href="blog.html">Blog</a></li><li><a href="videos.html">Videos</a></li><li><a href="podcast.html">Podcast</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline</a></li><li><a href="tel:5132812273">(513) 281-CARE</a></li><li>Text "Talbert" to 839863</li><li><a href="tel:5132818387">(513) 281-VETS</a></li></ul></div>
+      <div><h4>Talbert House</h4><ul><li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li><li><a href="tel:5132214357">(513) 221-HELP</a></li><li>2600 Victory Pkwy, Cincinnati OH</li></ul></div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use</div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   VIDEOS
+   ---------------------------------------------------------
+   TO ADD A VIDEO: copy an object below and fill in. Set
+   "embed_url" to a YouTube/Vimeo embed URL (e.g.
+   https://www.youtube.com/embed/VIDEO_ID). Leave it empty
+   to show a placeholder until the video is ready.
+   ========================================================= */
+const VIDEOS = [
+  {
+    id: "grounding-90-sec",
+    title: "A 90-second grounding exercise you can do at your desk",
+    topic: "Quick tools",
+    duration: "1:32",
+    date: "2026-04-04",
+    cover_variant: 4,
+    cover_label: "Pause",
+    embed_url: "",
+    description: "A short, guided exercise to help reset after a hard session or call. Uses the 5-4-3-2-1 technique with a Hello Mental Health twist."
+  },
+  {
+    id: "supervision-series-1",
+    title: "Reflective supervision, part 1: what makes it work",
+    topic: "For supervisors",
+    duration: "12:45",
+    date: "2026-03-19",
+    cover_variant: 2,
+    cover_label: "Ep. 1",
+    embed_url: "",
+    description: "The first in a three-part series on reflective supervision for behavioral health teams. Covers what distinguishes reflective from administrative supervision and why it matters for retention."
+  },
+  {
+    id: "trauma-informed-intake",
+    title: "Trauma-informed intake, without the jargon",
+    topic: "Clinical skills",
+    duration: "8:10",
+    date: "2026-02-27",
+    cover_variant: 3,
+    cover_label: "Skills",
+    embed_url: "",
+    description: "Small changes to the first five minutes of an intake that signal safety and change how the rest of the session unfolds."
+  }
+];
+
+(function(){
+  const list=document.getElementById('video-list');
+  const listSec=document.getElementById('video-list-section');
+  const player=document.getElementById('player');
+  const frame=document.getElementById('player-frame');
+  const meta=document.getElementById('player-meta');
+  const back=document.getElementById('player-back');
+
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+  function fmtDate(iso){try{return new Date(iso).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}catch(e){return iso;}}
+
+  function renderList(){
+    list.innerHTML=VIDEOS.map(v=>`
+      <div class="video-card" data-id="${esc(v.id)}">
+        <div class="video-cover v${v.cover_variant||1}">
+          <div class="play">&#9654;</div>
+          ${v.duration?`<span class="dur">${esc(v.duration)}</span>`:''}
+        </div>
+        <div class="video-body">
+          <span class="topic">${esc(v.topic||'')}</span>
+          <h3>${esc(v.title)}</h3>
+          <p>${esc(v.description||'')}</p>
+          <div class="meta">${esc(fmtDate(v.date||''))}</div>
+        </div>
+      </div>`).join('');
+    list.querySelectorAll('.video-card').forEach(c=>c.addEventListener('click',()=>{window.location.hash='v='+c.dataset.id;}));
+  }
+
+  function renderPlayer(id){
+    const v=VIDEOS.find(x=>x.id===id);
+    if(!v){showList();return;}
+    meta.innerHTML=`<span style="color:var(--hmh-cream);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">${esc(v.topic||'')}</span>
+      <h2>${esc(v.title)}</h2>
+      <div class="meta">${esc(v.duration||'')} &bull; ${esc(fmtDate(v.date||''))}</div>
+      <p style="color:#C7CED6;margin-top:10px">${esc(v.description||'')}</p>`;
+    if(v.embed_url){
+      frame.innerHTML=`<iframe src="${esc(v.embed_url)}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="${esc(v.title)}"></iframe>`;
+    } else {
+      frame.innerHTML=`<div><strong style="color:#fff;font-family:var(--font-display);font-size:1.4rem;display:block;margin-bottom:8px">Coming soon</strong>
+        <span>This video isn&rsquo;t published yet. Check back or subscribe to the podcast for updates.</span></div>`;
+    }
+    player.classList.add('visible');
+    listSec.style.display='none';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function showList(){player.classList.remove('visible');frame.innerHTML='';listSec.style.display='block';}
+  function route(){const m=window.location.hash.match(/v=([^&]+)/);if(m){renderPlayer(decodeURIComponent(m[1]));}else{showList();}}
+  back.addEventListener('click',function(e){e.preventDefault();window.location.hash='';});
+  window.addEventListener('hashchange',route);
+  renderList();route();
+})();
+
+/* Shared nav */
+(function(){
+  var t=document.querySelector('.nav-toggle'),l=document.querySelector('.nav-links');
+  if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open');});}
+  var p=(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){if(a.dataset.page===p)a.classList.add('active');});
+})();
+</script>
+</body>
+</html>

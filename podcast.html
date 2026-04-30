@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Podcast &middot; Talbert House Staff Resource Library</title>
+<style>
+:root{--th-teal:#02777C;--th-teal-dark:#015B5F;--th-teal-light:#E6F2F2;--th-orange:#E8622C;--th-orange-soft:#FDEAE0;--hmh-forest:#2E5D4A;--hmh-cream:#FAF5EC;--hmh-coral:#E28F6E;--hmh-gold:#D9A441;--slate-900:#1F2937;--slate-700:#374151;--slate-500:#6B7280;--slate-300:#D1D5DB;--slate-100:#F3F4F6;--radius-sm:6px;--radius-md:12px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(2,119,124,.08),0 2px 4px rgba(0,0,0,.04);--font-display:Georgia,"Playfair Display",Cambria,serif;--font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55}
+a{color:var(--th-teal);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,2.8rem)}h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var(--slate-500)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.container-narrow{max-width:860px;margin:0 auto;padding:0 24px}
+.section{padding:56px 0}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);margin-bottom:8px}
+
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFC7B0}.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px;color:inherit}
+.brand-mark{width:42px;height:42px;background:var(--th-teal);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-family:var(--font-display);position:relative}
+.brand-mark::after{content:"";position:absolute;right:-4px;bottom:-4px;width:14px;height:14px;background:var(--th-orange);border-radius:50%;border:2px solid #fff}
+.brand-text{display:flex;flex-direction:column;line-height:1.1}
+.brand-text .top{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-500)}
+.brand-text .main{font-family:var(--font-display);font-weight:700;color:var(--slate-900);font-size:1.05rem}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem}
+.nav-links a:hover{background:var(--th-teal-light);color:var(--th-teal-dark);text-decoration:none}
+.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
+.nav-cta{background:var(--th-teal);color:#fff !important;padding:9px 16px !important;border-radius:999px !important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer}
+@media(max-width:860px){.nav-toggle{display:inline-block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+.nav-links.open{display:flex}.nav-links a{padding:12px}}
+
+.podcast-hero{background:linear-gradient(135deg,var(--hmh-forest),var(--th-teal-dark));color:#fff;padding:60px 0;position:relative;overflow:hidden}
+.podcast-hero::after{content:"";position:absolute;top:-50px;right:-50px;width:220px;height:220px;background:var(--hmh-coral);opacity:.22;border-radius:50%;filter:blur(8px)}
+.podcast-hero .wrap{display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:center;position:relative;z-index:1}
+.podcast-cover{width:220px;height:220px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--hmh-cream),var(--hmh-coral));display:grid;place-items:center;font-family:var(--font-display);color:var(--hmh-forest);font-size:1.8rem;text-align:center;padding:20px;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.podcast-cover small{display:block;font-size:.7rem;font-family:var(--font-body);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;color:var(--hmh-forest);opacity:.8}
+.podcast-hero h1{color:#fff;margin-bottom:8px}
+.podcast-hero .tag{color:var(--hmh-cream);font-style:italic;font-family:var(--font-display);font-size:1.1rem;margin-bottom:14px}
+.podcast-hero p{color:rgba(255,255,255,.92);max-width:55ch}
+.listen-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.listen-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;background:rgba(255,255,255,.14);color:#fff;border-radius:999px;font-size:.92rem;font-weight:600;border:1px solid rgba(255,255,255,.25)}
+.listen-btn:hover{background:rgba(255,255,255,.22);text-decoration:none;color:#fff}
+.listen-btn.disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:720px){.podcast-hero .wrap{grid-template-columns:1fr;text-align:center}.podcast-cover{margin:0 auto}}
+
+.episode{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:20px 22px;display:grid;grid-template-columns:80px 1fr auto;gap:20px;align-items:center;margin-bottom:14px;box-shadow:var(--shadow-sm)}
+.episode .num{width:80px;height:80px;border-radius:var(--radius-sm);background:linear-gradient(135deg,var(--hmh-forest),var(--th-teal));color:#fff;display:grid;place-items:center;font-family:var(--font-display);font-size:1.6rem;font-weight:700}
+.episode h3{margin:0 0 4px;font-size:1.15rem}
+.episode .ep-meta{color:var(--slate-500);font-size:.88rem}
+.episode .ep-desc{color:var(--slate-700);font-size:.95rem;margin:8px 0 0}
+.episode .play-btn{background:var(--th-teal);color:#fff;border:0;padding:10px 18px;border-radius:999px;font-weight:600;font-size:.92rem;cursor:pointer;white-space:nowrap}
+.episode .play-btn:hover{background:var(--th-teal-dark)}
+.episode .play-btn.disabled{background:var(--slate-300);color:var(--slate-700);cursor:not-allowed}
+.episode audio{width:100%;margin-top:12px;grid-column:1 / -1}
+@media(max-width:620px){.episode{grid-template-columns:64px 1fr;grid-template-areas:"num body" "btn btn" "aud aud"}.episode .num{grid-area:num;width:64px;height:64px;font-size:1.3rem}.episode .body-col{grid-area:body}.episode .play-btn{grid-area:btn;justify-self:start}.episode audio{grid-area:aud}}
+
+.callout{background:var(--hmh-cream);border-left:5px solid var(--hmh-forest);border-radius:var(--radius-md);padding:22px 24px;color:var(--slate-900);font-size:1.02rem;margin:24px 0}
+.callout strong{color:var(--hmh-forest)}
+
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
+.site-footer a{color:var(--th-teal-light)}
+.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--hmh-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--hmh-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="crisis-banner"><strong>IN A CRISIS?</strong> Call or text <a href="tel:988">988</a> &middot; Talbert House 24/7 <a href="tel:5132812273">(513) 281-CARE</a> &middot; Text "Talbert" to <a>839863</a></div>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand-lockup"><span class="brand-mark">T</span><span class="brand-text"><span class="top">Talbert House</span><span class="main">Staff Resource Library</span></span></a>
+    <button class="nav-toggle" aria-expanded="false">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="providers.html" data-page="providers.html">Providers</a>
+      <a href="workplace-wellness.html" data-page="workplace-wellness.html">Workplace wellness</a>
+      <a href="resources.html" data-page="resources.html">Mental health resources</a>
+      <a href="blog.html" data-page="blog.html">Blog</a>
+      <a href="videos.html" data-page="videos.html">Videos</a>
+      <a href="podcast.html" data-page="podcast.html">Podcast</a>
+      <a href="providers.html" class="nav-cta">Find a provider</a>
+    </div>
+  </nav>
+</header>
+
+<section class="podcast-hero">
+  <div class="container">
+    <div class="wrap">
+      <div class="podcast-cover">
+        <div>
+          <small>A Hello Mental Health podcast</small>
+          <div>Hello,<br/>Talbert House</div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow" style="color:var(--hmh-cream)">The podcast</span>
+        <h1 id="show-title">Hello, Talbert House</h1>
+        <p class="tag" id="show-tag"></p>
+        <p id="show-about"></p>
+        <div class="listen-row" id="listen-row"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-narrow">
+    <span class="eyebrow">All episodes</span>
+    <h2 class="mt-0" style="font-family:Georgia,serif">Latest episodes</h2>
+    <div id="episodes" style="margin-top:20px"></div>
+
+    <div class="callout">
+      <strong>Have a guest we should book or a topic we should cover?</strong>
+      <p style="margin:6px 0 0">We&rsquo;re actively looking for Talbert House staff, alumni, and community partners to feature. Email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About this library</h4>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div><h4>Library</h4><ul><li><a href="providers.html">Providers</a></li><li><a href="workplace-wellness.html">Workplace wellness</a></li><li><a href="resources.html">Resources</a></li><li><a href="blog.html">Blog</a></li><li><a href="videos.html">Videos</a></li><li><a href="podcast.html">Podcast</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline</a></li><li><a href="tel:5132812273">(513) 281-CARE</a></li><li>Text "Talbert" to 839863</li><li><a href="tel:5132818387">(513) 281-VETS</a></li></ul></div>
+      <div><h4>Talbert House</h4><ul><li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li><li><a href="tel:5132214357">(513) 221-HELP</a></li><li>2600 Victory Pkwy, Cincinnati OH</li></ul></div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use</div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   PODCAST
+   ---------------------------------------------------------
+   TO ADD AN EPISODE: copy an object in the EPISODES array.
+   "audio_url" is a direct .mp3/.m4a link (or leave empty for
+   a placeholder). SHOW.links is an object of platform to URL
+   for listen-on buttons. Remove/add links as needed.
+   ========================================================= */
+const SHOW = {
+  title: "Hello, Talbert House",
+  tagline: "Conversations from the front lines of behavioral health.",
+  about: "A monthly podcast for the people who show up for other people. We talk with Talbert House staff, community partners, and subject-matter experts about the realities of doing this work well \u2014 from trauma-informed care to keeping your own tank full.",
+  links: {
+    "Spotify": "",
+    "Apple Podcasts": "",
+    "RSS feed": ""
+  }
+};
+
+const EPISODES = [
+  {
+    id: "ep-001",
+    number: "01",
+    title: "Why we built this library",
+    date: "2026-04-08",
+    duration: "24 min",
+    audio_url: "",
+    description: "Dr. Bailey Bryant and the Hello Mental Health team sit down to talk about what a resource library can do for a 900-person organization \u2014 and what it can\u2019t."
+  },
+  {
+    id: "ep-002",
+    number: "02",
+    title: "Housing is healthcare",
+    date: "2026-03-11",
+    duration: "36 min",
+    audio_url: "",
+    description: "A conversation with a Talbert House housing program lead on what \u2018recovery housing\u2019 really means, and how front-line staff can support stability without burning out."
+  },
+  {
+    id: "ep-003",
+    number: "03",
+    title: "Reentry, relationships, and repair",
+    date: "2026-02-06",
+    duration: "41 min",
+    audio_url: "",
+    description: "Working in court and corrections reintegration asks a lot of a person. We talk about the emotional toll, the wins that don\u2019t make it into case notes, and the small practices that keep staff in the work for the long haul."
+  }
+];
+
+(function(){
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+  function fmtDate(iso){try{return new Date(iso).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}catch(e){return iso;}}
+
+  document.getElementById('show-title').textContent=SHOW.title;
+  document.getElementById('show-tag').textContent=SHOW.tagline;
+  document.getElementById('show-about').textContent=SHOW.about;
+
+  const row=document.getElementById('listen-row');
+  row.innerHTML=Object.keys(SHOW.links).map(k=>{
+    const url=SHOW.links[k];
+    if(url){return `<a class="listen-btn" href="${esc(url)}" target="_blank" rel="noopener">Listen on ${esc(k)}</a>`;}
+    return `<span class="listen-btn disabled" title="Link coming soon">${esc(k)} &mdash; soon</span>`;
+  }).join('');
+
+  const eps=document.getElementById('episodes');
+  eps.innerHTML=EPISODES.map(e=>{
+    const hasAudio=!!e.audio_url;
+    return `
+    <div class="episode" data-id="${esc(e.id)}">
+      <div class="num">${esc(e.number||'')}</div>
+      <div class="body-col">
+        <h3>${esc(e.title)}</h3>
+        <div class="ep-meta">${esc(fmtDate(e.date||''))} &bull; ${esc(e.duration||'')}</div>
+        <p class="ep-desc">${esc(e.description||'')}</p>
+      </div>
+      <button class="play-btn ${hasAudio?'':'disabled'}" data-audio="${esc(e.audio_url||'')}" ${hasAudio?'':'disabled aria-disabled="true"'}>${hasAudio?'\u25B6 Play':'Coming soon'}</button>
+      ${hasAudio?`<audio controls preload="none" style="display:none"><source src="${esc(e.audio_url)}"></audio>`:''}
+    </div>`;
+  }).join('');
+
+  // Inline audio player toggle
+  eps.querySelectorAll('.play-btn').forEach(btn=>{
+    if(btn.classList.contains('disabled'))return;
+    btn.addEventListener('click',()=>{
+      const audio=btn.parentElement.querySelector('audio');
+      if(!audio)return;
+      if(audio.style.display==='none'){audio.style.display='block';audio.play().catch(()=>{});}
+      else {audio.pause();audio.style.display='none';}
+    });
+  });
+})();
+
+/* Shared nav */
+(function(){
+  var t=document.querySelector('.nav-toggle'),l=document.querySelector('.nav-links');
+  if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open');});}
+  var p=(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){if(a.dataset.page===p)a.classList.add('active');});
+})();
+</script>
+</body>
+</html>

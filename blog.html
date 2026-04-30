@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog &middot; Talbert House Staff Resource Library</title>
+<meta name="description" content="Writing from Hello Mental Health for Talbert House staff &mdash; burnout, supervision, trauma-informed care, and the human parts of this work." />
+<style>
+:root{--th-teal:#02777C;--th-teal-dark:#015B5F;--th-teal-light:#E6F2F2;--th-orange:#E8622C;--th-orange-soft:#FDEAE0;--hmh-forest:#2E5D4A;--hmh-cream:#FAF5EC;--hmh-coral:#E28F6E;--hmh-gold:#D9A441;--slate-900:#1F2937;--slate-700:#374151;--slate-500:#6B7280;--slate-300:#D1D5DB;--slate-100:#F3F4F6;--radius-sm:6px;--radius-md:12px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(2,119,124,.08),0 2px 4px rgba(0,0,0,.04);--font-display:Georgia,"Playfair Display","Iowan Old Style",Cambria,serif;--font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55}
+a{color:var(--th-teal);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,2.8rem)}h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.container-narrow{max-width:760px;margin:0 auto;padding:0 24px}
+.section{padding:56px 0}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);margin-bottom:8px}
+.muted{color:var(--slate-500)}
+
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFC7B0}.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px;color:inherit}
+.brand-mark{width:42px;height:42px;background:var(--th-teal);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-family:var(--font-display);position:relative}
+.brand-mark::after{content:"";position:absolute;right:-4px;bottom:-4px;width:14px;height:14px;background:var(--th-orange);border-radius:50%;border:2px solid #fff}
+.brand-text{display:flex;flex-direction:column;line-height:1.1}
+.brand-text .top{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-500)}
+.brand-text .main{font-family:var(--font-display);font-weight:700;color:var(--slate-900);font-size:1.05rem}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem}
+.nav-links a:hover{background:var(--th-teal-light);color:var(--th-teal-dark);text-decoration:none}
+.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
+.nav-cta{background:var(--th-teal);color:#fff !important;padding:9px 16px !important;border-radius:999px !important}
+.nav-cta:hover{background:var(--th-teal-dark) !important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer}
+@media(max-width:860px){.nav-toggle{display:inline-block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+.nav-links.open{display:flex}.nav-links a{padding:12px}}
+
+.page-head{background:var(--hmh-cream);color:var(--slate-900);padding:64px 0 44px;position:relative;overflow:hidden}
+.page-head::before{content:"";position:absolute;top:-60px;left:-80px;width:260px;height:260px;background:var(--hmh-coral);opacity:.28;border-radius:50%;filter:blur(6px)}
+.page-head::after{content:"";position:absolute;bottom:-50px;right:-60px;width:220px;height:220px;background:var(--hmh-gold);opacity:.32;border-radius:50%;filter:blur(6px)}
+.page-head .container{position:relative;z-index:1}
+.page-head h1{max-width:22ch;color:var(--hmh-forest)}
+.page-head .eyebrow{color:var(--hmh-forest)}
+.page-head .lead{color:var(--slate-700);max-width:55ch}
+
+.post-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.post{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease;color:inherit}
+.post:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);text-decoration:none}
+.post-cover{aspect-ratio:16/9;background:linear-gradient(135deg,var(--hmh-cream),var(--th-teal-light));display:grid;place-items:center;font-family:var(--font-display);color:var(--hmh-forest);font-size:2rem}
+.post-cover.v1{background:linear-gradient(135deg,var(--hmh-coral),var(--hmh-gold));color:#fff}
+.post-cover.v2{background:linear-gradient(135deg,var(--hmh-forest),var(--th-teal));color:#fff}
+.post-cover.v3{background:linear-gradient(135deg,var(--th-teal-dark),var(--th-teal));color:#fff}
+.post-cover.v4{background:linear-gradient(135deg,var(--th-orange),var(--hmh-coral));color:#fff}
+.post-cover.v5{background:linear-gradient(135deg,var(--hmh-cream),var(--hmh-coral));color:var(--hmh-forest)}
+.post-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex-grow:1}
+.post-topic{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--th-teal)}
+.post h3{margin:0 0 4px;font-size:1.18rem}
+.post .excerpt{color:var(--slate-700);font-size:.95rem;flex-grow:1}
+.post .meta{font-size:.85rem;color:var(--slate-500);display:flex;gap:10px;align-items:center}
+
+.full-post{display:none;background:#fff;padding:40px 0 20px}
+.full-post.visible{display:block}
+.full-post h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:12px}
+.full-post .meta{color:var(--slate-500);font-size:.95rem;margin-bottom:18px}
+.full-post .body p{font-size:1.05rem;line-height:1.7;margin:0 0 1.1em}
+.full-post .back{display:inline-block;margin-bottom:18px;font-weight:600}
+.full-post .back::before{content:"\2190 ";}
+
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
+.site-footer a{color:var(--th-teal-light)}
+.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--hmh-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--hmh-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="crisis-banner">
+  <strong>IN A CRISIS?</strong>
+  Call or text <a href="tel:988">988</a> &middot;
+  Talbert House 24/7 <a href="tel:5132812273">(513) 281-CARE</a> &middot;
+  Text "Talbert" to <a>839863</a>
+</div>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand-lockup">
+      <span class="brand-mark">T</span>
+      <span class="brand-text"><span class="top">Talbert House</span><span class="main">Staff Resource Library</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="providers.html" data-page="providers.html">Providers</a>
+      <a href="workplace-wellness.html" data-page="workplace-wellness.html">Workplace wellness</a>
+      <a href="resources.html" data-page="resources.html">Mental health resources</a>
+      <a href="blog.html" data-page="blog.html">Blog</a>
+      <a href="videos.html" data-page="videos.html">Videos</a>
+      <a href="podcast.html" data-page="podcast.html">Podcast</a>
+      <a href="providers.html" class="nav-cta">Find a provider</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">From Hello Mental Health</span>
+    <h1>The blog.</h1>
+    <p class="lead">Writing on burnout, supervision, trauma-informed care, and the human parts of this work &mdash; by the Hello Mental Health team, for Talbert House staff.</p>
+  </div>
+</section>
+
+<section id="post-detail" class="full-post">
+  <div class="container-narrow">
+    <a href="#" class="back" id="back-to-list">Back to all posts</a>
+    <div id="post-detail-content"></div>
+  </div>
+</section>
+
+<section id="post-list" class="section">
+  <div class="container">
+    <div id="posts" class="post-grid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About this library</h4>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div><h4>Library</h4><ul><li><a href="providers.html">Providers</a></li><li><a href="workplace-wellness.html">Workplace wellness</a></li><li><a href="resources.html">Resources</a></li><li><a href="blog.html">Blog</a></li><li><a href="videos.html">Videos</a></li><li><a href="podcast.html">Podcast</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline</a></li><li><a href="tel:5132812273">(513) 281-CARE</a></li><li>Text "Talbert" to 839863</li><li><a href="tel:5132818387">(513) 281-VETS</a></li></ul></div>
+      <div><h4>Talbert House</h4><ul><li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li><li><a href="tel:5132214357">(513) 221-HELP</a></li><li>2600 Victory Pkwy, Cincinnati OH</li></ul></div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use</div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   BLOG POSTS
+   ---------------------------------------------------------
+   TO ADD A POST: copy one of the objects below. Fill in the
+   fields. "cover_variant" picks a color scheme (1\u20135).
+   "body" supports plain paragraphs separated by \n\n.
+   ========================================================= */
+const POSTS = [
+  {
+    id: "welcome",
+    title: "Welcome \u2014 this library is for you",
+    topic: "From Hello Mental Health",
+    author: "The Hello Mental Health Team",
+    date: "2026-04-10",
+    cover_variant: 2,
+    cover_label: "Hello",
+    excerpt: "A note to Talbert House staff on what this resource library is, what it isn\u2019t, and how we built it with you in mind.",
+    body: "Hello \u2014 and welcome.\n\nWe built this library for the 900+ humans doing the work at Talbert House. You support people in the hardest moments of their lives, across five service lines and dozens of locations. That\u2019s extraordinary. It\u2019s also exhausting, and we don\u2019t say that lightly.\n\nThis site is our way of making sure the resources you need \u2014 for yourself, for your team, and for your clients \u2014 are in one trusted place. You\u2019ll find a growing internal provider list, workplace wellness tools that speak to the realities of behavioral health work, a blog, a podcast, and a video library. Nothing here is generic. Everything is meant to meet you where you are.\n\nWe\u2019ll add to this library over time, and we want your feedback. If something would help you do your job a little better \u2014 or help you take a breath at the end of a hard shift \u2014 tell us."
+  },
+  {
+    id: "burnout-isnt-a-you-problem",
+    title: "Burnout isn\u2019t a you problem",
+    topic: "Workplace wellness",
+    author: "Dr. Bailey Bryant, PsyD",
+    date: "2026-03-28",
+    cover_variant: 1,
+    cover_label: "Burnout",
+    excerpt: "Reframing burnout as a systems issue, and what that means for front-line behavioral health staff.",
+    body: "If you\u2019ve been told to manage your burnout by doing more yoga, we\u2019re sorry.\n\nThe research is clear: burnout in helping professions is driven less by individual resilience and more by workload, control over your schedule, fairness, community, and values alignment. In other words \u2014 it\u2019s a systems issue, not a you issue.\n\nThat doesn\u2019t mean individual strategies are useless. It means they\u2019re half the picture. The other half is organizational: predictable caseloads, supervision that doesn\u2019t disappear when things get busy, and permission to leave work at work.\n\nIn this post we walk through both halves, with specifics for clinicians, case managers, housing staff, and administrators."
+  },
+  {
+    id: "secondary-trauma",
+    title: "The quiet weight of secondary trauma",
+    topic: "For clinicians",
+    author: "The Hello Mental Health Team",
+    date: "2026-03-14",
+    cover_variant: 3,
+    cover_label: "Care",
+    excerpt: "Vicarious trauma doesn\u2019t announce itself. Here\u2019s how to notice it \u2014 and what actually helps.",
+    body: "Secondary traumatic stress is what happens when you absorb the stories you hear all day. It looks a lot like PTSD, but it sneaks in through empathy rather than direct experience.\n\nWarning signs include intrusive thoughts about client situations, emotional numbing, avoiding certain topics or clients, cynicism that feels new, and sleep changes. None of these make you bad at your job \u2014 they make you human.\n\nWhat helps (based on the evidence, not wishful thinking): structured debriefing, rotating difficult cases, clinical supervision focused on the clinician\u2019s experience rather than just the client\u2019s, and time genuinely away from the work. What doesn\u2019t help: toughing it out."
+  }
+];
+
+/* -------- Render -------- */
+(function(){
+  const listEl=document.getElementById('posts');
+  const detailEl=document.getElementById('post-detail');
+  const listSec=document.getElementById('post-list');
+  const contentEl=document.getElementById('post-detail-content');
+  const backBtn=document.getElementById('back-to-list');
+
+  function fmtDate(iso){try{return new Date(iso).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}catch(e){return iso;}}
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+
+  function renderList(){
+    listEl.innerHTML=POSTS.map(p=>`
+      <a class="post" href="#post=${encodeURIComponent(p.id)}">
+        <div class="post-cover v${p.cover_variant||1}">${esc(p.cover_label||p.topic||'Post')}</div>
+        <div class="post-body">
+          <span class="post-topic">${esc(p.topic||'')}</span>
+          <h3>${esc(p.title)}</h3>
+          <p class="excerpt">${esc(p.excerpt||'')}</p>
+          <div class="meta">${esc(p.author||'')} &bull; ${esc(fmtDate(p.date))}</div>
+        </div>
+      </a>`).join('');
+  }
+
+  function renderDetail(id){
+    const p=POSTS.find(x=>x.id===id);
+    if(!p){showList();return;}
+    const paragraphs=(p.body||'').split(/\n\n+/).map(x=>`<p>${esc(x)}</p>`).join('');
+    contentEl.innerHTML=`
+      <span class="post-topic" style="color:var(--th-teal);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em">${esc(p.topic||'')}</span>
+      <h2>${esc(p.title)}</h2>
+      <div class="meta">${esc(p.author||'')} &bull; ${esc(fmtDate(p.date))}</div>
+      <div class="body">${paragraphs}</div>`;
+    detailEl.classList.add('visible');
+    listSec.style.display='none';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function showList(){detailEl.classList.remove('visible');listSec.style.display='block';}
+
+  function route(){
+    const m=window.location.hash.match(/post=([^&]+)/);
+    if(m){renderDetail(decodeURIComponent(m[1]));} else {showList();}
+  }
+  backBtn.addEventListener('click',function(e){e.preventDefault();window.location.hash='';showList();});
+  window.addEventListener('hashchange',route);
+  renderList();
+  route();
+})();
+
+/* Shared nav */
+(function(){
+  var t=document.querySelector('.nav-toggle'),l=document.querySelector('.nav-links');
+  if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open');});}
+  var p=(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){if(a.dataset.page===p)a.classList.add('active');});
+})();
+</script>
+</body>
+</html>

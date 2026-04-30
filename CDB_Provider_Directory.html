@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CDB Mental Health Provider Directory — Cincinnati</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #f4f7fa; color: #222; }
+
+  .top-bar {
+    background: #00304B; color: #fff; padding: 14px 24px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;
+  }
+  .top-bar .org  { font-size: 12px; opacity: .8; }
+  .top-bar .title{ font-size: 15px; font-weight: bold; }
+
+  .hero { background: #00304B; color: #fff; padding: 24px 24px 18px; text-align: center; }
+  .hero h1 { font-size: 21px; margin-bottom: 5px; }
+  .hero h2 { font-size: 13px; font-weight: normal; opacity: .85; }
+  .subtitle-badge {
+    display: inline-block; margin-top: 10px; background: #004A70; color: #fff;
+    padding: 5px 18px; border-radius: 20px; font-size: 12px; font-weight: bold;
+  }
+
+  .disclaimer {
+    background: #fffdf0; border-left: 4px solid #C8960C;
+    margin: 14px 18px 0; padding: 9px 13px; font-size: 12px; color: #555; border-radius: 4px;
+  }
+
+  .filter-bar {
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    padding: 12px 18px; background: #fff;
+    border-top: 1px solid #dde4ec; border-bottom: 1px solid #dde4ec; margin-top: 14px;
+  }
+  .filter-bar label { font-size: 12px; color: #555; font-weight: bold; white-space: nowrap; }
+  .filter-bar input {
+    font-size: 12px; padding: 7px 10px; border: 1.5px solid #b0bec5;
+    border-radius: 5px; outline: none; width: 190px;
+  }
+  .filter-bar input:focus { border-color: #00304B; box-shadow: 0 0 0 2px #d0e4ef; }
+  .filter-bar select {
+    font-size: 12px; padding: 7px 10px; border: 1.5px solid #b0bec5;
+    border-radius: 5px; outline: none; background: #fff; cursor: pointer;
+  }
+  .filter-bar select:focus { border-color: #00304B; box-shadow: 0 0 0 2px #d0e4ef; }
+  .btn-search {
+    font-size: 12px; font-weight: bold; padding: 7px 14px;
+    background: #00304B; color: #fff; border: none; border-radius: 5px; cursor: pointer;
+  }
+  .btn-search:hover { background: #004A70; }
+  .btn-clear {
+    font-size: 12px; padding: 7px 10px;
+    background: #e8edf2; color: #333; border: none; border-radius: 5px; cursor: pointer;
+  }
+  .btn-clear:hover { background: #d0d8e4; }
+  .count-badge {
+    margin-left: auto; background: #00304B; color: #fff;
+    font-size: 11px; font-weight: bold; padding: 4px 10px; border-radius: 12px; white-space: nowrap;
+  }
+
+  .section-title {
+    font-size: 14px; font-weight: bold; color: #00304B;
+    padding: 14px 18px 6px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::after { content:''; flex:1; height:2px; background:#00304B; border-radius:1px; }
+
+  .provider-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px; padding: 0 18px 18px;
+  }
+  .no-results {
+    grid-column: 1/-1; text-align: center; padding: 40px 20px; color: #888; font-size: 14px;
+  }
+  .no-results .icon { font-size: 30px; display: block; margin-bottom: 8px; }
+
+  .card { background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.1); overflow:hidden; }
+  .card-header { background:#00304B; color:#fff; padding:9px 13px; }
+  .card-header .name { font-size:13px; font-weight:bold; }
+  .card-header .creds { font-size:10.5px; color:#AACCDD; margin-top:2px; }
+  .card-body { padding:9px 13px; }
+  .detail-row {
+    display:flex; gap:8px; padding:3px 0; border-bottom:1px solid #eef2f6; font-size:11.5px;
+  }
+  .detail-row:last-child { border-bottom:none; }
+  .detail-label { color:#00304B; font-weight:bold; min-width:84px; flex-shrink:0; padding-top:1px; }
+  .detail-value { color:#333; line-height:1.45; }
+  .tag {
+    display:inline-block; background:#e8f0f7; color:#00304B;
+    font-size:10px; padding:2px 7px; border-radius:10px; margin:1px 2px 1px 0;
+  }
+  .badge { display:inline-block; font-size:10px; font-weight:bold; padding:2px 8px; border-radius:10px; }
+  .badge-both   { background:#d1ecf1; color:#0c5460; }
+  .badge-person { background:#d4edda; color:#155724; }
+  .badge-tele   { background:#cce5ff; color:#004085; }
+
+  .offices-section { padding:0 18px 24px; }
+  .offices-note { background:#D9E8F0; border-radius:6px; padding:9px 13px; font-size:12px; color:#333; margin-bottom:10px; }
+  table.offices { width:100%; border-collapse:collapse; font-size:12px; }
+  table.offices th { background:#00304B; color:#fff; padding:7px 11px; text-align:left; }
+  table.offices td { padding:6px 11px; border-bottom:1px solid #e0e8f0; }
+  table.offices tr:nth-child(even) td { background:#EEF5FA; }
+
+  .footer { background:#00304B; color:rgba(255,255,255,.7); text-align:center; font-size:11px; padding:11px 18px; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span class="org">Hello Mental Health | Talbert House — Internal Staff Resource</span>
+  <span class="title">CDB Mental Health Provider Directory</span>
+</div>
+
+<div class="hero">
+  <h1>Mental Health Provider Directory</h1>
+  <h2>Greater Cincinnati Area</h2>
+  <span class="subtitle-badge">In-Network with Custom Design Benefits (CDB) TrueCost Plan</span>
+</div>
+
+<div class="disclaimer">
+  <strong>Important:</strong> This list reflects providers who have publicly indicated they accept Custom Design Benefits (CDB) insurance. Always verify current insurance acceptance directly with the provider before scheduling. <strong>Last updated: April 2026.</strong>
+</div>
+
+<div class="filter-bar">
+  <label>Search:</label>
+  <input type="text" id="searchInput" placeholder="Name, specialty, city, zip…"/>
+  <label>Session:</label>
+  <select id="sessionSelect">
+    <option value="">All types</option>
+    <option value="person">In-person</option>
+    <option value="telehealth">Telehealth</option>
+  </select>
+  <label>Area:</label>
+  <select id="areaSelect">
+    <option value="">All areas</option>
+    <option value="blue ash">Blue Ash</option>
+    <option value="cincinnati">Cincinnati</option>
+    <option value="west chester">West Chester</option>
+    <option value="sharonville">Sharonville</option>
+    <option value="springdale">Springdale</option>
+  </select>
+  <button class="btn-search" id="searchBtn">Search</button>
+  <button class="btn-clear" id="clearBtn">Clear</button>
+  <span class="count-badge" id="countBadge">19 providers</span>
+</div>
+
+<div class="section-title">Individual &amp; Group Practice Providers</div>
+<div class="provider-grid" id="providerGrid"></div>
+
+<div class="section-title" style="margin-top:8px">LifeStance Health — Cincinnati Area Office Locations</div>
+<div class="offices-section">
+  <div class="offices-note">All LifeStance Cincinnati-area locations accept Custom Design Benefits (CDB). Call the nearest location or visit <strong>lifestance.com</strong> to find an available provider.</div>
+  <table class="offices">
+    <thead><tr><th>Address</th><th>Phone</th></tr></thead>
+    <tbody>
+      <tr><td>2135 Dana Ave, Suites 215 &amp; 220, Cincinnati, OH 45207</td><td>513-975-4674</td></tr>
+      <tr><td>8040 Hosbrook Rd, Suite 102, Cincinnati, OH 45236</td><td>513-975-4676</td></tr>
+      <tr><td>6770 Cincinnati Dayton Rd, Suite 208, Liberty Township, OH 45044</td><td>513-712-5146</td></tr>
+      <tr><td>1077 State Route 28, Suite 202, Milford, OH 45150</td><td>See lifestance.com</td></tr>
+      <tr><td>5386 Cox-Smith Rd, Suite A, Mason, OH 45040</td><td>See lifestance.com</td></tr>
+      <tr><td>10200 Alliance Rd, Suite 150, Blue Ash, OH 45242</td><td>513-891-0650</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">For internal use only — Hello Mental Health / Talbert House staff resource &nbsp;·&nbsp; Provider info subject to change &nbsp;·&nbsp; Always confirm insurance &amp; availability directly with each provider</div>
+
+<script>
+(function() {
+  var providers = [
+    { name:"Jason Wright", creds:"LPCC", org:"LifeStance Health",
+      specialties:["Anxiety","ADHD","Gender Identity","Grief","Trauma","Depression"],
+      ages:"18–65+", address:"10200 Alliance Rd, Suite 150, Blue Ash, OH 45242",
+      phone:"513-891-0650", session:"In-person & Telehealth", website:"lifestance.com" },
+    { name:"Paul Kovach", creds:"MA, LPCC-S, LICDC-S, LSW", org:"LifeStance Health",
+      specialties:["Anxiety","Depression","ADHD","Bipolar Disorder","PTSD","OCD","Substance Use","Grief","Autism Spectrum","LGBTQ+","Sleep Disorders"],
+      ages:"Adults", address:"2135 Dana Ave, Suites 215 & 220, Cincinnati, OH 45207",
+      phone:"513-975-4674", session:"In-person & Telehealth", website:"lifestance.com" },
+    { name:"Hayley Harris", creds:"LISW", org:"LifeStance Health",
+      specialties:["Anxiety","Depression","ADHD","PTSD","Individual Therapy","Family Therapy"],
+      ages:"Children, Adolescents, Teens, Young Adults", address:"Cincinnati Area — see LifeStance website",
+      phone:"See LifeStance website", session:"In-person & Telehealth", website:"lifestance.com" },
+    { name:"Benjamin List", creds:"PMHNP-BC", org:"LifeStance Health",
+      specialties:["Anxiety","Depression","ADHD","Bipolar Disorder","PTSD","Addiction/Substance Use","Schizophrenia","Medication Management"],
+      ages:"18–64", address:"Cincinnati Area — see LifeStance website",
+      phone:"See LifeStance website", session:"In-person & Telehealth", website:"lifestance.com" },
+    { name:"Waybridge Counseling", creds:"Group Practice (LPCCs, LISWs)", org:"Waybridge Counseling",
+      specialties:["Trauma/EMDR","Couples Therapy","Eating Disorders","LGBTQ+ Counseling","Trans Counseling","Anxiety","Depression","Grief","Self-harm"],
+      ages:"All ages", address:"8291 Beechmont Ave, Suite C, Cincinnati OH 45255 · Also: 10945 Reed Hartman Hwy, Suite 302, Blue Ash OH 45242",
+      phone:"513-488-7161", session:"In-person & Telehealth (7 days/week)", website:"waybridgecounseling.com" },
+    { name:"Inclusive Counseling", creds:"Group Practice (LISWs, LCSWs)", org:"Inclusive Counseling",
+      specialties:["Trauma Therapy","EMDR","DBT Skills","Anxiety","Depression","LGBTQ+ Affirming","BIPOC Affirming"],
+      ages:"All ages", address:"10999 Reed Hartman Hwy, Suite 207, Blue Ash, OH 45242 · Also: Anderson Township & Springdale",
+      phone:"513-916-2455", session:"In-person & Telehealth", website:"inclusivecounseling.net" },
+    { name:"Cincinnati Therapy Center", creds:"Group Practice (LPCs, LCSWs)", org:"Cincinnati Therapy Center",
+      specialties:["Play Therapy","CBT","ACT","ERP","Trauma","Anxiety","Depression","OCD","Grief","LGBTQ+ Affirming","Women's Issues"],
+      ages:"Ages 6+", address:"4000 Executive Park Dr, Suite 350, Sharonville, OH 45241",
+      phone:"513-400-4454", session:"In-person & Telehealth", website:"cincytherapycenter.net" },
+    { name:"GrowthINsight Counseling", creds:"MSW, LISW-S, LICDC", org:"GrowthINsight Counseling LLC",
+      specialties:["Tech Burnout","Gifted Adults & Youth","Anxiety","Depression","ADHD","Stress Management","Executive Functioning","Life Transitions","CBT"],
+      ages:"Adults & Youth", address:"8050 Beckett Center Dr, West Chester, OH 45069",
+      phone:"513-847-3891", session:"In-person & Telehealth", website:"growthinsightcounseling.com" },
+    { name:"Creekside Therapy Center", creds:"Group Practice (LPCs, LCSWs)", org:"Creekside Therapy Center, LLC",
+      specialties:["Eating Disorders","Trauma","Relationship Issues","Anxiety","Depression","Couples Therapy","Family Therapy","Medication Management"],
+      ages:"Children, Teens & Adults", address:"1080 Nimitzview Dr, Suite 200, Cincinnati, OH 45230",
+      phone:"513-202-6654", session:"In-person & Telehealth", website:"creeksidetherapycenter.com" },
+    { name:"Speak Life Counseling", creds:"LISW", org:"Speak Life Counseling & Life Coaching Services",
+      specialties:["Depression","Trauma/PTSD","Faith-Based Counseling","ADHD","Anger Management","Anxiety","Grief","Couples Counseling","Family Therapy","LGBTQ+ Affirming"],
+      ages:"Children, Adults & Families", address:"230 Northland Blvd, Suite 335, Cincinnati, OH 45246",
+      phone:"513-993-1199", session:"In-person & Telehealth", website:"speaklifecounseling.net" },
+    { name:"Heather Everett", creds:"LCSW", org:"Private Practice",
+      specialties:["Anxiety","OCD","Trauma/PTSD"],
+      ages:"Adults", address:"Cincinnati, OH 45243",
+      phone:"See Psychology Today profile", session:"In-person & Telehealth",
+      website:"psychologytoday.com/us/therapists/heather-everett-cincinnati-oh/382899" },
+    { name:"Joslyn Reedy-Kay", creds:"LCSW", org:"Reedy-Kay and Associates",
+      specialties:["EMDR","Trauma","Parenting","Infertility","Postpartum/Perinatal","Birth Trauma","Anxiety","Depression"],
+      ages:"Adults", address:"Cincinnati, OH 45220",
+      phone:"513-780-5651", session:"In-person & Telehealth",
+      website:"psychologytoday.com/us/therapists/joslyn-reedy-kay-cincinnati-oh/375146" },
+    { name:"Sarah Ann Lanman", creds:"EdD, LPCC-S, NCC", org:"Private Practice",
+      specialties:["Grief","Anxiety","Trauma/PTSD"],
+      ages:"Adults", address:"Cincinnati, OH 45220",
+      phone:"513-334-2026", session:"In-person (Telehealth for established clients)",
+      website:"drsarahannlanmancounseling.com" },
+    { name:"Casey Hill", creds:"LPCC-S, RYT", org:"Mind to Mind Therapy",
+      specialties:["Women's Issues","Anxiety","Internal Family Systems (IFS)","Mindfulness-Based Therapy"],
+      ages:"Adults", address:"9420 Towne Square Ave, Suite 17, Blue Ash, OH 45242",
+      phone:"513-201-5623", session:"In-person & Telehealth", website:"mindtomindtherapy.com" },
+    { name:"Allison Schultz", creds:"LISW", org:"Compassion Collaborative",
+      specialties:["Grief","Loss","Trauma","Anxiety","Trauma-Informed Care","ACT"],
+      ages:"Adults", address:"2010 Madison Rd, Suite 200, Cincinnati, OH 45208",
+      phone:"513-268-7248", session:"In-person & Telehealth", website:"compassioncollaborative.org" },
+    { name:"Beverley Dunn", creds:"LPC", org:"Moving Insights, LLC",
+      specialties:["Trauma/PTSD","Life Transitions"],
+      ages:"Adults", address:"Cincinnati, OH 45241",
+      phone:"513-407-4470", session:"In-person (OH) & Telehealth (OH & KY)",
+      website:"psychologytoday.com/us/therapists/moving-insights-llc-cincinnati-oh/402335" },
+    { name:"Emmalee Mackey", creds:"LCSW", org:"Private Practice",
+      specialties:["Depression","PTSD/Trauma","LGBTQ+ Affirming","EMDR"],
+      ages:"Adolescents (12+) & Adults", address:"Cincinnati, OH 45212",
+      phone:"513-902-1623", session:"In-person & Telehealth",
+      website:"psychologytoday.com/us/therapists/emmalee-mackey-cincinnati-oh/1121479" },
+    { name:"Blue Pine Psych Services", creds:"Group Practice", org:"Blue Pine Psych Services",
+      specialties:["Anxiety","Body Image Issues","Depression","Trauma","Women's Issues"],
+      ages:"Adults", address:"Cincinnati, OH",
+      phone:"See Zencare profile", session:"In-person & Telehealth",
+      website:"zencare.co/practice/blue-pine-psych-services" },
+    { name:"Miami Valley Therapy Services", creds:"Group Practice", org:"Miami Valley Therapy Services",
+      specialties:["Anxiety","Depression","Life Transitions","Personality Disorders","PTSD/Trauma"],
+      ages:"Adults", address:"Cincinnati, OH (Telehealth only)",
+      phone:"See Zencare profile", session:"Telehealth Only",
+      website:"zencare.co/practice/miami-valley-therapy-services" }
+  ];
+
+  function sessionBadge(s) {
+    var sl = s.toLowerCase();
+    var cls = (sl.indexOf('telehealth only') >= 0) ? 'badge-tele'
+            : (sl.indexOf('person') >= 0 && sl.indexOf('telehealth') >= 0) ? 'badge-both'
+            : (sl.indexOf('person') >= 0) ? 'badge-person' : 'badge-tele';
+    return '<span class="badge ' + cls + '">' + s + '</span>';
+  }
+
+  function buildCard(p) {
+    var tags = p.specialties.map(function(s){ return '<span class="tag">' + s + '</span>'; }).join('');
+    return '<div class="card">'
+      + '<div class="card-header"><div class="name">' + p.name + '</div>'
+      + '<div class="creds">' + p.creds + ' &nbsp;&middot;&nbsp; ' + p.org + '</div></div>'
+      + '<div class="card-body">'
+      + '<div class="detail-row"><span class="detail-label">Specialties</span><span class="detail-value">' + tags + '</span></div>'
+      + '<div class="detail-row"><span class="detail-label">Ages Served</span><span class="detail-value">' + p.ages + '</span></div>'
+      + '<div class="detail-row"><span class="detail-label">Address</span><span class="detail-value">' + p.address + '</span></div>'
+      + '<div class="detail-row"><span class="detail-label">Phone</span><span class="detail-value">' + p.phone + '</span></div>'
+      + '<div class="detail-row"><span class="detail-label">Sessions</span><span class="detail-value">' + sessionBadge(p.session) + '</span></div>'
+      + '<div class="detail-row"><span class="detail-label">Website</span><span class="detail-value">' + p.website + '</span></div>'
+      + '</div></div>';
+  }
+
+  function runFilter() {
+    var q  = (document.getElementById('searchInput').value  || '').toLowerCase().trim();
+    var sf = (document.getElementById('sessionSelect').value || '').toLowerCase();
+    var af = (document.getElementById('areaSelect').value   || '').toLowerCase();
+
+    var results = [];
+    for (var i = 0; i < providers.length; i++) {
+      var p = providers[i];
+      var hay = (p.name + ' ' + p.creds + ' ' + p.org + ' ' + p.address + ' ' + p.ages + ' ' + p.phone + ' ' + p.website + ' ' + p.specialties.join(' ')).toLowerCase();
+      if ((!q || hay.indexOf(q) >= 0) && (!sf || p.session.toLowerCase().indexOf(sf) >= 0) && (!af || p.address.toLowerCase().indexOf(af) >= 0)) {
+        results.push(p);
+      }
+    }
+
+    var grid  = document.getElementById('providerGrid');
+    var badge = document.getElementById('countBadge');
+    if (results.length === 0) {
+      grid.innerHTML = '<div class="no-results"><span class="icon">&#128269;</span>No providers match your search. Try different keywords or clear the filters.</div>';
+    } else {
+      var html = '';
+      for (var j = 0; j < results.length; j++) html += buildCard(results[j]);
+      grid.innerHTML = html;
+    }
+    badge.textContent = results.length + ' provider' + (results.length !== 1 ? 's' : '');
+  }
+
+  function clearFilters() {
+    document.getElementById('searchInput').value   = '';
+    document.getElementById('sessionSelect').value = '';
+    document.getElementById('areaSelect').value    = '';
+    runFilter();
+  }
+
+  function init() {
+    document.getElementById('searchInput').addEventListener('keyup',   runFilter);
+    document.getElementById('searchInput').addEventListener('input',   runFilter);
+    document.getElementById('sessionSelect').addEventListener('change', runFilter);
+    document.getElementById('areaSelect').addEventListener('change',    runFilter);
+    document.getElementById('searchBtn').addEventListener('click',      runFilter);
+    document.getElementById('clearBtn').addEventListener('click',       clearFilters);
+    runFilter();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
