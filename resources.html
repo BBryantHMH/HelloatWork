@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mental Health Resources &middot; Talbert House Staff Resource Library</title>
+<meta name="description" content="A curated library of mental health resources for Talbert House staff &mdash; crisis lines, therapy finders, apps, reading, and local Cincinnati support, vetted by Hello Mental Health." />
+<style>
+:root{--th-teal:#02777C;--th-teal-dark:#015B5F;--th-teal-light:#E6F2F2;--th-orange:#E8622C;--th-orange-soft:#FDEAE0;--hmh-forest:#2E5D4A;--hmh-cream:#FAF5EC;--hmh-coral:#E28F6E;--hmh-gold:#D9A441;--slate-900:#1F2937;--slate-700:#374151;--slate-500:#6B7280;--slate-300:#D1D5DB;--slate-100:#F3F4F6;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(2,119,124,.08),0 2px 4px rgba(0,0,0,.04);--font-display:Georgia,"Playfair Display","Iowan Old Style",Cambria,serif;--font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55}
+a{color:var(--th-teal);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,2.8rem)}h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:56px 0}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);margin-bottom:8px}
+.muted{color:var(--slate-500)}
+
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFC7B0}.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px;color:inherit}
+.brand-mark{width:42px;height:42px;background:var(--th-teal);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-family:var(--font-display);position:relative}
+.brand-mark::after{content:"";position:absolute;right:-4px;bottom:-4px;width:14px;height:14px;background:var(--th-orange);border-radius:50%;border:2px solid #fff}
+.brand-text{display:flex;flex-direction:column;line-height:1.1}
+.brand-text .top{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-500)}
+.brand-text .main{font-family:var(--font-display);font-weight:700;color:var(--slate-900);font-size:1.05rem}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem}
+.nav-links a:hover{background:var(--th-teal-light);color:var(--th-teal-dark);text-decoration:none}
+.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
+.nav-cta{background:var(--th-teal);color:#fff !important;padding:9px 16px !important;border-radius:999px !important}
+.nav-cta:hover{background:var(--th-teal-dark) !important;text-decoration:none !important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer}
+@media(max-width:860px){.nav-toggle{display:inline-block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+.nav-links.open{display:flex}.nav-links a{padding:12px}}
+
+/* Page head — bridges TH teal and HMH forest to signal "curated content" */
+.page-head{background:linear-gradient(135deg,var(--th-teal),var(--hmh-forest));color:#fff;padding:60px 0 48px;position:relative;overflow:hidden}
+.page-head::after{content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:var(--hmh-coral);opacity:.18;border-radius:50%;filter:blur(8px)}
+.page-head::before{content:"";position:absolute;bottom:-80px;left:-40px;width:200px;height:200px;background:var(--hmh-gold);opacity:.12;border-radius:50%;filter:blur(10px)}
+.page-head .container{position:relative;z-index:1}
+.page-head h1{color:#fff;max-width:22ch}
+.page-head .lead{color:rgba(255,255,255,.92);max-width:62ch}
+.page-head .eyebrow{color:#FFE1D1}
+
+/* Filter bar — same shape as providers' search-bar */
+.search-bar{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-bottom:14px;position:relative;z-index:2;margin-top:-34px}
+.search-bar label{display:block;font-size:.78rem;font-weight:700;color:var(--slate-700);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.search-bar input,.search-bar select{width:100%;padding:11px 14px;border:1px solid var(--slate-300);border-radius:var(--radius-sm);background:#fff;font-size:.98rem;font-family:inherit;color:var(--slate-900)}
+.search-bar input:focus,.search-bar select:focus{outline:2px solid var(--th-teal);outline-offset:1px;border-color:var(--th-teal)}
+@media(max-width:980px){.search-bar{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.search-bar{grid-template-columns:1fr;margin-top:-20px}}
+
+.search-meta{display:flex;justify-content:space-between;align-items:center;margin:18px 0 16px;font-size:.95rem;color:var(--slate-700);flex-wrap:wrap;gap:10px}
+.search-meta button{background:transparent;border:1px solid var(--slate-300);padding:7px 14px;border-radius:999px;font-size:.88rem;cursor:pointer;color:var(--slate-700)}
+.search-meta button:hover{border-color:var(--th-teal);color:var(--th-teal)}
+
+/* Category quick chips */
+.cat-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.cat-chip{background:#fff;border:1px solid var(--slate-300);color:var(--slate-700);padding:7px 14px;border-radius:999px;font-size:.86rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s ease}
+.cat-chip:hover{border-color:var(--th-teal);color:var(--th-teal-dark)}
+.cat-chip.active{background:var(--th-teal-dark);border-color:var(--th-teal-dark);color:#fff}
+
+/* Resource grid — 2 columns, like a richer card layout */
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+
+.resource-card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:64px 1fr;gap:16px;transition:box-shadow .15s ease,transform .15s ease;position:relative;overflow:hidden}
+.resource-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+
+/* Icon tile — color-coded by category */
+.resource-icon{width:64px;height:64px;border-radius:var(--radius-md);display:grid;place-items:center;font-size:1.7rem;flex-shrink:0}
+.resource-icon.cat-crisis{background:var(--th-orange-soft);color:#B44116}
+.resource-icon.cat-finder{background:var(--th-teal-light);color:var(--th-teal-dark)}
+.resource-icon.cat-app{background:#E8F1ED;color:var(--hmh-forest)}
+.resource-icon.cat-reading{background:var(--hmh-cream);color:var(--hmh-coral)}
+.resource-icon.cat-local{background:#FBF1DC;color:#8E6A1A}
+.resource-icon.cat-workbook{background:var(--slate-100);color:var(--slate-700)}
+
+.resource-body{min-width:0}
+.resource-body .cat-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-500);margin:0 0 6px}
+.resource-body .cat-line .dot{width:4px;height:4px;border-radius:50%;background:var(--slate-300);display:inline-block}
+.resource-body h3{margin:0 0 6px;font-size:1.18rem}
+.resource-body p.desc{margin:0 0 12px;color:var(--slate-700);font-size:.95rem;line-height:1.5}
+
+.resource-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.tag{display:inline-block;background:var(--th-teal-light);color:var(--th-teal-dark);padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:600}
+.tag.format{background:var(--hmh-cream);color:var(--hmh-forest)}
+.tag.format-crisis{background:var(--th-orange-soft);color:#B44116}
+
+.resource-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.92rem;font-weight:600;margin-top:auto}
+.btn-link{color:var(--th-teal-dark);font-weight:600}
+.btn-link::after{content:" \2192";font-weight:400}
+.btn-link.crisis-link{color:#B44116}
+.btn-link.crisis-link::before{content:"\260E  ";font-weight:400}
+.btn-link.crisis-link::after{content:""}
+
+.no-results{background:var(--th-teal-light);color:var(--th-teal-dark);padding:28px;border-radius:var(--radius-md);text-align:center}
+
+.callout{background:var(--hmh-cream);border-left:5px solid var(--hmh-forest);border-radius:var(--radius-md);padding:18px 22px;color:var(--slate-900);font-size:.98rem;margin:20px 0}
+.callout strong{color:var(--hmh-forest)}
+.callout-th{background:var(--th-teal-light);border-left-color:var(--th-teal)}
+.callout-th strong{color:var(--th-teal-dark)}
+
+@media(max-width:520px){.resource-card{grid-template-columns:1fr}.resource-icon{width:52px;height:52px;font-size:1.4rem}}
+
+/* --- To add a resource, edit the RESOURCES data in the <script> tag below. --- */
+
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
+.site-footer a{color:var(--th-teal-light)}
+.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--hmh-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--hmh-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="crisis-banner">
+  <strong>IN A CRISIS?</strong>
+  Call or text <a href="tel:988">988</a> &middot;
+  Talbert House 24/7 <a href="tel:5132812273">(513) 281-CARE</a> &middot;
+  Text "Talbert" to <a>839863</a>
+</div>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" class="brand-lockup">
+      <span class="brand-mark" aria-hidden="true">T</span>
+      <span class="brand-text"><span class="top">Talbert House</span><span class="main">Staff Resource Library</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="providers.html" data-page="providers.html">Providers</a>
+      <a href="workplace-wellness.html" data-page="workplace-wellness.html">Workplace wellness</a>
+      <a href="resources.html" data-page="resources.html">Mental health resources</a>
+      <a href="blog.html" data-page="blog.html">Blog</a>
+      <a href="videos.html" data-page="videos.html">Videos</a>
+      <a href="podcast.html" data-page="podcast.html">Podcast</a>
+      <a href="providers.html" class="nav-cta">Find a provider</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">Curated mental health resources</span>
+    <h1>Resources we trust.</h1>
+    <p class="lead">Crisis lines, therapy finders, apps, reading, and local Cincinnati support &mdash; vetted by the Hello Mental Health team and organized so you can find what you need fast, whether it&rsquo;s for a client, a colleague, or yourself.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+
+    <div class="search-bar" role="search">
+      <div>
+        <label for="resource-search">Search by name or keyword</label>
+        <input id="resource-search" type="search" placeholder="e.g. burnout, postpartum, sliding scale" autocomplete="off" />
+      </div>
+      <div>
+        <label for="resource-category">Category</label>
+        <select id="resource-category"></select>
+      </div>
+      <div>
+        <label for="resource-topic">Topic</label>
+        <select id="resource-topic"></select>
+      </div>
+      <div>
+        <label for="resource-format">Format</label>
+        <select id="resource-format"></select>
+      </div>
+    </div>
+
+    <div class="callout callout-th" style="margin-bottom:14px">
+      <strong>How we curate.</strong> Every item below has been reviewed by the Hello Mental Health team for clinical soundness, accessibility, and fit for the kinds of moments Talbert House staff actually face. Crisis lines are listed first, no matter the filter.
+    </div>
+
+    <div class="cat-chips" id="cat-chips" aria-label="Quick category filters"></div>
+
+    <div class="search-meta">
+      <span id="resource-count">Loading resources&hellip;</span>
+      <button id="clear-filters" type="button">Clear filters</button>
+    </div>
+
+    <div id="resource-list" class="resource-grid"></div>
+
+    <div class="callout" style="margin-top:30px">
+      <strong>Used something that helped? Tell us.</strong>
+      <p style="margin:6px 0 0">This list is meant to grow with the team. If you&rsquo;ve found a book, app, hotline, or local org we should add &mdash; or noticed a link that&rsquo;s gone stale &mdash; email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a>. We review every suggestion.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About this library</h4>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div>
+        <h4>Library</h4>
+        <ul>
+          <li><a href="providers.html">Providers</a></li>
+          <li><a href="workplace-wellness.html">Workplace wellness</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Crisis lines</h4>
+        <ul>
+          <li><a href="tel:988">988 Lifeline</a></li>
+          <li><a href="tel:5132812273">(513) 281-CARE</a></li>
+          <li>Text "Talbert" to 839863</li>
+          <li><a href="tel:5132818387">(513) 281-VETS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Talbert House</h4>
+        <ul>
+          <li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li>
+          <li><a href="tel:5132214357">(513) 221-HELP</a></li>
+          <li>2600 Victory Pkwy, Cincinnati OH</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use</div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   MENTAL HEALTH RESOURCE LIBRARY
+   ---------------------------------------------------------
+   TO ADD A RESOURCE: copy one of the objects in the
+   RESOURCES array below and fill it in. Keep commas between
+   items.
+
+   Field guide:
+     - id         : unique short slug
+     - title      : display name
+     - category   : one of CATEGORY_OPTIONS (drives icon color & filter)
+     - format     : one of FORMAT_OPTIONS  (Hotline, Website, App, Book, Workbook, Article, Video, Podcast)
+     - icon       : single emoji used as visual mark
+     - topics     : array of TOPIC_OPTIONS strings (drives topic filter & tag chips)
+     - blurb      : 1-2 sentence description
+     - cost       : "Free", "Paid", "Sliding scale", "Mixed", etc.
+     - phone      : phone number for hotline-style resources (optional)
+     - url        : external link (optional)
+     - cta        : button text (defaults to "Visit" / "Call")
+     - is_crisis  : true to pin to top regardless of filters
+   ========================================================= */
+
+const CATEGORY_OPTIONS = [
+  "Crisis & Hotlines",
+  "Therapy Finders",
+  "Self-Help Apps",
+  "Books & Reading",
+  "Workbooks & Tools",
+  "Local Cincinnati"
+];
+
+const TOPIC_OPTIONS = [
+  "Anxiety",
+  "Boundaries & Self-Care",
+  "Burnout & Compassion Fatigue",
+  "Depression",
+  "Family & Caregiver Support",
+  "Grief & Loss",
+  "LGBTQ+ Affirming",
+  "Mindfulness",
+  "Parenting & Perinatal",
+  "Recovery / Substance Use",
+  "Sleep",
+  "Suicide Prevention",
+  "Trauma / PTSD",
+  "Veterans & First Responders"
+];
+
+const FORMAT_OPTIONS = [
+  "Hotline",
+  "Website",
+  "App",
+  "Book",
+  "Workbook",
+  "Article",
+  "Video",
+  "Podcast"
+];
+
+/* category -> CSS class on .resource-icon */
+const CAT_CLASS = {
+  "Crisis & Hotlines": "cat-crisis",
+  "Therapy Finders": "cat-finder",
+  "Self-Help Apps": "cat-app",
+  "Books & Reading": "cat-reading",
+  "Workbooks & Tools": "cat-workbook",
+  "Local Cincinnati": "cat-local"
+};
+
+const RESOURCES = [
+  /* ---------- CRISIS & HOTLINES (pinned first) ---------- */
+  {
+    id: "988-lifeline",
+    title: "988 Suicide & Crisis Lifeline",
+    category: "Crisis & Hotlines",
+    format: "Hotline",
+    icon: "☎",
+    topics: ["Suicide Prevention"],
+    blurb: "Free, confidential 24/7 support for anyone in suicidal crisis or emotional distress — by call, text, or chat. Routes to local Lifeline networks.",
+    cost: "Free",
+    phone: "988",
+    url: "https://988lifeline.org",
+    is_crisis: true
+  },
+  {
+    id: "crisis-text-line",
+    title: "Crisis Text Line",
+    category: "Crisis & Hotlines",
+    format: "Hotline",
+    icon: "💬",
+    topics: ["Suicide Prevention"],
+    blurb: "Text-based crisis support, 24/7. Useful when a phone call isn’t safe or accessible. Trained crisis counselors respond.",
+    cost: "Free",
+    phone: "Text HOME to 741741",
+    url: "https://www.crisistextline.org",
+    is_crisis: true
+  },
+  {
+    id: "trevor-project",
+    title: "The Trevor Project",
+    category: "Crisis & Hotlines",
+    format: "Hotline",
+    icon: "🌈",
+    topics: ["LGBTQ+ Affirming","Suicide Prevention"],
+    blurb: "24/7 crisis and suicide prevention support for LGBTQ+ young people. Phone, text, and chat available, plus an affirming community space.",
+    cost: "Free",
+    phone: "1-866-488-7386",
+    url: "https://www.thetrevorproject.org",
+    is_crisis: true
+  },
+  {
+    id: "veterans-crisis-line",
+    title: "Veterans Crisis Line",
+    category: "Crisis & Hotlines",
+    format: "Hotline",
+    icon: "🎖",
+    topics: ["Veterans & First Responders","Suicide Prevention","Trauma / PTSD"],
+    blurb: "Confidential 24/7 support for veterans, service members, and their families. Dial 988 then press 1, or text 838255.",
+    cost: "Free",
+    phone: "988 then 1",
+    url: "https://www.veteranscrisisline.net",
+    is_crisis: true
+  },
+  {
+    id: "samhsa-helpline",
+    title: "SAMHSA National Helpline",
+    category: "Crisis & Hotlines",
+    format: "Hotline",
+    icon: "🧭",
+    topics: ["Recovery / Substance Use"],
+    blurb: "Free, confidential 24/7 referral and information service for individuals and families facing mental health or substance use disorders.",
+    cost: "Free",
+    phone: "1-800-662-4357",
+    url: "https://www.samhsa.gov/find-help/national-helpline",
+    is_crisis: true
+  },
+  {
+    id: "postpartum-support-international",
+    title: "Postpartum Support International Helpline",
+    category: "Crisis & Hotlines",
+    format: "Hotline",
+    icon: "🌱",
+    topics: ["Parenting & Perinatal","Depression","Anxiety"],
+    blurb: "Support, encouragement, and referrals for parents experiencing perinatal mood and anxiety disorders. Call or text.",
+    cost: "Free",
+    phone: "1-800-944-4773",
+    url: "https://www.postpartum.net",
+    is_crisis: true
+  },
+
+  /* ---------- THERAPY FINDERS ---------- */
+  {
+    id: "psychology-today",
+    title: "Psychology Today Therapist Finder",
+    category: "Therapy Finders",
+    format: "Website",
+    icon: "🔍",
+    topics: ["Anxiety","Depression","Trauma / PTSD","Family & Caregiver Support"],
+    blurb: "The most comprehensive therapist directory in the US. Search by location, insurance, specialty, and approach. Listings include profiles and direct contact info.",
+    cost: "Free to search",
+    url: "https://www.psychologytoday.com/us/therapists"
+  },
+  {
+    id: "open-path-collective",
+    title: "Open Path Collective",
+    category: "Therapy Finders",
+    format: "Website",
+    icon: "💚",
+    topics: ["Anxiety","Depression","Boundaries & Self-Care"],
+    blurb: "Directory of therapists offering reduced-fee sessions ($40–$80) for clients without adequate insurance. One-time $65 lifetime membership.",
+    cost: "Sliding scale",
+    url: "https://openpathcollective.org"
+  },
+  {
+    id: "inclusive-therapists",
+    title: "Inclusive Therapists",
+    category: "Therapy Finders",
+    format: "Website",
+    icon: "🌿",
+    topics: ["LGBTQ+ Affirming","Trauma / PTSD","Anxiety"],
+    blurb: "Therapist directory centering BIPOC, LGBTQIA2S+, neurodivergent, and disabled communities. Filters for cultural competence and identity-affirming care.",
+    cost: "Free to search",
+    url: "https://www.inclusivetherapists.com"
+  },
+  {
+    id: "therapy-for-black-girls",
+    title: "Therapy for Black Girls",
+    category: "Therapy Finders",
+    format: "Website",
+    icon: "💜",
+    topics: ["Anxiety","Depression","Trauma / PTSD"],
+    blurb: "Directory of licensed mental health providers who provide culturally competent, high-quality services to Black women and girls.",
+    cost: "Free to search",
+    url: "https://therapyforblackgirls.com"
+  },
+
+  /* ---------- SELF-HELP APPS ---------- */
+  {
+    id: "calm-app",
+    title: "Calm",
+    category: "Self-Help Apps",
+    format: "App",
+    icon: "🌙",
+    topics: ["Anxiety","Sleep","Mindfulness"],
+    blurb: "Guided meditations, sleep stories, breathing exercises, and gentle music. Strong on sleep and quick stress resets between sessions.",
+    cost: "Paid (free trial)",
+    url: "https://www.calm.com"
+  },
+  {
+    id: "insight-timer",
+    title: "Insight Timer",
+    category: "Self-Help Apps",
+    format: "App",
+    icon: "🔔",
+    topics: ["Mindfulness","Anxiety","Sleep"],
+    blurb: "The largest free meditation library in the world. Filter by length, teacher, or theme. Generous free tier; paid courses optional.",
+    cost: "Free (paid tier optional)",
+    url: "https://insighttimer.com"
+  },
+  {
+    id: "woebot-app",
+    title: "Woebot",
+    category: "Self-Help Apps",
+    format: "App",
+    icon: "🤖",
+    topics: ["Depression","Anxiety"],
+    blurb: "An automated CBT-based chatbot for daily mood tracking and brief skill-building check-ins. Useful for clients between sessions or for staff micro-doses of self-reflection.",
+    cost: "Free",
+    url: "https://woebothealth.com"
+  },
+  {
+    id: "sanvello-app",
+    title: "Sanvello",
+    category: "Self-Help Apps",
+    format: "App",
+    icon: "🌟",
+    topics: ["Anxiety","Depression","Mindfulness"],
+    blurb: "CBT-based mood tracking, guided journeys, and peer community. Free tier covers most self-help features; many insurance plans cover premium.",
+    cost: "Mixed (insurance often covers)",
+    url: "https://www.sanvello.com"
+  },
+
+  /* ---------- BOOKS & READING ---------- */
+  {
+    id: "burnout-nagoski",
+    title: "Burnout: The Secret to Unlocking the Stress Cycle",
+    category: "Books & Reading",
+    format: "Book",
+    icon: "📘",
+    topics: ["Burnout & Compassion Fatigue","Boundaries & Self-Care"],
+    blurb: "Emily and Amelia Nagoski on why “self-care” advice often misses the mark, and what actually completes the body’s stress response. Recommended for anyone in caregiving roles.",
+    cost: "Paid (~$18)",
+    url: "https://www.burnoutbook.net"
+  },
+  {
+    id: "trauma-stewardship",
+    title: "Trauma Stewardship",
+    category: "Books & Reading",
+    format: "Book",
+    icon: "📗",
+    topics: ["Burnout & Compassion Fatigue","Trauma / PTSD"],
+    blurb: "Laura van Dernoot Lipsky’s field guide for people who help others through hard things. Reflective exercises throughout; useful as a year-long supervision companion.",
+    cost: "Paid (~$20)",
+    url: "https://traumastewardship.com"
+  },
+  {
+    id: "body-keeps-score",
+    title: "The Body Keeps the Score",
+    category: "Books & Reading",
+    format: "Book",
+    icon: "📕",
+    topics: ["Trauma / PTSD"],
+    blurb: "Bessel van der Kolk’s widely-cited synthesis of trauma neuroscience and body-based interventions. Long but readable; foundational for trauma-informed practice.",
+    cost: "Paid (~$15)",
+    url: "https://www.besselvanderkolk.com/resources/the-body-keeps-the-score"
+  },
+  {
+    id: "maybe-you-should-talk",
+    title: "Maybe You Should Talk to Someone",
+    category: "Books & Reading",
+    format: "Book",
+    icon: "📙",
+    topics: ["Boundaries & Self-Care","Grief & Loss"],
+    blurb: "Lori Gottlieb’s memoir of being a therapist who also goes to therapy. A warm, honest read for anyone wondering whether their own work has affected them more than they’ve admitted.",
+    cost: "Paid (~$16)",
+    url: "https://lorigottlieb.com/books/maybe-you-should-talk-to-someone"
+  },
+
+  /* ---------- WORKBOOKS & TOOLS ---------- */
+  {
+    id: "self-compassion-exercises",
+    title: "Self-Compassion Practice Library",
+    category: "Workbooks & Tools",
+    format: "Workbook",
+    icon: "🧡",
+    topics: ["Boundaries & Self-Care","Burnout & Compassion Fatigue"],
+    blurb: "Free guided meditations, exercises, and worksheets from Dr. Kristin Neff’s research lab. Self-compassion break, soothing touch, and writing prompts.",
+    cost: "Free",
+    url: "https://self-compassion.org/self-compassion-practices"
+  },
+  {
+    id: "therapist-aid-worksheets",
+    title: "Therapist Aid Worksheets",
+    category: "Workbooks & Tools",
+    format: "Workbook",
+    icon: "📄",
+    topics: ["Anxiety","Depression","Trauma / PTSD","Family & Caregiver Support"],
+    blurb: "A massive free library of clinician-vetted worksheets, handouts, and interactive tools. CBT, DBT, motivational interviewing, and beyond. Useful for client take-homes and your own practice.",
+    cost: "Free (paid tier optional)",
+    url: "https://www.therapistaid.com"
+  },
+  {
+    id: "centerstone-grounding",
+    title: "Five Senses Grounding Exercise (Article)",
+    category: "Workbooks & Tools",
+    format: "Article",
+    icon: "✋",
+    topics: ["Anxiety","Trauma / PTSD","Mindfulness"],
+    blurb: "Quick walkthrough of the 5-4-3-2-1 grounding technique — useful for clients in dissociation or panic, and for your own resets between sessions. Print-friendly.",
+    cost: "Free",
+    url: "https://centerstone.org/our-resources/health-wellness/the-grounding-technique"
+  },
+
+  /* ---------- LOCAL CINCINNATI ---------- */
+  {
+    id: "nami-cincinnati",
+    title: "NAMI Cincinnati / Hamilton County",
+    category: "Local Cincinnati",
+    format: "Website",
+    icon: "🏙",
+    topics: ["Family & Caregiver Support","Recovery / Substance Use"],
+    blurb: "Local affiliate of the National Alliance on Mental Illness. Free family-to-family classes, peer support groups, and a warmline staffed by trained volunteers.",
+    cost: "Free",
+    phone: "513-351-3500",
+    url: "https://www.namisouthwestohio.org"
+  },
+  {
+    id: "1n5-cincinnati",
+    title: "1N5",
+    category: "Local Cincinnati",
+    format: "Website",
+    icon: "💛",
+    topics: ["Anxiety","Depression","Suicide Prevention"],
+    blurb: "Cincinnati-based nonprofit working to eliminate the stigma of mental illness and prevent suicide through education and free programs in schools and workplaces.",
+    cost: "Free",
+    url: "https://www.1n5.org"
+  },
+  {
+    id: "lindner-center-hope",
+    title: "Lindner Center of HOPE",
+    category: "Local Cincinnati",
+    format: "Website",
+    icon: "🏥",
+    topics: ["Depression","Anxiety","Trauma / PTSD","Recovery / Substance Use"],
+    blurb: "Comprehensive mental health center in Mason, OH offering inpatient, residential, and outpatient care. Specialty programs for OCD, eating disorders, and dual diagnosis.",
+    cost: "Insurance-based",
+    phone: "513-536-4673",
+    url: "https://lindnercenterofhope.org"
+  },
+  {
+    id: "best-point-cincinnati",
+    title: "Best Point Behavioral Health",
+    category: "Local Cincinnati",
+    format: "Website",
+    icon: "🎓",
+    topics: ["Family & Caregiver Support","Parenting & Perinatal"],
+    blurb: "Cincinnati-based provider focused on children, teens, and families. Outpatient therapy, school-based services, autism support, and parent coaching.",
+    cost: "Insurance-based",
+    phone: "513-272-2800",
+    url: "https://www.bestpoint.org"
+  },
+  {
+    id: "mha-greater-cincinnati",
+    title: "Mental Health America of Greater Cincinnati",
+    category: "Local Cincinnati",
+    format: "Website",
+    icon: "🤝",
+    topics: ["Family & Caregiver Support","Recovery / Substance Use","Veterans & First Responders"],
+    blurb: "Local advocacy and education affiliate. Mental health screenings, peer support, veteran support programs, and community education events.",
+    cost: "Free",
+    phone: "513-721-2910",
+    url: "https://www.mhagc.org"
+  }
+];
+
+/* -------- Search logic -------- */
+(function(){
+  const listEl=document.getElementById('resource-list');
+  const countEl=document.getElementById('resource-count');
+  const searchEl=document.getElementById('resource-search');
+  const catEl=document.getElementById('resource-category');
+  const topicEl=document.getElementById('resource-topic');
+  const formatEl=document.getElementById('resource-format');
+  const clearBtn=document.getElementById('clear-filters');
+  const chipsEl=document.getElementById('cat-chips');
+
+  function fillSelect(el, opts, placeholder){
+    const frag=document.createDocumentFragment();
+    const first=document.createElement('option');
+    first.value=''; first.textContent=placeholder;
+    frag.appendChild(first);
+    opts.forEach(o=>{const e=document.createElement('option');e.value=o;e.textContent=o;frag.appendChild(e);});
+    el.appendChild(frag);
+  }
+  fillSelect(catEl, CATEGORY_OPTIONS, 'All categories');
+  fillSelect(topicEl, TOPIC_OPTIONS, 'Any topic');
+  fillSelect(formatEl, FORMAT_OPTIONS, 'Any format');
+
+  /* Build category quick chips: All + each category */
+  function buildChips(){
+    const all=document.createElement('button');
+    all.type='button';all.className='cat-chip active';all.dataset.cat='';all.textContent='All';
+    chipsEl.appendChild(all);
+    CATEGORY_OPTIONS.forEach(c=>{
+      const b=document.createElement('button');
+      b.type='button';b.className='cat-chip';b.dataset.cat=c;b.textContent=c;
+      chipsEl.appendChild(b);
+    });
+    chipsEl.addEventListener('click',function(e){
+      const t=e.target.closest('.cat-chip');if(!t) return;
+      catEl.value=t.dataset.cat;
+      [...chipsEl.querySelectorAll('.cat-chip')].forEach(x=>x.classList.toggle('active', x===t));
+      render();
+    });
+  }
+  buildChips();
+
+  function syncChipsFromSelect(){
+    const v=catEl.value;
+    [...chipsEl.querySelectorAll('.cat-chip')].forEach(x=>x.classList.toggle('active', x.dataset.cat===v));
+  }
+
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+
+  function card(r){
+    const iconClass=CAT_CLASS[r.category]||'cat-finder';
+    const topics=(r.topics||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+    const fmtClass=r.is_crisis?'tag format format-crisis':'tag format';
+    const formatTag=r.format?`<span class="${fmtClass}">${esc(r.format)}</span>`:'';
+    const costTag=r.cost?`<span class="tag">${esc(r.cost)}</span>`:'';
+
+    /* Action(s) */
+    const actions=[];
+    if(r.phone){
+      const cleaned=r.phone.replace(/[^0-9]/g,'');
+      const isText=/text/i.test(r.phone);
+      const href=isText?'sms:741741':('tel:'+cleaned);
+      actions.push(`<a class="btn-link crisis-link" href="${href}">${esc(r.phone)}</a>`);
+    }
+    if(r.url){
+      const label=r.cta||(r.is_crisis?'Visit site':'Visit');
+      actions.push(`<a class="btn-link" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(label)}</a>`);
+    }
+
+    return `
+      <article class="resource-card" data-id="${esc(r.id)}">
+        <div class="resource-icon ${iconClass}" aria-hidden="true">${r.icon||'✨'}</div>
+        <div class="resource-body">
+          <div class="cat-line"><span>${esc(r.category)}</span><span class="dot"></span><span>${esc(r.format||'')}</span></div>
+          <h3>${esc(r.title)}</h3>
+          <p class="desc">${esc(r.blurb||'')}</p>
+          <div class="resource-tags">${formatTag}${costTag}${topics}</div>
+          <div class="resource-actions">${actions.join('')}</div>
+        </div>
+      </article>`;
+  }
+
+  function match(r,term,cat,topic,fmt){
+    if(term){
+      const hay=[r.title,r.blurb,r.category,r.format,(r.topics||[]).join(' ')].join(' ').toLowerCase();
+      if(!hay.includes(term.toLowerCase())) return false;
+    }
+    if(cat && r.category!==cat) return false;
+    if(topic && !(r.topics||[]).includes(topic)) return false;
+    if(fmt && r.format!==fmt) return false;
+    return true;
+  }
+
+  function render(){
+    syncChipsFromSelect();
+    const term=searchEl.value.trim();
+    const cat=catEl.value;
+    const topic=topicEl.value;
+    const fmt=formatEl.value;
+    /* Pin crisis items first */
+    const filtered=RESOURCES.filter(r=>match(r,term,cat,topic,fmt));
+    const crisisFirst=filtered.slice().sort((a,b)=>(b.is_crisis?1:0)-(a.is_crisis?1:0));
+    if(crisisFirst.length===0){
+      listEl.innerHTML=`<div class="no-results" style="grid-column:1/-1"><strong>No resources match these filters.</strong><br>Try clearing a filter, or email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> to suggest one we should add.</div>`;
+    } else {
+      listEl.innerHTML=crisisFirst.map(card).join('');
+    }
+    countEl.textContent=crisisFirst.length+' resource'+(crisisFirst.length===1?'':'s')+' shown';
+  }
+
+  searchEl.addEventListener('input',render);
+  catEl.addEventListener('change',render);
+  topicEl.addEventListener('change',render);
+  formatEl.addEventListener('change',render);
+  clearBtn.addEventListener('click',function(){
+    searchEl.value='';catEl.value='';topicEl.value='';formatEl.value='';
+    render();
+  });
+  render();
+})();
+
+/* Shared nav behavior */
+(function(){
+  var t=document.querySelector('.nav-toggle'),l=document.querySelector('.nav-links');
+  if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open');});}
+  var p=(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){if(a.dataset.page===p)a.classList.add('active');});
+})();
+</script>
+</body>
+</html>
