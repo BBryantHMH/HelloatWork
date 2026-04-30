@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Workplace Wellness &middot; Talbert House Staff Resource Library</title>
+<meta name="description" content="The Talbert House workplace wellness program &mdash; confidential support, reflective supervision, workshops, and a library of practical tools for the people who show up for other people." />
+<style>
+:root{--th-teal:#02777C;--th-teal-dark:#015B5F;--th-teal-light:#E6F2F2;--th-orange:#E8622C;--th-orange-soft:#FDEAE0;--hmh-forest:#2E5D4A;--hmh-cream:#FAF5EC;--hmh-coral:#E28F6E;--hmh-gold:#D9A441;--slate-900:#1F2937;--slate-700:#374151;--slate-500:#6B7280;--slate-300:#D1D5DB;--slate-100:#F3F4F6;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(2,119,124,.08),0 2px 4px rgba(0,0,0,.04);--font-display:Georgia,"Playfair Display","Iowan Old Style",Cambria,serif;--font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55}
+a{color:var(--th-teal);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,2.8rem)}h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:56px 0}
+.section.tight{padding:40px 0 8px}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);margin-bottom:8px}
+.muted{color:var(--slate-500)}
+
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFC7B0}.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px;color:inherit}
+.brand-mark{width:42px;height:42px;background:var(--th-teal);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-family:var(--font-display);position:relative}
+.brand-mark::after{content:"";position:absolute;right:-4px;bottom:-4px;width:14px;height:14px;background:var(--th-orange);border-radius:50%;border:2px solid #fff}
+.brand-text{display:flex;flex-direction:column;line-height:1.1}
+.brand-text .top{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-500)}
+.brand-text .main{font-family:var(--font-display);font-weight:700;color:var(--slate-900);font-size:1.05rem}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem}
+.nav-links a:hover{background:var(--th-teal-light);color:var(--th-teal-dark);text-decoration:none}
+.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
+.nav-cta{background:var(--th-teal);color:#fff !important;padding:9px 16px !important;border-radius:999px !important}
+.nav-cta:hover{background:var(--th-teal-dark) !important;text-decoration:none !important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer}
+@media(max-width:860px){.nav-toggle{display:inline-block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+.nav-links.open{display:flex}.nav-links a{padding:12px}}
+
+/* Page head — HMH cream voice (matches blog) */
+.page-head{background:var(--hmh-cream);color:var(--slate-900);padding:64px 0 56px;position:relative;overflow:hidden}
+.page-head::before{content:"";position:absolute;top:-60px;left:-80px;width:260px;height:260px;background:var(--hmh-coral);opacity:.28;border-radius:50%;filter:blur(6px)}
+.page-head::after{content:"";position:absolute;bottom:-50px;right:-60px;width:220px;height:220px;background:var(--hmh-gold);opacity:.32;border-radius:50%;filter:blur(6px)}
+.page-head .container{position:relative;z-index:1}
+.page-head h1{max-width:22ch;color:var(--hmh-forest)}
+.page-head .eyebrow{color:var(--hmh-forest)}
+.page-head .lead{color:var(--slate-700);max-width:60ch}
+.page-head .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:600;font-size:.96rem;border:1px solid transparent;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
+.btn-primary{background:var(--hmh-forest);color:#fff}
+.btn-primary:hover{background:#214635;color:#fff;text-decoration:none}
+.btn-outline{background:transparent;border-color:var(--hmh-forest);color:var(--hmh-forest)}
+.btn-outline:hover{background:var(--hmh-forest);color:#fff;text-decoration:none}
+
+/* Program pillars */
+.pillar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.pillar{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:26px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:56px 1fr;gap:18px;border-top:4px solid var(--hmh-forest);transition:box-shadow .15s ease,transform .15s ease}
+.pillar:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.pillar.alt{border-top-color:var(--th-teal)}
+.pillar.alt2{border-top-color:var(--hmh-coral)}
+.pillar.alt3{border-top-color:var(--hmh-gold)}
+.pillar-icon{width:56px;height:56px;border-radius:var(--radius-md);background:var(--hmh-cream);color:var(--hmh-forest);display:grid;place-items:center;font-size:1.6rem}
+.pillar.alt .pillar-icon{background:var(--th-teal-light);color:var(--th-teal-dark)}
+.pillar.alt2 .pillar-icon{background:#FDEAE0;color:#B44116}
+.pillar.alt3 .pillar-icon{background:#FBF1DC;color:#8E6A1A}
+.pillar h3{margin:0 0 6px;font-size:1.18rem}
+.pillar p{margin:0 0 8px;color:var(--slate-700);font-size:.96rem;line-height:1.55}
+.pillar .pillar-meta{font-size:.82rem;color:var(--slate-500);font-style:italic}
+@media(max-width:760px){.pillar-grid{grid-template-columns:1fr}}
+
+/* How-to-engage panel */
+.engage{background:var(--th-teal-light);border-radius:var(--radius-md);padding:28px 32px;margin-top:28px;display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:center}
+.engage h3{color:var(--th-teal-dark);margin:0 0 8px}
+.engage p{margin:0 0 8px;color:var(--slate-700);font-size:.97rem}
+.engage ol{margin:0;padding-left:20px;color:var(--slate-700);font-size:.97rem}
+.engage ol li{margin:6px 0}
+@media(max-width:760px){.engage{grid-template-columns:1fr;padding:24px}}
+
+/* Tools library section — soft cream bg to differentiate from program section */
+.tools-section{background:#FBFAF6;border-top:1px solid var(--slate-100)}
+.tools-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:22px}
+.tools-head h2{margin:0}
+.tools-head .lead{margin:6px 0 0;max-width:55ch}
+
+.search-bar{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+.search-bar label{display:block;font-size:.78rem;font-weight:700;color:var(--slate-700);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.search-bar input,.search-bar select{width:100%;padding:11px 14px;border:1px solid var(--slate-300);border-radius:var(--radius-sm);background:#fff;font-size:.98rem;font-family:inherit;color:var(--slate-900)}
+.search-bar input:focus,.search-bar select:focus{outline:2px solid var(--th-teal);outline-offset:1px;border-color:var(--th-teal)}
+@media(max-width:980px){.search-bar{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.search-bar{grid-template-columns:1fr}}
+
+.search-meta{display:flex;justify-content:space-between;align-items:center;margin:18px 0 16px;font-size:.95rem;color:var(--slate-700);flex-wrap:wrap;gap:10px}
+.search-meta button{background:transparent;border:1px solid var(--slate-300);padding:7px 14px;border-radius:999px;font-size:.88rem;cursor:pointer;color:var(--slate-700)}
+.search-meta button:hover{border-color:var(--th-teal);color:var(--th-teal)}
+
+.cat-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.cat-chip{background:#fff;border:1px solid var(--slate-300);color:var(--slate-700);padding:7px 14px;border-radius:999px;font-size:.86rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s ease}
+.cat-chip:hover{border-color:var(--th-teal);color:var(--th-teal-dark)}
+.cat-chip.active{background:var(--hmh-forest);border-color:var(--hmh-forest);color:#fff}
+
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.tool-card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:60px 1fr;gap:16px;transition:box-shadow .15s ease,transform .15s ease;position:relative;overflow:hidden}
+.tool-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+
+/* Color-coded icon tiles by category */
+.tool-icon{width:60px;height:60px;border-radius:var(--radius-md);display:grid;place-items:center;font-size:1.55rem;flex-shrink:0}
+.tool-icon.cat-insession{background:var(--th-orange-soft);color:#B44116}
+.tool-icon.cat-between{background:var(--th-teal-light);color:var(--th-teal-dark)}
+.tool-icon.cat-endshift{background:#E8F1ED;color:var(--hmh-forest)}
+.tool-icon.cat-supervision{background:#FBF1DC;color:#8E6A1A}
+.tool-icon.cat-team{background:var(--hmh-cream);color:var(--hmh-coral)}
+.tool-icon.cat-hardday{background:var(--slate-100);color:var(--slate-700)}
+
+.tool-body{min-width:0;display:flex;flex-direction:column}
+.tool-body .meta-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-500);margin:0 0 6px}
+.tool-body .meta-line .dot{width:4px;height:4px;border-radius:50%;background:var(--slate-300);display:inline-block}
+.tool-body h3{margin:0 0 6px;font-size:1.16rem}
+.tool-body p.desc{margin:0 0 12px;color:var(--slate-700);font-size:.95rem;line-height:1.5}
+
+.tool-tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
+.tag{display:inline-block;background:var(--th-teal-light);color:var(--th-teal-dark);padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:600}
+.tag.duration{background:var(--hmh-cream);color:var(--hmh-forest)}
+.tag.format{background:var(--slate-100);color:var(--slate-700)}
+
+.tool-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.92rem;font-weight:600;margin-top:auto}
+.btn-link{color:var(--th-teal-dark);font-weight:600}
+.btn-link::after{content:" \2192";font-weight:400}
+
+.no-results{background:var(--th-teal-light);color:var(--th-teal-dark);padding:28px;border-radius:var(--radius-md);text-align:center}
+
+.callout{background:var(--hmh-cream);border-left:5px solid var(--hmh-forest);border-radius:var(--radius-md);padding:18px 22px;color:var(--slate-900);font-size:.98rem;margin:20px 0}
+.callout strong{color:var(--hmh-forest)}
+.callout-th{background:var(--th-teal-light);border-left-color:var(--th-teal)}
+.callout-th strong{color:var(--th-teal-dark)}
+
+@media(max-width:520px){.tool-card{grid-template-columns:1fr}.tool-icon{width:52px;height:52px;font-size:1.3rem}}
+
+/* --- To add a tool, edit the TOOLS data in the <script> tag below. --- */
+
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
+.site-footer a{color:var(--th-teal-light)}
+.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--hmh-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--hmh-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="crisis-banner">
+  <strong>IN A CRISIS?</strong>
+  Call or text <a href="tel:988">988</a> &middot;
+  Talbert House 24/7 <a href="tel:5132812273">(513) 281-CARE</a> &middot;
+  Text "Talbert" to <a>839863</a>
+</div>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" class="brand-lockup">
+      <span class="brand-mark" aria-hidden="true">T</span>
+      <span class="brand-text"><span class="top">Talbert House</span><span class="main">Staff Resource Library</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="providers.html" data-page="providers.html">Providers</a>
+      <a href="workplace-wellness.html" data-page="workplace-wellness.html">Workplace wellness</a>
+      <a href="resources.html" data-page="resources.html">Mental health resources</a>
+      <a href="blog.html" data-page="blog.html">Blog</a>
+      <a href="videos.html" data-page="videos.html">Videos</a>
+      <a href="podcast.html" data-page="podcast.html">Podcast</a>
+      <a href="providers.html" class="nav-cta">Find a provider</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">Workplace wellness program</span>
+    <h1>Care for the people who carry the work.</h1>
+    <p class="lead">Talbert House and Hello Mental Health built this program for the staff who hold space for clients in the hardest moments of their lives. Confidential support, reflective spaces, and practical tools &mdash; designed for the realities of behavioral-health work, not generic wellness advice.</p>
+    <div class="hero-actions">
+      <a href="#program" class="btn btn-primary">Explore the program</a>
+      <a href="#tools" class="btn btn-outline">Jump to tools</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="program">
+  <div class="container">
+    <span class="eyebrow">What's included</span>
+    <h2>Four pillars, one program.</h2>
+    <p class="lead" style="max-width:62ch;margin-bottom:28px">Every Talbert House staff member has access to all four pillars at no cost. Use what fits the moment &mdash; you don&rsquo;t have to engage with everything to get something from it.</p>
+
+    <div class="pillar-grid">
+      <article class="pillar">
+        <div class="pillar-icon" aria-hidden="true">&#128172;</div>
+        <div>
+          <h3>Confidential 1:1 sessions</h3>
+          <p>Up to eight free sessions per year with an HMH-vetted therapist outside the Talbert House system. Use them for therapy, coaching, or a single hard week. Schedule yourself; no supervisor involvement; HR never sees who used what.</p>
+          <div class="pillar-meta">Self-scheduled &middot; Fully confidential &middot; In-person or telehealth</div>
+        </div>
+      </article>
+
+      <article class="pillar alt">
+        <div class="pillar-icon" aria-hidden="true">&#128099;</div>
+        <div>
+          <h3>Reflective supervision groups</h3>
+          <p>Monthly small-group spaces facilitated by an HMH clinician, organized by service line. Process the work with peers who actually get it &mdash; the kind of supervision that prevents burnout instead of just naming it.</p>
+          <div class="pillar-meta">Monthly &middot; 90 minutes &middot; Service-line cohorts of 6&ndash;8</div>
+        </div>
+      </article>
+
+      <article class="pillar alt2">
+        <div class="pillar-icon" aria-hidden="true">&#127919;</div>
+        <div>
+          <h3>Workshops &amp; live sessions</h3>
+          <p>Quarterly themed sessions on burnout, trauma stewardship, boundary-setting, and reflective supervision. Attend live, or watch the recordings later in the <a href="videos.html" style="font-weight:600">Videos library</a>. Each session includes a take-home practice you can actually use.</p>
+          <div class="pillar-meta">Quarterly &middot; Recorded &middot; Live attendance counts as CEU-eligible</div>
+        </div>
+      </article>
+
+      <article class="pillar alt3">
+        <div class="pillar-icon" aria-hidden="true">&#128218;</div>
+        <div>
+          <h3>The resource library</h3>
+          <p>This site. On-demand tools, vetted external <a href="resources.html" style="font-weight:600">resources</a>, the curated <a href="providers.html" style="font-weight:600">provider directory</a>, plus writing, video, and podcast content from the Hello Mental Health team. Designed to be useful in five minutes or fifty.</p>
+          <div class="pillar-meta">Always available &middot; Updated monthly &middot; Internal use only</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="engage">
+      <div>
+        <h3>How to engage</h3>
+        <p>You don&rsquo;t need a referral or a reason. Pick the door that feels right today.</p>
+      </div>
+      <ol>
+        <li><strong>Want a 1:1 session?</strong> Email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> with your preferred days/times. We&rsquo;ll match you to a therapist within 5 business days.</li>
+        <li><strong>Curious about supervision groups?</strong> Talk to your service-line lead, or email us &mdash; we can let you know when the next cohort opens.</li>
+        <li><strong>Want a quick tool right now?</strong> Skip to the <a href="#tools">tools library below</a>.</li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<section class="section tools-section" id="tools">
+  <div class="container">
+
+    <div class="tools-head">
+      <div>
+        <span class="eyebrow">Tools you can actually use</span>
+        <h2>Practical wellness, by the minute.</h2>
+        <p class="lead">Filter by when you&rsquo;d use it &mdash; in-session, between clients, after a hard day &mdash; or by what you&rsquo;re working with. Each tool tells you how long it takes.</p>
+      </div>
+    </div>
+
+    <div class="search-bar" role="search">
+      <div>
+        <label for="tool-search">Search by name or keyword</label>
+        <input id="tool-search" type="search" placeholder="e.g. grounding, supervision, panic" autocomplete="off" />
+      </div>
+      <div>
+        <label for="tool-category">When you'd use it</label>
+        <select id="tool-category"></select>
+      </div>
+      <div>
+        <label for="tool-topic">What you're working with</label>
+        <select id="tool-topic"></select>
+      </div>
+      <div>
+        <label for="tool-format">Format</label>
+        <select id="tool-format"></select>
+      </div>
+    </div>
+
+    <div class="cat-chips" id="cat-chips" aria-label="Quick category filters"></div>
+
+    <div class="search-meta">
+      <span id="tool-count">Loading tools&hellip;</span>
+      <button id="clear-filters" type="button">Clear filters</button>
+    </div>
+
+    <div id="tool-list" class="tool-grid"></div>
+
+    <div class="callout" style="margin-top:30px">
+      <strong>Have a tool that&rsquo;s helped you? We&rsquo;ll add it.</strong>
+      <p style="margin:6px 0 0">This library is meant to grow with the team. If a practice has carried you through a hard stretch, send it to <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a>. We&rsquo;ll write it up, test it, and add it (with credit, if you want).</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About this library</h4>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div>
+        <h4>Library</h4>
+        <ul>
+          <li><a href="providers.html">Providers</a></li>
+          <li><a href="workplace-wellness.html">Workplace wellness</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Crisis lines</h4>
+        <ul>
+          <li><a href="tel:988">988 Lifeline</a></li>
+          <li><a href="tel:5132812273">(513) 281-CARE</a></li>
+          <li>Text "Talbert" to 839863</li>
+          <li><a href="tel:5132818387">(513) 281-VETS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Talbert House</h4>
+        <ul>
+          <li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li>
+          <li><a href="tel:5132214357">(513) 221-HELP</a></li>
+          <li>2600 Victory Pkwy, Cincinnati OH</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use</div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   WORKPLACE WELLNESS — TOOLS LIBRARY
+   ---------------------------------------------------------
+   TO ADD A TOOL: copy one of the objects in the TOOLS
+   array below and fill it in. Keep commas between items.
+
+   Field guide:
+     - id        : unique short slug
+     - title     : display name
+     - category  : one of CATEGORY_OPTIONS (drives icon color & filter)
+     - format    : one of FORMAT_OPTIONS (Audio, Video, Worksheet, Article, Practice)
+     - icon      : single emoji used as visual mark
+     - duration  : human-readable, e.g. "30 sec", "5 min", "10–15 min"
+     - topics    : array of TOPIC_OPTIONS strings
+     - blurb     : 1–2 sentence description in HMH voice
+     - url       : link target (use "#" for placeholders until built)
+     - cta       : button text override (defaults to "Open")
+   ========================================================= */
+
+const CATEGORY_OPTIONS = [
+  "In-session resets",
+  "Between sessions",
+  "End of shift",
+  "Reflective supervision",
+  "Team practice",
+  "For hard days"
+];
+
+const TOPIC_OPTIONS = [
+  "Anxiety",
+  "Boundaries",
+  "Burnout",
+  "Compassion fatigue",
+  "Focus & attention",
+  "Mindfulness",
+  "Reflective practice",
+  "Self-compassion",
+  "Sleep & rest"
+];
+
+const FORMAT_OPTIONS = [
+  "Audio",
+  "Video",
+  "Worksheet",
+  "Article",
+  "Practice"
+];
+
+const CAT_CLASS = {
+  "In-session resets": "cat-insession",
+  "Between sessions": "cat-between",
+  "End of shift": "cat-endshift",
+  "Reflective supervision": "cat-supervision",
+  "Team practice": "cat-team",
+  "For hard days": "cat-hardday"
+};
+
+const TOOLS = [
+  /* ---------- IN-SESSION RESETS ---------- */
+  {
+    id: "box-breath-30s",
+    title: "30-second box breath",
+    category: "In-session resets",
+    format: "Audio",
+    icon: "🫁",
+    duration: "30 sec",
+    topics: ["Anxiety","Focus & attention","Mindfulness"],
+    blurb: "A four-part breath cycle you can run silently while a client is talking. Useful when you notice your own shoulders climb.",
+    url: "#"
+  },
+  {
+    id: "feet-floor-cue",
+    title: "Feet on the floor",
+    category: "In-session resets",
+    format: "Practice",
+    icon: "🦶",
+    duration: "15 sec",
+    topics: ["Mindfulness","Anxiety"],
+    blurb: "A one-line internal cue for re-anchoring mid-session. Simple, repeatable, and invisible to the client.",
+    url: "#"
+  },
+  {
+    id: "three-thing-scan",
+    title: "Three-thing visual scan",
+    category: "In-session resets",
+    format: "Practice",
+    icon: "👁",
+    duration: "30 sec",
+    topics: ["Focus & attention","Anxiety"],
+    blurb: "When your attention has slipped, name three specific objects in the room to yourself. Pulls you back without breaking the conversation.",
+    url: "#"
+  },
+
+  /* ---------- BETWEEN SESSIONS ---------- */
+  {
+    id: "ninety-second-grounding",
+    title: "90-second grounding",
+    category: "Between sessions",
+    format: "Video",
+    icon: "▶",
+    duration: "1:30",
+    topics: ["Mindfulness","Burnout"],
+    blurb: "A short guided exercise from Hello Mental Health for the moment between one client leaving and the next arriving. Watch with headphones.",
+    url: "videos.html#v=grounding-90-sec",
+    cta: "Watch"
+  },
+  {
+    id: "hands-water-reset",
+    title: "Hands-and-water reset",
+    category: "Between sessions",
+    format: "Article",
+    icon: "💧",
+    duration: "3–5 min",
+    topics: ["Burnout","Self-compassion","Mindfulness"],
+    blurb: "Cold water on the wrists, a slow handwash, eye contact in the mirror. Three minutes of body-led re-entry that doesn't require leaving the building.",
+    url: "#",
+    cta: "Read"
+  },
+  {
+    id: "two-minute-walk",
+    title: "Two-minute walk protocol",
+    category: "Between sessions",
+    format: "Article",
+    icon: "🚶",
+    duration: "5–10 min",
+    topics: ["Focus & attention","Burnout"],
+    blurb: "A structured loop of the building or block, with three checkpoints to notice. Especially useful when documentation is piling up and your brain is full.",
+    url: "#",
+    cta: "Read"
+  },
+
+  /* ---------- END OF SHIFT ---------- */
+  {
+    id: "drive-home-playlist",
+    title: "Drive-home decompression playlist",
+    category: "End of shift",
+    format: "Audio",
+    icon: "🎧",
+    duration: "20 min",
+    topics: ["Burnout","Self-compassion"],
+    blurb: "An HMH-curated 20-minute audio sequence: paced breathing, a brief reflection, then music that doesn't ask anything of you. Designed for the drive home.",
+    url: "#",
+    cta: "Listen"
+  },
+  {
+    id: "leaving-here-prompt",
+    title: "\"Three things I'm leaving here\"",
+    category: "End of shift",
+    format: "Worksheet",
+    icon: "📝",
+    duration: "5 min",
+    topics: ["Boundaries","Burnout"],
+    blurb: "A one-page worksheet for the end of your shift: three things that stayed with you, what you're physically leaving in the building, and one sentence to close the day.",
+    url: "#",
+    cta: "Open"
+  },
+  {
+    id: "end-day-body-scan",
+    title: "End-of-day body scan",
+    category: "End of shift",
+    format: "Audio",
+    icon: "🌙",
+    duration: "10 min",
+    topics: ["Sleep & rest","Burnout","Mindfulness"],
+    blurb: "A guided scan from feet to head, designed to be done before you walk in your front door. Especially useful if work tends to follow you home.",
+    url: "#",
+    cta: "Listen"
+  },
+
+  /* ---------- REFLECTIVE SUPERVISION ---------- */
+  {
+    id: "monthly-supervision-template",
+    title: "Monthly supervision check-in template",
+    category: "Reflective supervision",
+    format: "Worksheet",
+    icon: "📋",
+    duration: "30 min",
+    topics: ["Reflective practice"],
+    blurb: "A six-question template for solo or paired supervision: what surprised you, what wore you down, what you handled well, what you'd want a do-over on. Designed to slow you down.",
+    url: "#",
+    cta: "Open"
+  },
+  {
+    id: "trauma-stewardship-reflection",
+    title: "Trauma stewardship monthly reflection",
+    category: "Reflective supervision",
+    format: "Worksheet",
+    icon: "🌿",
+    duration: "45 min",
+    topics: ["Compassion fatigue","Reflective practice"],
+    blurb: "Adapted from Laura van Dernoot Lipsky's framework. Walks you through five domains of trauma exposure response and where you currently sit in each.",
+    url: "#",
+    cta: "Open"
+  },
+  {
+    id: "peer-consultation-structure",
+    title: "Peer consultation case structure",
+    category: "Reflective supervision",
+    format: "Worksheet",
+    icon: "🗂",
+    duration: "30 min",
+    topics: ["Reflective practice"],
+    blurb: "A simple four-part structure for presenting a case to a peer: what's happening, what's stuck, what you've tried, what you actually want from them. Keeps consultation from drifting into venting.",
+    url: "#",
+    cta: "Open"
+  },
+
+  /* ---------- TEAM PRACTICE ---------- */
+  {
+    id: "three-min-team-opener",
+    title: "Three-minute team opener",
+    category: "Team practice",
+    format: "Article",
+    icon: "👥",
+    duration: "3 min",
+    topics: ["Reflective practice"],
+    blurb: "A drop-in ritual for the first three minutes of any team meeting: a single round of \"how I'm walking in.\" Lowers the cost of saying a hard thing later.",
+    url: "#",
+    cta: "Read"
+  },
+  {
+    id: "hard-week-thread",
+    title: "\"Hard week\" peer thread template",
+    category: "Team practice",
+    format: "Worksheet",
+    icon: "🧵",
+    duration: "10 min",
+    topics: ["Compassion fatigue"],
+    blurb: "A lightweight template for asynchronous mutual aid: one person names a hard week, three teammates respond with a single sentence. No fixing, no advice.",
+    url: "#",
+    cta: "Open"
+  },
+  {
+    id: "monthly-appreciations",
+    title: "Monthly appreciations ritual",
+    category: "Team practice",
+    format: "Article",
+    icon: "🤝",
+    duration: "10 min",
+    topics: ["Reflective practice","Self-compassion"],
+    blurb: "A 10-minute closing ritual for the last team meeting of the month: each person names one thing a colleague did that made the work better. Cumulative effect is real.",
+    url: "#",
+    cta: "Read"
+  },
+
+  /* ---------- FOR HARD DAYS ---------- */
+  {
+    id: "after-hard-session",
+    title: "After-a-hard-session ritual",
+    category: "For hard days",
+    format: "Article",
+    icon: "💛",
+    duration: "5 min",
+    topics: ["Compassion fatigue","Self-compassion"],
+    blurb: "A short, body-first sequence for the ten minutes after a session you're going to remember. Three steps, no journaling required, no insight required.",
+    url: "#",
+    cta: "Read"
+  },
+  {
+    id: "compassion-fatigue-self-check",
+    title: "Compassion fatigue self-check",
+    category: "For hard days",
+    format: "Worksheet",
+    icon: "🩺",
+    duration: "15 min",
+    topics: ["Compassion fatigue","Burnout"],
+    blurb: "A ProQOL-informed self-screen for compassion satisfaction, secondary traumatic stress, and burnout. Score yourself privately, then decide what (if anything) to do with it.",
+    url: "#",
+    cta: "Open"
+  },
+  {
+    id: "when-not-okay-guide",
+    title: "\"When you're not okay\" decision guide",
+    category: "For hard days",
+    format: "Article",
+    icon: "🧭",
+    duration: "10 min",
+    topics: ["Self-compassion","Boundaries"],
+    blurb: "A short flowchart for the days when you know you're not okay but don't know what to do about it. Distinguishes \"I need rest\" from \"I need help\" from \"I need to call out.\"",
+    url: "#",
+    cta: "Read"
+  }
+];
+
+/* -------- Search logic -------- */
+(function(){
+  const listEl=document.getElementById('tool-list');
+  const countEl=document.getElementById('tool-count');
+  const searchEl=document.getElementById('tool-search');
+  const catEl=document.getElementById('tool-category');
+  const topicEl=document.getElementById('tool-topic');
+  const formatEl=document.getElementById('tool-format');
+  const clearBtn=document.getElementById('clear-filters');
+  const chipsEl=document.getElementById('cat-chips');
+
+  function fillSelect(el, opts, placeholder){
+    const frag=document.createDocumentFragment();
+    const first=document.createElement('option');
+    first.value=''; first.textContent=placeholder;
+    frag.appendChild(first);
+    opts.forEach(o=>{const e=document.createElement('option');e.value=o;e.textContent=o;frag.appendChild(e);});
+    el.appendChild(frag);
+  }
+  fillSelect(catEl, CATEGORY_OPTIONS, 'Any time');
+  fillSelect(topicEl, TOPIC_OPTIONS, 'Any topic');
+  fillSelect(formatEl, FORMAT_OPTIONS, 'Any format');
+
+  function buildChips(){
+    const all=document.createElement('button');
+    all.type='button';all.className='cat-chip active';all.dataset.cat='';all.textContent='All';
+    chipsEl.appendChild(all);
+    CATEGORY_OPTIONS.forEach(c=>{
+      const b=document.createElement('button');
+      b.type='button';b.className='cat-chip';b.dataset.cat=c;b.textContent=c;
+      chipsEl.appendChild(b);
+    });
+    chipsEl.addEventListener('click',function(e){
+      const t=e.target.closest('.cat-chip');if(!t) return;
+      catEl.value=t.dataset.cat;
+      [...chipsEl.querySelectorAll('.cat-chip')].forEach(x=>x.classList.toggle('active', x===t));
+      render();
+    });
+  }
+  buildChips();
+
+  function syncChipsFromSelect(){
+    const v=catEl.value;
+    [...chipsEl.querySelectorAll('.cat-chip')].forEach(x=>x.classList.toggle('active', x.dataset.cat===v));
+  }
+
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+
+  function card(t){
+    const iconClass=CAT_CLASS[t.category]||'cat-between';
+    const topics=(t.topics||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join('');
+    const fmtTag=t.format?`<span class="tag format">${esc(t.format)}</span>`:'';
+    const durTag=t.duration?`<span class="tag duration">${esc(t.duration)}</span>`:'';
+    const cta=t.cta||'Open';
+    const action=t.url?`<a class="btn-link" href="${esc(t.url)}">${esc(cta)}</a>`:'';
+    return `
+      <article class="tool-card" data-id="${esc(t.id)}">
+        <div class="tool-icon ${iconClass}" aria-hidden="true">${t.icon||'✨'}</div>
+        <div class="tool-body">
+          <div class="meta-line"><span>${esc(t.category)}</span><span class="dot"></span><span>${esc(t.format||'')}</span></div>
+          <h3>${esc(t.title)}</h3>
+          <p class="desc">${esc(t.blurb||'')}</p>
+          <div class="tool-tags">${durTag}${fmtTag}${topics}</div>
+          <div class="tool-actions">${action}</div>
+        </div>
+      </article>`;
+  }
+
+  function match(t,term,cat,topic,fmt){
+    if(term){
+      const hay=[t.title,t.blurb,t.category,t.format,(t.topics||[]).join(' ')].join(' ').toLowerCase();
+      if(!hay.includes(term.toLowerCase())) return false;
+    }
+    if(cat && t.category!==cat) return false;
+    if(topic && !(t.topics||[]).includes(topic)) return false;
+    if(fmt && t.format!==fmt) return false;
+    return true;
+  }
+
+  function render(){
+    syncChipsFromSelect();
+    const term=searchEl.value.trim();
+    const cat=catEl.value;
+    const topic=topicEl.value;
+    const fmt=formatEl.value;
+    const filtered=TOOLS.filter(t=>match(t,term,cat,topic,fmt));
+    if(filtered.length===0){
+      listEl.innerHTML=`<div class="no-results" style="grid-column:1/-1"><strong>No tools match these filters.</strong><br>Try clearing a filter, or email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> to suggest one we should add.</div>`;
+    } else {
+      listEl.innerHTML=filtered.map(card).join('');
+    }
+    countEl.textContent=filtered.length+' tool'+(filtered.length===1?'':'s')+' shown';
+  }
+
+  searchEl.addEventListener('input',render);
+  catEl.addEventListener('change',render);
+  topicEl.addEventListener('change',render);
+  formatEl.addEventListener('change',render);
+  clearBtn.addEventListener('click',function(){
+    searchEl.value='';catEl.value='';topicEl.value='';formatEl.value='';
+    render();
+  });
+  render();
+})();
+
+/* Shared nav behavior */
+(function(){
+  var t=document.querySelector('.nav-toggle'),l=document.querySelector('.nav-links');
+  if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open');});}
+  var p=(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){if(a.dataset.page===p)a.classList.add('active');});
+})();
+</script>
+</body>
+</html>
