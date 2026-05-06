@@ -1,0 +1,256 @@
+/* ==========================================================
+   Hello at Work — login gateway stylesheet
+   Built by Hello Mental Health
+   ----------------------------------------------------------
+   Scoped via .haw-* class prefix so this file cannot bleed
+   into the rest of the site's inline styles.
+   ========================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+:root {
+  --haw-bg:        #FAF5EC;
+  --haw-card-bg:   #FFFFFF;
+  --haw-ink:       #1F2937;
+  --haw-ink-soft:  #4B5563;
+  --haw-ink-mute:  #6B7280;
+  --haw-line:      #E5E7EB;
+  --haw-line-soft: #F3F4F6;
+  --haw-forest:    #2E5D4A;
+  --haw-forest-d:  #214635;
+  --haw-coral:     #E28F6E;
+  --haw-gold:      #D9A441;
+  --haw-error-bg:  #FDEAE0;
+  --haw-error-ink: #7A2C0F;
+  --haw-radius:    14px;
+  --haw-shadow:    0 10px 30px rgba(46, 93, 74, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--haw-ink);
+  background: var(--haw-bg);
+  min-height: 100vh;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.haw-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.haw-shell::before,
+.haw-shell::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.haw-shell::before {
+  top: -120px;
+  left: -120px;
+  width: 320px;
+  height: 320px;
+  background: var(--haw-coral);
+  opacity: 0.22;
+}
+
+.haw-shell::after {
+  bottom: -120px;
+  right: -120px;
+  width: 300px;
+  height: 300px;
+  background: var(--haw-gold);
+  opacity: 0.26;
+}
+
+.haw-card {
+  position: relative;
+  z-index: 1;
+  background: var(--haw-card-bg);
+  border-radius: var(--haw-radius);
+  padding: 44px 40px 36px;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: var(--haw-shadow);
+}
+
+@media (max-width: 480px) {
+  .haw-card { padding: 32px 24px 28px; }
+}
+
+.haw-header { text-align: left; margin-bottom: 22px; }
+
+.haw-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--haw-forest);
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.haw-mark-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--haw-coral);
+  box-shadow: 0 0 0 3px var(--haw-card-bg);
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+}
+
+.haw-title {
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--haw-forest);
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+
+.haw-subtitle {
+  font-size: 0.86rem;
+  color: var(--haw-ink-mute);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.haw-intro {
+  font-size: 1rem;
+  color: var(--haw-ink-soft);
+  margin: 0 0 22px;
+  line-height: 1.55;
+}
+
+.haw-error {
+  background: var(--haw-error-bg);
+  border-left: 4px solid var(--haw-coral);
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: var(--haw-error-ink);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.haw-error a {
+  color: var(--haw-error-ink);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.haw-error.is-hidden { display: none; }
+
+.haw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 0 24px;
+}
+
+.haw-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--haw-ink-soft);
+  margin-bottom: -6px;
+  letter-spacing: 0.02em;
+}
+
+.haw-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid var(--haw-line);
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--haw-ink);
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.haw-input::placeholder {
+  color: var(--haw-ink-mute);
+  opacity: 0.7;
+}
+
+.haw-input:focus {
+  outline: none;
+  border-color: var(--haw-forest);
+  box-shadow: 0 0 0 3px rgba(46, 93, 74, 0.12);
+}
+
+.haw-input:disabled {
+  background: var(--haw-line-soft);
+  cursor: not-allowed;
+}
+
+.haw-button {
+  width: 100%;
+  background: var(--haw-forest);
+  color: #FFFFFF;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  transition: background 0.12s ease, transform 0.05s ease;
+}
+
+.haw-button:hover { background: var(--haw-forest-d); }
+.haw-button:active { transform: translateY(1px); }
+.haw-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 93, 74, 0.30);
+}
+
+.haw-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.haw-help {
+  font-size: 0.86rem;
+  color: var(--haw-ink-mute);
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--haw-line-soft);
+  line-height: 1.5;
+}
+
+.haw-help a {
+  color: var(--haw-forest);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.haw-help a:hover { text-decoration: underline; }
+
+.haw-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 28px;
+  font-size: 0.82rem;
+  color: var(--haw-ink-mute);
+  font-style: italic;
+  text-align: center;
+}

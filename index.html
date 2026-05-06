@@ -1,388 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Talbert House Staff Resource Library &middot; Built by Hello Mental Health</title>
-<meta name="description" content="An internal resource library for Talbert House staff &mdash; workplace wellness, provider database, blog, video, podcast, and mental health tools. Built by Hello Mental Health, Cincinnati." />
-<style>
-/* ==========================================================
-   Talbert House Staff Resource Library
-   Built by Hello Mental Health, Cincinnati
-   ---- Shared styles live inline in every page ----
-   Palette notes:
-   - Site chrome (nav, footer, database) uses Talbert House's
-     teal #02777C so the site feels like "theirs."
-   - Authored/voice sections use Hello Mental Health's cream +
-     forest + coral so HMH's voice is distinct but subtle.
-   ========================================================== */
-:root {
-  --th-teal:#02777C; --th-teal-dark:#015B5F; --th-teal-light:#E6F2F2;
-  --th-orange:#E8622C; --th-orange-soft:#FDEAE0;
-  --hmh-forest:#2E5D4A; --hmh-cream:#FAF5EC; --hmh-coral:#E28F6E; --hmh-gold:#D9A441;
-  --slate-900:#1F2937; --slate-700:#374151; --slate-500:#6B7280; --slate-300:#D1D5DB; --slate-100:#F3F4F6;
-  --radius-sm:6px; --radius-md:12px; --radius-lg:20px;
-  --shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);
-  --shadow-md:0 4px 12px rgba(2,119,124,.08),0 2px 4px rgba(0,0,0,.04);
-  --font-display:Georgia,"Playfair Display","Iowan Old Style",Cambria,serif;
-  --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-}
-*{box-sizing:border-box}html,body{margin:0;padding:0}
-body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:var(--th-teal);text-decoration:none}a:hover{text-decoration:underline}
-h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
-h1{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.01em}
-h2{font-size:clamp(1.5rem,2.5vw,2.1rem)}h3{font-size:1.25rem}
-p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
-.container{max-width:1160px;margin:0 auto;padding:0 24px}
-.container-narrow{max-width:860px;margin:0 auto;padding:0 24px}
-.section{padding:64px 0}.section-tight{padding:40px 0}
-.section-cream{background:var(--hmh-cream)}.section-teal-soft{background:var(--th-teal-light)}
-.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);margin-bottom:8px}
-.eyebrow-hmh{color:var(--hmh-forest)}
+  <!--
+    Hello at Work — multi-company login gateway
+    Built by Hello Mental Health.
 
-.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
-.crisis-banner strong{color:#FFC7B0;letter-spacing:.02em}
-.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
-.crisis-banner a:hover{color:#fff}
+    Purpose:
+      Public entry point for partner-organization staff (Talbert House
+      today, more orgs later). The user enters their work email, and
+      js/auth.js looks up the email's domain in an approved-domains map
+      and forwards them to the right internal portal.
 
-.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto;gap:24px}
-.brand-lockup{display:flex;align-items:center;gap:12px}
-.brand-mark{width:42px;height:42px;background:var(--th-teal);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-family:var(--font-display);position:relative}
-.brand-mark::after{content:"";position:absolute;right:-4px;bottom:-4px;width:14px;height:14px;background:var(--th-orange);border-radius:50%;border:2px solid #fff}
-.brand-text{display:flex;flex-direction:column;line-height:1.1}
-.brand-text .top{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-500)}
-.brand-text .main{font-family:var(--font-display);font-weight:700;color:var(--slate-900);font-size:1.05rem}
-.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
-.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem}
-.nav-links a:hover{background:var(--th-teal-light);color:var(--th-teal-dark);text-decoration:none}
-.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
-.nav-cta{background:var(--th-teal);color:#fff !important;padding:9px 16px !important;border-radius:999px !important}
-.nav-cta:hover{background:var(--th-teal-dark) !important;text-decoration:none !important}
-.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer;font-size:1rem}
-@media(max-width:860px){.nav-toggle{display:inline-block}
- .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
- .nav-links.open{display:flex}.nav-links a{padding:12px;border-radius:var(--radius-sm)}}
+    Design notes:
+      - Self-contained styling in css/login.css.
+      - Existing site styles (which are inline in every other page) are
+        not touched — this page is the public face, not the gated content.
+      - All behavior in js/auth.js — no inline JS on this page.
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hello at Work &middot; Sign in</title>
+  <meta name="description" content="A Hello Mental Health resource — sign in with your work email to reach your company portal." />
 
-.hero{background:linear-gradient(135deg,var(--th-teal) 0%,var(--th-teal-dark) 100%);color:#fff;padding:80px 24px 72px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;top:-80px;right:-80px;width:320px;height:320px;background:var(--th-orange);opacity:.18;border-radius:50%;filter:blur(8px)}
-.hero .container{position:relative;z-index:1}
-.hero h1{color:#fff;max-width:16ch}
-.hero .lead{color:rgba(255,255,255,.92);max-width:55ch;font-size:1.18rem}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 
-.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.98rem;border:2px solid transparent;cursor:pointer;transition:transform .1s ease,background .15s ease,border .15s ease;text-align:center}
-.btn:hover{text-decoration:none;transform:translateY(-1px)}
-.btn-primary{background:var(--th-orange);color:#fff}.btn-primary:hover{background:#D45423;color:#fff}
-.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}.btn-ghost-light:hover{background:rgba(255,255,255,.12);color:#fff}
-.btn-outline{background:#fff;color:var(--th-teal-dark);border-color:var(--th-teal)}.btn-outline:hover{background:var(--th-teal-light);color:var(--th-teal-dark)}
-
-.grid{display:grid;gap:22px}
-.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-
-.card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:24px;box-shadow:var(--shadow-sm);transition:transform .15s ease,box-shadow .15s ease;display:flex;flex-direction:column;gap:10px}
-.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
-.card h3{margin-top:0}.card p{color:var(--slate-700);font-size:.97rem}
-.card .card-link{margin-top:auto;font-weight:600;color:var(--th-teal-dark);font-size:.95rem}
-.card-icon{width:46px;height:46px;border-radius:var(--radius-sm);background:var(--th-teal-light);color:var(--th-teal-dark);display:grid;place-items:center;font-size:1.4rem;margin-bottom:6px}
-.card-icon.accent{background:var(--th-orange-soft);color:var(--th-orange)}
-.card-icon.hmh{background:var(--hmh-cream);color:var(--hmh-forest)}
-.card.featured{border-color:var(--th-teal);border-top:4px solid var(--th-teal)}
-.card.hmh-voice{background:var(--hmh-cream);border-color:transparent}
-.card.hmh-voice h3{color:var(--hmh-forest);font-style:italic}
-
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-.stat{background:#fff;border-radius:var(--radius-md);padding:22px;border-left:4px solid var(--th-teal)}
-.stat .num{font-family:var(--font-display);font-size:2.4rem;color:var(--th-teal-dark);font-weight:700;line-height:1}
-.stat .label{font-size:.92rem;color:var(--slate-700);margin-top:6px}
-.stat.alt{border-left-color:var(--th-orange)}.stat.alt .num{color:var(--th-orange)}
-.stat.hmh{border-left-color:var(--hmh-forest)}.stat.hmh .num{color:var(--hmh-forest)}
-
-.bar-chart{display:flex;flex-direction:column;gap:10px;margin-top:16px}
-.bar-row{display:grid;grid-template-columns:240px 1fr 60px;gap:12px;align-items:center}
-.bar-row .lab{font-size:.92rem;color:var(--slate-700)}
-.bar-row .val{font-size:.92rem;color:var(--slate-900);font-weight:600;text-align:right}
-.bar-track{background:var(--th-teal-light);height:14px;border-radius:999px;overflow:hidden}
-.bar-fill{height:100%;background:linear-gradient(90deg,var(--th-teal),var(--hmh-forest));border-radius:999px}
-@media(max-width:640px){.bar-row{grid-template-columns:1fr}.bar-row .val{text-align:left}}
-
-.callout{background:var(--hmh-cream);border-left:5px solid var(--hmh-forest);border-radius:var(--radius-md);padding:22px 24px;color:var(--slate-900);font-size:1.02rem;margin:24px 0}
-.callout strong{color:var(--hmh-forest)}
-.callout-th{background:var(--th-teal-light);border-left-color:var(--th-teal)}
-.callout-th strong{color:var(--th-teal-dark)}
-.callout-warn{background:var(--th-orange-soft);border-left-color:var(--th-orange)}
-.callout-warn strong{color:#B44116}
-
-.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
-.site-footer a{color:var(--th-teal-light)}
-.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
-.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
-.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
-.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--hmh-cream)}
-.footer-credit .hmh-ribbon .dot{color:var(--hmh-coral);margin:0 4px}
-@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
-
-.badge{display:inline-block;background:var(--hmh-forest);color:#fff;padding:3px 10px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.badge.orange{background:var(--th-orange)}
-
-/* Homepage-only: featured content preview strip */
-.preview-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.preview{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--slate-100);background:#fff;display:flex;flex-direction:column}
-.preview .top{aspect-ratio:16/10;display:grid;place-items:center;font-family:var(--font-display);color:#fff;font-size:1.4rem;padding:16px;text-align:center}
-.preview .top.a{background:linear-gradient(135deg,var(--hmh-coral),var(--hmh-gold))}
-.preview .top.b{background:linear-gradient(135deg,var(--hmh-forest),var(--th-teal))}
-.preview .top.c{background:linear-gradient(135deg,var(--th-teal-dark),var(--th-teal))}
-.preview .bot{padding:16px 18px 18px}
-.preview .eye{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);display:block;margin-bottom:4px}
-.preview h4{margin:0 0 6px;font-family:var(--font-body);font-size:1rem}
-.preview p{margin:0 0 10px;color:var(--slate-700);font-size:.92rem}
-</style>
+  <!-- Login-only stylesheet. Scoped so it cannot bleed into other pages. -->
+  <link rel="stylesheet" href="css/login.css" />
 </head>
 <body>
 
-<div class="crisis-banner">
-  <strong>IN A CRISIS?</strong>
-  Call or text <a href="tel:988">988</a> &middot;
-  Talbert House 24/7 <a href="tel:5132812273">(513) 281-CARE</a> &middot;
-  Text "Talbert" to <a>839863</a>
-</div>
+  <main class="haw-shell">
+    <section class="haw-card" aria-labelledby="haw-heading">
 
-<header class="site-header">
-  <nav class="nav" aria-label="Primary">
-    <a href="index.html" class="brand-lockup" style="color:inherit">
-      <span class="brand-mark" aria-hidden="true">T</span>
-      <span class="brand-text">
-        <span class="top">Talbert House</span>
-        <span class="main">Staff Resource Library</span>
-      </span>
-    </a>
-    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">&#9776; Menu</button>
-    <div class="nav-links">
-      <a href="index.html" data-page="index.html">Home</a>
-      <a href="providers.html" data-page="providers.html">Providers</a>
-      <a href="workplace-wellness.html" data-page="workplace-wellness.html">Workplace wellness</a>
-      <a href="resources.html" data-page="resources.html">Mental health resources</a>
-      <a href="blog.html" data-page="blog.html">Blog</a>
-      <a href="videos.html" data-page="videos.html">Videos</a>
-      <a href="podcast.html" data-page="podcast.html">Podcast</a>
-      <a href="providers.html" class="nav-cta">Find a provider</a>
-    </div>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="container">
-    <span class="eyebrow" style="color:#FFE1D1">For Talbert House staff &mdash; internal</span>
-    <h1>A library for the humans who show up for other people.</h1>
-    <p class="lead">Workplace wellness tools, vetted mental health resources, a growing provider database, and original content from Hello Mental Health &mdash; built for the 900&#43; staff across Talbert House&rsquo;s five service lines.</p>
-    <div class="hero-actions">
-      <a href="providers.html" class="btn btn-primary">Find a provider</a>
-      <a href="workplace-wellness.html" class="btn btn-ghost-light">Workplace wellness</a>
-      <a href="podcast.html" class="btn btn-ghost-light">Listen to the podcast</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">What&rsquo;s inside</span>
-    <h2 class="mt-0">Everything in one place &mdash; designed for your workday.</h2>
-    <p class="lead" style="max-width:65ch">This library is organized around the realities of behavioral health work at Talbert House. Start anywhere.</p>
-
-    <div class="grid grid-3" style="margin-top:28px">
-      <a href="providers.html" class="card featured" style="color:inherit">
-        <div class="card-icon">&#128269;</div>
-        <h3>Provider database</h3>
-        <p>A growing internal list of trusted outside providers, searchable by insurance type and focus area. Useful for client referrals and your own care.</p>
-        <span class="card-link">Search providers &rarr;</span>
-      </a>
-      <a href="workplace-wellness.html" class="card" style="color:inherit">
-        <div class="card-icon">&#127811;</div>
-        <h3>Workplace wellness</h3>
-        <p>Tools and articles tailored to behavioral health staff &mdash; with resources specific to each of Talbert House&rsquo;s five service lines.</p>
-        <span class="card-link">Explore tools &rarr;</span>
-      </a>
-      <a href="resources.html" class="card" style="color:inherit">
-        <div class="card-icon accent">&#128218;</div>
-        <h3>Mental health resources</h3>
-        <p>Curated, non-generic resources for life in and out of the role &mdash; crisis lines, handouts for clients, and things that help you keep your own tank full.</p>
-        <span class="card-link">Browse resources &rarr;</span>
-      </a>
-      <a href="blog.html" class="card" style="color:inherit">
-        <div class="card-icon hmh">&#9998;</div>
-        <h3>Blog</h3>
-        <p>Writing from the Hello Mental Health team &mdash; on burnout, supervision, trauma-informed care, and the human parts of this work.</p>
-        <span class="card-link">Read the blog &rarr;</span>
-      </a>
-      <a href="videos.html" class="card" style="color:inherit">
-        <div class="card-icon hmh">&#9658;</div>
-        <h3>Video library</h3>
-        <p>Short, practical videos &mdash; grounding exercises, skill-builders, supervision series. Watchable between sessions.</p>
-        <span class="card-link">Watch videos &rarr;</span>
-      </a>
-      <a href="podcast.html" class="card" style="color:inherit">
-        <div class="card-icon hmh">&#127911;</div>
-        <h3>Podcast</h3>
-        <p>Hello, Talbert House &mdash; conversations with staff, partners, and experts on doing this work well, for the long haul.</p>
-        <span class="card-link">Listen &rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section section-teal-soft">
-  <div class="container">
-    <span class="eyebrow">The landscape</span>
-    <h2 class="mt-0">The case for this library, in numbers.</h2>
-    <p class="lead" style="max-width:60ch">Behavioral health work carries weight that doesn&rsquo;t make it into case notes. Here&rsquo;s what the research shows.</p>
-
-    <div class="stats" style="margin-top:28px">
-      <div class="stat"><div class="num">93%</div><div class="label">of U.S. mental-health workers report moderate-to-severe burnout post-2020. <span class="muted">(APA, 2023)</span></div></div>
-      <div class="stat alt"><div class="num">21%</div><div class="label">of U.S. adults experienced a mental illness in the past year &mdash; roughly 1 in 5. <span class="muted">(NIMH)</span></div></div>
-      <div class="stat hmh"><div class="num">50%</div><div class="label">of new clinicians leave community behavioral health within 2 years without structured support. <span class="muted">(NCBHWC)</span></div></div>
-      <div class="stat"><div class="num">900+</div><div class="label">Talbert House staff across five service lines, serving Southwest Ohio.</div></div>
-    </div>
-
-    <div class="card" style="margin-top:28px">
-      <h3 style="margin:0 0 6px">Where workplace-wellness investment matters most</h3>
-      <p class="muted" style="margin:0 0 12px;font-size:.92rem">Relative share of staff reporting each as "significantly affecting my ability to stay in the role" &mdash; behavioral health workforce survey composite, 2021&ndash;2024.</p>
-      <div class="bar-chart">
-        <div class="bar-row"><span class="lab">Vicarious / secondary trauma</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div><span class="val">82%</span></div>
-        <div class="bar-row"><span class="lab">Workload &amp; caseload size</span><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div><span class="val">76%</span></div>
-        <div class="bar-row"><span class="lab">Quality of supervision</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><span class="val">68%</span></div>
-        <div class="bar-row"><span class="lab">Lack of time to recover</span><div class="bar-track"><div class="bar-fill" style="width:64%"></div></div><span class="val">64%</span></div>
-        <div class="bar-row"><span class="lab">Compensation &amp; benefits</span><div class="bar-track"><div class="bar-fill" style="width:58%"></div></div><span class="val">58%</span></div>
-        <div class="bar-row"><span class="lab">Administrative burden</span><div class="bar-track"><div class="bar-fill" style="width:54%"></div></div><span class="val">54%</span></div>
-      </div>
-      <p class="muted" style="font-size:.82rem;margin-top:14px">Composite figures for illustration. Replace with Talbert House&rsquo;s internal workforce data when available.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <span class="eyebrow eyebrow-hmh">From the Hello Mental Health team</span>
-    <h2 class="mt-0" style="color:var(--hmh-forest)">Hello &mdash; and welcome.</h2>
-    <div class="callout">
-      <strong>We lead with our hearts, and value humans above everything else.</strong>
-      <p style="margin:8px 0 0">We built this library for the 900&#43; humans doing the work at Talbert House. You support people in the hardest moments of their lives, across five service lines and dozens of locations. This site is our way of making sure the resources you need &mdash; for yourself, for your team, and for your clients &mdash; are in one trusted place. Nothing here is generic. Everything is meant to meet you where you are.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section section-cream">
-  <div class="container">
-    <span class="eyebrow eyebrow-hmh">Latest</span>
-    <h2 class="mt-0" style="color:var(--hmh-forest)">Fresh in the library</h2>
-    <div class="preview-strip" style="margin-top:24px">
-      <a href="blog.html" class="preview" style="color:inherit">
-        <div class="top a">Burnout</div>
-        <div class="bot">
-          <span class="eye">Blog</span>
-          <h4>Burnout isn&rsquo;t a you problem</h4>
-          <p>Reframing burnout as a systems issue, and what that means for front-line staff.</p>
+      <header class="haw-header">
+        <div class="haw-mark" aria-hidden="true">
+          <span class="haw-mark-dot"></span>
         </div>
-      </a>
-      <a href="podcast.html" class="preview" style="color:inherit">
-        <div class="top b">Ep. 02</div>
-        <div class="bot">
-          <span class="eye">Podcast</span>
-          <h4>Housing is healthcare</h4>
-          <p>A program lead on what &lsquo;recovery housing&rsquo; really means for staff and clients.</p>
-        </div>
-      </a>
-      <a href="videos.html" class="preview" style="color:inherit">
-        <div class="top c">Video</div>
-        <div class="bot">
-          <span class="eye">Video &middot; 1:32</span>
-          <h4>A 90-second grounding exercise</h4>
-          <p>A quick reset you can do at your desk between sessions.</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
+        <h1 id="haw-heading" class="haw-title">Hello at Work</h1>
+        <p class="haw-subtitle">A Hello Mental Health resource</p>
+      </header>
 
-<section class="section">
-  <div class="container-narrow">
-    <span class="eyebrow">Talbert House at a glance</span>
-    <h2 class="mt-0">Five service lines. One community of care.</h2>
-    <p class="lead">From addictions to housing, from court &amp; corrections to mental health and primary care, Talbert House has helped Southwest Ohioans since 1965. This library is designed to support every one of those service lines.</p>
-    <div class="grid grid-3" style="margin-top:24px">
-      <div class="card"><div class="card-icon">&#127968;</div><h3>Housing</h3><p>Safe, stable housing including recovery and reentry housing programs.</p></div>
-      <div class="card"><div class="card-icon">&#128167;</div><h3>Addictions</h3><p>Outpatient, residential, and jail-based SUD treatment with MAT.</p></div>
-      <div class="card"><div class="card-icon">&#10084;</div><h3>Mental health</h3><p>Counseling, crisis services, and integrated behavioral healthcare.</p></div>
-      <div class="card"><div class="card-icon">&#9878;</div><h3>Court &amp; corrections</h3><p>Reintegration services for justice-involved adults.</p></div>
-      <div class="card"><div class="card-icon">&#128101;</div><h3>Community care</h3><p>Case management, fatherhood, and community well-being programs.</p></div>
-      <div class="card"><div class="card-icon">&#128137;</div><h3>Primary care</h3><p>Integrated primary medical care for whole-person wellness.</p></div>
-    </div>
-    <p class="muted" style="text-align:center;margin-top:18px;font-size:.92rem">Information reflects Talbert House&rsquo;s public service framework.
-      <a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></p>
-  </div>
-</section>
+      <p class="haw-intro">
+        Enter your work email and we&rsquo;ll point you to your organization&rsquo;s wellness portal.
+      </p>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h4>About this library</h4>
-        <p style="margin:0 0 10px">An internal resource library for Talbert House staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
-        <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
-      </div>
-      <div>
-        <h4>Library</h4>
-        <ul>
-          <li><a href="providers.html">Providers</a></li>
-          <li><a href="workplace-wellness.html">Workplace wellness</a></li>
-          <li><a href="resources.html">Resources</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="videos.html">Videos</a></li>
-          <li><a href="podcast.html">Podcast</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Crisis lines</h4>
-        <ul>
-          <li><a href="tel:988">988 Lifeline</a></li>
-          <li><a href="tel:5132812273">(513) 281-CARE</a></li>
-          <li>Text "Talbert" to 839863</li>
-          <li><a href="tel:5132818387">(513) 281-VETS</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Talbert House</h4>
-        <ul>
-          <li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li>
-          <li><a href="tel:5132214357">(513) 221-HELP</a></li>
-          <li>2600 Victory Pkwy, Cincinnati OH</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-credit">
-      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use</div>
-      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
-    </div>
-  </div>
-</footer>
+      <!-- Inline error region. JS toggles .is-hidden and sets text. -->
+      <div id="haw-error" class="haw-error is-hidden" role="alert" aria-live="polite"></div>
 
-<script>
-(function(){
-  var toggle=document.querySelector('.nav-toggle');
-  var links=document.querySelector('.nav-links');
-  if(toggle&&links){toggle.addEventListener('click',function(){
-    links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded',links.classList.contains('open'));
-  });}
-  var path=(window.location.pathname.split('/').pop()||'index.html');
-  document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){
-    if(a.dataset.page===path){a.classList.add('active');}
-  });
-})();
-</script>
+      <form id="haw-form" class="haw-form" novalidate>
+        <label for="haw-email" class="haw-label">Work email</label>
+        <input
+          id="haw-email"
+          name="email"
+          type="email"
+          class="haw-input"
+          placeholder="you@yourcompany.org"
+          autocomplete="email"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          required
+          autofocus
+        />
+        <button type="submit" class="haw-button" id="haw-submit">Continue</button>
+      </form>
+
+      <p class="haw-help">
+        Trouble signing in? Email
+        <a href="mailto:work@hellomentalhealth.com">work@hellomentalhealth.com</a>.
+      </p>
+    </section>
+
+    <footer class="haw-footer">
+      Built with care by Hello Mental Health &middot; Cincinnati, OH
+    </footer>
+  </main>
+
+  <script src="js/auth.js" defer></script>
 </body>
 </html>
