@@ -19,6 +19,8 @@ html, body { margin: 0; padding: 0; }
   --haw-line-soft: #F3F4F6;
   --haw-forest:    #2E5D4A;
   --haw-forest-d:  #214635;
+  --haw-forest-l:  #3A7460;
+  --haw-teal:      #4A9E87;       /* focus ring — Bailey-specified */
   --haw-coral:     #E28F6E;
   --haw-gold:      #D9A441;
   --haw-error-bg:  #FDEAE0;
@@ -37,6 +39,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* --- Page shell with soft decorative blurs --- */
 .haw-shell {
   min-height: 100vh;
   display: flex;
@@ -76,68 +79,108 @@ body {
   opacity: 0.26;
 }
 
+/* --- Card --- */
 .haw-card {
   position: relative;
   z-index: 1;
   background: var(--haw-card-bg);
   border-radius: var(--haw-radius);
-  padding: 44px 40px 36px;
-  max-width: 460px;
+  padding: 40px 40px 32px;
+  max-width: 480px;
   width: 100%;
   box-shadow: var(--haw-shadow);
 }
 
 @media (max-width: 480px) {
-  .haw-card { padding: 32px 24px 28px; }
+  .haw-card { padding: 30px 22px 24px; }
 }
 
-.haw-header { text-align: left; margin-bottom: 22px; }
+/* --- Brand header --- */
+.haw-header {
+  text-align: left;
+  margin-bottom: 4px;
+}
 
+/* Two overlapping circles, intentional — signals connection */
 .haw-mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--haw-forest);
-  display: grid;
-  place-items: center;
-  margin-bottom: 18px;
-  position: relative;
-}
-
-.haw-mark-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--haw-coral);
-  box-shadow: 0 0 0 3px var(--haw-card-bg);
-  position: absolute;
-  right: -3px;
-  bottom: -3px;
+  display: block;
+  margin-bottom: 16px;
 }
 
 .haw-title {
-  font-size: 1.65rem;
+  font-size: 1.7rem;
   font-weight: 600;
   color: var(--haw-forest);
   margin: 0 0 4px;
   letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .haw-subtitle {
   font-size: 0.86rem;
   color: var(--haw-ink-mute);
-  margin: 0;
+  margin: 0 0 4px;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
 
+.haw-trust {
+  font-size: 0.82rem;
+  color: var(--haw-ink-mute);
+  margin: 0;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* --- "What's inside" feature row --- */
+.haw-features {
+  list-style: none;
+  padding: 18px 0;
+  margin: 22px 0 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  border-top: 1px solid var(--haw-line-soft);
+  border-bottom: 1px solid var(--haw-line-soft);
+}
+
+.haw-feature {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.haw-feature-icon {
+  color: var(--haw-forest);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.haw-feature-icon svg { display: block; }
+
+.haw-feature-label {
+  font-size: 0.74rem;
+  color: var(--haw-ink-mute);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+
+/* --- Intro copy --- */
 .haw-intro {
   font-size: 1rem;
   color: var(--haw-ink-soft);
-  margin: 0 0 22px;
+  margin: 0 0 20px;
   line-height: 1.55;
 }
 
+/* --- Inline error --- */
 .haw-error {
   background: var(--haw-error-bg);
   border-left: 4px solid var(--haw-coral);
@@ -157,18 +200,19 @@ body {
 
 .haw-error.is-hidden { display: none; }
 
+/* --- Form --- */
 .haw-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin: 0 0 24px;
+  gap: 12px;
+  margin: 0 0 22px;
 }
 
 .haw-label {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--haw-ink-soft);
-  margin-bottom: -6px;
+  margin-bottom: -4px;
   letter-spacing: 0.02em;
 }
 
@@ -189,10 +233,11 @@ body {
   opacity: 0.7;
 }
 
+/* Visible teal focus ring — #4A9E87 per spec */
 .haw-input:focus {
   outline: none;
-  border-color: var(--haw-forest);
-  box-shadow: 0 0 0 3px rgba(46, 93, 74, 0.12);
+  border-color: var(--haw-teal);
+  box-shadow: 0 0 0 3px rgba(74, 158, 135, 0.22);
 }
 
 .haw-input:disabled {
@@ -200,6 +245,7 @@ body {
   cursor: not-allowed;
 }
 
+/* --- Submit button — slight lighten + 2% scale up on hover --- */
 .haw-button {
   width: 100%;
   background: var(--haw-forest);
@@ -212,27 +258,46 @@ body {
   cursor: pointer;
   font-family: inherit;
   letter-spacing: 0.01em;
-  transition: background 0.12s ease, transform 0.05s ease;
+  transition: background 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+  transform-origin: center;
 }
 
-.haw-button:hover { background: var(--haw-forest-d); }
-.haw-button:active { transform: translateY(1px); }
+.haw-button:hover {
+  background: var(--haw-forest-l);
+  transform: scale(1.02);
+  box-shadow: 0 4px 14px rgba(46, 93, 74, 0.20);
+}
+
+.haw-button:active { transform: scale(0.99); }
+
 .haw-button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(46, 93, 74, 0.30);
+  box-shadow: 0 0 0 3px rgba(74, 158, 135, 0.32);
 }
 
 .haw-button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
+/* --- Privacy micro-copy directly under Continue --- */
+.haw-privacy-note {
+  font-size: 0.74rem;
+  color: var(--haw-ink-mute);
+  text-align: center;
+  margin: 4px 0 0;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+
+/* --- Help text --- */
 .haw-help {
   font-size: 0.86rem;
   color: var(--haw-ink-mute);
   margin: 0;
-  padding-top: 20px;
+  padding-top: 18px;
   border-top: 1px solid var(--haw-line-soft);
   line-height: 1.5;
 }
@@ -245,10 +310,22 @@ body {
 
 .haw-help a:hover { text-decoration: underline; }
 
+/* --- Credential line, just above the footer --- */
+.haw-credential {
+  font-size: 0.78rem;
+  color: var(--haw-ink-mute);
+  text-align: center;
+  margin: 18px 0 0;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+/* --- Footer (under card) --- */
 .haw-footer {
   position: relative;
   z-index: 1;
-  margin-top: 28px;
+  margin-top: 24px;
   font-size: 0.82rem;
   color: var(--haw-ink-mute);
   font-style: italic;
