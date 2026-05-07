@@ -77,13 +77,13 @@
 
       if (!destination) {
         showError(
-          'We don&rsquo;t recognize <strong>' + escapeHtml(domain) + '</strong> yet &mdash; ' +
-          'but we&rsquo;d love to. Hello at Work partners with organizations to bring ' +
-          'their teams a thoughtfully curated mental-health resource library and ' +
-          'trusted provider directory. If you&rsquo;d like to learn what that could ' +
-          'look like for your team, reach out to ' +
+          '<p>We don&rsquo;t recognize <strong>' + escapeHtml(domain) + '</strong> yet ' +
+          '&mdash; but we&rsquo;d love to.</p>' +
+          '<p>Hello at Work brings a thoughtfully curated mental-health resource library ' +
+          'and trusted provider directory to organizations that want to support their teams.</p>' +
+          '<p>Curious what that could look like for yours? Reach out to ' +
           '<a href="mailto:welcome@hellomentalhealth.com">welcome@hellomentalhealth.com</a> ' +
-          '&mdash; we&rsquo;d be glad to hear from you.'
+          '&mdash; we&rsquo;d be glad to hear from you.</p>'
         );
         emailInput.focus();
         emailInput.select();

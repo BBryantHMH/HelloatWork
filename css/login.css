@@ -23,8 +23,8 @@ html, body { margin: 0; padding: 0; }
   --haw-teal:      #4A9E87;       /* focus ring — Bailey-specified */
   --haw-coral:     #E28F6E;
   --haw-gold:      #D9A441;
-  --haw-error-bg:  #FDEAE0;
-  --haw-error-ink: #7A2C0F;
+  --haw-notice-bg: #F0F5EE;
+  --haw-notice-ink:#2F4438;
   --haw-radius:    14px;
   --haw-shadow:    0 10px 30px rgba(46, 93, 74, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
 }
@@ -180,22 +180,44 @@ body {
   line-height: 1.55;
 }
 
-/* --- Inline error --- */
+/* --- Inline notice (also used for soft errors like
+       "please enter a valid email"). Tone is friendly,
+       not alarming — the unauthorized-domain message
+       doubles as a sales touch, so the styling is
+       intentionally calm and on-brand rather than red. --- */
 .haw-error {
-  background: var(--haw-error-bg);
-  border-left: 4px solid var(--haw-coral);
-  border-radius: 6px;
-  padding: 12px 14px;
-  color: var(--haw-error-ink);
-  font-size: 0.92rem;
-  line-height: 1.5;
+  background: var(--haw-notice-bg);
+  border-left: 3px solid var(--haw-forest-l);
+  border-radius: 10px;
+  padding: 16px 18px;
+  color: var(--haw-notice-ink);
+  font-size: 0.94rem;
+  line-height: 1.55;
   margin: 0 0 16px;
 }
 
+.haw-error p {
+  margin: 0;
+}
+
+.haw-error p + p {
+  margin-top: 10px;
+}
+
+.haw-error strong {
+  color: var(--haw-forest);
+  font-weight: 600;
+}
+
 .haw-error a {
-  color: var(--haw-error-ink);
+  color: var(--haw-forest);
   font-weight: 600;
   text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.haw-error a:hover {
+  color: var(--haw-forest-d);
 }
 
 .haw-error.is-hidden { display: none; }
