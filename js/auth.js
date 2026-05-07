@@ -77,9 +77,13 @@
 
       if (!destination) {
         showError(
-          'We don&rsquo;t recognize <strong>' + escapeHtml(domain) + '</strong> yet. ' +
-          'If your organization should have access, please email ' +
-          '<a href="mailto:work@hellomentalhealth.com">work@hellomentalhealth.com</a>.'
+          'We don&rsquo;t recognize <strong>' + escapeHtml(domain) + '</strong> yet &mdash; ' +
+          'but we&rsquo;d love to. Hello at Work partners with organizations to bring ' +
+          'their teams a thoughtfully curated mental-health resource library and ' +
+          'trusted provider directory. If you&rsquo;d like to learn what that could ' +
+          'look like for your team, reach out to ' +
+          '<a href="mailto:welcome@hellomentalhealth.com">welcome@hellomentalhealth.com</a> ' +
+          '&mdash; we&rsquo;d be glad to hear from you.'
         );
         emailInput.focus();
         emailInput.select();
