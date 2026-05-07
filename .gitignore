@@ -1,0 +1,17 @@
+# macOS Finder metadata — these are created automatically and should
+# never be committed.
+.DS_Store
+**/.DS_Store
+._*
+
+# Windows equivalent, in case a future collaborator is on Windows.
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Common editor / IDE folders.
+.vscode/
+.idea/
+
+# Node modules in case a build step is added later.
+node_modules/

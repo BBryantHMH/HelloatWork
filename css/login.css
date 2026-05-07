@@ -101,19 +101,21 @@ body {
   margin-bottom: 4px;
 }
 
-/* Two overlapping circles, intentional — signals connection */
-.haw-mark {
-  display: block;
-  margin-bottom: 16px;
+/* The h1 now wraps the wordmark image rather than text. The
+   font-* properties have no effect on the img child but are
+   harmless to keep; we mainly need the spacing and reset. */
+.haw-title {
+  margin: 0 0 10px;
+  line-height: 1;
 }
 
-.haw-title {
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: var(--haw-forest);
-  margin: 0 0 4px;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+/* Wordmark image. Sized to feel like a proper header element
+   without dominating the card. Fluid so it shrinks on narrow
+   phones gracefully. */
+.haw-logo {
+  display: block;
+  width: clamp(180px, 55%, 240px);
+  height: auto;
 }
 
 .haw-subtitle {
