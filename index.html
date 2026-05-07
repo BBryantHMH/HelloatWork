@@ -12,22 +12,19 @@
       and forwards them to the right internal portal.
 
     Design notes:
-      - Self-contained styling in css/login.css.
-      - Existing site styles (which are inline in every other page) are
-        not touched — this page is the public face, not the gated content.
+      - Self-contained styling in css/login.css (.haw-* prefix scoped).
       - All behavior in js/auth.js — no inline JS on this page.
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hello at Work &middot; Sign in</title>
-  <meta name="description" content="A Hello Mental Health resource — sign in with your work email to reach your company portal." />
+  <meta name="description" content="A Hello Mental Health program — sign in with your work email to reach your team's resources." />
 
   <!-- Google Font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 
-  <!-- Login-only stylesheet. Scoped so it cannot bleed into other pages. -->
   <link rel="stylesheet" href="css/login.css" />
 </head>
 <body>
@@ -36,15 +33,56 @@
     <section class="haw-card" aria-labelledby="haw-heading">
 
       <header class="haw-header">
-        <div class="haw-mark" aria-hidden="true">
-          <span class="haw-mark-dot"></span>
-        </div>
+        <!-- Brand mark: two overlapping circles signaling connection -->
+        <svg class="haw-mark" width="58" height="32" viewBox="0 0 58 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="#2E5D4A"/>
+          <circle cx="36" cy="16" r="14" fill="#E28F6E" fill-opacity="0.92"/>
+        </svg>
         <h1 id="haw-heading" class="haw-title">Hello at Work</h1>
         <p class="haw-subtitle">A Hello Mental Health resource</p>
+        <p class="haw-trust">Serving helping professionals across Southwest Ohio</p>
       </header>
 
+      <!-- What's inside — quick teaser -->
+      <ul class="haw-features" aria-label="What's inside">
+        <li class="haw-feature">
+          <span class="haw-feature-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 4.5A1.5 1.5 0 0 1 3.5 3H10a3 3 0 0 1 3 3v15a2 2 0 0 0-2-2H2z"/>
+              <path d="M22 4.5A1.5 1.5 0 0 0 20.5 3H14a3 3 0 0 0-3 3v15a2 2 0 0 1 2-2h9z"/>
+            </svg>
+          </span>
+          <span class="haw-feature-label">Resource Library</span>
+        </li>
+        <li class="haw-feature">
+          <span class="haw-feature-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="16" rx="2"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+              <line x1="8" y1="3" x2="8" y2="7"/>
+              <line x1="16" y1="3" x2="16" y2="7"/>
+              <circle cx="12" cy="15" r="2.2"/>
+              <line x1="12" y1="13.5" x2="12" y2="15"/>
+              <line x1="12" y1="15" x2="13.4" y2="15"/>
+            </svg>
+          </span>
+          <span class="haw-feature-label">Clinician Office Hours</span>
+        </li>
+        <li class="haw-feature">
+          <span class="haw-feature-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="8" r="3.4"/>
+              <path d="M2.5 20v-1a4 4 0 0 1 4-4h5a4 4 0 0 1 4 4v1"/>
+              <circle cx="17.5" cy="9" r="2.6"/>
+              <path d="M15.5 14.6h2a4 4 0 0 1 4 4V20"/>
+            </svg>
+          </span>
+          <span class="haw-feature-label">Facilitated Groups</span>
+        </li>
+      </ul>
+
       <p class="haw-intro">
-        Enter your work email and we&rsquo;ll point you to your organization&rsquo;s wellness portal.
+        Enter your work email and we&rsquo;ll take you straight to your team&rsquo;s resources.
       </p>
 
       <!-- Inline error region. JS toggles .is-hidden and sets text. -->
@@ -66,16 +104,19 @@
           autofocus
         />
         <button type="submit" class="haw-button" id="haw-submit">Continue</button>
+        <p class="haw-privacy-note">We use your email domain only to find your portal. We don&rsquo;t store it.</p>
       </form>
 
       <p class="haw-help">
         Trouble signing in? Email
-        <a href="mailto:work@hellomentalhealth.com">work@hellomentalhealth.com</a>.
+        <a href="mailto:welcome@hellomentalhealth.com">welcome@hellomentalhealth.com</a>.
       </p>
+
+      <p class="haw-credential">Programming facilitated by licensed clinical psychologists</p>
     </section>
 
     <footer class="haw-footer">
-      Built with care by Hello Mental Health &middot; Cincinnati, OH
+      A Hello Mental Health program &middot; Cincinnati, OH
     </footer>
   </main>
 
