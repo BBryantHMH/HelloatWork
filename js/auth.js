@@ -24,7 +24,7 @@
   // --- Approved partner organizations and where to send them ---
   // Domains MUST be lowercase. Match is exact (no subdomain wildcarding).
   var APPROVED_DOMAINS = {
-    'talberthouse.org': 'home.html'
+    'talberthouse.org': 'talberthouse/'
     // Add more partner orgs here as they come online, e.g.:
     // 'examplepartner.org': 'https://examplepartner-portal.example.com/'
   };
