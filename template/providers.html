@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Provider Directory &middot; [Your Organization] &middot; Hello at Work</title>
+<meta name="description" content="Searchable internal provider directory for [Your Organization] staff. Filter by insurance, specialty, and location." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" />
+<style>
+:root{--haw-forest:#2E5D4A;--haw-forest-dark:#1E3E32;--haw-forest-light:#E8F1ED;--haw-gold:#D9A441;--haw-gold-soft:#FBF1DC;--haw-coral:#E28F6E;--haw-coral-soft:#FDEAE0;--haw-cream:#FAF5EC;--slate-900:#1F2937;--slate-700:#374151;--slate-500:#6B7280;--slate-300:#D1D5DB;--slate-100:#F3F4F6;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(46,93,74,.10),0 2px 4px rgba(0,0,0,.04);--font-display:"Playfair Display",Georgia,serif;--font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--haw-forest);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,2.8rem)}h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var(--slate-500)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:56px 0}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--haw-forest);margin-bottom:8px}
+
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFC7B0}.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+.brand-logo{height:34px;width:auto}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem;transition:background .15s,color .15s}
+.nav-links a:hover{background:var(--haw-forest-light);color:var(--haw-forest-dark);text-decoration:none}
+.nav-links a.active{color:var(--haw-forest-dark);background:var(--haw-forest-light)}
+.nav-cta{background:var(--haw-forest)!important;color:#fff!important;padding:9px 16px!important;border-radius:999px!important}
+.nav-cta:hover{background:var(--haw-forest-dark)!important;text-decoration:none!important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer}
+@media(max-width:860px){.nav-toggle{display:inline-block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+.nav-links.open{display:flex}.nav-links a{padding:12px}}
+
+.page-head{background:linear-gradient(135deg,var(--haw-forest),var(--haw-forest-dark));color:#fff;padding:64px 0 52px;position:relative;overflow:hidden}
+.page-head::after{content:"";position:absolute;top:-60px;right:-60px;width:260px;height:260px;background:var(--haw-gold);opacity:.14;border-radius:50%;filter:blur(8px)}
+.page-head::before{content:"";position:absolute;bottom:-60px;left:-40px;width:200px;height:200px;background:var(--haw-coral);opacity:.12;border-radius:50%;filter:blur(10px)}
+.page-head .container{position:relative;z-index:1}
+.page-head h1{color:#fff;max-width:22ch}
+.page-head .lead{color:rgba(255,255,255,.92);max-width:60ch}
+.page-head .eyebrow{color:rgba(255,255,255,.7)}
+
+.search-bar{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-md);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-bottom:14px;position:relative;z-index:2;margin-top:-34px}
+.search-bar label{display:block;font-size:.78rem;font-weight:700;color:var(--slate-700);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.search-bar input,.search-bar select{width:100%;padding:11px 14px;border:1px solid var(--slate-300);border-radius:var(--radius-sm);background:#fff;font-size:.98rem;font-family:inherit;color:var(--slate-900)}
+.search-bar input:focus,.search-bar select:focus{outline:2px solid var(--haw-forest);outline-offset:1px;border-color:var(--haw-forest)}
+@media(max-width:820px){.search-bar{grid-template-columns:1fr 1fr;margin-top:-20px}}
+@media(max-width:520px){.search-bar{grid-template-columns:1fr}}
+
+.search-meta{display:flex;justify-content:space-between;align-items:center;margin:18px 0 16px;font-size:.95rem;color:var(--slate-700);flex-wrap:wrap;gap:10px}
+.search-meta button{background:transparent;border:1px solid var(--slate-300);padding:7px 14px;border-radius:999px;font-size:.88rem;cursor:pointer;color:var(--slate-700);font-family:inherit}
+.search-meta button:hover{border-color:var(--haw-forest);color:var(--haw-forest)}
+
+.provider-card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:70px 1fr;gap:18px;margin-bottom:14px;transition:box-shadow .15s,transform .15s}
+.provider-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.provider-avatar{width:70px;height:70px;background:var(--haw-forest-light);color:var(--haw-forest);border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);font-size:1.45rem;font-weight:700;flex-shrink:0}
+.provider-body h3{margin:0 0 2px;font-size:1.2rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.provider-meta{color:var(--slate-500);font-size:.92rem;margin-bottom:10px}
+.provider-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.tag{display:inline-block;background:var(--haw-forest-light);color:var(--haw-forest);padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:600}
+.tag.insurance{background:var(--haw-gold-soft);color:#8E6A1A}
+.tag.hmh{background:var(--haw-cream);color:var(--haw-forest)}
+.provider-contact{display:flex;flex-wrap:wrap;gap:16px;font-size:.92rem;color:var(--slate-700)}
+.provider-contact a{color:var(--haw-forest);font-weight:600}
+.no-results{background:var(--haw-forest-light);color:var(--haw-forest);padding:28px;border-radius:var(--radius-md);text-align:center}
+.badge{display:inline-block;background:var(--haw-forest);color:#fff;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.badge.gold{background:var(--haw-gold);color:var(--haw-forest-dark)}
+@media(max-width:520px){.provider-card{grid-template-columns:1fr}.provider-avatar{width:52px;height:52px;font-size:1.2rem}}
+
+.callout{background:var(--haw-cream);border-left:5px solid var(--haw-forest);border-radius:var(--radius-md);padding:18px 22px;color:var(--slate-900);font-size:.98rem;margin:20px 0}
+.callout strong{color:var(--haw-forest)}
+.callout.gold{background:var(--haw-gold-soft);border-left-color:var(--haw-gold)}
+.callout.gold strong{color:#8E6A1A}
+
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
+.site-footer a{color:var(--haw-forest-light)}
+.site-footer a:hover{color:#fff}
+.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--haw-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--haw-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="crisis-banner">
+  <strong>IN A CRISIS?</strong>
+  Call or text <a href="tel:988">988 Lifeline</a> &middot;
+  Crisis Text Line: Text HOME to <a href="sms:741741">741741</a> &middot;
+  <a href="tel:">[Organization crisis line]</a>
+</div>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" class="brand-lockup">
+      <img src="../assets/hello-at-work-logo.png" alt="Hello at Work" class="brand-logo" />
+    </a>
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.querySelector('.nav-links').classList.toggle('open')">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="providers.html" class="active">Providers</a>
+      <a href="workplace-wellness.html">Workplace wellness</a>
+      <a href="resources.html">Resources</a>
+      <a href="blog.html">Blog</a>
+      <a href="videos.html">Videos</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="providers.html" class="nav-cta">Find a provider</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">Internal provider directory</span>
+    <h1>Find a trusted provider, fast.</h1>
+    <p class="lead">A curated list of vetted outside providers &mdash; searchable by insurance type, specialty, and location. Use it for client referrals, for your own care, or for a colleague.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+
+    <div class="search-bar" role="search">
+      <div>
+        <label for="provider-search">Search by name or keyword</label>
+        <input id="provider-search" type="search" placeholder="e.g. trauma, anxiety, couples" autocomplete="off" />
+      </div>
+      <div>
+        <label for="provider-area">Neighborhood / area</label>
+        <select id="provider-area"></select>
+      </div>
+      <div>
+        <label for="provider-issue">Presenting problem</label>
+        <select id="provider-issue"></select>
+      </div>
+      <div>
+        <label for="provider-session">Session type</label>
+        <select id="provider-session">
+          <option value="">Any session type</option>
+          <option value="telehealth">Telehealth</option>
+          <option value="in_person">In-person</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <strong>On your organization&rsquo;s insurance plan?</strong> This directory lists providers who accept [Your Organization]&rsquo;s benefits. Always confirm insurance acceptance directly with the provider before scheduling. <strong>Updated [Month Year].</strong>
+    </div>
+
+    <div class="search-meta">
+      <span id="provider-count">Loading providers&hellip;</span>
+      <button id="clear-filters" type="button">Clear filters</button>
+    </div>
+
+    <div id="provider-list"></div>
+
+    <div class="callout" style="margin-top:30px">
+      <strong>Know a great provider we should add?</strong>
+      <p style="margin:6px 0 0">This directory is intentionally curated &mdash; we add providers only after direct conversations so we can vouch for them. Email <a href="mailto:welcome@hellomentalhealth.com">welcome@hellomentalhealth.com</a> with a recommendation and we&rsquo;ll reach out.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/hello-at-work-logo.png" alt="Hello at Work" style="height:28px;opacity:.8;margin-bottom:12px;display:block" />
+        <p style="margin:0 0 10px">An internal resource library for [Your Organization] staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0;font-size:.88rem">Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div><h4>Library</h4><ul>
+        <li><a href="providers.html">Providers</a></li>
+        <li><a href="workplace-wellness.html">Workplace wellness</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="podcast.html">Podcast</a></li>
+      </ul></div>
+      <div><h4>Crisis lines</h4><ul>
+        <li><a href="tel:988">988 Lifeline</a></li>
+        <li>Text HOME to 741741</li>
+        <li><a href="tel:">[Org crisis line]</a></li>
+      </ul></div>
+      <div><h4>[Your Organization]</h4><ul>
+        <li><a href="#" target="_blank" rel="noopener">[org website]</a></li>
+        <li><a href="tel:">[main phone]</a></li>
+        <li>[address]</li>
+      </ul></div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 [Your Organization] Staff Resource Library &middot; Internal use</div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   PROVIDER DATABASE
+   ---------------------------------------------------------
+   TO ADD A PROVIDER: copy one object from the PROVIDERS array
+   and fill in the fields. Keep commas between items.
+   "specialties" values should match ISSUE_OPTIONS entries.
+   "areas" values should match AREA_OPTIONS entries.
+   ========================================================= */
+
+const AREA_OPTIONS = [
+  "[City/Neighborhood 1]",
+  "[City/Neighborhood 2]",
+  "[City/Neighborhood 3]",
+  "[City/Neighborhood 4]",
+  "[City/Neighborhood 5]"
+];
+
+const ISSUE_OPTIONS = [
+  "ADHD",
+  "Anxiety",
+  "Autism / Neurodivergence",
+  "Bipolar Disorder",
+  "Body Image",
+  "Burnout & Compassion Fatigue",
+  "Child & Adolescent",
+  "Couples / Relationships",
+  "Depression",
+  "Eating Disorders",
+  "Gender Identity",
+  "Grief & Bereavement",
+  "LGBTQ+ Affirming",
+  "Life Transitions",
+  "Medication Management",
+  "Men's & Women's Issues",
+  "OCD",
+  "Parenting & Family",
+  "Perinatal / Postpartum",
+  "Personality Disorders",
+  "PTSD / Trauma",
+  "Psychological Assessment",
+  "Sleep Disorders",
+  "Substance Use / Recovery"
+];
+
+const PROVIDERS = [
+  {
+    id: "demo-provider-1",
+    name: "Example Group Practice",
+    credentials: "Group Practice — Therapists & Psychiatric NPs",
+    location: "Multiple locations — telehealth available statewide",
+    phone: "555-000-0001",
+    email: "",
+    website: "https://hellomentalhealth.com",
+    telehealth: true,
+    in_person: true,
+    notes: "Ages: Adults & adolescents. In-person & telehealth. Accepts [Org] insurance benefits. Schedule directly via website.",
+    insurance: ["[Org Insurance Plan]"],
+    specialties: ["Anxiety","Depression","ADHD","PTSD / Trauma","OCD","Burnout & Compassion Fatigue","LGBTQ+ Affirming","Grief & Bereavement"],
+    areas: ["[City/Neighborhood 1]","[City/Neighborhood 2]"],
+    is_author: false
+  },
+  {
+    id: "demo-provider-2",
+    name: "Hello Mental Health",
+    credentials: "PhD/PsyD Psychologists",
+    location: "126 Wellington Place, Cincinnati OH 45219 · Telehealth statewide",
+    phone: "513-717-5566",
+    email: "welcome@hellomentalhealth.com",
+    website: "https://hellomentalhealth.com",
+    telehealth: true,
+    in_person: true,
+    notes: "Ages: Adults. Specializes in anxiety, OCD, trauma, ADHD, and assessment. EAP & self-pay. Free 15-min consultation.",
+    insurance: ["EAP","Self-Pay","[Org Insurance Plan]"],
+    specialties: ["Anxiety","OCD","PTSD / Trauma","ADHD","Depression","Burnout & Compassion Fatigue","Psychological Assessment","Gender Identity"],
+    areas: ["[City/Neighborhood 1]"],
+    is_author: true
+  },
+  {
+    id: "demo-provider-3",
+    name: "Community Counseling Center",
+    credentials: "LPCCs, LISWs, LCSWs",
+    location: "[Address] · Telehealth available",
+    phone: "555-000-0003",
+    email: "",
+    website: "#",
+    telehealth: true,
+    in_person: true,
+    notes: "Ages: All. Sliding scale available. Specializes in trauma, couples, and LGBTQ+ affirming care.",
+    insurance: ["[Org Insurance Plan]","Medicaid","Medicare","Self-Pay"],
+    specialties: ["PTSD / Trauma","Couples / Relationships","LGBTQ+ Affirming","Anxiety","Depression","Substance Use / Recovery"],
+    areas: ["[City/Neighborhood 2]","[City/Neighborhood 3]"],
+    is_author: false
+  }
+];
+
+/* -------- Render logic (do not edit below this line) -------- */
+(function(){
+  const searchEl=document.getElementById('provider-search');
+  const areaEl=document.getElementById('provider-area');
+  const issueEl=document.getElementById('provider-issue');
+  const sessionEl=document.getElementById('provider-session');
+  const listEl=document.getElementById('provider-list');
+  const countEl=document.getElementById('provider-count');
+  const clearBtn=document.getElementById('clear-filters');
+
+  // Populate select options
+  const allAreas=[...new Set(PROVIDERS.flatMap(p=>p.areas||[]))].sort();
+  const allIssues=[...new Set(PROVIDERS.flatMap(p=>p.specialties||[]))].sort();
+  areaEl.innerHTML='<option value="">Any area</option>'+allAreas.map(a=>`<option value="${esc(a)}">${esc(a)}</option>`).join('');
+  issueEl.innerHTML='<option value="">Any specialty</option>'+allIssues.map(i=>`<option value="${esc(i)}">${esc(i)}</option>`).join('');
+
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+
+  function initials(name){return name.split(/\s+/).filter(Boolean).map(w=>w[0].toUpperCase()).slice(0,2).join('');}
+
+  function render(){
+    const q=(searchEl.value||'').toLowerCase().trim();
+    const area=areaEl.value;
+    const issue=issueEl.value;
+    const sess=sessionEl.value;
+    const filtered=PROVIDERS.filter(p=>{
+      if(q&&!(`${p.name} ${p.credentials} ${p.notes} ${(p.specialties||[]).join(' ')} ${(p.areas||[]).join(' ')}`).toLowerCase().includes(q))return false;
+      if(area&&!(p.areas||[]).includes(area))return false;
+      if(issue&&!(p.specialties||[]).includes(issue))return false;
+      if(sess==='telehealth'&&!p.telehealth)return false;
+      if(sess==='in_person'&&!p.in_person)return false;
+      return true;
+    });
+    countEl.textContent=`Showing ${filtered.length} of ${PROVIDERS.length} provider${PROVIDERS.length!==1?'s':''}`;
+    if(!filtered.length){listEl.innerHTML='<div class="no-results"><strong>No providers match those filters.</strong><br>Try broadening your search or clearing a filter.</div>';return;}
+    listEl.innerHTML=filtered.map(p=>`
+      <div class="provider-card">
+        <div class="provider-avatar">${esc(initials(p.name))}</div>
+        <div class="provider-body">
+          <h3>${esc(p.name)}${p.is_author?'<span class="badge gold">Hello at Work Partner</span>':''}</h3>
+          <div class="provider-meta">${esc(p.credentials)}</div>
+          <div class="provider-meta">&#128205; ${esc(p.location)}</div>
+          <div class="provider-tags">
+            ${(p.insurance||[]).map(i=>`<span class="tag insurance">${esc(i)}</span>`).join('')}
+            ${p.telehealth?'<span class="tag">&#128247; Telehealth</span>':''}
+            ${p.in_person?'<span class="tag">&#127968; In-person</span>':''}
+          </div>
+          <div class="provider-tags">
+            ${(p.specialties||[]).map(s=>`<span class="tag">${esc(s)}</span>`).join('')}
+          </div>
+          ${p.notes?`<p style="font-size:.92rem;color:var(--slate-700);margin:6px 0 10px">${esc(p.notes)}</p>`:''}
+          <div class="provider-contact">
+            ${p.phone?`<a href="tel:${esc(p.phone.replace(/\D/g,''))}">&#9742; ${esc(p.phone)}</a>`:''}
+            ${p.email?`<a href="mailto:${esc(p.email)}">&#9993; ${esc(p.email)}</a>`:''}
+            ${p.website&&p.website!=='#'?`<a href="${esc(p.website)}" target="_blank" rel="noopener">&#127760; Website</a>`:''}
+          </div>
+        </div>
+      </div>`).join('');
+  }
+
+  [searchEl,areaEl,issueEl,sessionEl].forEach(el=>el.addEventListener('input',render));
+  clearBtn.addEventListener('click',()=>{searchEl.value='';areaEl.value='';issueEl.value='';sessionEl.value='';render();});
+  render();
+})();
+</script>
+</body>
+</html>

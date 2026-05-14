@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Video Library &middot; [Your Organization] &middot; Hello at Work</title>
+<meta name="description" content="Short, practical videos for [Your Organization] staff — grounding exercises, clinical skill-builders, and supervision series from Hello Mental Health." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" />
+<style>
+:root{--haw-forest:#2E5D4A;--haw-forest-dark:#1E3E32;--haw-forest-light:#E8F1ED;--haw-gold:#D9A441;--haw-gold-soft:#FBF1DC;--haw-coral:#E28F6E;--haw-coral-soft:#FDEAE0;--haw-cream:#FAF5EC;--slate-900:#1F2937;--slate-700:#374151;--slate-500:#6B7280;--slate-300:#D1D5DB;--slate-100:#F3F4F6;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(46,93,74,.10),0 2px 4px rgba(0,0,0,.04);--font-display:"Playfair Display",Georgia,serif;--font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--haw-forest);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,2.8rem)}h3{font-size:1.15rem}
+p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var(--slate-500)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:56px 0}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--haw-forest);margin-bottom:8px}
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFC7B0}.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+.brand-logo{height:34px;width:auto}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem;transition:background .15s,color .15s}
+.nav-links a:hover{background:var(--haw-forest-light);color:var(--haw-forest-dark);text-decoration:none}
+.nav-links a.active{color:var(--haw-forest-dark);background:var(--haw-forest-light)}
+.nav-cta{background:var(--haw-forest)!important;color:#fff!important;padding:9px 16px!important;border-radius:999px!important}
+.nav-cta:hover{background:var(--haw-forest-dark)!important;text-decoration:none!important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer}
+@media(max-width:860px){.nav-toggle{display:inline-block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+.nav-links.open{display:flex}.nav-links a{padding:12px}}
+.page-head{background:var(--slate-900);color:#fff;padding:60px 0 48px;position:relative;overflow:hidden}
+.page-head::before{content:"";position:absolute;top:-60px;right:-60px;width:260px;height:260px;background:var(--haw-forest);opacity:.35;border-radius:50%;filter:blur(8px)}
+.page-head::after{content:"";position:absolute;bottom:-60px;left:-40px;width:200px;height:200px;background:var(--haw-gold);opacity:.18;border-radius:50%;filter:blur(10px)}
+.page-head .container{position:relative;z-index:1}
+.page-head h1{color:#fff;max-width:22ch}
+.page-head .lead{color:rgba(255,255,255,.88);max-width:62ch}
+.page-head .eyebrow{color:rgba(255,255,255,.65)}
+/* Player */
+#player{display:none;background:var(--slate-900);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:32px}
+#player iframe{width:100%;aspect-ratio:16/9;display:block;border:0}
+#player-meta{padding:22px 24px;color:#fff}
+#player-meta h2{color:#fff;margin:0 0 4px;font-size:1.3rem}
+#player-meta .meta{font-size:.88rem;color:rgba(255,255,255,.6);margin:0 0 10px}
+#player-meta p{color:rgba(255,255,255,.85);font-size:.95rem;margin:0}
+#player-back{background:transparent;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85);padding:8px 16px;border-radius:999px;cursor:pointer;font-family:inherit;font-size:.88rem;margin-top:14px;display:inline-block}
+#player-back:hover{border-color:#fff;color:#fff}
+.placeholder-frame{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,var(--haw-forest-dark),var(--haw-forest));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:#fff}
+.placeholder-frame .play-icon{width:64px;height:64px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+.placeholder-frame p{margin:0;font-size:.92rem;opacity:.7}
+/* Grid */
+#video-list-section{padding:56px 0}
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;align-items:center}
+.filter-bar input{padding:9px 14px;border:1px solid var(--slate-300);border-radius:var(--radius-sm);font-family:inherit;font-size:.95rem;min-width:240px}
+.filter-bar input:focus{outline:2px solid var(--haw-forest);border-color:var(--haw-forest)}
+.cat-chip{background:#fff;border:1px solid var(--slate-300);color:var(--slate-700);padding:7px 14px;border-radius:999px;font-size:.86rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.cat-chip:hover{border-color:var(--haw-forest);color:var(--haw-forest)}
+.cat-chip.active{background:var(--haw-forest);border-color:var(--haw-forest);color:#fff}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.video-card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);overflow:hidden;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.video-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.video-cover{aspect-ratio:16/9;position:relative;display:flex;align-items:center;justify-content:center}
+.video-cover.v1{background:linear-gradient(135deg,var(--haw-coral),var(--haw-gold))}
+.video-cover.v2{background:linear-gradient(135deg,var(--haw-forest),#5A9E7A)}
+.video-cover.v3{background:linear-gradient(135deg,var(--haw-forest-dark),var(--haw-forest))}
+.video-cover.v4{background:linear-gradient(135deg,#4A3F6B,#7B6BA8)}
+.video-cover.v5{background:linear-gradient(135deg,#2C5282,#4A90D9)}
+.play{width:52px;height:52px;background:rgba(255,255,255,.22);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;transition:background .15s}
+.video-card:hover .play{background:rgba(255,255,255,.38)}
+.dur{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.55);color:#fff;font-size:.76rem;font-weight:600;padding:2px 7px;border-radius:4px}
+.video-body{padding:16px 18px 20px}
+.topic{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--haw-forest);display:block;margin-bottom:4px}
+.video-body h3{margin:0 0 6px;font-size:1.05rem}
+.video-body p{margin:0 0 8px;color:var(--slate-700);font-size:.91rem}
+.meta{font-size:.8rem;color:var(--slate-500)}
+.no-results{background:var(--haw-forest-light);color:var(--haw-forest);padding:28px;border-radius:var(--radius-md);text-align:center;grid-column:1/-1}
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
+.site-footer a{color:var(--haw-forest-light)}.site-footer a:hover{color:#fff}
+.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--haw-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--haw-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="crisis-banner">
+  <strong>IN A CRISIS?</strong>
+  Call or text <a href="tel:988">988 Lifeline</a> &middot;
+  Crisis Text Line: Text HOME to <a href="sms:741741">741741</a> &middot;
+  <a href="tel:">[Organization crisis line]</a>
+</div>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" class="brand-lockup"><img src="../assets/hello-at-work-logo.png" alt="Hello at Work" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.querySelector('.nav-links').classList.toggle('open')">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="providers.html">Providers</a>
+      <a href="workplace-wellness.html">Workplace wellness</a><a href="resources.html">Resources</a>
+      <a href="blog.html">Blog</a><a href="videos.html" class="active">Videos</a><a href="podcast.html">Podcast</a>
+      <a href="providers.html" class="nav-cta">Find a provider</a>
+    </div>
+  </nav>
+</header>
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">Video library</span>
+    <h1>Short. Practical. Watchable between sessions.</h1>
+    <p class="lead">Grounding exercises, skill-builders, and supervision series from Hello Mental Health &mdash; designed to fit into the real shape of a behavioral health workday.</p>
+  </div>
+</section>
+<section id="video-list-section">
+  <div class="container">
+    <div id="player" style="display:none">
+      <div id="player-frame-wrap"></div>
+      <div id="player-meta">
+        <h2 id="player-title"></h2>
+        <div class="meta" id="player-info"></div>
+        <p id="player-desc"></p>
+        <button id="player-back">&#8592; Back to all videos</button>
+      </div>
+    </div>
+    <div class="filter-bar">
+      <input id="vid-search" type="search" placeholder="Search videos&hellip;" autocomplete="off" />
+      <button class="cat-chip active" data-cat="">All</button>
+      <button class="cat-chip" data-cat="Quick tools">Quick tools</button>
+      <button class="cat-chip" data-cat="For supervisors">Supervisors</button>
+      <button class="cat-chip" data-cat="Clinical skills">Clinical skills</button>
+      <button class="cat-chip" data-cat="Self-care">Self-care</button>
+      <button class="cat-chip" data-cat="Team">Team</button>
+    </div>
+    <div class="video-grid" id="video-list"></div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/hello-at-work-logo.png" alt="Hello at Work" style="height:28px;opacity:.8;margin-bottom:12px;display:block" />
+        <p style="margin:0 0 10px">Video content from Hello Mental Health for [Your Organization] staff.</p>
+        <p class="muted" style="color:#98A2AD;margin:0;font-size:.88rem">Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div><h4>Library</h4><ul>
+        <li><a href="providers.html">Providers</a></li><li><a href="workplace-wellness.html">Workplace wellness</a></li>
+        <li><a href="resources.html">Resources</a></li><li><a href="blog.html">Blog</a></li>
+        <li><a href="videos.html">Videos</a></li><li><a href="podcast.html">Podcast</a></li>
+      </ul></div>
+      <div><h4>Crisis lines</h4><ul>
+        <li><a href="tel:988">988 Lifeline</a></li><li>Text HOME to 741741</li>
+        <li><a href="tel:">[Org crisis line]</a></li>
+      </ul></div>
+      <div><h4>[Your Organization]</h4><ul>
+        <li><a href="#" target="_blank" rel="noopener">[org website]</a></li>
+        <li><a href="tel:">[main phone]</a></li><li>[address]</li>
+      </ul></div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 [Your Organization] Staff Resource Library &middot; Internal use</div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+<script>
+/* =========================================================
+   VIDEOS
+   "embed_url": YouTube/Vimeo embed URL or leave "" for placeholder.
+   "topic": must match one of the chip labels above.
+   ========================================================= */
+const VIDEOS = [
+  {id:"grounding-90-sec",title:"A 90-second grounding exercise you can do at your desk",topic:"Quick tools",duration:"1:32",date:"2026-04-04",cover_variant:1,cover_label:"Pause",embed_url:"",
+   description:"A short, guided exercise to help reset after a hard session or call. Uses the 5-4-3-2-1 technique with a Hello Mental Health twist."},
+  {id:"box-breathing",title:"Box breathing: the 60-second reset",topic:"Quick tools",duration:"1:05",date:"2026-04-04",cover_variant:2,cover_label:"Breathe",embed_url:"",
+   description:"Walk through one round of box breathing with on-screen guidance. Simple, evidence-based, usable anywhere."},
+  {id:"supervision-series-1",title:"Reflective supervision, part 1: what makes it work",topic:"For supervisors",duration:"12:45",date:"2026-03-19",cover_variant:3,cover_label:"Ep. 1",embed_url:"",
+   description:"What distinguishes reflective from administrative supervision — and why it matters for staff retention."},
+  {id:"supervision-series-2",title:"Reflective supervision, part 2: a session format",topic:"For supervisors",duration:"11:20",date:"2026-03-26",cover_variant:4,cover_label:"Ep. 2",embed_url:"",
+   description:"A structured format for reflective supervision you can use starting this week. Includes opening prompts, mid-session check-ins, and how to close the space."},
+  {id:"supervision-series-3",title:"Reflective supervision, part 3: when it gets hard",topic:"For supervisors",duration:"14:10",date:"2026-04-02",cover_variant:5,cover_label:"Ep. 3",embed_url:"",
+   description:"What to do when a supervisee is resistant, when the relationship ruptures, or when secondary trauma shows up in supervision."},
+  {id:"trauma-informed-intake",title:"Trauma-informed intake, without the jargon",topic:"Clinical skills",duration:"8:10",date:"2026-02-27",cover_variant:2,cover_label:"Skills",embed_url:"",
+   description:"Small changes to the first five minutes of an intake that signal safety and change how the rest of the session unfolds."},
+  {id:"self-care-reality",title:"What self-care actually looks like for behavioral health staff",topic:"Self-care",duration:"9:45",date:"2026-02-13",cover_variant:1,cover_label:"Care",embed_url:"",
+   description:"Not bubble baths and yoga. The evidence on what actually protects against burnout and secondary trauma — and how to fit it into a real schedule."},
+  {id:"team-meeting-checkin",title:"Opening your team meeting differently",topic:"Team",duration:"4:30",date:"2026-01-22",cover_variant:3,cover_label:"Team",embed_url:"",
+   description:"A simple 10-minute structure for opening team meetings with a real check-in. Normalizes emotional honesty without turning meetings into group therapy."}
+];
+
+(function(){
+  const list=document.getElementById('video-list');
+  const listSec=document.getElementById('video-list-section');
+  const player=document.getElementById('player');
+  const frameWrap=document.getElementById('player-frame-wrap');
+  const titleEl=document.getElementById('player-title');
+  const infoEl=document.getElementById('player-info');
+  const descEl=document.getElementById('player-desc');
+  const back=document.getElementById('player-back');
+  const searchEl=document.getElementById('vid-search');
+  const chips=document.querySelectorAll('.cat-chip');
+  let activeCat='';
+
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+  function fmtDate(iso){try{return new Date(iso).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}catch(e){return iso;}}
+
+  function render(){
+    const q=(searchEl.value||'').toLowerCase();
+    const filtered=VIDEOS.filter(v=>{
+      if(activeCat&&v.topic!==activeCat)return false;
+      if(q&&!(v.title+v.description+v.topic).toLowerCase().includes(q))return false;
+      return true;
+    });
+    if(!filtered.length){list.innerHTML='<div class="no-results">No videos match those filters.</div>';return;}
+    list.innerHTML=filtered.map(v=>`
+      <div class="video-card" data-id="${esc(v.id)}">
+        <div class="video-cover v${v.cover_variant||1}">
+          <div class="play">&#9654;</div>
+          ${v.duration?`<span class="dur">${esc(v.duration)}</span>`:''}
+        </div>
+        <div class="video-body">
+          <span class="topic">${esc(v.topic||'')}</span>
+          <h3>${esc(v.title)}</h3>
+          <p>${esc(v.description||'')}</p>
+          <div class="meta">${esc(fmtDate(v.date||''))}</div>
+        </div>
+      </div>`).join('');
+    list.querySelectorAll('.video-card').forEach(card=>{
+      card.addEventListener('click',()=>openPlayer(card.dataset.id));
+    });
+  }
+
+  function openPlayer(id){
+    const v=VIDEOS.find(x=>x.id===id);
+    if(!v)return;
+    titleEl.textContent=v.title;
+    infoEl.textContent=`${v.topic||''} · ${v.duration||''} · ${fmtDate(v.date||'')}`;
+    descEl.textContent=v.description||'';
+    if(v.embed_url){
+      frameWrap.innerHTML=`<iframe src="${esc(v.embed_url)}" allow="autoplay;fullscreen" allowfullscreen></iframe>`;
+    } else {
+      frameWrap.innerHTML=`<div class="placeholder-frame"><div class="play-icon">&#9654;</div><p>Video coming soon</p></div>`;
+    }
+    player.style.display='block';listSec.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  chips.forEach(chip=>{
+    chip.addEventListener('click',function(){
+      activeCat=this.dataset.cat;
+      chips.forEach(c=>c.classList.remove('active'));
+      this.classList.add('active');
+      render();
+    });
+  });
+  back.addEventListener('click',()=>{player.style.display='none';frameWrap.innerHTML='';});
+  searchEl.addEventListener('input',render);
+  render();
+})();
+</script>
+</body>
+</html>

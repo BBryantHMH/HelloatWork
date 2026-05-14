@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[Your Organization] Staff Resource Library &middot; Hello at Work</title>
+<meta name="description" content="A workplace wellness and mental health resource library for [Your Organization] staff &mdash; built by Hello Mental Health." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" />
+<style>
+/* ==========================================================
+   Hello at Work — Generic Sales Template
+   Built by Hello Mental Health
+   ----------------------------------------------------------
+   CUSTOMIZATION GUIDE:
+   1. Find/replace "[Your Organization]" with the org name
+   2. Update --haw-org-primary to match the org's brand color
+   3. Update crisis banner phone numbers
+   4. Update footer links
+   ========================================================== */
+:root {
+  /* Hello at Work brand */
+  --haw-forest:      #2E5D4A;
+  --haw-forest-dark: #1E3E32;
+  --haw-forest-light:#E8F1ED;
+  --haw-gold:        #D9A441;
+  --haw-gold-soft:   #FBF1DC;
+  --haw-coral:       #E28F6E;
+  --haw-coral-soft:  #FDEAE0;
+  --haw-cream:       #FAF5EC;
+  /* Org accent — override per client */
+  --haw-org-primary: #2E5D4A;
+  --haw-org-light:   #E8F1ED;
+  /* Neutrals */
+  --slate-900:#1F2937; --slate-700:#374151; --slate-500:#6B7280;
+  --slate-300:#D1D5DB; --slate-100:#F3F4F6;
+  /* Tokens */
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);
+  --shadow-md:0 4px 12px rgba(46,93,74,.10),0 2px 4px rgba(0,0,0,.04);
+  --shadow-lg:0 8px 28px rgba(46,93,74,.14),0 4px 8px rgba(0,0,0,.06);
+  --font-display:"Playfair Display",Georgia,"Iowan Old Style",Cambria,serif;
+  --font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--haw-forest);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,2.5vw,2.1rem)}h3{font-size:1.25rem}
+p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
+.muted{color:var(--slate-500)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.container-narrow{max-width:860px;margin:0 auto;padding:0 24px}
+.section{padding:72px 0}.section-tight{padding:44px 0}
+.section-cream{background:var(--haw-cream)}
+.section-forest-soft{background:var(--haw-forest-light)}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--haw-forest);margin-bottom:8px}
+.eyebrow-gold{color:var(--haw-gold)}
+.eyebrow-light{color:rgba(255,255,255,.75)}
+
+/* ---- Crisis banner ---- */
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFC7B0;letter-spacing:.02em}
+.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+.crisis-banner a:hover{color:#fff}
+
+/* ---- Nav ---- */
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40;transition:box-shadow .2s ease}
+.site-header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+.brand-logo{height:36px;width:auto}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem;transition:background .15s,color .15s}
+.nav-links a:hover{background:var(--haw-forest-light);color:var(--haw-forest-dark);text-decoration:none}
+.nav-links a.active{color:var(--haw-forest-dark);background:var(--haw-forest-light)}
+.nav-cta{background:var(--haw-forest)!important;color:#fff!important;padding:9px 16px!important;border-radius:999px!important}
+.nav-cta:hover{background:var(--haw-forest-dark)!important;text-decoration:none!important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer;font-size:1rem}
+@media(max-width:860px){
+  .nav-toggle{display:inline-block}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+  .nav-links.open{display:flex}.nav-links a{padding:12px;border-radius:var(--radius-sm)}
+}
+
+/* ---- Hero ---- */
+.hero{background:linear-gradient(135deg,var(--haw-forest) 0%,var(--haw-forest-dark) 100%);color:#fff;padding:96px 24px 88px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-100px;right:-60px;width:360px;height:360px;background:var(--haw-gold);opacity:.15;border-radius:50%;filter:blur(10px)}
+.hero::after{content:"";position:absolute;bottom:-80px;left:10%;width:280px;height:280px;background:var(--haw-coral);opacity:.12;border-radius:50%;filter:blur(12px)}
+.hero .container{position:relative;z-index:1}
+.hero h1{color:#fff;max-width:18ch;margin-bottom:.6em}
+.hero .lead{color:rgba(255,255,255,.9);max-width:56ch;font-size:1.2rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 14px;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:20px;letter-spacing:.04em}
+.hero-badge .dot{width:7px;height:7px;background:var(--haw-gold);border-radius:50%}
+
+/* ---- Buttons ---- */
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.98rem;border:2px solid transparent;cursor:pointer;transition:transform .12s ease,background .15s ease,box-shadow .15s ease;text-align:center;font-family:var(--font-body)}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--haw-gold);color:var(--haw-forest-dark)}.btn-primary:hover{background:#C8941F;box-shadow:0 4px 16px rgba(217,164,65,.4);color:var(--haw-forest-dark)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}.btn-ghost-light:hover{background:rgba(255,255,255,.12);color:#fff}
+.btn-outline{background:#fff;color:var(--haw-forest-dark);border-color:var(--haw-forest)}.btn-outline:hover{background:var(--haw-forest-light);color:var(--haw-forest-dark)}
+.btn-forest{background:var(--haw-forest);color:#fff}.btn-forest:hover{background:var(--haw-forest-dark);color:#fff}
+
+/* ---- Grid ---- */
+.grid{display:grid;gap:22px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+
+/* ---- Cards ---- */
+.card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:26px;box-shadow:var(--shadow-sm);transition:transform .15s ease,box-shadow .15s ease;display:flex;flex-direction:column;gap:10px}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card h3{margin-top:0;font-size:1.2rem}.card p{color:var(--slate-700);font-size:.97rem}
+.card .card-link{margin-top:auto;font-weight:700;color:var(--haw-forest);font-size:.95rem}
+.card-icon{width:48px;height:48px;border-radius:var(--radius-sm);background:var(--haw-forest-light);color:var(--haw-forest);display:grid;place-items:center;font-size:1.45rem;margin-bottom:4px;flex-shrink:0}
+.card-icon.gold{background:var(--haw-gold-soft);color:#8E6A1A}
+.card-icon.coral{background:var(--haw-coral-soft);color:#B44116}
+.card.featured{border-color:var(--haw-forest);border-top:4px solid var(--haw-forest)}
+.card.gold-top{border-top:4px solid var(--haw-gold)}
+.card.hmh-voice{background:var(--haw-cream);border-color:transparent}
+.card.hmh-voice h3{color:var(--haw-forest);font-style:italic}
+
+/* ---- Stats ---- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.stat{background:#fff;border-radius:var(--radius-md);padding:24px;border-left:4px solid var(--haw-forest);transition:transform .15s,box-shadow .15s}
+.stat:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.stat .num{font-family:var(--font-display);font-size:2.4rem;color:var(--haw-forest);font-weight:700;line-height:1}
+.stat .label{font-size:.92rem;color:var(--slate-700);margin-top:6px}
+.stat.gold{border-left-color:var(--haw-gold)}.stat.gold .num{color:#8E6A1A}
+.stat.coral{border-left-color:var(--haw-coral)}.stat.coral .num{color:#B44116}
+
+/* ---- Bar chart ---- */
+.bar-chart{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.bar-row{display:grid;grid-template-columns:240px 1fr 60px;gap:12px;align-items:center}
+.bar-row .lab{font-size:.92rem;color:var(--slate-700)}
+.bar-row .val{font-size:.92rem;color:var(--slate-900);font-weight:600;text-align:right}
+.bar-track{background:var(--haw-forest-light);height:14px;border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--haw-forest),var(--haw-gold));border-radius:999px;transition:width 1.2s ease}
+@media(max-width:640px){.bar-row{grid-template-columns:1fr}.bar-row .val{text-align:left}}
+
+/* ---- Callout ---- */
+.callout{background:var(--haw-cream);border-left:5px solid var(--haw-forest);border-radius:var(--radius-md);padding:22px 26px;color:var(--slate-900);font-size:1.02rem;margin:24px 0}
+.callout strong{color:var(--haw-forest)}
+.callout.gold{background:var(--haw-gold-soft);border-left-color:var(--haw-gold)}
+.callout.gold strong{color:#8E6A1A}
+
+/* ---- Preview strip ---- */
+.preview-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.preview{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--slate-100);background:#fff;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.preview:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.preview .top{aspect-ratio:16/10;display:grid;place-items:center;font-family:var(--font-display);color:#fff;font-size:1.4rem;padding:16px;text-align:center}
+.preview .top.a{background:linear-gradient(135deg,var(--haw-coral),var(--haw-gold))}
+.preview .top.b{background:linear-gradient(135deg,var(--haw-forest),#4A8C6F)}
+.preview .top.c{background:linear-gradient(135deg,var(--haw-forest-dark),var(--haw-forest))}
+.preview .bot{padding:16px 18px 20px}
+.preview .eye{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--haw-forest);display:block;margin-bottom:4px}
+.preview h4{margin:0 0 6px;font-family:var(--font-body);font-size:1rem;font-weight:600}
+.preview p{margin:0 0 10px;color:var(--slate-700);font-size:.92rem}
+
+/* ---- Modules showcase ---- */
+.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:28px}
+.module{border-radius:var(--radius-lg);padding:30px;position:relative;overflow:hidden;color:#fff;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end}
+.module::before{content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:rgba(255,255,255,.08);border-radius:50%}
+.module .mod-icon{font-size:2.2rem;margin-bottom:12px;position:relative;z-index:1}
+.module h3{color:#fff;margin:0 0 6px;font-size:1.2rem;position:relative;z-index:1}
+.module p{color:rgba(255,255,255,.85);font-size:.9rem;margin:0;position:relative;z-index:1}
+.module.m1{background:linear-gradient(135deg,var(--haw-forest),#4A8C6F)}
+.module.m2{background:linear-gradient(135deg,#8E6A1A,var(--haw-gold))}
+.module.m3{background:linear-gradient(135deg,#B44116,var(--haw-coral))}
+.module.m4{background:linear-gradient(135deg,var(--haw-forest-dark),var(--haw-forest))}
+.module.m5{background:linear-gradient(135deg,#4A3F6B,#7B6BA8)}
+.module.m6{background:linear-gradient(135deg,#2C5282,#4A90D9)}
+
+/* ---- How it works timeline ---- */
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;counter-reset:step;position:relative}
+.timeline::before{content:"";position:absolute;top:28px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--haw-forest-light),var(--haw-forest-light));z-index:0}
+.step{position:relative;padding:0 20px 0 0;z-index:1}
+.step-num{width:56px;height:56px;background:var(--haw-forest);color:#fff;border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:18px;border:4px solid #fff;box-shadow:0 0 0 2px var(--haw-forest)}
+.step h3{font-size:1.1rem;margin:0 0 6px}
+.step p{font-size:.92rem;color:var(--slate-700);margin:0}
+
+/* ---- Testimonials ---- */
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.testimonial{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:26px;box-shadow:var(--shadow-sm);position:relative}
+.testimonial::before{content:"\201C";font-family:var(--font-display);font-size:4rem;color:var(--haw-forest-light);position:absolute;top:10px;left:18px;line-height:1}
+.testimonial blockquote{margin:28px 0 16px;font-size:1.02rem;color:var(--slate-700);font-style:italic;line-height:1.65}
+.testimonial .attr{font-size:.88rem;font-weight:600;color:var(--haw-forest)}
+
+/* ---- Pricing/packages callout ---- */
+.packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:28px}
+.package{border:2px solid var(--slate-100);border-radius:var(--radius-lg);padding:30px;background:#fff;display:flex;flex-direction:column;gap:12px;transition:border-color .15s,box-shadow .15s}
+.package:hover{border-color:var(--haw-forest);box-shadow:var(--shadow-md)}
+.package.featured{border-color:var(--haw-forest);background:var(--haw-forest);color:#fff}
+.package.featured h3,.package.featured p{color:#fff}
+.package.featured .pkg-detail{color:rgba(255,255,255,.8)}
+.package h3{margin:0;font-size:1.3rem}
+.package p{margin:0;font-size:.95rem;color:var(--slate-700)}
+.pkg-list{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:8px}
+.pkg-list li{font-size:.92rem;color:var(--slate-700);padding-left:22px;position:relative}
+.pkg-list li::before{content:"✓";position:absolute;left:0;color:var(--haw-forest);font-weight:700}
+.package.featured .pkg-list li{color:rgba(255,255,255,.88)}
+.package.featured .pkg-list li::before{color:var(--haw-gold)}
+
+/* ---- Badge ---- */
+.badge{display:inline-block;background:var(--haw-forest);color:#fff;padding:3px 10px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.badge.gold{background:var(--haw-gold);color:var(--haw-forest-dark)}
+.badge.new{background:var(--haw-coral);color:#fff}
+
+/* ---- Footer ---- */
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:56px 0 28px;margin-top:56px;font-size:.94rem}
+.site-footer a{color:var(--haw-forest-light)}
+.site-footer a:hover{color:#fff}
+.site-footer h4{color:#fff;margin:0 0 14px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:8px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--haw-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--haw-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+
+/* ---- Scroll animation (pure CSS) ---- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .55s ease both}
+.fade-up.d1{animation-delay:.1s}.fade-up.d2{animation-delay:.2s}.fade-up.d3{animation-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- Crisis Banner -->
+<div class="crisis-banner">
+  <strong>IN A CRISIS?</strong>
+  Call or text <a href="tel:988">988 Lifeline</a> &middot;
+  Crisis Text Line: Text <strong>HOME</strong> to <a href="sms:741741">741741</a> &middot;
+  <a href="tel:">[Organization crisis line]</a>
+</div>
+
+<!-- Header -->
+<header class="site-header" id="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" class="brand-lockup">
+      <img src="../assets/hello-at-work-logo.png" alt="Hello at Work" class="brand-logo" />
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.querySelector('.nav-links').classList.toggle('open')">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="providers.html">Providers</a>
+      <a href="workplace-wellness.html">Workplace wellness</a>
+      <a href="resources.html">Resources</a>
+      <a href="blog.html">Blog</a>
+      <a href="videos.html">Videos</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="providers.html" class="nav-cta">Find a provider</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge fade-up"><span class="dot"></span> Built by Hello Mental Health &middot; [Your City / Region]</div>
+    <h1 class="fade-up d1">A library built for the people who do the hardest work.</h1>
+    <p class="lead fade-up d2">Workplace wellness tools, vetted mental health resources, a growing provider database, and original content from Hello Mental Health &mdash; built for [Your Organization]&rsquo;s staff across every service area.</p>
+    <div class="hero-actions fade-up d3">
+      <a href="providers.html" class="btn btn-primary">Find a provider</a>
+      <a href="workplace-wellness.html" class="btn btn-ghost-light">Workplace wellness</a>
+      <a href="podcast.html" class="btn btn-ghost-light">Listen to the podcast</a>
+    </div>
+  </div>
+</section>
+
+<!-- What's inside -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">What&rsquo;s inside</span>
+    <h2>Everything in one place &mdash; designed for your workday.</h2>
+    <p class="lead" style="max-width:65ch">This library is organized around the realities of behavioral health work. Start anywhere.</p>
+
+    <div class="grid grid-3" style="margin-top:32px">
+      <a href="providers.html" class="card featured" style="color:inherit">
+        <div class="card-icon">&#128269;</div>
+        <h3>Provider database</h3>
+        <p>A curated internal directory of trusted outside providers, searchable by insurance type and specialty. Useful for client referrals and personal care.</p>
+        <span class="card-link">Search providers &rarr;</span>
+      </a>
+      <a href="workplace-wellness.html" class="card" style="color:inherit">
+        <div class="card-icon">&#127807;</div>
+        <h3>Workplace wellness</h3>
+        <p>Tools, workshops, and articles tailored to behavioral health staff &mdash; including confidential support, reflective supervision, and team-based resources.</p>
+        <span class="card-link">Explore tools &rarr;</span>
+      </a>
+      <a href="resources.html" class="card" style="color:inherit">
+        <div class="card-icon gold">&#128218;</div>
+        <h3>Mental health resources</h3>
+        <p>Curated, non-generic resources for life in and out of the role &mdash; crisis lines, apps, workbooks, and things that help you keep your own tank full.</p>
+        <span class="card-link">Browse resources &rarr;</span>
+      </a>
+      <a href="blog.html" class="card hmh-voice" style="color:inherit">
+        <div class="card-icon">&#9998;</div>
+        <h3>Blog</h3>
+        <p>Writing from the Hello Mental Health team on burnout, supervision, trauma-informed care, and the human parts of this work.</p>
+        <span class="card-link">Read the blog &rarr;</span>
+      </a>
+      <a href="videos.html" class="card hmh-voice" style="color:inherit">
+        <div class="card-icon">&#9654;</div>
+        <h3>Video library</h3>
+        <p>Short, practical videos &mdash; grounding exercises, skill-builders, and supervision series. Watchable between sessions.</p>
+        <span class="card-link">Watch videos &rarr;</span>
+      </a>
+      <a href="podcast.html" class="card hmh-voice" style="color:inherit">
+        <div class="card-icon">&#127911;</div>
+        <h3>Podcast</h3>
+        <p>Hello at Work &mdash; conversations with staff, partners, and experts on doing this work well, for the long haul.</p>
+        <span class="card-link">Listen &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats section -->
+<section class="section section-forest-soft">
+  <div class="container">
+    <span class="eyebrow">The landscape</span>
+    <h2>The case for this library, in numbers.</h2>
+    <p class="lead" style="max-width:60ch">Behavioral health work carries weight that doesn&rsquo;t make it into case notes. Here&rsquo;s what the research shows.</p>
+
+    <div class="stats" style="margin-top:32px">
+      <div class="stat"><div class="num">93%</div><div class="label">of U.S. mental-health workers report moderate-to-severe burnout post-2020. <span class="muted">(APA, 2023)</span></div></div>
+      <div class="stat gold"><div class="num">1 in 5</div><div class="label">U.S. adults experienced a mental illness in the past year. <span class="muted">(NIMH)</span></div></div>
+      <div class="stat coral"><div class="num">50%</div><div class="label">of new clinicians leave community behavioral health within 2 years without structured support. <span class="muted">(NCBHWC)</span></div></div>
+      <div class="stat"><div class="num">[X]+</div><div class="label">Staff at [Your Organization] across [your service areas]. This library is for every one of them.</div></div>
+    </div>
+
+    <div class="card" style="margin-top:32px">
+      <h3 style="margin:0 0 6px">Where workplace-wellness investment matters most</h3>
+      <p class="muted" style="margin:0 0 12px;font-size:.92rem">Relative share of staff reporting each factor as &ldquo;significantly affecting my ability to stay in the role&rdquo; &mdash; behavioral health workforce survey composite.</p>
+      <div class="bar-chart" id="bar-chart">
+        <div class="bar-row"><span class="lab">Vicarious / secondary trauma</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div><span class="val">82%</span></div>
+        <div class="bar-row"><span class="lab">Workload &amp; caseload size</span><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div><span class="val">76%</span></div>
+        <div class="bar-row"><span class="lab">Quality of supervision</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><span class="val">68%</span></div>
+        <div class="bar-row"><span class="lab">Lack of time to recover</span><div class="bar-track"><div class="bar-fill" style="width:64%"></div></div><span class="val">64%</span></div>
+        <div class="bar-row"><span class="lab">Compensation &amp; benefits</span><div class="bar-track"><div class="bar-fill" style="width:58%"></div></div><span class="val">58%</span></div>
+        <div class="bar-row"><span class="lab">Administrative burden</span><div class="bar-track"><div class="bar-fill" style="width:54%"></div></div><span class="val">54%</span></div>
+      </div>
+      <p class="muted" style="font-size:.82rem;margin-top:16px">Composite figures from published behavioral health workforce research. Replace with [Your Organization]&rsquo;s internal survey data when available.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Program modules showcase -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Full program overview</span>
+    <h2>Every module. Maximum options.</h2>
+    <p class="lead" style="max-width:65ch">This is what a fully-deployed Hello at Work program looks like. Every module is customized for your organization&rsquo;s size, structure, and culture.</p>
+
+    <div class="modules">
+      <div class="module m1">
+        <div class="mod-icon">&#128269;</div>
+        <h3>Provider Directory</h3>
+        <p>Internal list of vetted providers, searchable by insurance and specialty. Updated by your program coordinator.</p>
+      </div>
+      <div class="module m2">
+        <div class="mod-icon">&#127807;</div>
+        <h3>Workplace Wellness Hub</h3>
+        <p>Confidential support access, workshops, reflective supervision tools, and manager resources &mdash; all in one place.</p>
+      </div>
+      <div class="module m3">
+        <div class="mod-icon">&#128218;</div>
+        <h3>Mental Health Resources</h3>
+        <p>Crisis lines, therapy finders, apps, and curated reading lists &mdash; vetted by licensed clinical psychologists.</p>
+      </div>
+      <div class="module m4">
+        <div class="mod-icon">&#9998;</div>
+        <h3>Original Blog Content</h3>
+        <p>Monthly long-form content from Hello Mental Health psychologists, tailored to your staff&rsquo;s real experiences.</p>
+      </div>
+      <div class="module m5">
+        <div class="mod-icon">&#9654;</div>
+        <h3>Video Library</h3>
+        <p>Grounding exercises, skill-building sessions, and supervision series. Short enough to watch between sessions.</p>
+      </div>
+      <div class="module m6">
+        <div class="mod-icon">&#127911;</div>
+        <h3>Podcast Series</h3>
+        <p>Conversations with your staff, community partners, and experts. A branded podcast your team will actually listen to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section section-cream">
+  <div class="container">
+    <span class="eyebrow">How it works</span>
+    <h2>From signed agreement to live site in weeks, not months.</h2>
+    <p class="lead" style="max-width:65ch">Hello Mental Health handles setup, content, and ongoing updates. Your staff gets a polished, always-current resource hub.</p>
+
+    <div class="timeline" style="margin-top:48px">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Discovery call</h3>
+        <p>We learn about your organization, staff structure, service areas, and what wellness gaps your team is feeling most.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Brand &amp; content setup</h3>
+        <p>We customize the site with your logo and colors, build the provider list, and populate the initial content library.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Staff launch</h3>
+        <p>We send an all-staff announcement email, provide a coordinator guide, and host a live Q&amp;A for your team.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Ongoing partnership</h3>
+        <p>Monthly new content drops, quarterly program reviews, and a dedicated Hello Mental Health point of contact year-round.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">What staff say</span>
+    <h2>From the people who use it every day.</h2>
+
+    <div class="testimonials" style="margin-top:32px">
+      <div class="testimonial">
+        <blockquote>&ldquo;I didn&rsquo;t realize how much I needed a place like this until it existed. I&rsquo;ve already used the provider list twice &mdash; once for a client referral and once for myself.&rdquo;</blockquote>
+        <div class="attr">Case Manager &middot; [Your Organization]</div>
+      </div>
+      <div class="testimonial">
+        <blockquote>&ldquo;The secondary trauma article was the first piece of content that actually described what I was experiencing. I sent it to my whole team.&rdquo;</blockquote>
+        <div class="attr">Clinical Supervisor &middot; [Your Organization]</div>
+      </div>
+      <div class="testimonial">
+        <blockquote>&ldquo;My staff finally have somewhere to turn that isn&rsquo;t another email or a PDF buried in a SharePoint folder. This is the real thing.&rdquo;</blockquote>
+        <div class="attr">Program Director &middot; [Your Organization]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- From HMH team -->
+<section class="section section-cream">
+  <div class="container container-narrow">
+    <span class="eyebrow">From the Hello Mental Health team</span>
+    <h2 style="color:var(--haw-forest)">Hello &mdash; and welcome.</h2>
+    <div class="callout">
+      <strong>We lead with our hearts, and value humans above everything else.</strong>
+      <p style="margin:8px 0 0">We built this library for the humans doing the work at [Your Organization]. You support people in the hardest moments of their lives &mdash; and this site is our way of making sure the resources you need &mdash; for yourself, your team, and your clients &mdash; are in one trusted place. Nothing here is generic. Everything is meant to meet you where you are.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px">
+      <a href="https://hellomentalhealth.com" target="_blank" rel="noopener" class="btn btn-forest">About Hello Mental Health</a>
+      <a href="resources.html" class="btn btn-outline">Explore all resources</a>
+    </div>
+  </div>
+</section>
+
+<!-- Latest content preview -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Latest from the library</span>
+    <h2>Fresh content, added regularly.</h2>
+
+    <div class="preview-strip" style="margin-top:28px">
+      <a href="blog.html" class="preview" style="color:inherit">
+        <div class="top a">Burnout</div>
+        <div class="bot">
+          <span class="eye">Blog &middot; Workplace wellness</span>
+          <h4>Burnout isn&rsquo;t a you problem</h4>
+          <p>Reframing burnout as a systems issue, and what that means for front-line behavioral health staff.</p>
+          <span style="font-size:.88rem;color:var(--haw-forest);font-weight:600">Read &rarr;</span>
+        </div>
+      </a>
+      <a href="videos.html" class="preview" style="color:inherit">
+        <div class="top b">Pause</div>
+        <div class="bot">
+          <span class="eye">Video &middot; Quick tools</span>
+          <h4>A 90-second grounding exercise you can do at your desk</h4>
+          <p>Uses the 5-4-3-2-1 technique with a Hello Mental Health twist.</p>
+          <span style="font-size:.88rem;color:var(--haw-forest);font-weight:600">Watch &rarr;</span>
+        </div>
+      </a>
+      <a href="podcast.html" class="preview" style="color:inherit">
+        <div class="top c">Ep. 01</div>
+        <div class="bot">
+          <span class="eye">Podcast &middot; New episode</span>
+          <h4>Why we built this library</h4>
+          <p>Dr. Bailey Bryant and the Hello Mental Health team on what a resource library can do for a large organization.</p>
+          <span style="font-size:.88rem;color:var(--haw-forest);font-weight:600">Listen &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/hello-at-work-logo.png" alt="Hello at Work" style="height:30px;opacity:.85;margin-bottom:14px;display:block" />
+        <p style="margin:0 0 10px">A workplace mental health program for [Your Organization] staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0;font-size:.88rem">Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div>
+        <h4>Library</h4>
+        <ul>
+          <li><a href="providers.html">Providers</a></li>
+          <li><a href="workplace-wellness.html">Workplace wellness</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Crisis lines</h4>
+        <ul>
+          <li><a href="tel:988">988 Lifeline</a></li>
+          <li>Crisis Text: HOME to 741741</li>
+          <li><a href="tel:">[Org crisis line]</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>[Your Organization]</h4>
+        <ul>
+          <li><a href="#" target="_blank" rel="noopener">[org website]</a></li>
+          <li><a href="tel:">[main phone]</a></li>
+          <li>[address]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 [Your Organization] Staff Resource Library &middot; Internal use</div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Sticky header shadow
+window.addEventListener('scroll',function(){
+  document.getElementById('site-header').classList.toggle('scrolled',window.scrollY>10);
+});
+</script>
+</body>
+</html>

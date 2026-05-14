@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Workplace Wellness &middot; [Your Organization] &middot; Hello at Work</title>
+<meta name="description" content="The Hello at Work workplace wellness program for [Your Organization] staff &mdash; confidential support, reflective supervision, workshops, and a library of practical tools." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" />
+<style>
+:root{--haw-forest:#2E5D4A;--haw-forest-dark:#1E3E32;--haw-forest-light:#E8F1ED;--haw-gold:#D9A441;--haw-gold-soft:#FBF1DC;--haw-coral:#E28F6E;--haw-coral-soft:#FDEAE0;--haw-cream:#FAF5EC;--slate-900:#1F2937;--slate-700:#374151;--slate-500:#6B7280;--slate-300:#D1D5DB;--slate-100:#F3F4F6;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(46,93,74,.10),0 2px 4px rgba(0,0,0,.04);--font-display:"Playfair Display",Georgia,serif;--font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--haw-forest);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,2.8rem)}h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var(--slate-500)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:56px 0}.section.tight{padding:40px 0 8px}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--haw-forest);margin-bottom:8px}
+
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFC7B0}.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+.brand-logo{height:34px;width:auto}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem;transition:background .15s,color .15s}
+.nav-links a:hover{background:var(--haw-forest-light);color:var(--haw-forest-dark);text-decoration:none}
+.nav-links a.active{color:var(--haw-forest-dark);background:var(--haw-forest-light)}
+.nav-cta{background:var(--haw-forest)!important;color:#fff!important;padding:9px 16px!important;border-radius:999px!important}
+.nav-cta:hover{background:var(--haw-forest-dark)!important;text-decoration:none!important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer}
+@media(max-width:860px){.nav-toggle{display:inline-block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+.nav-links.open{display:flex}.nav-links a{padding:12px}}
+
+.page-head{background:var(--haw-cream);color:var(--slate-900);padding:64px 0 56px;position:relative;overflow:hidden}
+.page-head::before{content:"";position:absolute;top:-60px;left:-80px;width:260px;height:260px;background:var(--haw-coral);opacity:.25;border-radius:50%;filter:blur(6px)}
+.page-head::after{content:"";position:absolute;bottom:-50px;right:-60px;width:220px;height:220px;background:var(--haw-gold);opacity:.30;border-radius:50%;filter:blur(6px)}
+.page-head .container{position:relative;z-index:1}
+.page-head h1{max-width:22ch;color:var(--haw-forest)}
+.page-head .eyebrow{color:var(--haw-forest)}
+.page-head .lead{color:var(--slate-700);max-width:60ch}
+.page-head .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:600;font-size:.96rem;border:1px solid transparent;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease;font-family:var(--font-body)}
+.btn-primary{background:var(--haw-forest);color:#fff}
+.btn-primary:hover{background:var(--haw-forest-dark);color:#fff;text-decoration:none;transform:translateY(-1px)}
+.btn-outline{background:transparent;border-color:var(--haw-forest);color:var(--haw-forest)}
+.btn-outline:hover{background:var(--haw-forest);color:#fff;text-decoration:none}
+
+.pillar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.pillar{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:26px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:56px 1fr;gap:18px;border-top:4px solid var(--haw-forest);transition:box-shadow .15s,transform .15s}
+.pillar:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.pillar.alt{border-top-color:var(--haw-gold)}
+.pillar.alt2{border-top-color:var(--haw-coral)}
+.pillar.alt3{border-top-color:#7B6BA8}
+.pillar-icon{width:56px;height:56px;border-radius:var(--radius-md);background:var(--haw-cream);color:var(--haw-forest);display:grid;place-items:center;font-size:1.6rem}
+.pillar.alt .pillar-icon{background:var(--haw-gold-soft);color:#8E6A1A}
+.pillar.alt2 .pillar-icon{background:var(--haw-coral-soft);color:#B44116}
+.pillar.alt3 .pillar-icon{background:#EDE8F5;color:#4A3F6B}
+.pillar h3{margin:0 0 6px;font-size:1.18rem}
+.pillar p{margin:0 0 8px;color:var(--slate-700);font-size:.96rem}
+.pillar .pillar-meta{font-size:.82rem;color:var(--slate-500);font-style:italic}
+@media(max-width:760px){.pillar-grid{grid-template-columns:1fr}}
+
+.engage{background:var(--haw-forest-light);border-radius:var(--radius-md);padding:28px 32px;margin-top:28px;display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:center}
+.engage h3{color:var(--haw-forest);margin:0 0 8px}
+.engage p{margin:0 0 8px;color:var(--slate-700);font-size:.97rem}
+.engage ol{margin:0;padding-left:20px;color:var(--slate-700);font-size:.97rem}
+.engage ol li{margin:6px 0}
+@media(max-width:760px){.engage{grid-template-columns:1fr;padding:24px}}
+
+.tools-section{background:#FBFAF6;border-top:1px solid var(--slate-100)}
+.tools-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:22px}
+.tools-head h2{margin:0}
+
+.search-bar{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+.search-bar label{display:block;font-size:.78rem;font-weight:700;color:var(--slate-700);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.search-bar input,.search-bar select{width:100%;padding:11px 14px;border:1px solid var(--slate-300);border-radius:var(--radius-sm);background:#fff;font-size:.98rem;font-family:inherit;color:var(--slate-900)}
+.search-bar input:focus,.search-bar select:focus{outline:2px solid var(--haw-forest);outline-offset:1px}
+@media(max-width:980px){.search-bar{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.search-bar{grid-template-columns:1fr}}
+
+.search-meta{display:flex;justify-content:space-between;align-items:center;margin:18px 0 16px;font-size:.95rem;color:var(--slate-700);flex-wrap:wrap;gap:10px}
+.search-meta button{background:transparent;border:1px solid var(--slate-300);padding:7px 14px;border-radius:999px;font-size:.88rem;cursor:pointer;color:var(--slate-700);font-family:inherit}
+.search-meta button:hover{border-color:var(--haw-forest);color:var(--haw-forest)}
+
+.cat-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.cat-chip{background:#fff;border:1px solid var(--slate-300);color:var(--slate-700);padding:7px 14px;border-radius:999px;font-size:.86rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.cat-chip:hover{border-color:var(--haw-forest);color:var(--haw-forest)}
+.cat-chip.active{background:var(--haw-forest);border-color:var(--haw-forest);color:#fff}
+
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.tool-card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:60px 1fr;gap:16px;transition:box-shadow .15s,transform .15s}
+.tool-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.tool-icon{width:60px;height:60px;border-radius:var(--radius-md);display:grid;place-items:center;font-size:1.55rem;flex-shrink:0}
+.tool-icon.cat-insession{background:var(--haw-coral-soft);color:#B44116}
+.tool-icon.cat-between{background:var(--haw-forest-light);color:var(--haw-forest)}
+.tool-icon.cat-endshift{background:var(--haw-gold-soft);color:#8E6A1A}
+.tool-icon.cat-supervision{background:var(--haw-cream);color:var(--haw-forest)}
+.tool-icon.cat-team{background:#EDE8F5;color:#4A3F6B}
+.tool-icon.cat-hardday{background:var(--slate-100);color:var(--slate-700)}
+.tool-icon.cat-manager{background:#E3F0FB;color:#2C5282}
+.tool-body{min-width:0;display:flex;flex-direction:column}
+.tool-body .meta-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-500);margin:0 0 6px}
+.tool-body .meta-line .dot{width:4px;height:4px;border-radius:50%;background:var(--slate-300);display:inline-block}
+.tool-body h3{margin:0 0 6px;font-size:1.1rem}
+.tool-body p{margin:0 0 10px;color:var(--slate-700);font-size:.93rem}
+.tool-body .tool-link{font-size:.9rem;font-weight:700;color:var(--haw-forest)}
+.tool-body .tool-link::after{content:" \2192"}
+.no-results{background:var(--haw-forest-light);color:var(--haw-forest);padding:28px;border-radius:var(--radius-md);text-align:center}
+
+.callout{background:var(--haw-cream);border-left:5px solid var(--haw-forest);border-radius:var(--radius-md);padding:18px 22px;color:var(--slate-900);font-size:.98rem;margin:20px 0}
+.callout strong{color:var(--haw-forest)}
+.callout.gold{background:var(--haw-gold-soft);border-left-color:var(--haw-gold)}
+.callout.gold strong{color:#8E6A1A}
+
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
+.site-footer a{color:var(--haw-forest-light)}.site-footer a:hover{color:#fff}
+.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--haw-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--haw-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="crisis-banner">
+  <strong>IN A CRISIS?</strong>
+  Call or text <a href="tel:988">988 Lifeline</a> &middot;
+  Crisis Text Line: Text HOME to <a href="sms:741741">741741</a> &middot;
+  <a href="tel:">[Organization crisis line]</a>
+</div>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" class="brand-lockup">
+      <img src="../assets/hello-at-work-logo.png" alt="Hello at Work" class="brand-logo" />
+    </a>
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.querySelector('.nav-links').classList.toggle('open')">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="providers.html">Providers</a>
+      <a href="workplace-wellness.html" class="active">Workplace wellness</a>
+      <a href="resources.html">Resources</a>
+      <a href="blog.html">Blog</a>
+      <a href="videos.html">Videos</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="providers.html" class="nav-cta">Find a provider</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">Workplace wellness program</span>
+    <h1>Support for the people who show up for everyone else.</h1>
+    <p class="lead">This program is built around the specific demands of [Your Organization]&rsquo;s work &mdash; confidential support, practical tools, reflective supervision, and group spaces where you can actually exhale.</p>
+    <div class="hero-actions">
+      <a href="providers.html" class="btn btn-primary">Find confidential care</a>
+      <a href="resources.html" class="btn btn-outline">Browse all resources</a>
+    </div>
+  </div>
+</section>
+
+<!-- Core pillars -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Program pillars</span>
+    <h2>Four ways we support your team.</h2>
+    <p class="lead" style="max-width:60ch">Every element of this program was designed with behavioral health workers in mind &mdash; not repurposed from a generic EAP.</p>
+
+    <div class="pillar-grid" style="margin-top:28px">
+      <div class="pillar">
+        <div class="pillar-icon">&#128274;</div>
+        <div>
+          <h3>Confidential 1:1 support</h3>
+          <p>Access to licensed Hello Mental Health psychologists for private consultation &mdash; whether you need a referral, a sounding board, or just someone outside your org to talk to.</p>
+          <div class="pillar-meta">Completely confidential &middot; No manager notification &middot; No case notes shared</div>
+        </div>
+      </div>
+      <div class="pillar alt">
+        <div class="pillar-icon">&#128203;</div>
+        <div>
+          <h3>Workshops &amp; trainings</h3>
+          <p>Live and recorded sessions on burnout, secondary trauma, trauma-informed supervision, boundaries, and more &mdash; tailored to your organization&rsquo;s service areas and staff roles.</p>
+          <div class="pillar-meta">Scheduled quarterly &middot; Custom topics available &middot; CEU eligible</div>
+        </div>
+      </div>
+      <div class="pillar alt2">
+        <div class="pillar-icon">&#128483;</div>
+        <div>
+          <h3>Facilitated peer groups</h3>
+          <p>Small, facilitated group sessions for staff to process the weight of the work together &mdash; structured by role or service line. Not a therapy group. A human space.</p>
+          <div class="pillar-meta">Facilitated by licensed psychologists &middot; Role-specific cohorts &middot; Monthly cadence</div>
+        </div>
+      </div>
+      <div class="pillar alt3">
+        <div class="pillar-icon">&#128269;</div>
+        <div>
+          <h3>Reflective supervision support</h3>
+          <p>Resources and coaching for supervisors who want to hold space for the clinical experience of their staff &mdash; not just the caseload. Includes a supervision toolkit and consultation access.</p>
+          <div class="pillar-meta">For supervisors &amp; team leads &middot; Toolkit included &middot; Consultation available</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="engage">
+      <div>
+        <h3>How to access the program</h3>
+        <p>Everything is confidential. Your manager is never notified of individual participation. All services are included in your organization&rsquo;s Hello at Work agreement.</p>
+        <a href="mailto:welcome@hellomentalhealth.com" class="btn btn-primary" style="margin-top:8px">Get in touch</a>
+      </div>
+      <div>
+        <ol>
+          <li><strong>Browse the tools library below</strong> to find something useful right now.</li>
+          <li><strong>Email <a href="mailto:welcome@hellomentalhealth.com">welcome@hellomentalhealth.com</a></strong> to schedule a confidential consultation, join a group, or ask about workshops.</li>
+          <li><strong>Talk to your program coordinator</strong> if your org has a designated point of contact for scheduling group sessions.</li>
+          <li><strong>Check the podcast and video library</strong> for content you can access on your own time.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Manager toolkit callout -->
+<section class="section" style="padding-top:0;padding-bottom:32px">
+  <div class="container">
+    <div class="callout gold">
+      <strong>&#128084; Manager &amp; supervisor toolkit</strong>
+      <p style="margin:6px 0 0">Are you a supervisor or team lead? There&rsquo;s a dedicated section in the tools library below. Use the <strong>Managers &amp; supervisors</strong> filter chip to find resources built specifically for you &mdash; including a reflective supervision guide, a team check-in protocol, and a burnout early-warning checklist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Tools library -->
+<section class="section tools-section">
+  <div class="container">
+    <div class="tools-head">
+      <div>
+        <span class="eyebrow">Tools library</span>
+        <h2>Practical tools for every part of the workday.</h2>
+        <p class="lead" style="max-width:58ch">Browse by category or use the search to find something specific. New tools added monthly.</p>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <div>
+        <label for="tool-search">Search tools</label>
+        <input id="tool-search" type="search" placeholder="e.g. burnout, grounding, supervision" autocomplete="off" />
+      </div>
+      <div>
+        <label for="tool-cat">Category</label>
+        <select id="tool-cat">
+          <option value="">All categories</option>
+          <option value="cat-insession">In session / with clients</option>
+          <option value="cat-between">Between sessions</option>
+          <option value="cat-endshift">End of shift</option>
+          <option value="cat-supervision">Supervision &amp; clinical</option>
+          <option value="cat-team">Team &amp; group</option>
+          <option value="cat-hardday">Hard days</option>
+          <option value="cat-manager">Managers &amp; supervisors</option>
+        </select>
+      </div>
+      <div>
+        <label for="tool-format">Format</label>
+        <select id="tool-format">
+          <option value="">Any format</option>
+          <option value="article">Article</option>
+          <option value="exercise">Exercise</option>
+          <option value="worksheet">Worksheet</option>
+          <option value="guide">Guide</option>
+          <option value="video">Video</option>
+          <option value="audio">Audio</option>
+        </select>
+      </div>
+      <div>
+        <label for="tool-time">Time needed</label>
+        <select id="tool-time">
+          <option value="">Any length</option>
+          <option value="quick">Quick (&lt; 5 min)</option>
+          <option value="medium">Medium (5–20 min)</option>
+          <option value="deep">Deep dive (20+ min)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="cat-chips" id="cat-chips">
+      <button class="cat-chip active" data-cat="">All</button>
+      <button class="cat-chip" data-cat="cat-insession">In session</button>
+      <button class="cat-chip" data-cat="cat-between">Between sessions</button>
+      <button class="cat-chip" data-cat="cat-endshift">End of shift</button>
+      <button class="cat-chip" data-cat="cat-supervision">Supervision</button>
+      <button class="cat-chip" data-cat="cat-team">Team &amp; group</button>
+      <button class="cat-chip" data-cat="cat-hardday">Hard days</button>
+      <button class="cat-chip" data-cat="cat-manager">Managers</button>
+    </div>
+
+    <div class="search-meta">
+      <span id="tool-count"></span>
+      <button id="clear-tools" type="button">Clear filters</button>
+    </div>
+
+    <div class="tool-grid" id="tool-grid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/hello-at-work-logo.png" alt="Hello at Work" style="height:28px;opacity:.8;margin-bottom:12px;display:block" />
+        <p style="margin:0 0 10px">An internal resource library for [Your Organization] staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0;font-size:.88rem">Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div><h4>Library</h4><ul>
+        <li><a href="providers.html">Providers</a></li><li><a href="workplace-wellness.html">Workplace wellness</a></li>
+        <li><a href="resources.html">Resources</a></li><li><a href="blog.html">Blog</a></li>
+        <li><a href="videos.html">Videos</a></li><li><a href="podcast.html">Podcast</a></li>
+      </ul></div>
+      <div><h4>Crisis lines</h4><ul>
+        <li><a href="tel:988">988 Lifeline</a></li>
+        <li>Text HOME to 741741</li>
+        <li><a href="tel:">[Org crisis line]</a></li>
+      </ul></div>
+      <div><h4>[Your Organization]</h4><ul>
+        <li><a href="#" target="_blank" rel="noopener">[org website]</a></li>
+        <li><a href="tel:">[main phone]</a></li>
+        <li>[address]</li>
+      </ul></div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 [Your Organization] Staff Resource Library &middot; Internal use</div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   WORKPLACE WELLNESS TOOLS
+   ---------------------------------------------------------
+   TO ADD A TOOL: copy one object and fill in the fields.
+   "cat" must match one of: cat-insession, cat-between,
+   cat-endshift, cat-supervision, cat-team, cat-hardday,
+   cat-manager. "format": article, exercise, worksheet,
+   guide, video, audio. "time": quick, medium, deep.
+   ========================================================= */
+const TOOLS = [
+  {id:"grounding-54321",title:"5-4-3-2-1 grounding exercise",cat:"cat-insession",format:"exercise",time:"quick",
+   icon:"&#127807;",desc:"A quick sensory grounding technique you can teach a client in two minutes or use yourself between sessions to reset after a hard interaction.",link:""},
+  {id:"breath-box",title:"Box breathing: the 60-second reset",cat:"cat-between",format:"exercise",time:"quick",
+   icon:"&#128168;",desc:"Four counts in, four hold, four out, four hold. Simple, evidence-based, and works anywhere. Includes a printable visual guide.",link:""},
+  {id:"end-shift-debrief",title:"End-of-shift debrief protocol",cat:"cat-endshift",format:"guide",time:"quick",
+   icon:"&#128203;",desc:"A short 5-question self-check to close the workday intentionally — designed specifically for behavioral health staff who carry client stories home.",link:""},
+  {id:"secondary-trauma-guide",title:"Understanding secondary traumatic stress",cat:"cat-supervision",format:"article",time:"medium",
+   icon:"&#128218;",desc:"A plain-language guide to secondary traumatic stress: what it is, how it differs from burnout, warning signs, and what actually helps — based on current research.",link:""},
+  {id:"reflective-supervision-toolkit",title:"Reflective supervision toolkit",cat:"cat-supervision",format:"guide",time:"deep",
+   icon:"&#128269;",desc:"A full toolkit for supervisors: what reflective supervision is, a structured session format, check-in prompts, and a self-assessment for supervisors.",link:""},
+  {id:"team-checkin",title:"Team wellness check-in (10 min)",cat:"cat-team",format:"exercise",time:"quick",
+   icon:"&#128483;",desc:"A facilitated 10-minute structure for opening team meetings with a real check-in — not just ‘any updates?’. Designed to normalize emotional honesty at work.",link:""},
+  {id:"burnout-self-assess",title:"Burnout self-assessment",cat:"cat-hardday",format:"worksheet",time:"medium",
+   icon:"&#128203;",desc:"A validated self-assessment to help you identify where you are on the burnout spectrum and what type of support would help most right now.",link:""},
+  {id:"hard-day-protocol",title:"After a hard day: a protocol for staff",cat:"cat-hardday",format:"guide",time:"quick",
+   icon:"&#128149;",desc:"Some days are heavier than others. This guide covers what to do in the hours after a traumatic client event, a loss, or a shift that knocked you sideways.",link:""},
+  {id:"manager-burnout-signs",title:"Early warning signs of burnout in your team",cat:"cat-manager",format:"guide",time:"medium",
+   icon:"&#128084;",desc:"A practical guide for supervisors on recognizing burnout early in direct reports — behavioral indicators, how to open a conversation, and what to offer.",link:""},
+  {id:"manager-1on1",title:"Supervision 1:1 check-in template",cat:"cat-manager",format:"worksheet",time:"quick",
+   icon:"&#128203;",desc:"A structured 1:1 template that goes beyond caseload review to ask about the clinician’s experience of the work. Takes 20–30 minutes and changes the conversation.",link:""},
+  {id:"vicarious-trauma-workshop",title:"Vicarious trauma workshop (recording)",cat:"cat-supervision",format:"video",time:"deep",
+   icon:"&#9654;",desc:"A 45-minute recorded workshop on vicarious trauma for behavioral health teams. Covers theory, self-assessment, and practical protective factors.",link:""},
+  {id:"sleep-after-shifts",title:"Sleep hygiene for shift workers",cat:"cat-endshift",format:"article",time:"medium",
+   icon:"&#127769;",desc:"Evidence-based sleep hygiene strategies adapted for people who work irregular, emotionally intense hours. Not just ‘put your phone down’.",link:""}
+];
+
+(function(){
+  const searchEl=document.getElementById('tool-search');
+  const catEl=document.getElementById('tool-cat');
+  const fmtEl=document.getElementById('tool-format');
+  const timeEl=document.getElementById('tool-time');
+  const gridEl=document.getElementById('tool-grid');
+  const countEl=document.getElementById('tool-count');
+  const clearBtn=document.getElementById('clear-tools');
+  const chips=document.querySelectorAll('.cat-chip');
+  let activeCat='';
+
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+
+  function render(){
+    const q=(searchEl.value||'').toLowerCase().trim();
+    const cat=activeCat||catEl.value;
+    const fmt=fmtEl.value;
+    const time=timeEl.value;
+    const filtered=TOOLS.filter(t=>{
+      if(q&&!(t.title+t.desc).toLowerCase().includes(q))return false;
+      if(cat&&t.cat!==cat)return false;
+      if(fmt&&t.format!==fmt)return false;
+      if(time&&t.time!==time)return false;
+      return true;
+    });
+    countEl.textContent=`Showing ${filtered.length} of ${TOOLS.length} tools`;
+    if(!filtered.length){gridEl.innerHTML='<div class="no-results" style="grid-column:1/-1"><strong>No tools match those filters.</strong><br>Try broadening your search or clearing a filter.</div>';return;}
+    gridEl.innerHTML=filtered.map(t=>`
+      <div class="tool-card">
+        <div class="tool-icon ${esc(t.cat)}">${t.icon}</div>
+        <div class="tool-body">
+          <div class="meta-line"><span>${esc(t.cat.replace('cat-','').replace('-',' '))}</span><span class="dot"></span><span>${esc(t.format)}</span><span class="dot"></span><span>${esc(t.time==='quick'?'< 5 min':t.time==='medium'?'5–20 min':'20+ min')}</span></div>
+          <h3>${esc(t.title)}</h3>
+          <p>${esc(t.desc)}</p>
+          ${t.link?`<a class="tool-link" href="${esc(t.link)}" target="_blank" rel="noopener">Open tool</a>`:'<span class="tool-link" style="color:var(--slate-400);cursor:default;font-weight:400">Coming soon</span>'}
+        </div>
+      </div>`).join('');
+  }
+
+  chips.forEach(chip=>{
+    chip.addEventListener('click',function(){
+      activeCat=this.dataset.cat;
+      chips.forEach(c=>c.classList.remove('active'));
+      this.classList.add('active');
+      catEl.value='';
+      render();
+    });
+  });
+
+  [searchEl,catEl,fmtEl,timeEl].forEach(el=>el.addEventListener('input',render));
+  clearBtn.addEventListener('click',()=>{
+    searchEl.value='';catEl.value='';fmtEl.value='';timeEl.value='';
+    activeCat='';chips.forEach(c=>c.classList.remove('active'));
+    chips[0].classList.add('active');render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
