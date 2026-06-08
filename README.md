@@ -30,9 +30,8 @@ no session check. Real auth, if needed later, happens at the hosting layer
 │   ├── providers.html               Provider directory
 │   ├── resources.html               Curated mental health resources
 │   ├── workplace-wellness.html      Wellness program + tools
-│   ├── blog.html
-│   ├── videos.html
-│   ├── podcast.html
+│   ├── blog.html                    Hello Mental Health writing
+│   ├── videos.html                  Built but unlinked — not yet in nav
 │   └── CDB_Provider_Directory.html  Insurance-specific subset
 │
 └── [next-partner/]                Future partner orgs go in their own folder

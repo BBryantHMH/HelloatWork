@@ -97,8 +97,6 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
       <a href="workplace-wellness.html" data-page="workplace-wellness.html">Workplace wellness</a>
       <a href="resources.html" data-page="resources.html">Mental health resources</a>
       <a href="blog.html" data-page="blog.html">Blog</a>
-      <a href="videos.html" data-page="videos.html">Videos</a>
-      <a href="podcast.html" data-page="podcast.html">Podcast</a>
       <a href="providers.html" class="nav-cta">Find a provider</a>
     </div>
   </nav>
@@ -138,7 +136,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
         <p style="margin:0 0 10px">An internal resource library for Talbert House staff &mdash; workplace wellness, provider connections, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
       </div>
-      <div><h4>Library</h4><ul><li><a href="providers.html">Providers</a></li><li><a href="workplace-wellness.html">Workplace wellness</a></li><li><a href="resources.html">Resources</a></li><li><a href="blog.html">Blog</a></li><li><a href="videos.html">Videos</a></li><li><a href="podcast.html">Podcast</a></li></ul></div>
+      <div><h4>Library</h4><ul><li><a href="providers.html">Providers</a></li><li><a href="workplace-wellness.html">Workplace wellness</a></li><li><a href="resources.html">Resources</a></li><li><a href="blog.html">Blog</a></li></ul></div>
       <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline</a></li><li><a href="tel:5132812273">(513) 281-CARE</a></li><li>Text "Talbert" to 839863</li><li><a href="tel:5132818387">(513) 281-VETS</a></li></ul></div>
       <div><h4>Talbert House</h4><ul><li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li><li><a href="tel:5132214357">(513) 221-HELP</a></li><li>2600 Victory Pkwy, Cincinnati OH</li></ul></div>
     </div>
@@ -233,7 +231,7 @@ const VIDEOS = [
       frame.innerHTML=`<iframe src="${esc(v.embed_url)}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="${esc(v.title)}"></iframe>`;
     } else {
       frame.innerHTML=`<div><strong style="color:#fff;font-family:var(--font-display);font-size:1.4rem;display:block;margin-bottom:8px">Coming soon</strong>
-        <span>This video isn&rsquo;t published yet. Check back or subscribe to the podcast for updates.</span></div>`;
+        <span>This video isn&rsquo;t published yet. Check back soon for updates.</span></div>`;
     }
     player.classList.add('visible');
     listSec.style.display='none';
