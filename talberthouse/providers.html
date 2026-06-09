@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Provider Database &middot; Talbert House Staff Resource Library</title>
-<meta name="description" content="Searchable internal provider database for Talbert House staff. Filter by insurance and focus area." />
+<meta name="description" content="Searchable internal provider database for Talbert House staff. Filter by focus area and location; payment posture shown for the new reference-based-pricing plan." />
 <style>
 :root{--th-teal:#02777C;--th-teal-dark:#015B5F;--th-teal-light:#E6F2F2;--th-orange:#E8622C;--th-orange-soft:#FDEAE0;--hmh-forest:#2E5D4A;--hmh-cream:#FAF5EC;--hmh-coral:#E28F6E;--hmh-gold:#D9A441;--slate-900:#1F2937;--slate-700:#374151;--slate-500:#6B7280;--slate-300:#D1D5DB;--slate-100:#F3F4F6;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(2,119,124,.08),0 2px 4px rgba(0,0,0,.04);--font-display:Georgia,"Playfair Display","Iowan Old Style",Cambria,serif;--font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
 *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.55}
@@ -63,7 +63,10 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
 .provider-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
 .tag{display:inline-block;background:var(--th-teal-light);color:var(--th-teal-dark);padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:600}
 .tag.insurance{background:var(--th-orange-soft);color:#B44116}
+.tag.payment{background:var(--th-orange-soft);color:#B44116}
+.tag.payment.medben{background:var(--hmh-forest);color:#fff}
 .tag.hmh{background:var(--hmh-cream);color:var(--hmh-forest)}
+.badge.rbp{background:var(--th-teal)}
 .provider-contact{display:flex;flex-wrap:wrap;gap:16px;font-size:.92rem;color:var(--slate-700)}
 .provider-contact a{color:var(--th-teal-dark);font-weight:600}
 .no-results{background:var(--th-teal-light);color:var(--th-teal-dark);padding:28px;border-radius:var(--radius-md);text-align:center}
@@ -120,7 +123,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
   <div class="container">
     <span class="eyebrow">Internal provider database</span>
     <h1>Find a trusted provider, fast.</h1>
-    <p class="lead">A growing list of vetted outside providers &mdash; searchable by insurance type and focus area. Use it for client referrals, for your own care, or for a colleague.</p>
+    <p class="lead">A growing list of vetted outside providers &mdash; searchable by focus area and location. Use it for client referrals, for your own care, or for a colleague.</p>
 
 
   </div>
@@ -152,8 +155,10 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
       </div>
     </div>
 
-    <div class="callout callout-th" style="margin-bottom:4px">
-      <strong>On the CDB TrueCost Plan?</strong> This directory lists providers in the Greater Cincinnati area who accept Custom Design Benefits (CDB) insurance. Always confirm insurance acceptance directly with the provider before scheduling. <strong>Last verified April 2026.</strong>
+    <div class="callout callout-th" style="margin-bottom:16px">
+      <strong>A note on the new health plan (effective Aug 1, 2026).</strong>
+      <p style="margin:8px 0 0">Talbert House is moving to <strong>MedBen + ClaimDoc</strong>, a reference-based-pricing plan. Unlike a traditional network, there isn&rsquo;t an &ldquo;in-network&rdquo; list &mdash; you can generally see <em>any</em> licensed provider, and ClaimDoc pays the provider a set rate and helps defend any balance bills. The providers below are vetted Greater Cincinnati clinicians; the tags show how each handles payment. Providers who bill <strong>out-of-network and offer superbills</strong> tend to be the smoothest fit under this plan.</p>
+      <p style="margin:8px 0 0"><strong>Before you schedule:</strong> confirm the provider will accept reference-based payment, ask whether they balance-bill, and lean on ClaimDoc&rsquo;s member advocacy if billing questions come up. <span class="muted">Behavioral-health coverage details under the new plan are still being confirmed &mdash; HMH is verifying each provider&rsquo;s acceptance. Last audited June 2026.</span></p>
     </div>
 
     <div class="search-meta">
@@ -265,7 +270,7 @@ const ISSUE_OPTIONS = [
 
 const PROVIDERS = [
   {
-    id: "cdb-lifestance-group",
+    id: "lifestance-group",
     name: "LifeStance Health",
     credentials: "Group Practice — Therapists & Psychiatric NPs",
     location: "Multiple Cincinnati-area offices: Blue Ash, Cincinnati, Liberty Township, Milford, Mason",
@@ -274,14 +279,15 @@ const PROVIDERS = [
     website: "https://lifestance.com",
     telehealth: true,
     in_person: true,
-    notes: "Ages: All. In-person & telehealth. All Cincinnati-area LifeStance offices accept CDB. Visit lifestance.com to find an available clinician and schedule directly.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: All. In-person & telehealth. Large insurance-based group; find an available clinician and schedule online. Confirm out-of-network / reference-based-pricing billing directly.",
+    payment: ["Takes insurance"],
+    rbp: false,
     specialties: ["Anxiety", "Depression", "ADHD", "Bipolar Disorder", "PTSD / Trauma", "OCD", "Substance Use / Recovery", "Grief & Bereavement", "Autism / Neurodivergence", "LGBTQ+ Affirming", "Sleep Disorders", "Gender Identity", "Medication Management"],
     areas: ["Blue Ash", "Cincinnati", "Liberty Township", "Milford", "Mason"],
     is_author: false
   },
   {
-    id: "cdb-waybridge-counseling",
+    id: "waybridge-counseling",
     name: "Waybridge Counseling",
     credentials: "Group Practice — LPCCs, LISWs",
     location: "8291 Beechmont Ave, Suite C, Cincinnati OH 45255 · Also: 10945 Reed Hartman Hwy, Suite 302, Blue Ash OH 45242",
@@ -290,30 +296,32 @@ const PROVIDERS = [
     website: "https://waybridgecounseling.com",
     telehealth: true,
     in_person: true,
-    notes: "Ages: All. In-person & telehealth, 7 days/week. Specializes in trauma/EMDR, couples, eating disorders, and LGBTQ+ affirming care.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: All. In-person & telehealth, 7 days/week. Trauma/EMDR, couples, eating disorders, LGBTQ+ affirming. Insurance-based; confirm out-of-network options directly.",
+    payment: ["Takes insurance"],
+    rbp: false,
     specialties: ["PTSD / Trauma", "Couples / Relationships", "Eating Disorders", "LGBTQ+ Affirming", "Anxiety", "Depression", "Grief & Bereavement"],
     areas: ["Cincinnati", "Blue Ash"],
     is_author: false
   },
   {
-    id: "cdb-inclusive-counseling",
+    id: "inclusive-counseling",
     name: "Inclusive Counseling",
     credentials: "Group Practice — LISWs, LCSWs",
     location: "10999 Reed Hartman Hwy, Suite 207, Blue Ash, OH 45242 · Also: Anderson Township & Springdale",
-    phone: "513-916-2455",
+    phone: "513-999-5506",
     email: "",
     website: "https://inclusivecounseling.net",
     telehealth: true,
     in_person: true,
-    notes: "Ages: All. In-person & telehealth. BIPOC and LGBTQ+ affirming practice offering trauma therapy, EMDR, and DBT skills.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: All. In-person & telehealth across Ohio. BIPOC and LGBTQ+ affirming; trauma therapy, EMDR, DBT skills. Insurance-based; confirm out-of-network billing.",
+    payment: ["Takes insurance"],
+    rbp: false,
     specialties: ["PTSD / Trauma", "Anxiety", "Depression", "LGBTQ+ Affirming"],
     areas: ["Blue Ash", "Anderson Township", "Springdale"],
     is_author: false
   },
   {
-    id: "cdb-cincinnati-therapy-center",
+    id: "cincinnati-therapy-center",
     name: "Cincinnati Therapy Center",
     credentials: "Group Practice — LPCs, LCSWs",
     location: "4000 Executive Park Dr, Suite 350, Sharonville, OH 45241",
@@ -322,14 +330,15 @@ const PROVIDERS = [
     website: "https://cincytherapycenter.net",
     telehealth: true,
     in_person: true,
-    notes: "Ages 6+. In-person & telehealth. Specializes in play therapy, CBT, ERP, and OCD.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages 6+. In-person & telehealth; immediate openings noted. Play therapy, CBT, ERP, OCD. Insurance-based; confirm out-of-network billing.",
+    payment: ["Takes insurance"],
+    rbp: false,
     specialties: ["Child & Adolescent", "PTSD / Trauma", "Anxiety", "Depression", "OCD", "Grief & Bereavement", "LGBTQ+ Affirming"],
     areas: ["Sharonville"],
     is_author: false
   },
   {
-    id: "cdb-growthinsight-counseling",
+    id: "growthinsight-counseling",
     name: "GrowthINsight Counseling",
     credentials: "MSW, LISW-S, LICDC · GrowthINsight Counseling LLC",
     location: "8050 Beckett Center Dr, West Chester, OH 45069",
@@ -338,14 +347,15 @@ const PROVIDERS = [
     website: "https://growthinsightcounseling.com",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Adults & Youth. In-person & telehealth. Specializes in tech burnout, gifted adults & youth, and executive functioning.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Adults & Youth. In-person & telehealth. Tech burnout, gifted adults & youth, executive functioning. Insurance & EAP; see Rates page for self-pay.",
+    payment: ["Takes insurance", "EAP"],
+    rbp: false,
     specialties: ["Burnout & Compassion Fatigue", "Anxiety", "Depression", "ADHD", "Life Transitions"],
     areas: ["West Chester"],
     is_author: false
   },
   {
-    id: "cdb-creekside-therapy",
+    id: "creekside-therapy",
     name: "Creekside Therapy Center",
     credentials: "Group Practice — LPCs, LCSWs",
     location: "1080 Nimitzview Dr, Suite 200, Cincinnati, OH 45230",
@@ -354,46 +364,49 @@ const PROVIDERS = [
     website: "https://creeksidetherapycenter.com",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Children, Teens & Adults. In-person & telehealth. Eating disorders, trauma, couples & family therapy, medication management.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Children, Teens & Adults. In-person & telehealth. Eating disorders, trauma, couples & family, medication management. See Services & Fees page; confirm out-of-network billing.",
+    payment: ["Takes insurance"],
+    rbp: false,
     specialties: ["Eating Disorders", "PTSD / Trauma", "Couples / Relationships", "Anxiety", "Depression", "Medication Management"],
     areas: ["Anderson Township"],
     is_author: false
   },
   {
-    id: "cdb-speak-life-counseling",
+    id: "speak-life-counseling",
     name: "Speak Life Counseling",
-    credentials: "LISW · Speak Life Counseling & Life Coaching Services",
+    credentials: "LISW-S · Speak Life Counseling & Life Coaching Services",
     location: "230 Northland Blvd, Suite 335, Cincinnati, OH 45246",
-    phone: "513-993-1199",
+    phone: "513-341-7036",
     email: "",
     website: "https://speaklifecounseling.net",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Children, Adults & Families. In-person & telehealth. Faith-based counseling option available.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Children, Adults & Families. Faith-based option available. Insurance & EAP accepted; cash/card self-pay.",
+    payment: ["Takes insurance", "EAP", "Self-pay"],
+    rbp: false,
     specialties: ["Depression", "PTSD / Trauma", "ADHD", "Anxiety", "Grief & Bereavement", "Couples / Relationships", "LGBTQ+ Affirming"],
     areas: ["Springdale"],
     is_author: false
   },
   {
-    id: "cdb-heather-everett",
+    id: "heather-everett",
     name: "Heather Everett",
-    credentials: "LCSW · Private Practice",
-    location: "Cincinnati, OH 45243",
-    phone: "See Psychology Today profile",
+    credentials: "LCSW · A New View Counseling",
+    location: "Online only (Cincinnati, OH)",
+    phone: "513-434-3768",
     email: "",
     website: "https://www.psychologytoday.com/us/therapists/heather-everett-cincinnati-oh/382899",
     telehealth: true,
-    in_person: true,
-    notes: "Ages: Adults. In-person & telehealth. Specializes in anxiety, OCD, and trauma.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    in_person: false,
+    notes: "Ages: Adults. Telehealth only; free 15-min consult. Anxiety, OCD, trauma. Accepts insurance AND out-of-network with superbills; self-pay $175 individual / $225 couple.",
+    payment: ["Out-of-network · superbills", "Self-pay $175", "Takes insurance"],
+    rbp: true,
     specialties: ["Anxiety", "OCD", "PTSD / Trauma"],
     areas: ["Cincinnati"],
     is_author: false
   },
   {
-    id: "cdb-joslyn-reedy-kay",
+    id: "joslyn-reedy-kay",
     name: "Joslyn Reedy-Kay",
     credentials: "LCSW · Reedy-Kay and Associates",
     location: "Cincinnati, OH 45220",
@@ -402,14 +415,15 @@ const PROVIDERS = [
     website: "https://www.psychologytoday.com/us/therapists/joslyn-reedy-kay-cincinnati-oh/375146",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Adults. In-person & telehealth. Specializes in EMDR, perinatal/postpartum, and parenting.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Adults. In-person & telehealth; free 15-min consult. EMDR, perinatal/postpartum, parenting. Most clients self-pay; superbills for out-of-network; $110 individual / $130 couple; some sliding-scale.",
+    payment: ["Out-of-network · superbills", "Self-pay $110", "Sliding scale", "Takes insurance"],
+    rbp: true,
     specialties: ["PTSD / Trauma", "Perinatal / Postpartum", "Anxiety", "Depression", "Parenting & Family"],
     areas: ["Cincinnati"],
     is_author: false
   },
   {
-    id: "cdb-sarah-lanman",
+    id: "sarah-lanman",
     name: "Sarah Ann Lanman",
     credentials: "EdD, LPCC-S, NCC · Private Practice",
     location: "Cincinnati, OH 45220",
@@ -418,46 +432,49 @@ const PROVIDERS = [
     website: "https://drsarahannlanmancounseling.com",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Adults. In-person; telehealth for established clients only.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Adults. In-person; telehealth for established clients. Grief, anxiety, trauma. Out-of-network for most plans with monthly superbills; self-pay via cash/HSA. Medicare not accepted.",
+    payment: ["Out-of-network · superbills", "Self-pay"],
+    rbp: true,
     specialties: ["Grief & Bereavement", "Anxiety", "PTSD / Trauma"],
     areas: ["Cincinnati"],
     is_author: false
   },
   {
-    id: "cdb-casey-hill",
+    id: "casey-hill",
     name: "Casey Hill",
     credentials: "LPCC-S, RYT · Mind to Mind Therapy",
-    location: "9420 Towne Square Ave, Suite 17, Blue Ash, OH 45242",
+    location: "Norwood / Blue Ash, OH (hybrid)",
     phone: "513-201-5623",
     email: "",
     website: "https://mindtomindtherapy.com",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Adults. In-person & telehealth. Specializes in Internal Family Systems (IFS) and mindfulness-based therapy.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Adults. In-person & telehealth statewide; free 15-min consult. IFS and mindfulness-based therapy. Insurance and self-pay (couples therapy self-pay only).",
+    payment: ["Takes insurance", "Self-pay"],
+    rbp: false,
     specialties: ["Anxiety", "PTSD / Trauma", "Life Transitions", "Men's & Women's Issues"],
     areas: ["Blue Ash"],
     is_author: false
   },
   {
-    id: "cdb-allison-schultz",
+    id: "allison-schultz",
     name: "Allison Schultz",
     credentials: "LISW · Compassion Collaborative",
-    location: "2010 Madison Rd, Suite 200, Cincinnati, OH 45208",
+    location: "2010 Madison Rd, Suite 200, Cincinnati, OH 45208 (Hyde Park)",
     phone: "513-268-7248",
     email: "",
     website: "https://compassioncollaborative.org",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Adults. In-person & telehealth. Trauma-informed care using Acceptance & Commitment Therapy (ACT).",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Adults. In-person & telehealth; currently accepting new clients. Trauma-informed ACT. Private pay and insurance; self-pay $140 / 55 min.",
+    payment: ["Takes insurance", "Self-pay $140"],
+    rbp: false,
     specialties: ["Grief & Bereavement", "PTSD / Trauma", "Anxiety"],
     areas: ["Cincinnati"],
     is_author: false
   },
   {
-    id: "cdb-beverley-dunn",
+    id: "moving-insights-dunn",
     name: "Beverley Dunn",
     credentials: "LPC · Moving Insights, LLC",
     location: "Cincinnati, OH 45241",
@@ -466,56 +483,60 @@ const PROVIDERS = [
     website: "https://www.psychologytoday.com/us/therapists/moving-insights-llc-cincinnati-oh/402335",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Adults. In-person (OH) & telehealth (OH & KY).",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Adults. In-person (OH) & telehealth (OH & KY), Mon–Thu; free 15-min consult. Trauma, life transitions. Explicitly lists MedBen, plus out-of-network with superbills; $160/session.",
+    payment: ["Takes MedBen", "Out-of-network · superbills", "Self-pay $160"],
+    rbp: true,
     specialties: ["PTSD / Trauma", "Life Transitions"],
     areas: ["Sharonville"],
     is_author: false
   },
   {
-    id: "cdb-emmalee-mackey",
+    id: "emmalee-mackey",
     name: "Emmalee Mackey",
-    credentials: "LCSW · Private Practice",
-    location: "Cincinnati, OH 45212",
-    phone: "513-902-1623",
+    credentials: "LCSW · Sirona Mental Wellness",
+    location: "Sirona Mental Wellness, West Chester, OH 45069",
+    phone: "513-991-7007",
     email: "",
     website: "https://www.psychologytoday.com/us/therapists/emmalee-mackey-cincinnati-oh/1121479",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Adolescents (12+) & Adults. In-person & telehealth. EMDR certified.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Adolescents (12+) & Adults. In-person & telehealth; EMDR certified. Now practicing at Sirona Mental Wellness. Payment posture not posted online — confirm with provider.",
+    payment: ["Confirm with provider"],
+    rbp: false,
     specialties: ["Depression", "PTSD / Trauma", "LGBTQ+ Affirming"],
-    areas: ["Cincinnati"],
+    areas: ["West Chester"],
     is_author: false
   },
   {
-    id: "cdb-blue-pine-psych",
+    id: "blue-pine-psych",
     name: "Blue Pine Psych Services",
     credentials: "Group Practice",
-    location: "Cincinnati, OH",
-    phone: "See Zencare profile",
+    location: "Milford, OH · Telehealth statewide",
+    phone: "See website",
     email: "",
-    website: "https://zencare.co/practice/blue-pine-psych-services",
+    website: "https://bluepinepsych.com",
     telehealth: true,
     in_person: true,
-    notes: "Ages: Adults. In-person & telehealth.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Adults. In-person (Milford) & telehealth statewide; free consultation. Accepts insurance and self-pay; promotes out-of-network benefits and provides superbills.",
+    payment: ["Out-of-network · superbills", "Takes insurance"],
+    rbp: true,
     specialties: ["Anxiety", "Eating Disorders", "Depression", "PTSD / Trauma", "Body Image"],
-    areas: ["Cincinnati"],
+    areas: ["Milford"],
     is_author: false
   },
   {
-    id: "cdb-miami-valley-therapy",
+    id: "miami-valley-therapy",
     name: "Miami Valley Therapy Services",
-    credentials: "Group Practice",
+    credentials: "Group Practice — supervised by Jonathon Walton, LPCC-S",
     location: "Cincinnati, OH (Telehealth only)",
-    phone: "See Zencare profile",
+    phone: "See website",
     email: "",
     website: "https://zencare.co/practice/miami-valley-therapy-services",
     telehealth: true,
     in_person: false,
-    notes: "Ages: Adults. Telehealth only.",
-    insurance: ["Custom Design Benefits (CDB)"],
+    notes: "Ages: Adults. Telehealth only (Ohio). Accepts insurance, plus super-billing and direct billing for out-of-network; self-pay $125 / 60 min.",
+    payment: ["Out-of-network · superbills", "Self-pay $125", "Takes insurance"],
+    rbp: true,
     specialties: ["Anxiety", "Depression", "Life Transitions", "PTSD / Trauma", "Personality Disorders"],
     areas: ["Cincinnati"],
     is_author: false
@@ -553,7 +574,7 @@ const PROVIDERS = [
     if(p.email) contact.push(`<a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`);
     if(p.website) contact.push(`<a href="${esc(p.website)}" target="_blank" rel="noopener">${esc(p.website.replace(/^https?:\/\//,''))}</a>`);
     const specs=(p.specialties||[]).map(s=>`<span class="tag${p.is_author?' hmh':''}">${esc(s)}</span>`).join('');
-    const ins=(p.insurance||[]).map(i=>`<span class="tag insurance">${esc(i)}</span>`).join('');
+    const pay=(p.payment||[]).map(i=>`<span class="tag payment${/medben/i.test(i)?' medben':''}">${esc(i)}</span>`).join('');
     const metaBits=[];
     if(p.credentials) metaBits.push(esc(p.credentials));
     if(p.location) metaBits.push(esc(p.location));
@@ -562,10 +583,10 @@ const PROVIDERS = [
       <article class="provider-card">
         <div class="provider-avatar">${esc(initials(p.name))}</div>
         <div class="provider-body">
-          <h3>${esc(p.name)}${p.is_author?' <span class="badge">Authoring practice</span>':''}</h3>
+          <h3>${esc(p.name)}${p.rbp?' <span class="badge rbp">RBP-friendly</span>':''}${p.is_author?' <span class="badge">Authoring practice</span>':''}</h3>
           <div class="provider-meta">${metaBits.join(' &bull; ')}</div>
           ${p.notes?`<p style="margin:0 0 10px;color:var(--slate-700);font-size:.95rem">${esc(p.notes)}</p>`:''}
-          <div class="provider-tags">${specs}${ins}</div>
+          <div class="provider-tags">${specs}${pay}</div>
           <div class="provider-contact">${contact.join('')}</div>
         </div>
       </article>`;
