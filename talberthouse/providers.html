@@ -157,7 +157,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
 
     <div class="callout callout-th" style="margin-bottom:16px">
       <strong>A note on the new health plan (effective Aug 1, 2026).</strong>
-      <p style="margin:8px 0 0">Talbert House is moving to <strong>MedBen + ClaimDoc</strong>, a reference-based-pricing plan. Unlike a traditional network, there isn&rsquo;t an &ldquo;in-network&rdquo; list &mdash; you can generally see <em>any</em> licensed provider, and ClaimDoc pays the provider a set rate and helps defend any balance bills. The providers below are vetted Greater Cincinnati clinicians; the tags show how each handles payment. Providers who bill <strong>out-of-network and offer superbills</strong> tend to be the smoothest fit under this plan.</p>
+      <p style="margin:8px 0 0">Talbert House is moving to <strong>MedBen + ClaimDoc</strong>, a reference-based-pricing plan. Unlike a traditional network, there isn&rsquo;t an &ldquo;in-network&rdquo; list &mdash; you can generally see <em>any</em> licensed provider, and ClaimDoc pays the provider a set rate and helps defend any balance bills. The providers below are vetted Greater Cincinnati clinicians; the tags show how each handles payment. A green <strong>Takes MedBen</strong> tag means the provider lists MedBen directly; <strong>MultiPlan/PHCS</strong> means they accept the national network the new plan runs on &mdash; so your card should work there too (verify where a tag says &ldquo;verify&rdquo;). Providers who bill <strong>out-of-network and offer superbills</strong> are also a smooth fit.</p>
       <p style="margin:8px 0 0"><strong>Before you schedule:</strong> confirm the provider will accept reference-based payment, ask whether they balance-bill, and lean on ClaimDoc&rsquo;s member advocacy if billing questions come up. <span class="muted">Behavioral-health coverage details under the new plan are still being confirmed &mdash; HMH is verifying each provider&rsquo;s acceptance. Last audited June 2026.</span></p>
     </div>
 
@@ -269,23 +269,6 @@ const ISSUE_OPTIONS = [
 ];
 
 const PROVIDERS = [
-  {
-    id: "lifestance-group",
-    name: "LifeStance Health",
-    credentials: "Group Practice — Therapists & Psychiatric NPs",
-    location: "Multiple Cincinnati-area offices: Blue Ash, Cincinnati, Liberty Township, Milford, Mason",
-    phone: "513-891-0650",
-    email: "",
-    website: "https://lifestance.com",
-    telehealth: true,
-    in_person: true,
-    notes: "Ages: All. In-person & telehealth. Large insurance-based group; find an available clinician and schedule online. Confirm out-of-network / reference-based-pricing billing directly.",
-    payment: ["Takes insurance"],
-    rbp: false,
-    specialties: ["Anxiety", "Depression", "ADHD", "Bipolar Disorder", "PTSD / Trauma", "OCD", "Substance Use / Recovery", "Grief & Bereavement", "Autism / Neurodivergence", "LGBTQ+ Affirming", "Sleep Disorders", "Gender Identity", "Medication Management"],
-    areas: ["Blue Ash", "Cincinnati", "Liberty Township", "Milford", "Mason"],
-    is_author: false
-  },
   {
     id: "waybridge-counseling",
     name: "Waybridge Counseling",
@@ -538,6 +521,91 @@ const PROVIDERS = [
     payment: ["Out-of-network · superbills", "Self-pay $125", "Takes insurance"],
     rbp: true,
     specialties: ["Anxiety", "Depression", "Life Transitions", "PTSD / Trauma", "Personality Disorders"],
+    areas: ["Cincinnati"],
+    is_author: false
+  },
+  {
+    id: "integrative-counseling-solutions",
+    name: "Integrative Counseling Solutions",
+    credentials: "Group Practice — LPCCs, LISWs",
+    location: "431 Ohio Pike, Suite 312, Cincinnati, OH 45255 · Norwood office opening 2026",
+    phone: "513-770-1705",
+    email: "",
+    website: "https://www.icounselingsolutions.org",
+    telehealth: true,
+    in_person: true,
+    notes: "Ages: All. In-person & telehealth; accepting new clients. Anxiety, depression, trauma, grief, couples/family, child, DBT/CBT, ketamine-assisted therapy. Lists MedBen directly. Does not accept Mercy Health EPO or TriHealth.",
+    payment: ["Takes MedBen", "Takes insurance"],
+    rbp: false,
+    specialties: ["Anxiety", "Depression", "PTSD / Trauma", "Grief & Bereavement", "Couples / Relationships", "Child & Adolescent", "Parenting & Family"],
+    areas: ["Anderson Township", "Cincinnati"],
+    is_author: false
+  },
+  {
+    id: "thriveworks-cincinnati",
+    name: "Thriveworks Cincinnati",
+    credentials: "Group Practice — Therapists & Psychiatry",
+    location: "2300 Montana Ave, Cincinnati 45211 · 2752 Erie Ave (Hyde Park), Cincinnati 45208",
+    phone: "513-657-1981",
+    email: "",
+    website: "https://thriveworks.com/cincinnati-counseling/",
+    telehealth: true,
+    in_person: true,
+    notes: "Ages: All. In-person & telehealth, including psychiatry by video. Anxiety, depression, life transitions, couples/marriage, kids & teens. Accepts MultiPlan/PHCS (the network the MedBen plan uses) and First Health.",
+    payment: ["MultiPlan/PHCS network", "Takes insurance"],
+    rbp: false,
+    specialties: ["Anxiety", "Depression", "Life Transitions", "Couples / Relationships", "Child & Adolescent", "Medication Management"],
+    areas: ["Cincinnati"],
+    is_author: false
+  },
+  {
+    id: "rocker-health",
+    name: "Rocker Health",
+    credentials: "Group Practice — Counseling & Medication Management",
+    location: "Cincinnati, OH 45202",
+    phone: "513-486-0109",
+    email: "",
+    website: "https://rockerhealth.org",
+    telehealth: true,
+    in_person: true,
+    notes: "Ages: Adults. Telehealth-focused, Cincinnati-based. Depression, anxiety, trauma, grief, performance coaching, medication management. Listed as accepting MultiPlan/PHCS (the MedBen network) — confirm acceptance before scheduling.",
+    payment: ["MultiPlan/PHCS · verify", "Takes insurance"],
+    rbp: false,
+    specialties: ["Depression", "Anxiety", "PTSD / Trauma", "Grief & Bereavement", "Medication Management"],
+    areas: ["Cincinnati"],
+    is_author: false
+  },
+  {
+    id: "clear-outlook-counseling",
+    name: "Clear Outlook Counseling",
+    credentials: "Group Practice — LPCs, LISWs",
+    location: "6566 Montgomery Rd, Cincinnati, OH 45213 · Also Milford, OH",
+    phone: "513-785-0601",
+    email: "",
+    website: "https://clearoutlookcounseling.com",
+    telehealth: true,
+    in_person: true,
+    notes: "Ages: Children & Adults. In-person & telehealth statewide. Anxiety, depression, trauma, ADHD, grief, children & families. Listed as accepting MultiPlan/PHCS (the MedBen network) — confirm acceptance before scheduling.",
+    payment: ["MultiPlan/PHCS · verify", "Takes insurance"],
+    rbp: false,
+    specialties: ["Anxiety", "Depression", "PTSD / Trauma", "ADHD", "Grief & Bereavement", "Child & Adolescent", "Parenting & Family"],
+    areas: ["Cincinnati", "Milford"],
+    is_author: false
+  },
+  {
+    id: "positive-pathways",
+    name: "Positive Pathways",
+    credentials: "Anne Marie Mangold, LISW · Positive Pathways",
+    location: "Cincinnati, OH 45231",
+    phone: "513-806-2775",
+    email: "",
+    website: "",
+    telehealth: false,
+    in_person: true,
+    notes: "Ages: Adults. Cincinnati practice. Adoption & attachment, trauma healing, nonviolent communication. Listed as accepting MultiPlan/PHCS (the MedBen network) — confirm acceptance before scheduling.",
+    payment: ["MultiPlan/PHCS · verify"],
+    rbp: false,
+    specialties: ["PTSD / Trauma", "Parenting & Family", "Life Transitions"],
     areas: ["Cincinnati"],
     is_author: false
   }
