@@ -32,8 +32,7 @@ no session check. Real auth, if needed later, happens at the hosting layer
 │   ├── workplace-wellness.html      Wellness program + tools
 │   ├── blog.html                    Hello Mental Health writing
 │   ├── videos.html                  Built but unlinked — not yet in nav
-│   ├── tools/                       Tool assets (worksheet PDF, etc.)
-│   └── audio/                       Recorded guided-audio MP3s (drop-in)
+│   └── CDB_Provider_Directory.html  Insurance-specific subset
 │
 └── [next-partner/]                Future partner orgs go in their own folder
 ```

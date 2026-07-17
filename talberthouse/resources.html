@@ -376,7 +376,7 @@ const RESOURCES = [
     blurb: "Free, confidential 24/7 referral and information service for individuals and families facing mental health or substance use disorders.",
     cost: "Free",
     phone: "1-800-662-4357",
-    url: "https://www.samhsa.gov/find-help/helplines/national-helpline",
+    url: "https://www.samhsa.gov/find-help/national-helpline",
     is_crisis: true
   },
   {
@@ -462,6 +462,28 @@ const RESOURCES = [
     cost: "Free (paid tier optional)",
     url: "https://insighttimer.com"
   },
+  {
+    id: "woebot-app",
+    title: "Woebot",
+    category: "Self-Help Apps",
+    format: "App",
+    icon: "🤖",
+    topics: ["Depression","Anxiety"],
+    blurb: "An automated CBT-based chatbot for daily mood tracking and brief skill-building check-ins. Useful for clients between sessions or for staff micro-doses of self-reflection.",
+    cost: "Free",
+    url: "https://woebothealth.com"
+  },
+  {
+    id: "sanvello-app",
+    title: "Sanvello",
+    category: "Self-Help Apps",
+    format: "App",
+    icon: "🌟",
+    topics: ["Anxiety","Depression","Mindfulness"],
+    blurb: "CBT-based mood tracking, guided journeys, and peer community. Free tier covers most self-help features; many insurance plans cover premium.",
+    cost: "Mixed (insurance often covers)",
+    url: "https://www.sanvello.com"
+  },
 
   /* ---------- BOOKS & READING ---------- */
   {
@@ -474,6 +496,17 @@ const RESOURCES = [
     blurb: "Emily and Amelia Nagoski on why “self-care” advice often misses the mark, and what actually completes the body’s stress response. Recommended for anyone in caregiving roles.",
     cost: "Paid (~$18)",
     url: "https://www.burnoutbook.net"
+  },
+  {
+    id: "trauma-stewardship",
+    title: "Trauma Stewardship",
+    category: "Books & Reading",
+    format: "Book",
+    icon: "📗",
+    topics: ["Burnout & Compassion Fatigue","Trauma / PTSD"],
+    blurb: "Laura van Dernoot Lipsky’s field guide for people who help others through hard things. Reflective exercises throughout; useful as a year-long supervision companion.",
+    cost: "Paid (~$20)",
+    url: "https://traumastewardship.com"
   },
   {
     id: "body-keeps-score",
@@ -495,7 +528,7 @@ const RESOURCES = [
     topics: ["Boundaries & Self-Care","Grief & Loss"],
     blurb: "Lori Gottlieb’s memoir of being a therapist who also goes to therapy. A warm, honest read for anyone wondering whether their own work has affected them more than they’ve admitted.",
     cost: "Paid (~$16)",
-    url: "https://lorigottlieb.com/books/maybe-you-should-talk-to-someone/"
+    url: "https://lorigottlieb.com/books/maybe-you-should-talk-to-someone"
   },
 
   /* ---------- WORKBOOKS & TOOLS ---------- */
@@ -508,7 +541,7 @@ const RESOURCES = [
     topics: ["Boundaries & Self-Care","Burnout & Compassion Fatigue"],
     blurb: "Free guided meditations, exercises, and worksheets from Dr. Kristin Neff’s research lab. Self-compassion break, soothing touch, and writing prompts.",
     cost: "Free",
-    url: "https://self-compassion.org/self-compassion-practices/"
+    url: "https://self-compassion.org/self-compassion-practices"
   },
   {
     id: "therapist-aid-worksheets",
@@ -522,29 +555,29 @@ const RESOURCES = [
     url: "https://www.therapistaid.com"
   },
   {
-    id: "therapistaid-grounding",
-    title: "Grounding Techniques (5-4-3-2-1)",
+    id: "centerstone-grounding",
+    title: "Five Senses Grounding Exercise (Article)",
     category: "Workbooks & Tools",
     format: "Article",
     icon: "✋",
     topics: ["Anxiety","Trauma / PTSD","Mindfulness"],
-    blurb: "Clinician-written walkthrough of the 5-4-3-2-1 grounding technique and other body-based resets — useful for clients in dissociation or panic, and for your own resets between sessions. Print-friendly.",
+    blurb: "Quick walkthrough of the 5-4-3-2-1 grounding technique — useful for clients in dissociation or panic, and for your own resets between sessions. Print-friendly.",
     cost: "Free",
-    url: "https://www.therapistaid.com/therapy-article/grounding-techniques-article"
+    url: "https://centerstone.org/our-resources/health-wellness/the-grounding-technique"
   },
 
   /* ---------- LOCAL CINCINNATI ---------- */
   {
     id: "nami-cincinnati",
-    title: "NAMI Southwest Ohio",
+    title: "NAMI Cincinnati / Hamilton County",
     category: "Local Cincinnati",
     format: "Website",
     icon: "🏙",
     topics: ["Family & Caregiver Support","Recovery / Substance Use"],
-    blurb: "Greater Cincinnati affiliate of the National Alliance on Mental Illness, serving Hamilton County and Southwest Ohio. Free family-to-family classes, peer support groups, and education.",
+    blurb: "Local affiliate of the National Alliance on Mental Illness. Free family-to-family classes, peer support groups, and a warmline staffed by trained volunteers.",
     cost: "Free",
     phone: "513-351-3500",
-    url: "https://namiswoh.org"
+    url: "https://www.namisouthwestohio.org"
   },
   {
     id: "1n5-cincinnati",
@@ -583,15 +616,15 @@ const RESOURCES = [
   },
   {
     id: "mha-greater-cincinnati",
-    title: "Mental Health America of N. Kentucky &amp; SW Ohio",
+    title: "Mental Health America of Greater Cincinnati",
     category: "Local Cincinnati",
     format: "Website",
     icon: "🤝",
     topics: ["Family & Caregiver Support","Recovery / Substance Use","Veterans & First Responders"],
-    blurb: "Regional MHA affiliate serving Southwest Ohio (Cincinnati office). Free mental health screenings, certified peer support, pro bono counseling, and community education.",
+    blurb: "Local advocacy and education affiliate. Mental health screenings, peer support, veteran support programs, and community education events.",
     cost: "Free",
     phone: "513-721-2910",
-    url: "https://mhankyswoh.org"
+    url: "https://www.mhagc.org"
   }
 ];
 
