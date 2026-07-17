@@ -12,18 +12,18 @@
    ---- Shared styles live inline in every page ----
    Palette notes:
    - Site chrome (nav, footer, database) uses Talbert House's
-     teal #02777C so the site feels like "theirs."
+     brand blue #2060A0 (+ gold #F2B01E, both sampled from their logo) so the site feels like "theirs."
    - Authored/voice sections use Hello Mental Health's cream +
      forest + coral so HMH's voice is distinct but subtle.
    ========================================================== */
 :root {
-  --th-teal:#02777C; --th-teal-dark:#015B5F; --th-teal-light:#E6F2F2;
-  --th-orange:#E8622C; --th-orange-soft:#FDEAE0;
+  --th-teal:#2060A0; --th-teal-dark:#17497D; --th-teal-light:#E8F0F8;
+  --th-orange:#F2B01E; --th-orange-soft:#FCF3DC;
   --hmh-forest:#2E5D4A; --hmh-cream:#FAF5EC; --hmh-coral:#E28F6E; --hmh-gold:#D9A441;
   --slate-900:#1F2937; --slate-700:#374151; --slate-500:#6B7280; --slate-300:#D1D5DB; --slate-100:#F3F4F6;
   --radius-sm:6px; --radius-md:12px; --radius-lg:20px;
   --shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);
-  --shadow-md:0 4px 12px rgba(2,119,124,.08),0 2px 4px rgba(0,0,0,.04);
+  --shadow-md:0 4px 12px rgba(32,96,160,.08),0 2px 4px rgba(0,0,0,.04);
   --font-display:Georgia,"Playfair Display","Iowan Old Style",Cambria,serif;
   --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
 }
@@ -42,8 +42,8 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 .eyebrow-hmh{color:var(--hmh-forest)}
 
 .crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
-.crisis-banner strong{color:#FFC7B0;letter-spacing:.02em}
-.crisis-banner a{color:#FFE1D1;font-weight:600;margin:0 6px}
+.crisis-banner strong{color:#FFDF9E;letter-spacing:.02em}
+.crisis-banner a{color:#FFEDC6;font-weight:600;margin:0 6px}
 .crisis-banner a:hover{color:#fff}
 
 .site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
@@ -74,7 +74,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 
 .btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.98rem;border:2px solid transparent;cursor:pointer;transition:transform .1s ease,background .15s ease,border .15s ease;text-align:center}
 .btn:hover{text-decoration:none;transform:translateY(-1px)}
-.btn-primary{background:var(--th-orange);color:#fff}.btn-primary:hover{background:#D45423;color:#fff}
+.btn-primary{background:var(--th-orange);color:#1F2937}.btn-primary:hover{background:#D99C0B;color:#1F2937}
 .btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}.btn-ghost-light:hover{background:rgba(255,255,255,.12);color:#fff}
 .btn-outline{background:#fff;color:var(--th-teal-dark);border-color:var(--th-teal)}.btn-outline:hover{background:var(--th-teal-light);color:var(--th-teal-dark)}
 
@@ -98,7 +98,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 .stat{background:#fff;border-radius:var(--radius-md);padding:22px;border-left:4px solid var(--th-teal)}
 .stat .num{font-family:var(--font-display);font-size:2.4rem;color:var(--th-teal-dark);font-weight:700;line-height:1}
 .stat .label{font-size:.92rem;color:var(--slate-700);margin-top:6px}
-.stat.alt{border-left-color:var(--th-orange)}.stat.alt .num{color:var(--th-orange)}
+.stat.alt{border-left-color:var(--th-orange)}.stat.alt .num{color:#B07E00}
 .stat.hmh{border-left-color:var(--hmh-forest)}.stat.hmh .num{color:var(--hmh-forest)}
 
 .bar-chart{display:flex;flex-direction:column;gap:10px;margin-top:16px}
@@ -114,7 +114,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 .callout-th{background:var(--th-teal-light);border-left-color:var(--th-teal)}
 .callout-th strong{color:var(--th-teal-dark)}
 .callout-warn{background:var(--th-orange-soft);border-left-color:var(--th-orange)}
-.callout-warn strong{color:#B44116}
+.callout-warn strong{color:#8A6410}
 
 .site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
 .site-footer a{color:var(--th-teal-light)}
@@ -175,7 +175,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 
 <section class="hero">
   <div class="container">
-    <span class="eyebrow" style="color:#FFE1D1">For Talbert House staff &mdash; internal</span>
+    <span class="eyebrow" style="color:#FFEDC6">For Talbert House staff &mdash; internal</span>
     <h1>A library for the humans who show up for other people.</h1>
     <p class="lead">Workplace wellness tools, vetted mental health resources, a growing provider database, and original content from Hello Mental Health &mdash; built for the 900&#43; staff across Talbert House&rsquo;s five service lines.</p>
     <div class="hero-actions">
