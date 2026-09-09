@@ -12,7 +12,6 @@ h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1
 h1{font-size:clamp(2rem,4vw,2.8rem)}h2{font-size:clamp(1.4rem,2.2vw,1.9rem)}h3{font-size:1.2rem}
 p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var(--slate-500)}
 .container{max-width:1160px;margin:0 auto;padding:0 24px}
-.container-narrow{max-width:860px;margin:0 auto;padding:0 24px}
 .section{padding:56px 0}
 .eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);margin-bottom:8px}
 
@@ -82,6 +81,14 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 @media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CH826VSFK3');
+</script>
 </head>
 <body>
 
@@ -141,12 +148,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
       </div>
       <div><h4>Library</h4><ul><li><a href="providers.html">Providers</a></li><li><a href="workplace-wellness.html">Workplace wellness</a></li><li><a href="resources.html">Resources</a></li><li><a href="blog.html">Blog</a></li></ul></div>
-      <div><h4>Crisis lines</h4>
-        <ul>
-          <li><a href="tel:988">988 Lifeline &mdash; call or text</a></li>
-          <li>Crisis Text Line &mdash; text HOME to 741741</li>
-          <li><a href="tel:988">Veterans: 988, then press 1</a></li>
-        </ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline &mdash; call or text</a></li><li>Crisis Text Line &mdash; text HOME to 741741</li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
       <div><h4>Talbert House</h4><ul><li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li><li><a href="tel:5132214357">(513) 221-HELP</a></li><li>2600 Victory Pkwy, Cincinnati OH</li></ul></div>
     </div>
     <div class="footer-credit">
@@ -157,14 +159,6 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 </footer>
 
 <script>
-/* =========================================================
-   VIDEOS
-   ---------------------------------------------------------
-   TO ADD A VIDEO: copy an object below and fill in. Set
-   "embed_url" to a YouTube/Vimeo embed URL (e.g.
-   https://www.youtube.com/embed/VIDEO_ID). Leave it empty
-   to show a placeholder until the video is ready.
-   ========================================================= */
 const VIDEOS = [
   {
     id: "grounding-90-sec",
@@ -173,7 +167,6 @@ const VIDEOS = [
     duration: "1:32",
     date: "2026-04-04",
     cover_variant: 4,
-    cover_label: "Pause",
     embed_url: "",
     description: "A short, guided exercise to help reset after a hard session or call. Uses the 5-4-3-2-1 technique with a Hello Mental Health twist."
   },
@@ -184,9 +177,8 @@ const VIDEOS = [
     duration: "12:45",
     date: "2026-03-19",
     cover_variant: 2,
-    cover_label: "Ep. 1",
     embed_url: "",
-    description: "The first in a three-part series on reflective supervision for behavioral health teams. Covers what distinguishes reflective from administrative supervision and why it matters for retention."
+    description: "The first in a three-part series on reflective supervision for behavioral health teams."
   },
   {
     id: "trauma-informed-intake",
@@ -195,7 +187,6 @@ const VIDEOS = [
     duration: "8:10",
     date: "2026-02-27",
     cover_variant: 3,
-    cover_label: "Skills",
     embed_url: "",
     description: "Small changes to the first five minutes of an intake that signal safety and change how the rest of the session unfolds."
   }
@@ -239,8 +230,7 @@ const VIDEOS = [
     if(v.embed_url){
       frame.innerHTML=`<iframe src="${esc(v.embed_url)}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="${esc(v.title)}"></iframe>`;
     } else {
-      frame.innerHTML=`<div><strong style="color:#fff;font-family:var(--font-display);font-size:1.4rem;display:block;margin-bottom:8px">Coming soon</strong>
-        <span>This video isn&rsquo;t published yet. Check back soon for updates.</span></div>`;
+      frame.innerHTML=`<div><strong style="color:#fff;font-family:var(--font-display);font-size:1.4rem;display:block;margin-bottom:8px">Coming soon</strong><span>This video isn&rsquo;t published yet. Check back soon.</span></div>`;
     }
     player.classList.add('visible');
     listSec.style.display='none';
@@ -253,7 +243,6 @@ const VIDEOS = [
   renderList();route();
 })();
 
-/* Shared nav */
 (function(){
   var t=document.querySelector('.nav-toggle'),l=document.querySelector('.nav-links');
   if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open');});}

@@ -75,8 +75,6 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
 .callout-th{background:var(--th-teal-light);border-left-color:var(--th-teal)}
 .callout-th strong{color:var(--th-teal-dark)}
 
-/* --- To add a provider, edit the PROVIDERS data in the <script> tag below. --- */
-
 .site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
 .site-footer a{color:var(--th-teal-light)}
 .site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
@@ -88,6 +86,14 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
 @media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CH826VSFK3');
+</script>
 </head>
 <body>
 
@@ -209,7 +215,6 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
 </footer>
 
 <script>
-/* Shared nav behavior */
 (function(){
   var t=document.querySelector('.nav-toggle'),l=document.querySelector('.nav-links');
   if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open');});}
