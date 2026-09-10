@@ -76,6 +76,21 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 .callout{background:var(--hmh-cream);border-left:5px solid var(--hmh-forest);border-radius:var(--radius-md);padding:18px 22px;color:var(--slate-900);font-size:.98rem;margin:20px 0}
 .callout strong{color:var(--hmh-forest)}
 .section-divider{border:none;border-top:1px solid var(--slate-100);margin:48px 0}
+.selfhelp-section{background:var(--hmh-cream);border-radius:var(--radius-md);padding:36px;margin:40px 0}
+.selfhelp-section .eyebrow{color:var(--hmh-forest)}
+.selfhelp-section h2{margin-bottom:8px}
+.selfhelp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:24px}
+.selfhelp-card{background:#fff;border:1px solid rgba(46,93,74,.12);border-radius:var(--radius-md);padding:22px;position:relative;overflow:hidden;opacity:.72}
+.selfhelp-card::before{content:"Coming soon";position:absolute;top:12px;right:12px;background:var(--hmh-forest);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.selfhelp-card .sh-type{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hmh-forest);margin-bottom:8px}
+.selfhelp-card h3{font-size:1.1rem;margin:0 0 8px;color:var(--slate-700)}
+.selfhelp-card p{color:var(--slate-500);font-size:.93rem;margin:0 0 12px;font-style:italic}
+.selfhelp-card .sh-tags{display:flex;flex-wrap:wrap;gap:6px}
+.sh-tag{background:var(--hmh-cream);color:var(--hmh-forest);border:1px solid rgba(46,93,74,.2);padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:600}
+.selfhelp-submit{background:#fff;border:2px dashed rgba(46,93,74,.25);border-radius:var(--radius-md);padding:28px;text-align:center;margin-top:16px}
+.selfhelp-submit p{color:var(--slate-700);margin:0 0 12px;font-size:.95rem}
+.selfhelp-submit a{display:inline-block;background:var(--hmh-forest);color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:.92rem}
+.selfhelp-submit a:hover{background:#234a39;text-decoration:none}
 .site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
 .site-footer a{color:var(--th-teal-light)}.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
@@ -154,6 +169,36 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
     <div class="search-meta"><span id="tool-count">Loading tools&hellip;</span><button id="clear-filters" type="button">Clear filters</button></div>
     <div id="tool-list" class="tool-grid"></div>
     <div class="callout" style="margin-top:30px"><strong>Want to suggest a tool?</strong><p style="margin:6px 0 0">Email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> with what works for you.</p></div>
+    <hr class="section-divider" />
+    <div class="selfhelp-section">
+      <span class="eyebrow">Clinician recommended</span>
+      <h2>Self-Help Materials</h2>
+      <p style="color:var(--slate-700);max-width:62ch">Books, workbooks, apps, and guided programs vetted by Hello Mental Health clinicians — chosen specifically for the challenges Talbert House staff face. Materials are added as they're reviewed and approved.</p>
+      <div class="selfhelp-grid">
+        <div class="selfhelp-card">
+          <div class="sh-type">Book</div>
+          <h3>Title coming soon</h3>
+          <p>Clinician-recommended reading for staff who work in high-stress, trauma-adjacent environments.</p>
+          <div class="sh-tags"><span class="sh-tag">Burnout</span><span class="sh-tag">Self-care</span></div>
+        </div>
+        <div class="selfhelp-card">
+          <div class="sh-type">Workbook</div>
+          <h3>Title coming soon</h3>
+          <p>A guided workbook for building skills outside of session, at your own pace.</p>
+          <div class="sh-tags"><span class="sh-tag">Anxiety</span><span class="sh-tag">Boundaries</span></div>
+        </div>
+        <div class="selfhelp-card">
+          <div class="sh-type">App / Program</div>
+          <h3>Title coming soon</h3>
+          <p>A structured digital program reviewed for clinical soundness and ease of use.</p>
+          <div class="sh-tags"><span class="sh-tag">Mindfulness</span><span class="sh-tag">Sleep</span></div>
+        </div>
+      </div>
+      <div class="selfhelp-submit">
+        <p>Are you a Talbert House clinician with a recommendation? Send it our way and we'll review it for the library.</p>
+        <a href="mailto:Welcome@HelloMentalHealth.com">Submit a recommendation</a>
+      </div>
+    </div>
   </div>
 </section>
 <footer class="site-footer">
