@@ -114,7 +114,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
   <div class="container">
     <span class="eyebrow">Curated mental health resources</span>
     <h1>Resources we trust.</h1>
-    <p class="lead">Crisis lines, therapy finders, apps, reading, and local Cincinnati support &mdash; vetted by the Hello Mental Health team. For yourself, a colleague, or someone you love.</p>
+    <p class="lead">Crisis lines, therapy finders, apps, reading, and local Cincinnati support, vetted by the Hello Mental Health team. For yourself, a colleague, or someone you love.</p>
   </div>
 </section>
 <section class="section" style="padding-top:0">
@@ -137,7 +137,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
     <div class="footer-grid">
       <div><h4>About this library</h4><p style="margin:0 0 10px">An internal resource library for Talbert House staff.</p><p class="muted" style="color:#98A2AD;margin:0">Internal use only.</p></div>
       <div><h4>Library</h4><ul><li><a href='/talberthouse/providers'>Providers</a></li><li><a href='/talberthouse/workplace-wellness'>Workplace wellness</a></li><li><a href='/talberthouse/resources'>Resources</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/faq'>FAQ</a></li></ul></div>
-      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline &mdash; call or text</a></li><li>Crisis Text Line &mdash; text HOME to 741741</li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li>Crisis Text Line, text HOME to 741741</li></ul></div>
       <div><h4>Talbert House</h4><ul><li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li><li><a href="tel:5132214357">(513) 221-HELP</a></li></ul></div>
     </div>
     <div class="footer-credit"><div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use</div><div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div></div>
@@ -151,13 +151,13 @@ const CAT_CLASS={"Crisis & Hotlines":"cat-crisis","Therapy Finders":"cat-finder"
 const CAT_ICONS={"Crisis & Hotlines":"\u260E","Therapy Finders":"\uD83D\uDD0D","Self-Help Apps":"\uD83D\uDCF1","Books & Reading":"\uD83D\uDCDA","Workbooks & Tools":"\u270F","Local Cincinnati":"\uD83D\uDCCD"};
 const RESOURCES=[
   {id:"988-lifeline",title:"988 Suicide & Crisis Lifeline",category:"Crisis & Hotlines",format:"Hotline",topics:["Suicide Prevention"],blurb:"Free, confidential 24/7 support by call, text, or chat. Routes to local networks.",cost:"Free",phone:"988",url:"https://988lifeline.org",is_crisis:true},
-  {id:"crisis-text-line",title:"Crisis Text Line",category:"Crisis & Hotlines",format:"Hotline",topics:["Suicide Prevention"],blurb:"Text HOME to 741741 — 24/7 text-based crisis support when a phone call isn't safe.",cost:"Free",phone:"Text HOME to 741741",url:"https://www.crisistextline.org",is_crisis:true},
+  {id:"crisis-text-line",title:"Crisis Text Line",category:"Crisis & Hotlines",format:"Hotline",topics:["Suicide Prevention"],blurb:"Text HOME to 741741, 24/7 text-based crisis support when a phone call isn't safe.",cost:"Free",phone:"Text HOME to 741741",url:"https://www.crisistextline.org",is_crisis:true},
   {id:"trevor-project",title:"The Trevor Project",category:"Crisis & Hotlines",format:"Hotline",topics:["LGBTQ+ Affirming","Suicide Prevention"],blurb:"24/7 crisis and suicide prevention for LGBTQ+ young people. Phone, text, and chat.",cost:"Free",phone:"1-866-488-7386",url:"https://www.thetrevorproject.org",is_crisis:true},
   {id:"veterans-crisis-line",title:"Veterans Crisis Line",category:"Crisis & Hotlines",format:"Hotline",topics:["Veterans & First Responders","Suicide Prevention","Trauma / PTSD"],blurb:"24/7 support for veterans and families. Dial 988 then press 1, or text 838255.",cost:"Free",phone:"988 then 1",url:"https://www.veteranscrisisline.net",is_crisis:true},
   {id:"samhsa-helpline",title:"SAMHSA National Helpline",category:"Crisis & Hotlines",format:"Hotline",topics:["Recovery / Substance Use"],blurb:"Free, confidential 24/7 referral service for mental health and substance use disorders.",cost:"Free",phone:"1-800-662-4357",url:"https://www.samhsa.gov/find-help/national-helpline",is_crisis:true},
   {id:"postpartum-support",title:"Postpartum Support International Helpline",category:"Crisis & Hotlines",format:"Hotline",topics:["Parenting & Perinatal","Depression","Anxiety"],blurb:"Support and referrals for perinatal mood and anxiety disorders.",cost:"Free",phone:"1-800-944-4773",url:"https://www.postpartum.net",is_crisis:true},
   {id:"psychology-today",title:"Psychology Today Therapist Finder",category:"Therapy Finders",format:"Website",topics:["Anxiety","Depression","Trauma / PTSD"],blurb:"The most comprehensive therapist directory in the US. Filter by insurance, specialty, location.",cost:"Free to search",url:"https://www.psychologytoday.com/us/therapists"},
-  {id:"open-path",title:"Open Path Collective",category:"Therapy Finders",format:"Website",topics:["Anxiety","Depression"],blurb:"Therapists offering reduced-fee sessions ($40–$80). One-time $65 lifetime membership.",cost:"Sliding scale",url:"https://openpathcollective.org"},
+  {id:"open-path",title:"Open Path Collective",category:"Therapy Finders",format:"Website",topics:["Anxiety","Depression"],blurb:"Therapists offering reduced-fee sessions ($40-$80). One-time $65 lifetime membership.",cost:"Sliding scale",url:"https://openpathcollective.org"},
   {id:"inclusive-therapists",title:"Inclusive Therapists",category:"Therapy Finders",format:"Website",topics:["LGBTQ+ Affirming","Trauma / PTSD","Anxiety"],blurb:"Directory centering BIPOC, LGBTQIA2S+, neurodivergent, and disabled communities.",cost:"Free to search",url:"https://www.inclusivetherapists.com"},
   {id:"therapy-for-black-girls",title:"Therapy for Black Girls",category:"Therapy Finders",format:"Website",topics:["Anxiety","Depression","Trauma / PTSD"],blurb:"Culturally competent, high-quality services for Black women and girls.",cost:"Free to search",url:"https://therapyforblackgirls.com"},
   {id:"calm-app",title:"Calm",category:"Self-Help Apps",format:"App",topics:["Anxiety","Sleep","Mindfulness"],blurb:"Guided meditations, sleep stories, breathing exercises, and gentle music.",cost:"Paid (free trial)",url:"https://www.calm.com"},
