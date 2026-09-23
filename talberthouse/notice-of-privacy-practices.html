@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!--
+  DRAFT Notice of Privacy Practices.
+  Before publishing: (1) have this reviewed by your HIPAA/compliance counsel,
+  and (2) complete every [BRACKETED] placeholder below (effective date,
+  Privacy Officer name and contact, mailing address, and any Talbert House
+  crisis line). De-identified data described here is not PHI under HIPAA.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Notice of Privacy Practices &middot; Talbert House Staff Resource Library</title>
+<meta name="description" content="How Hello Mental Health uses and protects your Protected Health Information (PHI) for Talbert House staff services, and the privacy rights you have under HIPAA and Ohio law." />
+<style>
+:root {
+  --th-teal:#2060A0; --th-teal-dark:#17497D; --th-teal-light:#E8F0F8;
+  --th-orange:#F2B01E; --th-orange-soft:#FCF3DC;
+  --hmh-forest:#2E5D4A; --hmh-cream:#FAF5EC; --hmh-coral:#E28F6E; --hmh-gold:#D9A441;
+  --slate-900:#1F2937; --slate-700:#374151; --slate-500:#6B7280; --slate-300:#D1D5DB; --slate-100:#F3F4F6;
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.06);
+  --shadow-md:0 4px 12px rgba(32,96,160,.08),0 2px 4px rgba(0,0,0,.04);
+  --font-display:Georgia,"Playfair Display","Iowan Old Style",Cambria,serif;
+  --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:var(--font-body);color:var(--slate-900);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--th-teal);text-decoration:none}a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.25;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.35rem,2.2vw,1.8rem);margin-top:1.6em}h3{font-size:1.15rem;margin-top:1.4em}
+p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.container-narrow{max-width:820px;margin:0 auto;padding:0 24px}
+.section{padding:56px 0}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);margin-bottom:8px}
+.muted{color:var(--slate-500)}.mt-0{margin-top:0}
+
+.crisis-banner{background:var(--slate-900);color:#fff;font-size:.92rem;padding:10px 16px;text-align:center}
+.crisis-banner strong{color:#FFDF9E;letter-spacing:.02em}
+.crisis-banner a{color:#FFEDC6;font-weight:600;margin:0 6px}
+.crisis-banner a:hover{color:#fff}
+.skip-link{position:absolute;left:-999px;top:0;background:#fff;color:var(--th-teal-dark);padding:10px 16px;border-radius:var(--radius-sm);z-index:100}
+.skip-link:focus{left:12px;top:12px}
+
+.site-header{background:#fff;border-bottom:1px solid var(--slate-100);position:sticky;top:0;z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto;gap:24px}
+.brand-lockup{display:flex;align-items:center;gap:12px}
+.brand-mark{width:42px;height:42px;background:var(--th-teal);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-family:var(--font-display);font-size:.92rem;position:relative}
+.brand-mark::after{content:"";position:absolute;right:-4px;bottom:-4px;width:14px;height:14px;background:var(--th-orange);border-radius:50%;border:2px solid #fff}
+.brand-text{display:flex;flex-direction:column;line-height:1.1}
+.brand-text .top{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-500)}
+.brand-text .main{font-family:var(--font-display);font-weight:700;color:var(--slate-900);font-size:1.05rem}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-links a{color:var(--slate-700);padding:8px 12px;border-radius:var(--radius-sm);font-weight:500;font-size:.95rem}
+.nav-links a:hover{background:var(--th-teal-light);color:var(--th-teal-dark);text-decoration:none}
+.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
+.nav-cta{background:var(--th-teal);color:#fff !important;padding:9px 16px !important;border-radius:999px !important}
+.nav-cta:hover{background:var(--th-teal-dark) !important;text-decoration:none !important}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--slate-300);border-radius:var(--radius-sm);padding:8px 10px;cursor:pointer;font-size:1rem}
+@media(max-width:860px){.nav-toggle{display:inline-block}
+ .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md)}
+ .nav-links.open{display:flex}.nav-links a{padding:12px;border-radius:var(--radius-sm)}}
+
+.hero{background:linear-gradient(135deg,var(--th-teal) 0%,var(--th-teal-dark) 100%);color:#fff;padding:64px 24px 56px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;top:-80px;right:-80px;width:320px;height:320px;background:var(--th-orange);opacity:.18;border-radius:50%;filter:blur(8px)}
+.hero .container-narrow{position:relative;z-index:1}
+.hero h1{color:#fff}
+.hero .lead{color:rgba(255,255,255,.92);max-width:60ch}
+.hero .meta{color:rgba(255,255,255,.82);font-size:.95rem;margin-top:10px}
+
+.legal h2{color:var(--th-teal-dark)}
+.legal h3{color:var(--slate-900)}
+.legal p, .legal li{color:var(--slate-700)}
+.legal ul{margin:0 0 1.2em;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.legal ul li{position:relative;padding-left:26px}
+.legal ul li::before{content:"";position:absolute;left:4px;top:11px;width:8px;height:8px;border-radius:50%;background:var(--th-teal)}
+.legal strong{color:var(--slate-900)}
+.notice-statement{background:var(--th-teal-light);border-left:5px solid var(--th-teal);border-radius:var(--radius-md);padding:20px 24px;margin:0 0 8px;font-weight:700;color:var(--th-teal-dark);text-transform:uppercase;letter-spacing:.02em;font-size:.98rem;line-height:1.5}
+.callout{background:var(--hmh-cream);border-left:5px solid var(--hmh-forest);border-radius:var(--radius-md);padding:20px 24px;color:var(--slate-900);margin:24px 0}
+.callout strong{color:var(--hmh-forest)}
+.ph{background:var(--th-orange-soft);color:#8A6410;padding:1px 6px;border-radius:4px;font-weight:700;font-size:.92em;white-space:nowrap}
+.toc{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:20px 24px;margin:24px 0}
+.toc h4{margin:0 0 10px;font-family:var(--font-body);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--slate-500)}
+.toc ol{margin:0;padding-left:20px;color:var(--slate-700);columns:2;gap:24px}
+.toc li{margin-bottom:6px}
+@media(max-width:560px){.toc ol{columns:1}}
+
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;font-size:.94rem}
+.site-footer a{color:var(--th-teal-light)}
+.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit a{color:var(--th-teal-light)}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--hmh-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--hmh-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CH826VSFK3');
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="crisis-banner">
+  <strong>IN A CRISIS?</strong>
+  Call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) &middot;
+  Crisis Text Line: text HOME to <a href="sms:741741">741741</a>
+</div>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class='brand-lockup' href='/talberthouse/' style='color:inherit'>
+      <span class="brand-mark" aria-hidden="true">TH</span>
+      <span class="brand-text">
+        <span class="top">Talbert House</span>
+        <span class="main">Staff Resource Library</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">&#9776; Menu</button>
+    <div class="nav-links">
+      <a data-page='index.html' href='/talberthouse/'>Home</a>
+      <a data-page='providers.html' href='/talberthouse/providers'>Providers</a>
+      <a data-page='workplace-wellness.html' href='/talberthouse/workplace-wellness'>Workplace wellness</a>
+      <a data-page='resources.html' href='/talberthouse/resources'>Mental health resources</a>
+      <a data-page='blog.html' href='/talberthouse/blog'>Blog</a>
+      <a data-page='faq.html' href='/talberthouse/faq'>FAQ</a>
+      <a class='nav-cta' href='/talberthouse/providers'>Find a provider</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container-narrow">
+    <span class="eyebrow" style="color:#FFEDC6">Your privacy</span>
+    <h1>Notice of Privacy Practices</h1>
+    <p class="lead">How Hello Mental Health uses and protects your Protected Health Information (PHI) as part of the mental health services offered to Talbert House staff, and the rights you have.</p>
+    <p class="meta">Effective date: October 1, 2026</p>
+  </div>
+</section>
+
+<main id="main">
+<section class="section">
+  <div class="container-narrow legal">
+
+    <p class="notice-statement">This notice describes how your Protected Health Information (PHI) may be used and disclosed, and how you can get access to this information. Please review it carefully.</p>
+
+    <div class="toc">
+      <h4>On this page</h4>
+      <ol>
+        <li><a href="#who">Who follows this notice</a></li>
+        <li><a href="#pledge">Our pledge to you</a></li>
+        <li><a href="#uses">How we use and share information</a></li>
+        <li><a href="#exceptions">When the law lets us share without your permission</a></li>
+        <li><a href="#authorization">Uses that need your written permission</a></li>
+        <li><a href="#selfcheck">The Self-Check and de-identified information</a></li>
+        <li><a href="#talbert">What Talbert House receives</a></li>
+        <li><a href="#plan">What your health plan receives</a></li>
+        <li><a href="#website">Our website and analytics</a></li>
+        <li><a href="#rights">Your privacy rights</a></li>
+        <li><a href="#responsibilities">Our responsibilities</a></li>
+        <li><a href="#changes">Changes to this notice</a></li>
+        <li><a href="#complaints">Complaints</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ol>
+    </div>
+
+    <h2 id="who">Who follows this notice</h2>
+    <p>This notice is provided by <strong>Hello Mental Health</strong>, a licensed psychology practice that provides the Mental Health Check-Up and related mental health services to Talbert House staff. It applies to the licensed psychologists and staff who provide your care, and to the PHI we create and keep about that care.</p>
+    <p>Talbert House is your employer, not your health care provider. Talbert House does not receive your individual PHI from us except as described in this notice.</p>
+
+    <h2 id="pledge">Our pledge to you</h2>
+    <p>We are required by law to protect the privacy of your PHI, to give you this notice of our legal duties and privacy practices, and to follow the terms of the notice currently in effect. Your PHI is protected under the federal Health Insurance Portability and Accountability Act (HIPAA) and under Ohio law. We take that responsibility seriously.</p>
+
+    <h2 id="uses">How we use and share your health information</h2>
+    <p>In the normal course of your care, we may use and share your PHI for the following purposes without asking for your separate permission:</p>
+    <h3>For treatment</h3>
+    <p>We use your Protected Health Information (PHI) to provide and coordinate your care, for example so your psychologist can review your intake responses and write and refer back to session notes. We will coordinate with another provider, and share your PHI with them, only when you have signed a release of information authorizing us to do so.</p>
+    <h3>For payment</h3>
+    <p>We may share the minimum PHI needed to bill and receive payment for your visit. For a visit billed to your health plan, this typically includes the dates of service, service and diagnostic codes that describe the type of visit and its clinical reason, and routine billing information.</p>
+    <h3>For health care operations</h3>
+    <p>We may use your PHI to run our practice, for example for quality review, training and supervision of our clinicians, and administrative functions that support your care. Where we use PHI for these purposes, we use the least amount necessary and, wherever possible, information that does not identify you.</p>
+
+    <h2 id="exceptions">When the law lets us share without your permission</h2>
+    <p>There are limited situations, where someone&rsquo;s safety is at stake or the law requires us to act, in which we may share your PHI without your authorization. These are the same exceptions described in our FAQ:</p>
+    <ul>
+      <li><strong>A safety risk.</strong> To prevent or lessen a serious and imminent threat to your health or safety, or to the health or safety of another person.</li>
+      <li><strong>Suspected abuse or neglect.</strong> To report suspected abuse, neglect, or exploitation as required or permitted by law.</li>
+      <li><strong>A court order.</strong> In response to a valid court order, subpoena, or other requirement of law, and for certain other government functions the law specifically allows.</li>
+    </ul>
+    <p>When the law gives us a choice, we share only the minimum PHI necessary for the purpose.</p>
+
+    <h2 id="authorization">Uses that need your written permission</h2>
+    <p>Other than the purposes described above, we will not use or share your PHI without your written authorization. If you give us written authorization, you may cancel it in writing at any time, and we will stop making new uses or disclosures under it, except to the extent we have already acted in reliance on it.</p>
+
+    <h2 id="selfcheck">The Self-Check and de-identified information</h2>
+    <p>The online <strong>Self-Check</strong> is separate from a clinical visit. When you take it, your responses are collected as <strong>de-identified information</strong>: they are recorded without your name, email, or login, and without anything that identifies you personally. Because this information does not identify you, it is not PHI under HIPAA.</p>
+    <p>De-identified Self-Check responses are used only in aggregate, to understand and improve staff wellbeing and the wellness program. Individual answers are not shared with Talbert House or your supervisor. <strong>There is no opt-out</strong>: everyone who takes the Self-Check is included, on the same terms. If you would prefer that your responses not be collected at all, simply do not take the Self-Check.</p>
+    <div class="callout">
+      <strong>The Self-Check is not monitored.</strong>
+      <p style="margin:8px 0 0">It does not create an alert or trigger anyone to reach out to you. If you are in crisis or thinking about harming yourself, please use the crisis lines at the top and bottom of this page.</p>
+    </div>
+
+    <h2 id="talbert">What Talbert House receives</h2>
+    <p>Talbert House cannot see the PHI we keep as part of your care, and it cannot see any individual&rsquo;s Self-Check answers. What we share with Talbert House are general, aggregated trends, such as how many staff are using the services. These reports describe whole groups of people, never individuals, and never include your name or anything that could identify you. Talbert House uses this information to see how current programs are working and to plan future wellness efforts.</p>
+
+    <h2 id="plan">What your health plan receives</h2>
+    <p>If a visit is billed to your health plan, the plan receives only what it needs to process the claim: the dates of your visits, service and diagnostic codes, and routine billing information.</p>
+
+    <h2 id="website">Our website and analytics</h2>
+    <p>This website uses standard web analytics (Google Analytics) to understand how the site is used, for example which pages are visited and on what kind of device. This analytics information is about website use, is not linked to your identity, and is not connected to your clinical care or the PHI described above. Your browser settings and available privacy tools let you limit analytics and cookies.</p>
+
+    <h2 id="rights">Your privacy rights</h2>
+    <p>You have the following rights regarding the PHI we keep about you:</p>
+    <ul>
+      <li><strong>Get a copy.</strong> You can ask to see and get a copy of your health record, usually within 30 days of your request.</li>
+      <li><strong>Ask us to correct it.</strong> You can ask us to correct information you believe is incorrect or incomplete. We may say no, and if we do we will explain why in writing.</li>
+      <li><strong>Get a list of disclosures.</strong> You can ask for a list (an accounting) of certain times we shared your information, for the six years before the date you ask.</li>
+      <li><strong>Ask us to limit what we share.</strong> You can ask us to limit how we use or share your information. We are not required to agree to every request, but we will consider it.</li>
+      <li><strong>Ask for private contact.</strong> You can ask us to contact you in a specific way or at a specific place, for example by a certain phone number. We will accommodate reasonable requests.</li>
+      <li><strong>Get a paper copy of this notice.</strong> You can ask for a paper copy of this notice at any time, even if you agreed to receive it electronically.</li>
+      <li><strong>Choose someone to act for you.</strong> If you have given someone medical power of attorney or if someone is your legal guardian, that person can exercise your rights and make choices about your information.</li>
+      <li><strong>File a complaint.</strong> You can complain if you feel your rights have been violated. You will not be penalized or retaliated against for filing a complaint.</li>
+    </ul>
+
+    <h2 id="responsibilities">Our responsibilities</h2>
+    <ul>
+      <li>We are required by law to keep the privacy and security of your PHI.</li>
+      <li>We will let you know promptly if a breach occurs that may have compromised the privacy or security of your PHI.</li>
+      <li>We must follow the duties and privacy practices described in this notice and give you a copy of it.</li>
+      <li>We will not use or share your information other than as described here unless you tell us we can in writing.</li>
+    </ul>
+
+    <h2 id="changes">Changes to this notice</h2>
+    <p>We can change the terms of this notice, and the changes will apply to all PHI we have about you. The new notice will be available on request, on this page, and where we provide care. The effective date at the top of this notice tells you when the current version took effect.</p>
+
+    <h2 id="complaints">Complaints</h2>
+    <p>If you believe your privacy rights have been violated, you can file a complaint with our Privacy Officer using the contact information below. You can also file a complaint with the U.S. Department of Health and Human Services, Office for Civil Rights, by mail at 200 Independence Avenue SW, Washington, D.C. 20201, by phone at 1-877-696-6775, or online at <a href="https://www.hhs.gov/ocr/privacy/hipaa/complaints/" target="_blank" rel="noopener">www.hhs.gov/ocr/privacy/hipaa/complaints</a>. We will not retaliate against you for filing a complaint.</p>
+
+    <h2 id="contact">Contact us</h2>
+    <p>For questions about this notice, or to exercise any of your rights, contact our Privacy Officer:</p>
+    <ul>
+      <li><strong>Privacy Officer:</strong> Dr. Rachel Thompson, Hello Mental Health</li>
+      <li><strong>Phone:</strong> <span class="ph">[PRIVACY OFFICER PHONE]</span></li>
+      <li><strong>Email:</strong> <a href="mailto:rachel@hellomentalhealth.com">rachel@hellomentalhealth.com</a></li>
+      <li><strong>Mail:</strong> 126 Wellington Place, Cincinnati, Ohio</li>
+    </ul>
+    <p class="muted" style="font-size:.92rem">This notice is provided to comply with HIPAA and applicable Ohio law. It does not create any contractual or other legal rights beyond those provided by law.</p>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About this library</h4>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff, workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
+      </div>
+      <div><h4>Library</h4><ul><li><a href='/talberthouse/providers'>Providers</a></li><li><a href='/talberthouse/workplace-wellness'>Workplace wellness</a></li><li><a href='/talberthouse/resources'>Resources</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/faq'>FAQ</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li>Crisis Text Line, text HOME to 741741</li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
+      <div><h4>Talbert House</h4><ul><li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li><li><a href="tel:5132214357">(513) 221-HELP</a></li><li>2600 Victory Pkwy, Cincinnati OH</li></ul></div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use &middot; <a href="/talberthouse/notice-of-privacy-practices">Notice of Privacy Practices</a></div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle=document.querySelector('.nav-toggle');
+  var links=document.querySelector('.nav-links');
+  if(toggle&&links){toggle.addEventListener('click',function(){
+    links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',links.classList.contains('open'));
+  });}
+})();
+</script>
+</body>
+</html>
