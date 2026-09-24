@@ -9,6 +9,19 @@
 <link rel="apple-touch-icon" href="/talberthouse/apple-touch-icon.png">
 <meta name="description" content="A private, anonymous 4-minute mental wellness self-check. No names or identifying information are collected.">
 <meta name="robots" content="noindex">
+<!-- Google Analytics (GA4). Counts visits and a few anonymous Self-Check events only.
+     Never sends answers, scores, bands, or anything typed. See SELF-CHECK ANALYTICS at the bottom. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CH826VSFK3', {
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false,
+    page_title: 'Self-Check'
+  });
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap">
@@ -493,20 +506,19 @@ a:focus-visible, button:focus-visible, textarea:focus-visible, .btn:focus-visibl
    CONFIG: EDIT THESE  (search: PLACEHOLDER)
    ============================================================ */
 var CONFIG = {
-  SCHEDULE_URL:  "#SCHEDULE_URL",     /* PLACEHOLDER: link to the Check-Up scheduling flow (a SEPARATE system) */
-  RESOURCES_URL: "#RESOURCES_URL",    /* PLACEHOLDER: link to the self-guided resources page */
+  SCHEDULE_URL:  "mailto:Welcome@HelloMentalHealth.com?subject=Mental%20Health%20Check-Up", /* TEMPORARY: swap for the Check-Up booking link when ready (a SEPARATE system) */
+  RESOURCES_URL: "/talberthouse/resources", /* the self-guided resources page */
   EXIT_URL:      "https://www.google.com", /* Where "Quick exit" sends the user. Change if you prefer another neutral site. */
   /* Optional Talbert House crisis line. Leave label empty ("") to hide it. */
   TALBERT_CRISIS_LABEL: "",           /* PLACEHOLDER e.g. "Talbert House 24-hour line" */
   TALBERT_CRISIS_NUMBER: "",          /* PLACEHOLDER e.g. "513-281-2273" */
   TALBERT_CRISIS_HREF: "",            /* PLACEHOLDER e.g. "tel:5132812273" (defaults to tel: of the number) */
 
-  /* De-identified results saving (opt-in). Leave SAVE_ENDPOINT "" to disable saving entirely:
-     no checkbox appears and no data is ever sent. Set it to your Google Apps Script Web App URL
-     to turn on the opt-in "share my anonymous results" checkbox on the results screen. Only the
-     six domain scores (0-12) and the date are ever sent. Never the free-text, never a name,
-     email, or IP. See the setup steps in checkup-apps-script.gs. */
-  SAVE_ENDPOINT: "",                  /* PLACEHOLDER e.g. "https://script.google.com/macros/s/AKfy.../exec" */
+  /* De-identified results saving (automatic, disclosed on the landing and results screens).
+     When someone reaches the results screen, one row goes to the Google Sheet: the six area
+     scores (0-12) and the date. Never the free text, a name, email, IP, or individual answers.
+     Leave SAVE_ENDPOINT "" to turn saving off. Script: self-check-apps-script.gs */
+  SAVE_ENDPOINT: "https://script.google.com/macros/s/AKfycbwQ7QKfAVSTbJkTCo7D3gTifT2cC9LFmSeoPnBd11qrdEO2-Sm4gxhdn232H4r7_gifPw/exec", /* "Self-Check Results" Google Sheet (HMH Workspace), set up Sept 2026 */
   APP_VERSION: "1.0"
 };
 
@@ -658,7 +670,7 @@ function render(){
 }
 
 function renderLanding(){
-  var reassureP = '<strong>Your answers stay private.</strong> We never see your name, and nothing you write is ever linked to you. To help improve the program, we do keep an anonymous tally of results (your six area scores and the date), never your name and never anything you type. It can\'t be traced back to you.';
+  var reassureP = '<strong>Your answers stay private.</strong> We never see your name, and nothing you write is ever linked to you. To help improve the program, we do keep an anonymous tally of results (your six area scores and the date), never your name and never anything you type. It can\'t be traced back to you. Like the rest of this site, this page also counts visits anonymously: how many people start, how many finish, and which button they pick next. Never your answers.';
   app.innerHTML =
   '<section class="screen landing-hero">'+
     '<p class="eyebrow">A Hello Mental Health resource</p>'+
@@ -905,6 +917,59 @@ document.addEventListener("keydown", function(e){
 
 /* ---------- go ---------- */
 render();
+
+/* ============================================================
+   SELF-CHECK ANALYTICS (GA4)
+   Sends ONLY these anonymous events. No answers, scores, bands,
+   or free text are ever included, and the payloads below are the
+   complete list of what is sent.
+     selfcheck_start        - pressed "Start the check-in"
+     selfcheck_complete     - reached the reflections screen
+     selfcheck_next_action  - action: schedule_checkup | browse_resources |
+                              download_pdf | restart | crisis_988 |
+                              crisis_text | quick_exit | library_home
+     selfcheck_left_early   - left before finishing; last_step: landing is
+                              never sent, only "questions_1".."questions_6" or "note"
+     selfcheck_left_after_results - finished, then left without clicking anything
+   ============================================================ */
+(function(){
+  var started=false, completed=false, acted=false, sentLeave=false;
+  function send(name, params){
+    try{ if(typeof gtag==="function"){ var p=params||{}; p.transport_type="beacon"; gtag("event", name, p); } }catch(e){}
+  }
+  function stepName(){
+    try{
+      if(typeof state.step==="number") return "questions_"+(state.step+1);
+      if(state.step==="note") return "note";
+    }catch(e){}
+    return "";
+  }
+  function action(a){ acted=true; send("selfcheck_next_action", {action:a}); }
+
+  document.addEventListener("click", function(e){
+    var t=e.target; if(!t || !t.closest) return;
+    if(t.closest("#startBtn")){ started=true; completed=false; acted=false; sentLeave=false; send("selfcheck_start"); return; }
+    if(t.closest("#seeBtn")){ if(!completed){ completed=true; send("selfcheck_complete"); } return; }
+    if(t.closest("#quickExit")){ action("quick_exit"); return; }
+    if(t.closest("#downloadResults")){ action("download_pdf"); return; }
+    if(t.closest("#restartBtn")){ action("restart"); started=false; completed=false; return; }
+    if(t.closest(".sc-logo")){ action("library_home"); return; }
+    var a=t.closest("a"); if(!a) return;
+    var h=a.getAttribute("href")||"";
+    if(h===CONFIG.SCHEDULE_URL){ action("schedule_checkup"); return; }
+    if(h===CONFIG.RESOURCES_URL){ action("browse_resources"); return; }
+    if(h.indexOf("tel:988")===0){ action("crisis_988"); return; }
+    if(h.indexOf("sms:741741")===0){ action("crisis_text"); return; }
+  }, true);
+
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape"){ action("quick_exit"); } }, true);
+
+  window.addEventListener("pagehide", function(){
+    if(sentLeave) return; sentLeave=true;
+    if(completed && !acted){ send("selfcheck_left_after_results"); }
+    else if(started && !completed && !acted){ var s=stepName(); if(s) send("selfcheck_left_early", {last_step:s}); }
+  });
+})();
 </script>
 </body>
 </html>
