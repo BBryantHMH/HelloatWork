@@ -506,7 +506,7 @@ a:focus-visible, button:focus-visible, textarea:focus-visible, .btn:focus-visibl
    CONFIG: EDIT THESE  (search: PLACEHOLDER)
    ============================================================ */
 var CONFIG = {
-  SCHEDULE_URL:  "mailto:Welcome@HelloMentalHealth.com?subject=Mental%20Health%20Check-Up", /* TEMPORARY: swap for the Check-Up booking link when ready (a SEPARATE system) */
+  SCHEDULE_URL:  "https://hellomentalhealth.clientsecure.me", /* Check-Up booking (SimplePractice client portal, a SEPARATE system) */
   RESOURCES_URL: "/talberthouse/resources", /* the self-guided resources page */
   EXIT_URL:      "https://www.google.com", /* Where "Quick exit" sends the user. Change if you prefer another neutral site. */
   /* Optional Talbert House crisis line. Leave label empty ("") to hide it. */
@@ -844,7 +844,7 @@ function renderResults(){
       '<p>The Mental Health Check-Up is open to everyone. It\'s a confidential 30-minute conversation with a licensed psychologist. It\'s not therapy, and it\'s not a commitment to anything. It\'s a conversation about how you\'re doing, what might help, and what to expect if therapy ever makes sense for you.</p>'+
       '<p>If you\'re on the MedBen plan, the Check-Up is covered by MedBen. If you\'re not on the plan, there may be a cost, but we\'re happy to provide a superbill you can submit to your own insurance or plan for possible reimbursement.</p>'+
       '<div class="actions">'+
-        '<a class="btn btn-primary" href="'+esc(CONFIG.SCHEDULE_URL)+'">Schedule a Check-Up '+arrow()+'</a>'+
+        '<a class="btn btn-primary" href="'+esc(CONFIG.SCHEDULE_URL)+'">Schedule a Mental Health Check-Up '+arrow()+'</a>'+
         '<a class="btn btn-secondary" href="'+esc(CONFIG.RESOURCES_URL)+'">Just browse resources</a>'+
       '</div>'+
       '<p class="fine">Not ready to talk to anyone yet? That\'s a legitimate answer too. The resources page has self-guided options that are open to everyone.</p>'+
