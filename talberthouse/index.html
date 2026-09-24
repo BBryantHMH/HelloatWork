@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Talbert House Staff Resource Library &middot; Built by Hello Mental Health</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/talberthouse/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/talberthouse/images/favicon-512.png">
+<link rel="apple-touch-icon" href="/talberthouse/images/apple-touch-icon.png">
 <meta name="description" content="An internal resource library for Talbert House staff, workplace wellness, a provider database, a blog, and curated mental health tools. Built by Hello Mental Health, Cincinnati." />
 <style>
 :root {
@@ -129,6 +132,16 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 .preview .eye{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal);display:block;margin-bottom:4px}
 .preview h4{margin:0 0 6px;font-family:var(--font-body);font-size:1rem}
 .preview p{margin:0 0 10px;color:var(--slate-700);font-size:.92rem}
+
+/* Real Support logo */
+.brand-lockup{flex-direction:column;align-items:flex-start;gap:5px}
+.brand-logo{height:34px;width:auto;display:block;flex:none}
+.brand-lockup .brand-text{flex-direction:row;gap:.4em;white-space:nowrap;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-500);line-height:1}
+.brand-lockup .brand-text .top,.brand-lockup .brand-text .main{font-family:var(--font-body);font-size:inherit;font-weight:600;letter-spacing:inherit;color:inherit}
+.brand-lockup .brand-text .main::before{content:"\00B7";margin-right:.4em}
+.footer-logo{display:block;width:220px;max-width:100%;height:auto;margin:0 0 8px}
+.footer-tagline{margin:0 0 20px;color:#C1D1E3;font-size:.86rem;font-weight:600}
+@media(max-width:400px){.brand-logo{height:30px}.brand-lockup .brand-text{font-size:.55rem}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
@@ -150,7 +163,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
     <a class='brand-lockup' href='/talberthouse/' style='color:inherit'>
-      <span class="brand-mark" aria-hidden="true">TH</span>
+      <img class="brand-logo" src="/talberthouse/images/real-support-logo.png" alt="Real Support" width="185" height="34">
       <span class="brand-text">
         <span class="top">Talbert House</span>
         <span class="main">Staff Resource Library</span>
@@ -279,7 +292,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h4>About this library</h4>
+        <img class="footer-logo" src="/talberthouse/images/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p><h4>About this library</h4>
         <p style="margin:0 0 10px">An internal resource library for Talbert House staff, workplace wellness, provider connections, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
       </div>

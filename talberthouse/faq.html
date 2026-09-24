@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Privacy &amp; Confidentiality FAQ &middot; Talbert House Staff Resource Library</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/talberthouse/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/talberthouse/images/favicon-512.png">
+<link rel="apple-touch-icon" href="/talberthouse/images/apple-touch-icon.png">
 <meta name="description" content="How the Mental Health Check-Up protects your privacy: what the Self-Check collects, what's kept, and what Talbert House and your health plan can and cannot see. Built by Hello Mental Health, Cincinnati." />
 <style>
 :root {
@@ -112,6 +115,16 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
 
 @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+
+/* Real Support logo */
+.brand-lockup{flex-direction:column;align-items:flex-start;gap:5px}
+.brand-logo{height:34px;width:auto;display:block;flex:none}
+.brand-lockup .brand-text{flex-direction:row;gap:.4em;white-space:nowrap;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-500);line-height:1}
+.brand-lockup .brand-text .top,.brand-lockup .brand-text .main{font-family:var(--font-body);font-size:inherit;font-weight:600;letter-spacing:inherit;color:inherit}
+.brand-lockup .brand-text .main::before{content:"\00B7";margin-right:.4em}
+.footer-logo{display:block;width:220px;max-width:100%;height:auto;margin:0 0 8px}
+.footer-tagline{margin:0 0 20px;color:#C1D1E3;font-size:.86rem;font-weight:600}
+@media(max-width:400px){.brand-logo{height:30px}.brand-lockup .brand-text{font-size:.55rem}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
@@ -135,7 +148,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
     <a class='brand-lockup' href='/talberthouse/' style='color:inherit'>
-      <span class="brand-mark" aria-hidden="true">TH</span>
+      <img class="brand-logo" src="/talberthouse/images/real-support-logo.png" alt="Real Support" width="185" height="34">
       <span class="brand-text">
         <span class="top">Talbert House</span>
         <span class="main">Staff Resource Library</span>
@@ -149,7 +162,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
       <a data-page='resources.html' href='/talberthouse/resources'>Mental health resources</a>
       <a data-page='blog.html' href='/talberthouse/blog'>Blog</a>
       <a data-page='faq.html' href='/talberthouse/faq'>FAQ</a>
-      <a class='nav-cta' href='/talberthouse/checkup'>Mental Health Check-Up</a>
+      <a class='nav-cta' href='/talberthouse/self-check'>Take the Self-Check</a>
     </div>
   </nav>
 </header>
@@ -180,7 +193,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
         <div class="faq-body">
           <p>The Self-Check is not anonymous, it is de-identified, which is a specific and strong protection. When you take it, your responses are recorded without your name, e-mail, or login, and without anything that ties the results back to you. That information is used only in aggregate, to understand and improve staff wellbeing. There is no opt-out: everyone who takes the Self-Check is included, on the same terms.</p>
           <div class="inline-actions">
-            <a class="chip-link" href="/talberthouse/checkup">
+            <a class="chip-link" href="/talberthouse/self-check">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
               Take the Self-Check
             </a>
@@ -269,7 +282,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h4>About this library</h4>
+        <img class="footer-logo" src="/talberthouse/images/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p><h4>About this library</h4>
         <p style="margin:0 0 10px">An internal resource library for Talbert House staff, workplace wellness, provider connections, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
       </div>
