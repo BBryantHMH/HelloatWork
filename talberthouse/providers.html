@@ -254,5 +254,25 @@ const PROVIDERS=[
 })();
 (function(){var t=document.querySelector('.nav-toggle'),l=document.querySelector('.nav-links');if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open');});}var p=(window.location.pathname.split('/').pop()||'index.html');document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){if(a.dataset.page===p)a.classList.add('active');});})();
 </script>
+<script>
+/* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
+   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me)
+   resources_click        - any link to the Mental Health Resources page
+   Both carry link_location = "<page>_<spot>", e.g. home_page, providers_page, blog_menu, faq_footer,
+   self_check_results, so you can see which link people use. */
+(function(){
+  var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'').replace(/-/g,'_');
+  if(page==='talberthouse'||page==='index') page='home';
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
+    var h=a.getAttribute('href')||'', ev='';
+    if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
+    else if(/^\/talberthouse\/resources\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
+    if(!ev) return;
+    var spot=a.closest('.nav-links, nav')?'menu':a.closest('footer')?'footer':(page==='self_check'?'results':'page');
+    try{ gtag('event',ev,{link_location:page+'_'+spot,transport_type:'beacon'}); }catch(err){}
+  },true);
+})();
+</script>
 </body>
 </html>
