@@ -10,7 +10,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Notice of Privacy Practices &middot; Talbert House Staff Resource Library</title>
+<title>Privacy &amp; Notice of Privacy Practices &middot; Talbert House Staff Resource Library</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/talberthouse/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/talberthouse/favicon-512.png">
+<link rel="apple-touch-icon" href="/talberthouse/apple-touch-icon.png">
 <meta name="description" content="How Hello Mental Health uses and protects your Protected Health Information (PHI) for Talbert House staff services, and the privacy rights you have under HIPAA and Ohio law." />
 <style>
 :root {
@@ -99,6 +102,60 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 @media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+
+/* Real Support logo */
+.brand-lockup{flex-direction:column;align-items:flex-start;gap:5px}
+.brand-logo{height:34px;width:auto;display:block;flex:none}
+.brand-lockup .brand-text{flex-direction:row;gap:.4em;white-space:nowrap;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-500);line-height:1}
+.brand-lockup .brand-text .top,.brand-lockup .brand-text .main{font-family:var(--font-body);font-size:inherit;font-weight:600;letter-spacing:inherit;color:inherit}
+.brand-lockup .brand-text .main::before{content:"\00B7";margin-right:.4em}
+.footer-logo{display:block;width:220px;max-width:100%;height:auto;margin:0 0 8px}
+.footer-tagline{margin:0 0 20px;color:#C1D1E3;font-size:.86rem;font-weight:600}
+@media(max-width:400px){.brand-logo{height:30px}.brand-lockup .brand-text{font-size:.55rem}}
+
+/* Site structure update (Sept 2026) */
+.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
+.nav-cta-alt{background:#fff !important;color:var(--th-teal-dark) !important;border:1.5px solid var(--th-teal) !important;padding:7.5px 14.5px !important}
+.nav-cta-alt:hover{background:var(--th-teal-light) !important}
+.nav-links .nav-cta{margin-left:4px}
+.site-footer .footer-credit a{color:#C1D1E3}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.98rem;border:2px solid transparent;cursor:pointer;transition:transform .1s ease,background .15s ease,border .15s ease;text-align:center}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--th-orange);color:#1F2937}
+.btn-primary:hover{background:#D99C0B;color:#1F2937}
+.btn-outline{background:#fff;color:var(--th-teal-dark);border-color:var(--th-teal)}
+.btn-outline:hover{background:var(--th-teal-light);color:var(--th-teal-dark)}
+.eyebrow-hmh{color:var(--hmh-forest)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.btn-ghost-light:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav-links{gap:2px}
+.nav-links a{padding:8px 10px;font-size:.93rem}
+.nav-links a.nav-cta{padding:9px 15px !important}
+.nav-links a.nav-cta-alt{padding:7.5px 13.5px !important}
+@media(max-width:1180px){.nav-toggle{display:inline-block}
+ .nav{position:relative}
+ .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md);z-index:50}
+ .nav-links.open{display:flex}.nav-links a{padding:12px;border-radius:var(--radius-sm)}
+ .nav-links .nav-cta{margin:6px 0 0;text-align:center}}
+
+/* Header fit (keeps both buttons on one line) */
+.brand-lockup .brand-text{font-size:.54rem !important;letter-spacing:.05em !important}
+.nav{gap:16px}
+.nav-links{flex-wrap:nowrap;white-space:nowrap}
+.nav-links a{padding:8px 8px}
+.nav-links a.nav-cta{padding:9px 14px !important}
+.nav-links a.nav-cta-alt{padding:7.5px 12.5px !important}
+.site-header.nav-compact .nav{position:relative}
+.site-header.nav-compact .nav-toggle{display:inline-block}
+.site-header.nav-compact .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md);z-index:50;white-space:normal}
+.site-header.nav-compact .nav-links.open{display:flex}
+.site-header.nav-compact .nav-links a{padding:12px;border-radius:var(--radius-sm)}
+.site-header.nav-compact .nav-links .nav-cta{margin:6px 0 0;text-align:center}
+
+/* Header tagline (Sept 27) */
+.brand-lockup .brand-text{display:block !important;max-width:200px;white-space:normal !important;text-transform:none !important;letter-spacing:0 !important;font-size:.64rem !important;line-height:1.25 !important;color:var(--slate-500)}
+.brand-lockup .brand-text .tagline{font-family:var(--font-body);font-weight:600}
+@media(max-width:400px){.brand-lockup .brand-text{font-size:.58rem !important;max-width:170px}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
@@ -106,7 +163,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-CH826VSFK3');
+  gtag('config', 'G-CH826VSFK3', {allow_google_signals:false, allow_ad_personalization_signals:false});
 </script>
 </head>
 <body>
@@ -122,19 +179,18 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
     <a class='brand-lockup' href='/talberthouse/' style='color:inherit'>
-      <span class="brand-mark" aria-hidden="true">TH</span>
-      <span class="brand-text">
-        <span class="top">Talbert House</span>
-        <span class="main">Staff Resource Library</span>
-      </span>
+      <img class="brand-logo" src="/talberthouse/real-support-logo.png" alt="Real Support" width="185" height="34">
+      <span class="brand-text"><span class="tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</span></span>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">&#9776; Menu</button>
     <div class="nav-links">
-      <a data-page='index.html' href='/talberthouse/'>Home</a>
-      <a data-page='workplace-wellness.html' href='/talberthouse/workplace-wellness'>About the Program</a>
-      <a data-page='resources.html' href='/talberthouse/resources'>Mental health resources</a>
-      <a data-page='blog.html' href='/talberthouse/blog'>Blog</a>
-      <a class='nav-cta' href='/talberthouse/checkup'>Self-Check</a>
+      <a href='/talberthouse/'>Home</a>
+      <a href='/talberthouse/about-the-program'>About the Program</a>
+      <a href='/talberthouse/resources'>Mental health resources</a>
+      <a href='/talberthouse/wellness-on-demand'>Wellness on-demand</a>
+      <a href='/talberthouse/blog'>Blog</a>
+      <a class='nav-cta' href='/talberthouse/self-check'>Self-Check</a>
+      <a class='nav-cta nav-cta-alt' href='https://hellomentalhealth.clientsecure.me'>Book a Check-Up</a>
     </div>
   </nav>
 </header>
@@ -177,7 +233,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 
         <h2 id="questions">Common questions</h2>
     <h3>Is the Self-Check anonymous?</h3>
-    <p>The Self-Check is not anonymous, it is de-identified, which is a specific and strong protection. When you take it, your responses are recorded without your name, email, or login, and without anything that ties the results back to you. That information is used only in aggregate, to understand and improve staff wellbeing. There is no opt-out: everyone who takes the Self-Check is included, on the same terms. You can <a href="/talberthouse/checkup">take the Self-Check here</a>.</p>
+    <p>The Self-Check is not anonymous, it is de-identified, which is a specific and strong protection. When you take it, your responses are recorded without your name, email, or login, and without anything that ties the results back to you. That information is used only in aggregate, to understand and improve staff wellbeing. There is no opt-out: everyone who takes the Self-Check is included, on the same terms. You can <a href="/talberthouse/self-check">take the Self-Check here</a>.</p>
     <h3>What happens to the information I share during the Check-Up?</h3>
     <p>We keep a short record of your Check-Up, the same way any psychologist&rsquo;s office would: your survey results, your psychologist&rsquo;s notes, and your written summary. The law protects this record as Protected Health Information (PHI) under HIPAA and Ohio law. There are only three exceptions when your private information would be shared, when someone&rsquo;s safety is at stake or the law requires us to act: a safety risk, suspected abuse, or a court order.</p>
     <h3>What if my supervisor asks if I came to Hello Mental Health?</h3>
@@ -263,7 +319,7 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
     <p>For questions about this notice, or to exercise any of your rights, contact our Privacy Officer:</p>
     <ul>
       <li><strong>Privacy Officer:</strong> Dr. Rachel Thompson, Hello Mental Health</li>
-      <li><strong>Phone:</strong> <span class="ph">[PRIVACY OFFICER PHONE]</span></li>
+      <li><strong>Phone:</strong> <a href="tel:5133346858">(513) 334-6858</a></li>
       <li><strong>Email:</strong> <a href="mailto:rachel@hellomentalhealth.com">rachel@hellomentalhealth.com</a></li>
       <li><strong>Mail:</strong> 126 Wellington Place, Cincinnati, Ohio</li>
     </ul>
@@ -277,16 +333,17 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
   <div class="container">
     <div class="footer-grid">
       <div>
+        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p>
         <h4>About this library</h4>
-        <p style="margin:0 0 10px">An internal resource library for Talbert House staff, workplace wellness and original content from Hello Mental Health.</p>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health resources, wellness on demand, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
       </div>
-      <div><h4>Library</h4><ul><li><a href='/talberthouse/workplace-wellness'>About the Program</a></li><li><a href='/talberthouse/resources'>Resources</a></li><li><a href='/talberthouse/blog'>Blog</a></li></ul></div>
-      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li>Crisis Text Line, text HOME to 741741</li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
-      
+      <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/resources'>Mental health resources</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness on-demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
+      <div><h4>Hello Mental Health</h4><ul><li><a href='https://hellomentalhealth.clientsecure.me'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
     </div>
     <div class="footer-credit">
-      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use &middot; <a href="/talberthouse/notice-of-privacy-practices">Notice of Privacy Practices</a></div>
+      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use &middot; <a href="/talberthouse/notice-of-privacy-practices">Privacy &amp; Notice of Privacy Practices</a></div>
       <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
     </div>
   </div>
@@ -300,6 +357,45 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
     links.classList.toggle('open');
     toggle.setAttribute('aria-expanded',links.classList.contains('open'));
   });}
+})();
+</script>
+<script>
+/* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
+   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me)
+   resources_click        - any link to the Mental Health Resources page
+   contact_form_click     - any link to the Hello Mental Health Talbert House contact form
+   All carry link_location = "<page>_<spot>", e.g. home_page, blog_menu, about_the_program_footer,
+   self_check_results, so you can see which link people use. */
+(function(){
+  var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'').replace(/-/g,'_');
+  if(page==='talberthouse'||page==='index') page='home';
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
+    var h=a.getAttribute('href')||'', ev='';
+    if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
+    else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
+    else if(/^\/talberthouse\/resources\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
+    if(!ev) return;
+    var spot=a.closest('.nav-links, nav')?'menu':a.closest('footer')?'footer':(page==='self_check'?'results':'page');
+    try{ gtag('event',ev,{link_location:page+'_'+spot,transport_type:'beacon'}); }catch(err){}
+  },true);
+})();
+</script>
+<script>
+/* Header fit: if the full menu doesn't fit on one line (narrow screen, larger fonts),
+   switch to the compact "Menu" button instead of letting buttons wrap. */
+(function(){
+  var h=document.querySelector('.site-header'), n=h&&h.querySelector('.nav'), l=h&&h.querySelector('.nav-links'), b=h&&h.querySelector('.brand-lockup');
+  if(!h||!n||!l||!b) return;
+  function fit(){
+    if(window.innerWidth<=1180){ h.classList.remove('nav-compact'); return; } /* existing phone/tablet menu */
+    h.classList.remove('nav-compact');
+    var need=l.scrollWidth, room=n.clientWidth-b.offsetWidth-48-16;
+    if(need>room) h.classList.add('nav-compact');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener('load',fit);
 })();
 </script>
 </body>

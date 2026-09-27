@@ -142,6 +142,69 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 .footer-logo{display:block;width:220px;max-width:100%;height:auto;margin:0 0 8px}
 .footer-tagline{margin:0 0 20px;color:#C1D1E3;font-size:.86rem;font-weight:600}
 @media(max-width:400px){.brand-logo{height:30px}.brand-lockup .brand-text{font-size:.55rem}}
+
+/* Site structure update (Sept 2026) */
+.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
+.nav-cta-alt{background:#fff !important;color:var(--th-teal-dark) !important;border:1.5px solid var(--th-teal) !important;padding:7.5px 14.5px !important}
+.nav-cta-alt:hover{background:var(--th-teal-light) !important}
+.nav-links .nav-cta{margin-left:4px}
+.site-footer .footer-credit a{color:#C1D1E3}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.98rem;border:2px solid transparent;cursor:pointer;transition:transform .1s ease,background .15s ease,border .15s ease;text-align:center}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--th-orange);color:#1F2937}
+.btn-primary:hover{background:#D99C0B;color:#1F2937}
+.btn-outline{background:#fff;color:var(--th-teal-dark);border-color:var(--th-teal)}
+.btn-outline:hover{background:var(--th-teal-light);color:var(--th-teal-dark)}
+.eyebrow-hmh{color:var(--hmh-forest)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.btn-ghost-light:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav-links{gap:2px}
+.nav-links a{padding:8px 10px;font-size:.93rem}
+.nav-links a.nav-cta{padding:9px 15px !important}
+.nav-links a.nav-cta-alt{padding:7.5px 13.5px !important}
+@media(max-width:1180px){.nav-toggle{display:inline-block}
+ .nav{position:relative}
+ .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md);z-index:50}
+ .nav-links.open{display:flex}.nav-links a{padding:12px;border-radius:var(--radius-sm)}
+ .nav-links .nav-cta{margin:6px 0 0;text-align:center}}
+
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:44px;align-items:center}
+.hero-team{margin:0}
+.hero-team img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.25);border:4px solid rgba(255,255,255,.9)}
+.hero-team figcaption{margin-top:10px;font-size:.88rem;color:rgba(255,255,255,.9)}
+.hero-team figcaption a{color:#fff;text-decoration:underline}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}.hero-team{max-width:560px}}
+.signature{margin:14px 0 0;font-family:var(--font-display);font-style:italic;color:var(--hmh-forest)}
+.signature a{color:var(--hmh-forest);text-decoration:underline}
+.hmh-box{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px 24px;margin-top:6px}
+.hmh-box h3{margin:4px 0 6px}.hmh-box p{margin:0;color:var(--slate-700);max-width:60ch}
+.hmh-box-actions{display:flex;flex-wrap:wrap;gap:10px}
+.preview .top.img{padding:0;aspect-ratio:16/9;overflow:hidden;background:var(--hmh-cream)}
+.preview .top.img img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Header fit (keeps both buttons on one line) */
+.brand-lockup .brand-text{font-size:.54rem !important;letter-spacing:.05em !important}
+.nav{gap:16px}
+.nav-links{flex-wrap:nowrap;white-space:nowrap}
+.nav-links a{padding:8px 8px}
+.nav-links a.nav-cta{padding:9px 14px !important}
+.nav-links a.nav-cta-alt{padding:7.5px 12.5px !important}
+.site-header.nav-compact .nav{position:relative}
+.site-header.nav-compact .nav-toggle{display:inline-block}
+.site-header.nav-compact .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md);z-index:50;white-space:normal}
+.site-header.nav-compact .nav-links.open{display:flex}
+.site-header.nav-compact .nav-links a{padding:12px;border-radius:var(--radius-sm)}
+.site-header.nav-compact .nav-links .nav-cta{margin:6px 0 0;text-align:center}
+
+.welcome-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center;margin:24px 0}
+.welcome-grid .callout{margin:0}
+.welcome-team{display:block;width:100%;height:auto;border-radius:var(--radius-md);box-shadow:var(--shadow-md)}
+@media(max-width:860px){.welcome-grid{grid-template-columns:1fr;gap:20px}}
+
+/* Header tagline (Sept 27) */
+.brand-lockup .brand-text{display:block !important;max-width:200px;white-space:normal !important;text-transform:none !important;letter-spacing:0 !important;font-size:.64rem !important;line-height:1.25 !important;color:var(--slate-500)}
+.brand-lockup .brand-text .tagline{font-family:var(--font-body);font-weight:600}
+@media(max-width:400px){.brand-lockup .brand-text{font-size:.58rem !important;max-width:170px}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
@@ -164,20 +227,17 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
   <nav class="nav" aria-label="Primary">
     <a class='brand-lockup' href='/talberthouse/' style='color:inherit'>
       <img class="brand-logo" src="/talberthouse/real-support-logo.png" alt="Real Support" width="185" height="34">
-      <span class="brand-text">
-        <span class="top">Talbert House</span>
-        <span class="main">Staff Resource Library</span>
-      </span>
+      <span class="brand-text"><span class="tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</span></span>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">&#9776; Menu</button>
     <div class="nav-links">
-      <a data-page='index.html' href='/talberthouse/'>Home</a>
-      <a data-page='providers.html' href='/talberthouse/providers'>Providers</a>
-      <a data-page='workplace-wellness.html' href='/talberthouse/workplace-wellness'>Workplace wellness</a>
-      <a data-page='resources.html' href='/talberthouse/resources'>Mental health resources</a>
-      <a data-page='blog.html' href='/talberthouse/blog'>Blog</a>
-      <a data-page='faq.html' href='/talberthouse/faq'>FAQ</a>
-      <a class='nav-cta' href='/talberthouse/providers'>Find a provider</a>
+      <a class='active' aria-current='page' href='/talberthouse/'>Home</a>
+      <a href='/talberthouse/about-the-program'>About the Program</a>
+      <a href='/talberthouse/resources'>Mental health resources</a>
+      <a href='/talberthouse/wellness-on-demand'>Wellness on-demand</a>
+      <a href='/talberthouse/blog'>Blog</a>
+      <a class='nav-cta' href='/talberthouse/self-check'>Self-Check</a>
+      <a class='nav-cta nav-cta-alt' href='https://hellomentalhealth.clientsecure.me'>Book a Check-Up</a>
     </div>
   </nav>
 </header>
@@ -185,12 +245,12 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 <section class="hero">
   <div class="container">
     <span class="eyebrow" style="color:#FFEDC6">For Talbert House staff</span>
-    <h1>A library for the humans who show up for other people.</h1>
-    <p class="lead">Workplace wellness tools, vetted mental health resources, a growing provider database, and original content from Hello Mental Health; built for the 900&#43; staff across all of Talbert House&rsquo;s service lines.</p>
+    <h1>A program for the humans who show up for other people.</h1>
+    <p class="lead">Mental Health Check-Ups, wellness tools on demand, vetted mental health resources, and original content from Hello Mental Health; built for the 900&#43; staff across all of Talbert House&rsquo;s service lines.</p>
     <div class="hero-actions">
       <a class='btn btn-primary' href='/talberthouse/self-check'>Self-Check</a>
-      <a class='btn btn-ghost-light' href='/talberthouse/providers'>Find a provider</a>
-      <a class='btn btn-ghost-light' href='/talberthouse/workplace-wellness'>Workplace wellness</a>
+      <a class='btn btn-ghost-light' href='https://hellomentalhealth.clientsecure.me'>Book a Check-Up</a>
+      <a class='btn btn-ghost-light' href='/talberthouse/about-the-program'>About the Program</a>
     </div>
   </div>
 </section>
@@ -214,23 +274,23 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
         <p>A free, private 30-minute visit with a licensed psychologist, offered as a preventive benefit under the new health plan. You don&rsquo;t need to take the Self-Check first.</p>
         <span class="card-link">Schedule a Check-Up &rarr;</span>
       </a>
-      <a class='card' href='/talberthouse/providers' style='color:inherit'>
-        <div class="card-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div>
-        <h3>Provider database</h3>
-        <p>A short list of trusted outside practices we know personally, searchable by focus area. Every provider listed works with the new Talbert House health plan.</p>
-        <span class="card-link">Search providers &rarr;</span>
-      </a>
-      <a class='card' href='/talberthouse/workplace-wellness' style='color:inherit'>
-        <div class="card-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
-        <h3>Workplace wellness</h3>
-        <p>Tools and articles tailored to behavioral health staff, with resources specific to each of Talbert House&rsquo;s five service lines.</p>
-        <span class="card-link">Explore tools &rarr;</span>
-      </a>
       <a class='card' href='/talberthouse/resources' style='color:inherit'>
         <div class="card-icon accent"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <h3>Mental health resources</h3>
         <p>Curated, non-generic resources for life in and out of the role, crisis lines, handouts for clients, and things that help you keep your own tank full.</p>
         <span class="card-link">Browse resources &rarr;</span>
+      </a>
+      <a class='card' href='/talberthouse/wellness-on-demand' style='color:inherit'>
+        <div class="card-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+        <h3>Wellness on-demand</h3>
+        <p>Quick tools for in-session resets, end-of-shift transitions, and hard days, plus clinician-recommended self-help materials.</p>
+        <span class="card-link">Explore tools &rarr;</span>
+      </a>
+      <a class='card' href='/talberthouse/about-the-program' style='color:inherit'>
+        <div class="card-icon hmh"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+        <h3>About the Program</h3>
+        <p>What Real Support offers Talbert House staff, from the Self-Check and Check-Ups to the quarterly forums.</p>
+        <span class="card-link">Learn about the program &rarr;</span>
       </a>
       <a class='card' href='/talberthouse/blog' style='color:inherit'>
         <div class="card-icon hmh"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
@@ -260,9 +320,24 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
   <div class="container">
     <span class="eyebrow eyebrow-hmh">From the Hello Mental Health team</span>
     <h2 class="mt-0" style="color:var(--hmh-forest)">Hello, and welcome.</h2>
-    <div class="callout">
+    <div class="welcome-grid">
+      <img class="welcome-team" src="/talberthouse/hmh-team.jpg" alt="The Hello Mental Health team" width="1400" height="933" loading="lazy">
+      <div class="callout">
       <strong>We lead with our hearts, and value humans above everything else.</strong>
       <p style="margin:8px 0 0">We built this library for the 900&#43; humans doing the work at Talbert House. You support people in the hardest moments of their lives, across five service lines and dozens of locations. This site is our way of making sure the resources you need, for yourself, for your team, and for your clients, are in one trusted place.</p>
+      <p class="signature">&mdash; The Hello Mental Health team</p>
+    </div>
+    </div>
+    <div class="hmh-box">
+      <div>
+        <span class="eyebrow eyebrow-hmh">Hello Mental Health</span>
+        <h3>Ready to talk to someone?</h3>
+        <p>Book a Mental Health Check-Up online, send us a note through our Talbert House contact form, or call us at <a href="tel:5137175566">(513) 717-5566</a>. We&rsquo;ll get back to you within one business day.</p>
+      </div>
+      <div class="hmh-box-actions">
+        <a class="btn btn-primary" href="https://hellomentalhealth.clientsecure.me">Schedule a Check-Up &rarr;</a>
+        <a class="btn btn-outline" href="https://www.hellomentalhealth.com/talbert-house-contact">Contact form</a>
+      </div>
     </div>
   </div>
 </section>
@@ -270,19 +345,19 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 <section class="section section-cream">
   <div class="container">
     <span class="eyebrow eyebrow-hmh">Latest</span>
-    <h2 class="mt-0" style="color:var(--hmh-forest)">Fresh in the library</h2>
+    <h2 class="mt-0" style="color:var(--hmh-forest)">Fresh from the blog</h2>
     <div class="preview-strip" style="margin-top:24px">
-      <a class='preview' href='/talberthouse/blog' style='color:inherit'>
-        <div class="top a">Burnout</div>
-        <div class="bot"><span class="eye">Blog</span><h4>Burnout isn&rsquo;t a you problem</h4><p>Reframing burnout as a systems issue, and what that means for front-line staff.</p></div>
+      <a class='preview' href='/talberthouse/post-burnout-systems' style='color:inherit'>
+        <div class="top img"><img src="/talberthouse/blog-burnout-systems.jpg" alt="" width="720" height="405" loading="lazy"></div>
+        <div class="bot"><span class="eye">Blog &middot; Burnout</span><h4>Burnout Isn’t a You Problem</h4><p>Burnout is not produced inside of you. It’s produced between you and the system you’re working inside of. “What’s wrong with me?” That’s the question…</p></div>
       </a>
-      <a class='preview' href='/talberthouse/blog' style='color:inherit'>
-        <div class="top b">For clinicians</div>
-        <div class="bot"><span class="eye">Blog</span><h4>The quiet weight of secondary trauma</h4><p>Vicarious trauma doesn&rsquo;t announce itself. How to notice it, and what actually helps.</p></div>
+      <a class='preview' href='/talberthouse/post-burnout-or-depression' style='color:inherit'>
+        <div class="top img"><img src="/talberthouse/blog-burnout-or-depression.jpg" alt="" width="720" height="405" loading="lazy"></div>
+        <div class="bot"><span class="eye">Blog &middot; Burnout</span><h4>Is It Burnout or Depression? A Psychologist Explains the Difference</h4><p>Workplace burnout is a legitimate phenomenon recognized by the World Health Organization, and a 2025 Forbes study found that 66% of U.S. employees…</p></div>
       </a>
-      <a class='preview' href='/talberthouse/blog' style='color:inherit'>
-        <div class="top c">Welcome</div>
-        <div class="bot"><span class="eye">Blog</span><h4>This library is for you</h4><p>A note on what this resource library is, what it isn&rsquo;t, and how we built it with you in mind.</p></div>
+      <a class='preview' href='/talberthouse/post-compassion-fatigue' style='color:inherit'>
+        <div class="top img"><img src="/talberthouse/blog-compassion-fatigue.jpg" alt="" width="720" height="405" loading="lazy"></div>
+        <div class="bot"><span class="eye">Blog &middot; Compassion fatigue</span><h4>Recovering from Compassion Fatigue as a Therapist</h4><p>We can support one another by joining together in supportive community. Holding space for one another, validating one another, and receiving the same…</p></div>
       </a>
     </div>
   </div>
@@ -292,16 +367,17 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p><h4>About this library</h4>
-        <p style="margin:0 0 10px">An internal resource library for Talbert House staff, workplace wellness, provider connections, and original content from Hello Mental Health.</p>
+        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p>
+        <h4>About this library</h4>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health resources, wellness on demand, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
       </div>
-      <div><h4>Library</h4><ul><li><a href='/talberthouse/providers'>Providers</a></li><li><a href='/talberthouse/workplace-wellness'>Workplace wellness</a></li><li><a href='/talberthouse/resources'>Resources</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/faq'>FAQ</a></li></ul></div>
-      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li>Crisis Text Line, text HOME to 741741</li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
-      <div><h4>Talbert House</h4><ul><li><a href="https://www.talberthouse.org" target="_blank" rel="noopener">talberthouse.org</a></li><li><a href="tel:5132214357">(513) 221-HELP</a></li><li>2600 Victory Pkwy, Cincinnati OH</li></ul></div>
+      <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/resources'>Mental health resources</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness on-demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
+      <div><h4>Hello Mental Health</h4><ul><li><a href='https://hellomentalhealth.clientsecure.me'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
     </div>
     <div class="footer-credit">
-      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use</div>
+      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use &middot; <a href="/talberthouse/notice-of-privacy-practices">Privacy &amp; Notice of Privacy Practices</a></div>
       <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
     </div>
   </div>
@@ -325,7 +401,8 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
 /* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
    checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me)
    resources_click        - any link to the Mental Health Resources page
-   Both carry link_location = "<page>_<spot>", e.g. home_page, providers_page, blog_menu, faq_footer,
+   contact_form_click     - any link to the Hello Mental Health Talbert House contact form
+   All carry link_location = "<page>_<spot>", e.g. home_page, blog_menu, about_the_program_footer,
    self_check_results, so you can see which link people use. */
 (function(){
   var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'').replace(/-/g,'_');
@@ -334,11 +411,29 @@ p{margin:0 0 1em}.lead{font-size:1.15rem;color:var(--slate-700)}
     var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
     var h=a.getAttribute('href')||'', ev='';
     if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
+    else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
     else if(/^\/talberthouse\/resources\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
     if(!ev) return;
     var spot=a.closest('.nav-links, nav')?'menu':a.closest('footer')?'footer':(page==='self_check'?'results':'page');
     try{ gtag('event',ev,{link_location:page+'_'+spot,transport_type:'beacon'}); }catch(err){}
   },true);
+})();
+</script>
+<script>
+/* Header fit: if the full menu doesn't fit on one line (narrow screen, larger fonts),
+   switch to the compact "Menu" button instead of letting buttons wrap. */
+(function(){
+  var h=document.querySelector('.site-header'), n=h&&h.querySelector('.nav'), l=h&&h.querySelector('.nav-links'), b=h&&h.querySelector('.brand-lockup');
+  if(!h||!n||!l||!b) return;
+  function fit(){
+    if(window.innerWidth<=1180){ h.classList.remove('nav-compact'); return; } /* existing phone/tablet menu */
+    h.classList.remove('nav-compact');
+    var need=l.scrollWidth, room=n.clientWidth-b.offsetWidth-48-16;
+    if(need>room) h.classList.add('nav-compact');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener('load',fit);
 })();
 </script>
 </body>
