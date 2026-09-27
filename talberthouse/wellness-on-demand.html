@@ -156,6 +156,9 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 .brand-lockup .brand-text{display:block !important;max-width:200px;white-space:normal !important;text-transform:none !important;letter-spacing:0 !important;font-size:.64rem !important;line-height:1.25 !important;color:var(--slate-500)}
 .brand-lockup .brand-text .tagline{font-family:var(--font-body);font-weight:600}
 @media(max-width:400px){.brand-lockup .brand-text{font-size:.58rem !important;max-width:170px}}
+
+.tool-card .tag.open{background:var(--th-teal);color:#fff;border-color:var(--th-teal)}
+a.tool-card:hover{text-decoration:none}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
@@ -190,7 +193,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
   <div class="container">
     <span class="eyebrow">Anytime, anywhere</span>
     <h1>Wellness on demand.</h1>
-    <p class="lead">Day-to-day tools and clinician-recommended materials you can use on your own time: in session, between sessions, at the end of a shift, or on a hard day.</p>
+    <p class="lead">Day-to-day tools you can use on your own time: in session, between sessions, at the end of a shift, or on a hard day.</p>
   </div>
 </section>
 <section class="section" style="padding-top:36px">
@@ -208,36 +211,6 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
     <div class="search-meta"><span id="tool-count">Loading tools&hellip;</span><button id="clear-filters" type="button">Clear filters</button></div>
     <div id="tool-list" class="tool-grid"></div>
     <div class="callout" style="margin-top:30px"><strong>Want to suggest a tool?</strong><p style="margin:6px 0 0">Email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> with what works for you.</p></div>
-    <hr class="section-divider" />
-    <div class="selfhelp-section">
-      <span class="eyebrow">Clinician recommended</span>
-      <h2>Self-Help Materials</h2>
-      <p style="color:var(--slate-700);max-width:62ch">Books, workbooks, apps, and guided programs vetted by Hello Mental Health clinicians, chosen specifically for the challenges Talbert House staff face. Materials are added as they're reviewed and approved.</p>
-      <div class="selfhelp-grid">
-        <div class="selfhelp-card">
-          <div class="sh-type">Book</div>
-          <h3>Title coming soon</h3>
-          <p>Clinician-recommended reading for staff who work in high-stress, trauma-adjacent environments.</p>
-          <div class="sh-tags"><span class="sh-tag">Burnout</span><span class="sh-tag">Self-care</span></div>
-        </div>
-        <div class="selfhelp-card">
-          <div class="sh-type">Workbook</div>
-          <h3>Title coming soon</h3>
-          <p>A guided workbook for building skills outside of session, at your own pace.</p>
-          <div class="sh-tags"><span class="sh-tag">Anxiety</span><span class="sh-tag">Boundaries</span></div>
-        </div>
-        <div class="selfhelp-card">
-          <div class="sh-type">App / Program</div>
-          <h3>Title coming soon</h3>
-          <p>A structured digital program reviewed for clinical soundness and ease of use.</p>
-          <div class="sh-tags"><span class="sh-tag">Mindfulness</span><span class="sh-tag">Sleep</span></div>
-        </div>
-      </div>
-      <div class="selfhelp-submit">
-        <p>Are you a Talbert House clinician with a recommendation? Send it our way and we'll review it for the library.</p>
-        <a href="mailto:Welcome@HelloMentalHealth.com">Submit a recommendation</a>
-      </div>
-    </div>
   </div>
 </section>
 <footer class="site-footer">
@@ -291,7 +264,7 @@ const TOOLS=[
   buildChips();
   function syncChips(){const v=catEl.value;[...chipsEl.querySelectorAll('.cat-chip')].forEach(x=>x.classList.toggle('active',x.dataset.cat===v));}
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
-  function card(t){return `<article class="tool-card"><div class="cat-line">${esc(t.category)}</div><h3>${esc(t.title)}</h3><p>${esc(t.blurb)}</p><div class="tool-tags"><span class="tag format">${esc(t.format)}</span><span class="tag duration">${esc(t.duration)}</span></div></article>`;}
+  function card(t){return `<a class="tool-card" href="/talberthouse/tool-${t.id}" style="color:inherit;display:block"><div class="cat-line">${esc(t.category)}</div><h3>${esc(t.title)}</h3><p>${esc(t.blurb)}</p><div class="tool-tags"><span class="tag format">${esc(t.format)}</span><span class="tag duration">${esc(t.duration)}</span><span class="tag open">Open tool &rarr;</span></div></a>`;}
   function match(t,term,cat,fmt,dur){if(term&&![t.title,t.blurb,t.category,t.format].join(' ').toLowerCase().includes(term.toLowerCase()))return false;if(cat&&t.category!==cat)return false;if(fmt&&t.format!==fmt)return false;if(dur&&t.duration!==dur)return false;return true;}
   function render(){syncChips();const term=searchEl.value.trim(),cat=catEl.value,fmt=fmtEl.value,dur=durEl.value;const filtered=TOOLS.filter(t=>match(t,term,cat,fmt,dur));listEl.innerHTML=filtered.length?filtered.map(card).join(''):`<div class="no-results" style="grid-column:1/-1"><strong>No tools match.</strong> Try clearing a filter.</div>`;countEl.textContent=filtered.length+' tool'+(filtered.length===1?'':'s')+' shown';}
   searchEl.addEventListener('input',render);catEl.addEventListener('change',render);fmtEl.addEventListener('change',render);durEl.addEventListener('change',render);clearBtn.addEventListener('click',function(){searchEl.value='';catEl.value='';fmtEl.value='';durEl.value='';render();});render();
