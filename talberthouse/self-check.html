@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/talberthouse/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/talberthouse/favicon-512.png">
 <link rel="apple-touch-icon" href="/talberthouse/apple-touch-icon.png">
-<meta name="description" content="A private, anonymous 10-minute mental wellness self-check. No names or identifying information are collected.">
+<meta name="description" content="A private, de-identified 10-minute mental wellness self-check. No names or identifying information are collected.">
 <meta name="robots" content="noindex">
 <!-- Google Analytics (GA4). Counts visits and a few anonymous Self-Check events only.
      Never sends answers, scores, bands, or anything typed. See SELF-CHECK ANALYTICS at the bottom. -->
@@ -667,7 +667,7 @@ function render(){
 }
 
 function renderLanding(){
-  var reassureP = '<strong>Your answers stay private.</strong> We never see your name, and nothing you write is ever linked to you. To help improve the program, we do keep an anonymous tally of results (your six area scores and the date), never your name and never anything you type. It can\'t be traced back to you. Like the rest of this site, this page also counts visits anonymously: how many people start, how many finish, and which button they pick next. Never your answers.';
+  var reassureP = '<strong>Your answers stay private.</strong> We never see your name, and nothing you write is ever linked to you. To help improve the program, we do keep a de-identified tally of results (your six area scores and the date), never your name and never anything you type. Like the rest of this site, this page also counts visits without identifying you: how many people start, how many finish, and which button they pick next. Never your answers.';
   app.innerHTML =
   '<section class="screen landing-hero">'+
     '<p class="eyebrow">A Hello Mental Health resource</p>'+
@@ -679,7 +679,7 @@ function renderLanding(){
     '</div>'+
     '<ul class="facts">'+
       '<li>'+iconCheck()+'About 10 minutes, 24 short questions</li>'+
-      '<li>'+iconCheck()+'Completely anonymous, with no name, no email, no login</li>'+
+      '<li>'+iconCheck()+'Private and de-identified, with no name, no email, no login</li>'+
       '<li>'+iconCheck()+'Free, and it never touches insurance or your employer</li>'+
     '</ul>'+
     '<p class="muted small">At the end you\'ll get some plain-language reflections, plus information about a 30-minute Mental Health Check-Up with a licensed psychologist. It\'s open to everyone and covered by the Talbert House health plan. If you\'re not on the plan, we can provide a superbill for possible reimbursement.</p>'+
@@ -833,7 +833,7 @@ function renderResults(){
   html +=
     (CONFIG.SAVE_ENDPOINT ? ('<div class="collect-note" role="note">'+
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>'+
-      '<p>To help improve the program, your six area scores and today\'s date were added to our anonymous totals. Nothing you typed, and nothing that could identify you, was included.</p>'+
+      '<p>To help improve the program, your six area scores and today\'s date were added to our de-identified totals. Nothing you typed, and nothing that could identify you, was included.</p>'+
     '</div>') : '')+
     '<div class="dl-row"><button type="button" class="btn btn-secondary" id="downloadResults">'+pdfIcon()+' Download a copy (PDF)</button></div>'+
     '<div class="invite">'+

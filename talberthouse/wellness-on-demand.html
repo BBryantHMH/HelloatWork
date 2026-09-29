@@ -194,15 +194,15 @@ a.tool-card:hover{text-decoration:none}
   <div class="container">
     <span class="eyebrow">Anytime, anywhere</span>
     <h1>Wellness On-Demand</h1>
-    <p class="lead">Day-to-day tools you can use on your own time: during the workday, between tasks, at the end of a shift, or on a hard day. Plus books, apps, and podcasts worth your time.</p>
+    <p class="lead">Day-to-day tools you can use on your own time: during the workday, between tasks, at the end of a shift, or on a hard day. Plus books and apps worth your time.</p>
   </div>
 </section>
 <section class="section" style="padding-top:36px">
   <div class="container">
-    <div class="callout" style="margin:0 0 30px"><strong>About these resources.</strong><p style="margin:6px 0 0">This library is for general education and wellness. It isn&rsquo;t therapy, medical advice, or a diagnosis, and using it doesn&rsquo;t make you a client of Hello Mental Health. If a practice makes you feel worse, stop and try something else. Books, apps, and podcasts are suggestions from our clinicians; we aren&rsquo;t affiliated with or paid by any of them. Talbert House can&rsquo;t see what you view here. In a crisis, call or text <a href="tel:988">988</a>.</p></div>
+    <div class="callout" style="margin:0 0 30px"><strong>About these resources.</strong><p style="margin:6px 0 0">This library is for general education and wellness. It isn&rsquo;t therapy, medical advice, or a diagnosis, and using it doesn&rsquo;t make you a client of Hello Mental Health. If a practice makes you feel worse, stop and try something else. Books and apps are suggestions from our clinicians; we aren&rsquo;t affiliated with or paid by any of them. Talbert House can&rsquo;t see what you view here. In a crisis, call or text <a href="tel:988">988</a>.</p></div>
     <span class="eyebrow">Browse everything</span>
-    <h2>Micro-practices, books, apps &amp; podcasts</h2>
-    <p class="lead" style="max-width:60ch;margin-bottom:28px">Quick guided micro-practices for the workday, end of shift, team time, and hard days, plus books, apps, and podcasts. Pick a category or search for what you need.</p>
+    <h2>Micro-practices, books &amp; apps</h2>
+    <p class="lead" style="max-width:60ch;margin-bottom:28px">Quick guided micro-practices for the workday, end of shift, team time, and hard days, plus books and apps. Pick a category or search for what you need.</p>
     <div class="search-bar" role="search">
       <div><label for="tool-search">Search by name or keyword</label><input id="tool-search" type="search" placeholder="e.g. breathing, sleep, burnout, meditation" autocomplete="off" /></div>
       <div><label for="tool-category">Category</label><select id="tool-category"></select></div>
@@ -212,7 +212,7 @@ a.tool-card:hover{text-decoration:none}
     <div class="cat-chips" id="cat-chips" aria-label="Quick category filters"></div>
     <div class="search-meta"><span id="tool-count">Loading&hellip;</span><button id="clear-filters" type="button">Clear filters</button></div>
     <div id="tool-list" class="tool-grid"></div>
-    <div class="callout" style="margin-top:30px"><strong>Want to suggest something?</strong><p style="margin:6px 0 0">Email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> with what works for you.</p></div>
+    <div class="callout" style="margin-top:30px"><strong>Want to suggest something?</strong><p style="margin:6px 0 0">Email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> with what works for you. This inbox isn&rsquo;t monitored for urgent needs. In a crisis, call or text <a href="tel:988">988</a>.</p></div>
   </div>
 </section>
 <footer class="site-footer">
@@ -235,7 +235,7 @@ a.tool-card:hover{text-decoration:none}
   </div>
 </footer>
 <script>
-const CATEGORY_OPTIONS=["Micro-practices","Books","Apps","Podcasts"];
+const CATEGORY_OPTIONS=["Micro-practices","Books","Apps"];
 const FORMAT_OPTIONS=["Exercise","Worksheet","Audio","Video","Reading","Prompt"];
 const DURATION_OPTIONS=["< 2 min","2-5 min","5-15 min","15-30 min","30+ min"];
 const TOOLS=[
@@ -278,7 +278,6 @@ const TOOLS=[
   {id:"finch",title:"Finch",category:"Apps",format:"App",author:"",url:"https://finchcare.com",blurb:"A self-care app where users care for a virtual bird by completing small daily wellness goals, like drinking water or getting outside. A gentle, game-like option if habit tracking works better for you than journaling."},
   {id:"calm",title:"Calm",category:"Apps",format:"App",author:"",url:"https://www.calm.com",blurb:"A meditation and sleep app known for its Sleep Stories, breathing exercises, and daily content library, often seen as Headspace's closest competitor with a stronger emphasis on sleep."},
   {id:"insight-timer",title:"Insight Timer",category:"Apps",format:"App",author:"",url:"https://insighttimer.com",blurb:"A free meditation app with one of the largest libraries in the category, offering guided sessions from thousands of independent teachers plus live classes and courses."},
-  {id:"psych-waves",title:"Psych Waves",category:"Podcasts",format:"Podcast",author:"Teresa Anderson, MD",url:"https://podcasts.apple.com/us/podcast/psych-waves/id1655999548",blurb:"A Cincinnati psychiatrist's podcast on trauma, depression, PTSD, and treatment options, mixing solo episodes with guest interviews."},
 ];
 (function(){
   const listEl=document.getElementById('tool-list'),countEl=document.getElementById('tool-count'),searchEl=document.getElementById('tool-search'),catEl=document.getElementById('tool-category'),fmtEl=document.getElementById('tool-format'),durEl=document.getElementById('tool-duration'),clearBtn=document.getElementById('clear-filters'),chipsEl=document.getElementById('cat-chips');
@@ -288,7 +287,7 @@ const TOOLS=[
   buildChips();
   function syncChips(){const v=catEl.value;[...chipsEl.querySelectorAll('.cat-chip')].forEach(x=>x.classList.toggle('active',x.dataset.cat===v));}
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
-  function card(t){if(t.category!=="Micro-practices"){var cta={"Books":"Find the book","Apps":"Get the app","Podcasts":"Listen"}[t.category]||"Learn more";return `<a class="tool-card res-card" href="${esc(t.url)}" target="_blank" rel="noopener" style="color:inherit;display:block"><div class="cat-line">${esc(t.format)}</div><h3>${esc(t.title)}</h3>${t.author?`<p class="res-author">by ${esc(t.author)}</p>`:''}<p>${esc(t.blurb)}</p><div class="tool-tags"><span class="tag open">${cta} &nearr;</span></div></a>`;}
+  function card(t){if(t.category!=="Micro-practices"){var cta={"Books":"Find the book","Apps":"Get the app"}[t.category]||"Learn more";return `<a class="tool-card res-card" href="${esc(t.url)}" target="_blank" rel="noopener" style="color:inherit;display:block"><div class="cat-line">${esc(t.format)}</div><h3>${esc(t.title)}</h3>${t.author?`<p class="res-author">by ${esc(t.author)}</p>`:''}<p>${esc(t.blurb)}</p><div class="tool-tags"><span class="tag open">${cta} &nearr;</span></div></a>`;}
     return `<a class="tool-card" href="/talberthouse/tool-${t.id}" style="color:inherit;display:block"><div class="cat-line">Micro-practice &middot; ${esc(t.when)}</div><h3>${esc(t.title)}</h3><p>${esc(t.blurb)}</p><div class="tool-tags"><span class="tag format">${esc(t.format)}</span><span class="tag duration">${esc(t.duration)}</span><span class="tag open">Open tool &rarr;</span></div></a>`;}
   function match(t,term,cat,fmt,dur){if(term&&![t.title,t.blurb,t.category,t.format,t.when||'',t.author||''].join(' ').toLowerCase().includes(term.toLowerCase()))return false;if(cat&&t.category!==cat)return false;if(fmt&&t.format!==fmt)return false;if(dur&&t.duration!==dur)return false;return true;}
   function render(){syncChips();var mp=!catEl.value||catEl.value==="Micro-practices";[fmtEl,durEl].forEach(function(el){el.parentNode.style.display=mp?"":"none";if(!mp)el.value="";});const term=searchEl.value.trim(),cat=catEl.value,fmt=fmtEl.value,dur=durEl.value;const filtered=TOOLS.filter(t=>match(t,term,cat,fmt,dur));listEl.innerHTML=filtered.length?filtered.map(card).join(''):`<div class="no-results" style="grid-column:1/-1"><strong>Nothing matches.</strong> Try clearing a filter.</div>`;countEl.textContent=filtered.length+(filtered.length===1?' resource':' resources')+' shown';}
