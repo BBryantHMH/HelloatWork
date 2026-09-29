@@ -453,6 +453,11 @@ a:focus-visible, button:focus-visible, textarea:focus-visible, .btn:focus-visibl
 :root[data-theme="dark"] .sc-logo-light{display:none!important}:root[data-theme="dark"] .sc-logo-dark{display:block!important}
 .sc-divider{width:1px;height:22px;background:var(--line);margin:0 3px}
 @media(max-width:420px){.sc-logo img{height:22px}.brandmark{font-size:.9rem;gap:7px}}
+
+/* keep Quick exit fully on screen on small phones */
+.brandmark{min-width:0;flex:1 1 auto;overflow:hidden}
+.exit-btn{flex:none}
+@media(max-width:420px){.sc-divider{display:none}.brandmark{font-size:.85rem}}
 </style>
 </head>
 <body>
