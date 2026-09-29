@@ -1,0 +1,16 @@
+# Hello at Work - crawler policy
+#
+# The Talbert House staff library at /talberthouse/ is an internal resource.
+# We keep it out of search results using a noindex meta tag on each page in
+# that folder, NOT with a Disallow rule here.
+#
+# Why it matters: "Disallow" tells a crawler not to LOAD the page. If Google
+# can't load the page, it can't read the noindex tag, and the URL can still
+# surface in results as a bare link. Allowing the crawl is what lets the
+# noindex actually be honored. Please don't add a Disallow for /talberthouse/.
+#
+# The sign-in page at the site root stays indexable on purpose, since Hello
+# at Work is a program we want other organizations to be able to find.
+
+User-agent: *
+Allow: /
