@@ -582,7 +582,7 @@ var FEEDBACK = {
   stress:{
     steady:"Pressure doesn't seem to be running the show right now. Whatever you're carrying, it looks like you've got room for it.",
     strain:"There's a bit more load here than there is give. That kind of thing is easy to push through until it quietly adds up, so it's worth noticing now.",
-    look:"It sounds like the demands have been outpacing the breaks. That's a hard way to run for long, and it's one of the most common reasons people come in for a check-up."
+    look:"It sounds like the demands have been outpacing the breaks. That's a hard way to run for long, and it's one of the most common reasons people reach out for a check-up or another provider."
   },
   sleep:{
     steady:"Sleep seems to be doing its job, and your energy is mostly keeping up. That's a good foundation for everything else.",
@@ -592,7 +592,7 @@ var FEEDBACK = {
   mood:{
     steady:"Your mood seems fairly level, and you can still find some interest and hope in things. That's worth holding onto.",
     strain:"Things have felt a little heavier or flatter than usual. That happens to everyone at times, and it's easier to turn around when you catch it early.",
-    look:"It sounds like your mood has been low or hard to lift for a while now. You don't have to figure out why on your own. This is exactly the kind of thing a check-up is for."
+    look:"It sounds like your mood has been low or hard to lift for a while now. You don't have to figure out why on your own. This is exactly the kind of thing a check-up or another provider can help with."
   },
   habits:{
     steady:"The ways you're getting through the day don't seem to be working against you right now. That's a good sign.",
@@ -607,7 +607,7 @@ var FEEDBACK = {
   work:{
     steady:"Work doesn't seem to be draining you dry, and you can still find some meaning in it. That balance matters more than people give it credit for.",
     strain:"The workday has been taking a bit more out of you than it's giving back. Worth noticing before “a rough stretch” becomes the new normal.",
-    look:"It sounds like work has been wearing you down, making it hard to focus, hard to face, maybe hard to see the point some days. That's what burnout can feel like from the inside, and it's a common, treatable thing to bring to a check-up."
+    look:"It sounds like work has been wearing you down, making it hard to focus, hard to face, maybe hard to see the point some days. That's what burnout can feel like from the inside, and it's a common, treatable thing to bring to a check-up or another provider."
   }
 };
 var BAND_LABEL = { steady:"Holding up", strain:"Some strain", look:"Worth a closer look" };
@@ -826,7 +826,7 @@ function renderResults(){
     html += '<div class="echo">'+
       '<p class="echo-label">What you wrote down</p>'+
       '<p class="echo-text">'+esc(state.note.trim())+'</p>'+
-      '<p class="echo-prompt">Whatever you wrote down, that\'s often exactly the thing worth bringing to a check-up.</p>'+
+      '<p class="echo-prompt">Whatever you wrote down, that\'s often exactly the thing worth bringing to a check-up or another provider.</p>'+
     '</div>';
   }
 
