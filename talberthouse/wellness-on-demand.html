@@ -159,6 +159,21 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 
 .tool-card .tag.open{background:var(--th-teal);color:#fff;border-color:var(--th-teal)}
 a.tool-card:hover{text-decoration:none}
+.clin-rec{background:var(--hmh-cream)}
+.cr-chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 20px}
+.cr-chip{font:inherit;font-size:.88rem;font-weight:600;padding:7px 14px;border-radius:999px;border:1.5px solid var(--hmh-forest);background:#fff;color:var(--hmh-forest);cursor:pointer}
+.cr-chip[aria-pressed="true"]{background:var(--hmh-forest);color:#fff}
+.cr-chip:focus-visible{outline:3px solid var(--th-orange);outline-offset:2px}
+.cr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.cr-card{background:#fff;border:1px solid rgba(46,93,74,.14);border-radius:var(--radius-md);padding:20px 22px;display:flex;flex-direction:column}
+.cr-card[hidden]{display:none}
+.cr-top{display:flex;justify-content:space-between;gap:8px;margin-bottom:8px}
+.cr-type{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hmh-forest)}
+.cr-aud{font-size:.74rem;font-weight:600;color:var(--slate-500)}
+.cr-card h3{font-size:1.08rem;margin:0 0 2px}
+.cr-author{font-size:.9rem;color:var(--slate-500);margin:0 0 8px}
+.cr-desc{font-size:.94rem;color:var(--slate-700);margin:6px 0 12px;flex-grow:1}
+.cr-rec{font-size:.82rem;font-style:italic;color:var(--hmh-forest);margin:0}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
@@ -181,8 +196,8 @@ a.tool-card:hover{text-decoration:none}
     <div class="nav-links">
       <a href='/talberthouse/'>Home</a>
       <a href='/talberthouse/about-the-program'>About the Program</a>
-      <a href='/talberthouse/resources'>Mental health resources</a>
-      <a class='active' aria-current='page' href='/talberthouse/wellness-on-demand'>Wellness on-demand</a>
+      <a href='/talberthouse/resources'>Mental Health Care</a>
+      <a class='active' aria-current='page' href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a>
       <a href='/talberthouse/blog'>Blog</a>
       <a class='nav-cta' href='/talberthouse/self-check'>Self-Check</a>
     </div>
@@ -191,8 +206,8 @@ a.tool-card:hover{text-decoration:none}
 <section class="page-head">
   <div class="container">
     <span class="eyebrow">Anytime, anywhere</span>
-    <h1>Wellness on demand.</h1>
-    <p class="lead">Day-to-day tools you can use on your own time: in session, between sessions, at the end of a shift, or on a hard day.</p>
+    <h1>Wellness On-Demand</h1>
+    <p class="lead">Day-to-day tools you can use on your own time: in session, between sessions, at the end of a shift, or on a hard day. Plus <a href="#clinician-recommended">books, apps, and podcasts our psychologists recommend</a>.</p>
   </div>
 </section>
 <section class="section" style="padding-top:36px">
@@ -212,18 +227,217 @@ a.tool-card:hover{text-decoration:none}
     <div class="callout" style="margin-top:30px"><strong>Want to suggest a tool?</strong><p style="margin:6px 0 0">Email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> with what works for you.</p></div>
   </div>
 </section>
+<section class="section clin-rec" id="clinician-recommended">
+  <div class="container">
+    <span class="eyebrow eyebrow-hmh">Clinician recommended</span>
+    <h2 class="mt-0">Books, apps &amp; podcasts our psychologists recommend</h2>
+    <p class="lead" style="max-width:62ch">Picks from the Hello Mental Health team, for your own well-being, to share with the people you serve, and for leaders.</p>
+    <div class="cr-chips" role="group" aria-label="Filter by type">
+      <button type="button" class="cr-chip" aria-pressed="true" data-f="all">All (26)</button>
+      <button type="button" class="cr-chip" aria-pressed="false" data-f="book">Books (20)</button>
+      <button type="button" class="cr-chip" aria-pressed="false" data-f="app">Apps (5)</button>
+      <button type="button" class="cr-chip" aria-pressed="false" data-f="podcast">Podcasts (1)</button>
+      <button type="button" class="cr-chip" aria-pressed="false" data-f="clients">To share with clients</button>
+    </div>
+    <div class="cr-grid" id="cr-grid">
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>The Illustrated Happiness Trap / The Happiness Trap</h3>
+        <p class="cr-author">by Russ Harris</p>
+        <p class="cr-desc">An introduction to Acceptance and Commitment Therapy (ACT), useful for clients and clinicians alike. The Illustrated Happiness Trap is shorter, more visual, and more accessible; the original goes deeper.</p>
+        <p class="cr-rec">Recommended by Dr. Michelle Maegly</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="To share with clients">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">To share with clients</span></div>
+        <h3>A Better Share</h3>
+        <p class="cr-author">by Morgan Cutlip, PhD</p>
+        <p class="cr-desc">Dr. Morgan Cutlip helps couples view the mental load as a shared enemy to conquer versus a problem they have with each other, offering practical solutions for navigating the most common pain points couples struggle with.</p>
+        <p class="cr-rec">Recommended by a Hello Mental Health client</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="To share with clients">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">To share with clients</span></div>
+        <h3>It&#x27;s Not You</h3>
+        <p class="cr-author">by Ramani Durvasula, PhD</p>
+        <p class="cr-desc">Dr. Ramani Durvasula&#x27;s foundational book on recognizing narcissistic abuse and recovering from it.</p>
+        <p class="cr-rec">Recommended by Dr. Michelle Maegly</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>The Book of Joy</h3>
+        <p class="cr-author">by Dalai Lama, Desmond Tutu, and Douglas Abrams</p>
+        <p class="cr-desc">The Dalai Lama and Archbishop Desmond Tutu spend a week together discussing what actually makes a life joyful, even amid loss and hardship. A warm, conversational read on resilience from two people who have lived through real suffering.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Man&#x27;s Search for Meaning</h3>
+        <p class="cr-author">by Viktor E. Frankl</p>
+        <p class="cr-desc">Psychiatrist Viktor Frankl draws on his experience surviving the Holocaust to argue that finding meaning, even in suffering, is what allows people to endure. A foundational text in existential psychology and still one of the most widely read books on purpose.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>The Power of Now</h3>
+        <p class="cr-author">by Eckhart Tolle</p>
+        <p class="cr-desc">Eckhart Tolle makes the case that most of our suffering comes from living in our heads rather than in the present moment. A gentle entry point into mindfulness for people who are not looking for anything clinical.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Four Thousand Weeks</h3>
+        <p class="cr-author">by Oliver Burkeman</p>
+        <p class="cr-desc">Oliver Burkeman reframes time management around a hard truth: the average human life is only about four thousand weeks long. It is less about productivity hacks and more about making peace with limits.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>H is for Hawk</h3>
+        <p class="cr-author">by Helen Macdonald</p>
+        <p class="cr-desc">Helen Macdonald processes grief after her father&#x27;s sudden death by training a goshawk, one of the most difficult birds to tame. A beautifully written memoir on loss that does not try to wrap it in a bow.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>The Ten Thousand Doors of January</h3>
+        <p class="cr-author">by Alix E. Harrow</p>
+        <p class="cr-desc">A fantasy novel about a young woman who discovers hidden doors to other worlds and starts to question the life she has been told to accept. A good option for clients who connect with reflection through story rather than nonfiction.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For leaders">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For leaders</span></div>
+        <h3>Impact with Love: Building Business for a Better World</h3>
+        <p class="cr-author">by Greg Harmeyer</p>
+        <p class="cr-desc">Cincinnati entrepreneur Greg Harmeyer writes about leading with love and purpose in business without losing sight of results. A useful read for practice owners or clients navigating leadership and burnout.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>The Untethered Soul: The Journey Beyond Yourself</h3>
+        <p class="cr-author">by Michael A. Singer</p>
+        <p class="cr-desc">Michael Singer explores what it looks like to stop identifying with every passing thought and feeling. A widely recommended guide to inner freedom for people newer to mindfulness work.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Flow: The Psychology of Optimal Experience</h3>
+        <p class="cr-author">by Mihaly Csikszentmihalyi</p>
+        <p class="cr-desc">Psychologist Mihaly Csikszentmihalyi explains the state of deep absorption people enter when fully engaged in a challenging, meaningful activity. Helpful for clients wanting to understand motivation and what makes an activity feel worthwhile.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Adult Children of Emotionally Immature Parents</h3>
+        <p class="cr-author">by Lindsay C. Gibson, PsyD</p>
+        <p class="cr-desc">Psychologist Lindsay Gibson explains how growing up with emotionally immature parents shapes adult relationships and self-worth, and offers a path toward healing. One of the most frequently recommended books for clients doing family-of-origin work.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Radical Compassion: Learning to Love Yourself and Your World with the Practice of RAIN</h3>
+        <p class="cr-author">by Tara Brach</p>
+        <p class="cr-desc">Tara Brach teaches RAIN (Recognize, Allow, Investigate, Nurture) as a practice for meeting difficult emotions with compassion instead of avoidance. A practical bridge between mindfulness and self-compassion work.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Attached: The New Science of Adult Attachment</h3>
+        <p class="cr-author">by Amir Levine and Rachel Heller</p>
+        <p class="cr-desc">Accessible attachment-style framework, very popular as a first read on relationship patterns.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Atomic Habits</h3>
+        <p class="cr-author">by James Clear</p>
+        <p class="cr-desc">Clear breaks down how small, consistent changes compound into meaningful behavior change, using frameworks like habit stacking and identity-based habits. A practical, non-clinical read that works well for clients who want structure around building or breaking a habit.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Burnout: The Secret to Unlocking the Stress Cycle</h3>
+        <p class="cr-author">by Emily Nagoski, PhD, and Amelia Nagoski, DMA</p>
+        <p class="cr-desc">Emily and Amelia Nagoski explain why stress builds up in the body and how to actually complete the stress cycle, not just manage it. Especially relevant for people in caring professions.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Trauma Stewardship</h3>
+        <p class="cr-author">by Laura van Dernoot Lipsky with Connie Burk</p>
+        <p class="cr-desc">A field guide for people who help others through hard things, on recognizing the toll of that work and caring for yourself so you can keep doing it.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>The Body Keeps the Score</h3>
+        <p class="cr-author">by Bessel van der Kolk, MD</p>
+        <p class="cr-desc">Bessel van der Kolk explains how trauma lives in the body, not just the mind, and describes body-based approaches to healing.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="book" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Book</span><span class="cr-aud">For everyone</span></div>
+        <h3>Maybe You Should Talk to Someone</h3>
+        <p class="cr-author">by Lori Gottlieb</p>
+        <p class="cr-desc">Therapist Lori Gottlieb&#x27;s warm, funny memoir of being a therapist who also goes to therapy. A gentle read on what therapy is really like.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="app" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">App</span><span class="cr-aud">For everyone</span></div>
+        <h3>Headspace</h3>
+        
+        <p class="cr-desc">A meditation and mindfulness app with guided sessions for stress, sleep, and focus, built for people who are brand new to meditation. Good for clients who want a low-pressure way to start a daily practice.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="app" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">App</span><span class="cr-aud">For everyone</span></div>
+        <h3>Finch</h3>
+        
+        <p class="cr-desc">A self-care app where users care for a virtual bird by completing small daily wellness goals, like drinking water or getting outside. A gentle, game-like option for clients who respond better to habit tracking than traditional journaling.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="app" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">App</span><span class="cr-aud">For everyone</span></div>
+        <h3>Calm</h3>
+        
+        <p class="cr-desc">A meditation and sleep app known for its Sleep Stories, breathing exercises, and daily content library, often seen as Headspace&#x27;s closest competitor with a stronger emphasis on sleep.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="app" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">App</span><span class="cr-aud">For everyone</span></div>
+        <h3>Insight Timer</h3>
+        
+        <p class="cr-desc">A free meditation app with one of the largest libraries in the category, offering guided sessions from thousands of independent teachers plus live classes and courses.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="app" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">App</span><span class="cr-aud">For everyone</span></div>
+        <h3>Sanvello</h3>
+        
+        <p class="cr-desc">An app built on cognitive behavioral therapy (CBT) with mood tracking, guided journeys, and a peer community. Many insurance plans cover the premium features.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+      <article class="cr-card" data-type="podcast" data-aud="For everyone">
+        <div class="cr-top"><span class="cr-type">Podcast</span><span class="cr-aud">For everyone</span></div>
+        <h3>Psych Waves</h3>
+        <p class="cr-author">by Dr. Teresa Anderson</p>
+        <p class="cr-desc">Cincinnati psychiatrist, host of a biweekly show covering trauma, depression, PTSD, and newer treatment options like Ketamine/Spravato, mixing solo episodes with guest interviews.</p>
+        <p class="cr-rec">Recommended by Dr. Bailey Bryant</p>
+      </article>
+    </div>
+    <div class="callout" style="margin-top:26px"><strong>Are you a Talbert House clinician with a recommendation?</strong><p style="margin:6px 0 0">Send it to <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> and we&rsquo;ll review it for this list.</p></div>
+  </div>
+</section>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
         <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p>
         <h4>About this library</h4>
-        <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health resources, wellness on demand, and original content from Hello Mental Health.</p>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health care, Wellness On-Demand tools, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
       </div>
-      <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/resources'>Mental health resources</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness on-demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
+      <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/resources'>Mental Health Care</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
       <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
-      <div><h4>Hello Mental Health</h4><ul><li><a href='https://hellomentalhealth.clientsecure.me'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
+      <div><h4>Hello Mental Health</h4><ul><li><a href='/talberthouse/checkup'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
     </div>
     <div class="footer-credit">
       <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use &middot; <a href="/talberthouse/notice-of-privacy-practices">Privacy &amp; Notice of Privacy Practices</a></div>
@@ -272,8 +486,9 @@ const TOOLS=[
 </script>
 <script>
 /* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
-   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me)
-   resources_click        - any link to the Mental Health Resources page
+   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me); these now live on the Check-Up page
+   checkup_page_click     - any link to the Mental Health Check-Up page (/talberthouse/checkup)
+   resources_click        - any link to the Mental Health Care page
    contact_form_click     - any link to the Hello Mental Health Talbert House contact form
    All carry link_location = "<page>_<spot>", e.g. home_page, blog_menu, about_the_program_footer,
    self_check_results, so you can see which link people use. */
@@ -284,6 +499,7 @@ const TOOLS=[
     var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
     var h=a.getAttribute('href')||'', ev='';
     if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
+    else if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) ev='checkup_page_click';
     else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
     else if(/^\/talberthouse\/resources\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
     if(!ev) return;
@@ -308,6 +524,11 @@ const TOOLS=[
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
   window.addEventListener('load',fit);
 })();
+</script>
+<script>
+(function(){var g=document.getElementById('cr-grid'),chips=document.querySelectorAll('.cr-chip');if(!g)return;
+chips.forEach(function(c){c.addEventListener('click',function(){var f=c.dataset.f;chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});
+g.querySelectorAll('.cr-card').forEach(function(card){var show=f==='all'||card.dataset.type===f||(f==='clients'&&card.dataset.aud==='To share with clients');card.hidden=!show;});});});})();
 </script>
 </body>
 </html>

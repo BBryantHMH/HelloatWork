@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/talberthouse/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/talberthouse/favicon-512.png">
 <link rel="apple-touch-icon" href="/talberthouse/apple-touch-icon.png">
-<meta name="description" content="A private, anonymous 4-minute mental wellness self-check. No names or identifying information are collected.">
+<meta name="description" content="A private, anonymous 10-minute mental wellness self-check. No names or identifying information are collected.">
 <meta name="robots" content="noindex">
 <!-- Google Analytics (GA4). Counts visits and a few anonymous Self-Check events only.
      Never sends answers, scores, bands, or anything typed. See SELF-CHECK ANALYTICS at the bottom. -->
@@ -506,8 +506,8 @@ a:focus-visible, button:focus-visible, textarea:focus-visible, .btn:focus-visibl
    CONFIG: EDIT THESE  (search: PLACEHOLDER)
    ============================================================ */
 var CONFIG = {
-  SCHEDULE_URL:  "https://hellomentalhealth.clientsecure.me", /* Check-Up booking (SimplePractice client portal, a SEPARATE system) */
-  RESOURCES_URL: "/talberthouse/resources", /* the self-guided resources page */
+  SCHEDULE_URL:  "/talberthouse/checkup", /* Check-Up booking (SimplePractice client portal, a SEPARATE system) */
+  RESOURCES_URL: "/talberthouse/mental-health-care", /* the self-guided resources page */
   EXIT_URL:      "https://www.google.com", /* Where "Quick exit" sends the user. Change if you prefer another neutral site. */
   /* Optional Talbert House crisis line. Leave label empty ("") to hide it. */
   TALBERT_CRISIS_LABEL: "",           /* PLACEHOLDER e.g. "Talbert House 24-hour line" */
@@ -681,11 +681,11 @@ function renderLanding(){
       '<p>'+reassureP+'</p>'+
     '</div>'+
     '<ul class="facts">'+
-      '<li>'+iconCheck()+'About 4 minutes, 24 short questions</li>'+
+      '<li>'+iconCheck()+'About 10 minutes, 24 short questions</li>'+
       '<li>'+iconCheck()+'Completely anonymous, with no name, no email, no login</li>'+
       '<li>'+iconCheck()+'Free, and it never touches insurance or your employer</li>'+
     '</ul>'+
-    '<p class="muted small">At the end you\'ll get some plain-language reflections, plus information about a 30-minute Mental Health Check-Up with a licensed psychologist. It\'s open to everyone, free for those on the MedBen plan, with superbills available for possible reimbursement otherwise.</p>'+
+    '<p class="muted small">At the end you\'ll get some plain-language reflections, plus information about a 30-minute Mental Health Check-Up with a licensed psychologist. It\'s open to everyone and covered by the Talbert House health plan. If you\'re not on the plan, we can provide a superbill for possible reimbursement.</p>'+
     '<div class="actions">'+
       '<button type="button" class="btn btn-primary btn-lg btn-full" id="startBtn">Start the check-in '+arrow()+'</button>'+
     '</div>'+
@@ -842,7 +842,7 @@ function renderResults(){
     '<div class="invite">'+
       '<h2>What now?</h2>'+
       '<p>The Mental Health Check-Up is open to everyone. It\'s a confidential 30-minute conversation with a licensed psychologist. It\'s not therapy, and it\'s not a commitment to anything. It\'s a conversation about how you\'re doing, what might help, and what to expect if therapy ever makes sense for you.</p>'+
-      '<p>If you\'re on the MedBen plan, the Check-Up is covered by MedBen. If you\'re not on the plan, there may be a cost, but we\'re happy to provide a superbill you can submit to your own insurance or plan for possible reimbursement.</p>'+
+      '<p>If you\'re on the Talbert House health plan, the Check-Up is covered. If you\'re not on the plan, there may be a cost, but we\'re happy to provide a superbill you can submit to your own insurance or plan for possible reimbursement.</p>'+
       '<div class="actions">'+
         '<a class="btn btn-primary" href="'+esc(CONFIG.SCHEDULE_URL)+'">Schedule a Mental Health Check-Up '+arrow()+'</a>'+
         '<a class="btn btn-secondary" href="'+esc(CONFIG.RESOURCES_URL)+'">Just browse resources</a>'+
@@ -973,9 +973,11 @@ render();
 </script>
 <script>
 /* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
-   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me)
-   resources_click        - any link to the Mental Health Resources page
-   Both carry link_location = "<page>_<spot>", e.g. home_page, providers_page, blog_menu, faq_footer,
+   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me); these now live on the Check-Up page
+   checkup_page_click     - any link to the Mental Health Check-Up page (/talberthouse/checkup)
+   resources_click        - any link to the Mental Health Care page
+   contact_form_click     - any link to the Hello Mental Health Talbert House contact form
+   All carry link_location = "<page>_<spot>", e.g. home_page, blog_menu, about_the_program_footer,
    self_check_results, so you can see which link people use. */
 (function(){
   var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'').replace(/-/g,'_');
@@ -984,7 +986,9 @@ render();
     var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
     var h=a.getAttribute('href')||'', ev='';
     if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
-    else if(/^\/talberthouse\/resources\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
+    else if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) ev='checkup_page_click';
+    else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
+    else if(/^\/talberthouse\/(?:mental-health-care|resources)\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
     if(!ev) return;
     var spot=a.closest('.nav-links, nav')?'menu':a.closest('footer')?'footer':(page==='self_check'?'results':'page');
     try{ gtag('event',ev,{link_location:page+'_'+spot,transport_type:'beacon'}); }catch(err){}

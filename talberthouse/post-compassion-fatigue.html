@@ -191,8 +191,8 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
     <div class="nav-links">
       <a href='/talberthouse/'>Home</a>
       <a href='/talberthouse/about-the-program'>About the Program</a>
-      <a href='/talberthouse/resources'>Mental health resources</a>
-      <a href='/talberthouse/wellness-on-demand'>Wellness on-demand</a>
+      <a href='/talberthouse/mental-health-care'>Mental Health Care</a>
+      <a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a>
       <a class='active' aria-current='page' href='/talberthouse/blog'>Blog</a>
       <a class='nav-cta' href='/talberthouse/self-check'>Self-Check</a>
     </div>
@@ -219,7 +219,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
       <h2>Ready to talk to someone?</h2>
       <p>Talbert House staff can take the free Self-Check, or book a private Mental Health Check-Up with a Hello Mental Health psychologist.</p>
       <a class="btn btn-primary" href="/talberthouse/self-check">Take the Self-Check</a>
-      <a class="btn btn-outline" href="https://hellomentalhealth.clientsecure.me">Schedule a Check-Up</a>
+      <a class="btn btn-outline" href="/talberthouse/checkup">Schedule a Check-Up</a>
       <a class="btn btn-outline" href="https://www.hellomentalhealth.com/talbert-house-contact">Contact form</a>
     </aside>
   </article>
@@ -264,12 +264,12 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
       <div>
         <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p>
         <h4>About this library</h4>
-        <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health resources, wellness on demand, and original content from Hello Mental Health.</p>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health care, Wellness On-Demand tools, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
       </div>
-      <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/resources'>Mental health resources</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness on-demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
+      <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/mental-health-care'>Mental Health Care</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
       <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
-      <div><h4>Hello Mental Health</h4><ul><li><a href='https://hellomentalhealth.clientsecure.me'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
+      <div><h4>Hello Mental Health</h4><ul><li><a href='/talberthouse/checkup'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
     </div>
     <div class="footer-credit">
       <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use &middot; <a href="/talberthouse/notice-of-privacy-practices">Privacy &amp; Notice of Privacy Practices</a></div>
@@ -284,8 +284,9 @@ if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');
 </script>
 <script>
 /* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
-   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me)
-   resources_click        - any link to the Mental Health Resources page
+   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me); these now live on the Check-Up page
+   checkup_page_click     - any link to the Mental Health Check-Up page (/talberthouse/checkup)
+   resources_click        - any link to the Mental Health Care page
    contact_form_click     - any link to the Hello Mental Health Talbert House contact form
    All carry link_location = "<page>_<spot>", e.g. home_page, blog_menu, about_the_program_footer,
    self_check_results, so you can see which link people use. */
@@ -296,8 +297,9 @@ if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');
     var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
     var h=a.getAttribute('href')||'', ev='';
     if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
+    else if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) ev='checkup_page_click';
     else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
-    else if(/^\/talberthouse\/resources\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
+    else if(/^\/talberthouse\/(?:mental-health-care|resources)\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
     if(!ev) return;
     var spot=a.closest('.nav-links, nav')?'menu':a.closest('footer')?'footer':(page==='self_check'?'results':'page');
     try{ gtag('event',ev,{link_location:page+'_'+spot,transport_type:'beacon'}); }catch(err){}

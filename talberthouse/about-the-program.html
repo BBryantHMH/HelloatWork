@@ -41,7 +41,9 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 .page-head::after{content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:var(--hmh-coral);opacity:.18;border-radius:50%;filter:blur(8px)}
 .page-head .container{position:relative;z-index:1}
 .page-head h1{color:#fff;max-width:22ch}.page-head .lead{color:rgba(255,255,255,.92);max-width:62ch}.page-head .eyebrow{color:#FFEDC6}
-.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;margin:40px 0}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0}@media(max-width:900px){.pillars{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.pillars{grid-template-columns:1fr}}
+a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform .15s}a.pillar:hover{box-shadow:var(--shadow-md,0 6px 18px rgba(0,0,0,.08));transform:translateY(-2px)}
+.pillar{display:flex;flex-direction:column}.pillar p{flex:1}.pillar-link{margin-top:10px;font-weight:600;font-size:.92rem;color:var(--th-teal-dark,#1f6f78)}div.pillar .pillar-link{opacity:.7}
 .pillar{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:28px 24px;box-shadow:var(--shadow-sm)}
 .pillar-icon{font-size:2rem;margin-bottom:12px}
 .pillar h3{font-size:1.1rem;margin-bottom:8px}
@@ -183,8 +185,8 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
     <div class="nav-links">
       <a href='/talberthouse/'>Home</a>
       <a class='active' aria-current='page' href='/talberthouse/about-the-program'>About the Program</a>
-      <a href='/talberthouse/resources'>Mental health resources</a>
-      <a href='/talberthouse/wellness-on-demand'>Wellness on-demand</a>
+      <a href='/talberthouse/mental-health-care'>Mental Health Care</a>
+      <a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a>
       <a href='/talberthouse/blog'>Blog</a>
       <a class='nav-cta' href='/talberthouse/self-check'>Self-Check</a>
     </div>
@@ -195,23 +197,24 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
     <span class="eyebrow">For Talbert House staff</span>
     <h1>About the program.</h1>
     <!-- PROGRAM BLURB: replace this paragraph with Bailey's "About the Program" text -->
-    <p class="lead">Real Support is a mental health and wellness program for Talbert House staff, delivered by the psychologists at Hello Mental Health. It brings together a free Self-Check, Mental Health Check-Ups, quarterly forums, and resources you can use on your own time.</p>
+    <p class="lead">Real Support is a mental health and wellness program for Talbert House staff, delivered by the psychologists at Hello Mental Health. It brings together the Self-Check, Mental Health Check-Ups, mental health care resources, Wellness On-Demand tools, quarterly forums, and a recovery support group.</p>
   </div>
 </section>
 <section class="section" style="padding-top:36px">
   <div class="container">
     <span class="eyebrow">What the program offers</span>
     <h2>How we support Talbert House staff</h2>
-    <p class="lead" style="max-width:60ch">The Hello Mental Health workplace wellness program is built around five offerings that address the specific stressors of human services work.</p>
+    <p class="lead" style="max-width:60ch">The Hello Mental Health workplace wellness program is built around six offerings that address the specific stressors of human services work.</p>
     <div class="pillars">
-      <div class="pillar"><div class="pillar-icon">&#128221;</div><h3>Self-Check</h3><p>A free, private four-minute check-in on stress, sleep, mood, habits, connection, and work, with plain-language feedback.</p></div>
-      <div class="pillar"><div class="pillar-icon">&#128172;</div><h3>Mental Health Check-Up</h3><p>A private 30-minute visit with a licensed psychologist. Launched August 2026 with the new health plan.</p></div>
-      <div class="pillar"><div class="pillar-icon">&#128218;</div><h3>Resources on Demand</h3><p>Vetted crisis lines, apps, reading lists, and wellness tools, curated for the kinds of challenges you actually face.</p></div>
-      <div class="pillar"><div class="pillar-icon">&#128101;</div><h3>Quarterly Forum</h3><p>Live skill-building sessions covering burnout, secondary trauma, team dynamics, and self-care. Open to all staff.</p></div>
-      <div class="pillar"><div class="pillar-icon">&#129309;</div><h3>Recovery Group</h3><p>Details coming soon.</p></div>
+      <a class="pillar" href='/talberthouse/self-check'><div class="pillar-icon">&#128221;</div><h3>Self-Check</h3><p>About 10 minutes of private questions to notice how you&rsquo;ve been doing lately, with gentle, plain-language feedback at the end.</p><span class="pillar-link">See how it works &rarr;</span></a>
+      <a class="pillar" href='/talberthouse/checkup'><div class="pillar-icon">&#128172;</div><h3>Mental Health Check&#8209;Up</h3><p>A private 30-minute visit with a licensed psychologist, covered by the Talbert House health plan. You don&rsquo;t need to take the Self-Check first.</p><span class="pillar-link">Learn more &amp; schedule &rarr;</span></a>
+      <a class="pillar" href='/talberthouse/mental-health-care'><div class="pillar-icon">&#128222;</div><h3>Mental Health Care</h3><p>Crisis lines, therapy finders, and local support, for you and the people you serve.</p><span class="pillar-link">Find care &rarr;</span></a>
+      <a class="pillar" href='/talberthouse/wellness-on-demand'><div class="pillar-icon">&#9728;&#65039;</div><h3>Wellness On-Demand</h3><p>Quick, guided tools for workday resets, end-of-shift transitions, team practice, and hard days, plus books, apps, and podcasts.</p><span class="pillar-link">Explore tools &rarr;</span></a>
+      <a class="pillar" href='/talberthouse/about-the-program#forums'><div class="pillar-icon">&#128101;</div><h3>Quarterly Forums</h3><p>Live skill-building sessions on burnout, secondary trauma, team dynamics, and self-care. Open to all staff.</p><span class="pillar-link">See the schedule &rarr;</span></a>
+      <div class="pillar"><div class="pillar-icon">&#129309;</div><h3>Recovery Support Group</h3><p>Details coming soon.</p><span class="pillar-link">Coming soon</span></div>
     </div>
     <hr class="section-divider" />
-    <div class="forums-section">
+    <div class="forums-section" id="forums">
       <span class="eyebrow" style="color:var(--th-teal-dark)">Mark your calendar</span>
       <h2 style="margin-bottom:6px">Quarterly Forums, 2026-2027</h2>
       <p style="color:var(--slate-700);margin-bottom:20px">All forums are open to Talbert House staff. Details on location and registration will be shared via internal communications.</p>
@@ -224,9 +227,9 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
     </div>
     <hr class="section-divider" />
     <div class="start-row">
-      <div class="start-card"><h3>Take the Self-Check</h3><p>About four minutes of private questions to notice how you&rsquo;ve been doing lately.</p><a class="btn btn-primary" href="/talberthouse/self-check">Start the Self-Check &rarr;</a></div>
-      <div class="start-card"><h3>Book a Mental Health Check-Up</h3><p>A private 30-minute visit with a licensed psychologist. Book online, send us a note, or call (513) 717-5566.</p><a class="btn btn-primary" href="https://hellomentalhealth.clientsecure.me">Schedule a Check-Up &rarr;</a> <a class="btn btn-outline" href="https://www.hellomentalhealth.com/talbert-house-contact">Contact form</a></div>
-      <div class="start-card"><h3>Use the resources</h3><p>Vetted mental health resources and day-to-day wellness tools, whenever you need them.</p><a class="btn btn-outline" href="/talberthouse/resources">Mental health resources</a> <a class="btn btn-outline" href="/talberthouse/wellness-on-demand">Wellness on-demand</a></div>
+      <div class="start-card"><h3>Take the Self-Check</h3><p>About 10 minutes of private questions to notice how you&rsquo;ve been doing lately.</p><a class="btn btn-primary" href="/talberthouse/self-check">Start the Self-Check &rarr;</a></div>
+      <div class="start-card"><h3>Book a Mental Health Check-Up</h3><p>A private 30-minute visit with a licensed psychologist. <a href="/talberthouse/checkup">What to expect, costs &amp; policies</a>. Book online, send us a note, or call (513) 717-5566.</p><a class="btn btn-primary" href="/talberthouse/checkup">Schedule a Check-Up &rarr;</a> <a class="btn btn-outline" href="https://www.hellomentalhealth.com/talbert-house-contact">Contact form</a></div>
+      <div class="start-card"><h3>Use the resources</h3><p>Crisis lines, therapy finders, and local support, plus day-to-day wellness tools, whenever you need them.</p><a class="btn btn-outline" href="/talberthouse/mental-health-care">Mental Health Care</a> <a class="btn btn-outline" href="/talberthouse/wellness-on-demand">Wellness On-Demand</a></div>
     </div>
   </div>
 </section>
@@ -236,12 +239,12 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
       <div>
         <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p>
         <h4>About this library</h4>
-        <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health resources, wellness on demand, and original content from Hello Mental Health.</p>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health care, Wellness On-Demand tools, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. Not a substitute for clinical consultation or crisis services.</p>
       </div>
-      <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/resources'>Mental health resources</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness on-demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
+      <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/mental-health-care'>Mental Health Care</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
       <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
-      <div><h4>Hello Mental Health</h4><ul><li><a href='https://hellomentalhealth.clientsecure.me'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
+      <div><h4>Hello Mental Health</h4><ul><li><a href='/talberthouse/checkup'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
     </div>
     <div class="footer-credit">
       <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use &middot; <a href="/talberthouse/notice-of-privacy-practices">Privacy &amp; Notice of Privacy Practices</a></div>
@@ -252,8 +255,9 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 
 <script>
 /* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
-   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me)
-   resources_click        - any link to the Mental Health Resources page
+   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me); these now live on the Check-Up page
+   checkup_page_click     - any link to the Mental Health Check-Up page (/talberthouse/checkup)
+   resources_click        - any link to the Mental Health Care page
    contact_form_click     - any link to the Hello Mental Health Talbert House contact form
    All carry link_location = "<page>_<spot>", e.g. home_page, blog_menu, about_the_program_footer,
    self_check_results, so you can see which link people use. */
@@ -264,8 +268,9 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
     var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
     var h=a.getAttribute('href')||'', ev='';
     if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
+    else if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) ev='checkup_page_click';
     else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
-    else if(/^\/talberthouse\/resources\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
+    else if(/^\/talberthouse\/(?:mental-health-care|resources)\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
     if(!ev) return;
     var spot=a.closest('.nav-links, nav')?'menu':a.closest('footer')?'footer':(page==='self_check'?'results':'page');
     try{ gtag('event',ev,{link_location:page+'_'+spot,transport_type:'beacon'}); }catch(err){}
