@@ -254,6 +254,21 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
 </footer>
 
 <script>
+(function(){
+  var toggle=document.querySelector('.nav-toggle');
+  var links=document.querySelector('.nav-links');
+  if(toggle&&links){toggle.addEventListener('click',function(){
+    links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',links.classList.contains('open'));
+  });}
+  var path=(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){
+    if(a.dataset.page===path){a.classList.add('active');}
+  });
+})();
+</script>
+
+<script>
 /* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
    checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me); these now live on the Check-Up page
    checkup_page_click     - any link to the Mental Health Check-Up page (/talberthouse/checkup)
