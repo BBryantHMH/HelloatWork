@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -22,22 +22,19 @@
     page_title: 'Self-Check'
   });
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
 /* ============================================================
    BRAND: EDIT THESE 7 VALUES TO RE-SKIN THE WHOLE TOOL
    Hello Mental Health palette
    ============================================================ */
 :root{
-  --c-teal:      #469888;  /* primary            */
-  --c-forest:    #173c36;  /* deep ink / buttons */
-  --c-gold:      #edc51c;  /* accent            */
-  --c-orange:    #f79349;  /* "closer look"     */
-  --c-mint:      #98d2aa;  /* "steady"          */
-  --c-cream:     #faf3e9;  /* page ground       */
-  --c-gold-deep: #cc981f;  /* "some strain" (text-safe) */
+  --c-teal:      #2060A0;  /* primary (library blue)        */
+  --c-forest:    #17497D;  /* deep blue for dark panels     */
+  --c-gold:      #F2B01E;  /* accent (library gold)         */
+  --c-orange:    #E28F6E;  /* "closer look"                 */
+  --c-mint:      #F2B01E;  /* progress bar end              */
+  --c-cream:     #FAF5EC;  /* page ground (library cream)   */
+  --c-gold-deep: #8A6410;  /* "some strain" (text-safe)     */
 }
 
 /* ---- LINKS / URLS TO WIRE UP (search "PLACEHOLDER") ----
@@ -51,33 +48,33 @@
   --ground:      var(--c-cream);
   --surface:     #ffffff;
   --surface-2:   #f4ede0;               /* cream, one step down */
-  --ink:         var(--c-forest);
-  --ink-soft:    #4a5f59;               /* muted forest         */
-  --ink-faint:   #6f827c;
+  --ink:         #1F2937;
+  --ink-soft:    #374151;               /* muted forest         */
+  --ink-faint:   #6B7280;
   --line:        #e4dccc;               /* hairline on cream    */
   --line-strong: #cdc3ad;
   --brand:       var(--c-teal);
   --brand-deep:  var(--c-forest);
-  --brand-tint:  #e4f0eb;               /* pale teal wash       */
-  --focus:       #1f6f5e;
+  --brand-tint:  #E8F0F8;               /* pale teal wash       */
+  --focus:       #17497D;
 
   /* band colors */
-  --steady:      #2f7d5e;
-  --steady-bg:   #e6f2e9;
+  --steady:      #2E5D4A;
+  --steady-bg:   #E6EFEA;
   --strain:      var(--c-gold-deep);
-  --strain-bg:   #fbf1d3;
+  --strain-bg:   #FCF3DC;
   --look:        #c2611f;
   --look-bg:     #fce7d6;
 
-  --shadow-sm: 0 1px 2px rgba(23,60,54,.06), 0 1px 3px rgba(23,60,54,.05);
-  --shadow-md: 0 4px 16px rgba(23,60,54,.09), 0 2px 6px rgba(23,60,54,.06);
+  --shadow-sm: 0 1px 2px rgba(31,41,55,.06), 0 1px 3px rgba(31,41,55,.05);
+  --shadow-md: 0 4px 16px rgba(31,41,55,.09), 0 2px 6px rgba(31,41,55,.06);
 
   --maxw: 40rem;           /* ~640px reading column */
   --radius: 14px;
   --radius-sm: 10px;
 
-  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-head: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  --font-head: Georgia, "Playfair Display", "Iowan Old Style", Cambria, serif;
 
   padding: env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);
 }
@@ -200,7 +197,7 @@ main{ padding-block: 8px 40px; }
 @media (prefers-reduced-motion:reduce){ .progress-fill{transition:none} }
 
 /* ---------- typography ---------- */
-h1,h2,h3{font-family:var(--font-head); font-weight:600; color:var(--ink); text-wrap:balance; margin:0}
+h1,h2,h3{font-family:var(--font-head); font-weight:700; color:var(--ink); text-wrap:balance; margin:0}
 .h-hero{ font-size:clamp(1.9rem,6vw,2.6rem); line-height:1.12; font-weight:500; letter-spacing:-.01em; }
 .h-sec{ font-size:clamp(1.5rem,5vw,1.9rem); line-height:1.18; }
 .eyebrow{
@@ -249,8 +246,8 @@ p{margin:0 0 1rem}
   line-height:1.1; transition:transform .08s ease, box-shadow .15s ease, background .15s ease;
 }
 .btn:active{transform:translateY(1px)}
-.btn-primary{ background:var(--brand-deep); color:var(--c-cream); box-shadow:var(--shadow-sm); }
-.btn-primary:hover{ background:color-mix(in srgb,var(--brand-deep) 88%, var(--brand)); }
+.btn-primary{ background:var(--c-gold); color:#1F2937; box-shadow:var(--shadow-sm); }
+.btn-primary:hover{ background:color-mix(in srgb,var(--c-gold) 88%, #000); }
 :root[data-theme="dark"] .btn-primary,
 :root:not([data-theme="light"]) .btn-primary{ color:#0d1a17; background:var(--brand); }
 .btn-secondary{ background:var(--surface); color:var(--ink); border-color:var(--line-strong); }
@@ -371,7 +368,7 @@ p{margin:0 0 1rem}
 .invite h2{ color:inherit; font-size:1.5rem; margin:0 0 12px; }
 .invite p{ color:inherit; opacity:.94; margin:0 0 14px; }
 .invite .fine{ font-size:.9rem; opacity:.8; margin:14px 0 0; }
-.invite .btn-primary{ background:var(--c-gold); color:var(--c-forest); }
+.invite .btn-primary{ background:var(--c-gold); color:#1F2937; }
 .invite .btn-primary:hover{ background:color-mix(in srgb,var(--c-gold) 86%, #000); }
 .invite .btn-secondary{ background:transparent; color:var(--c-cream); border-color:color-mix(in srgb,var(--c-cream) 45%, transparent); }
 .invite .btn-secondary:hover{ border-color:var(--c-cream); }
@@ -433,18 +430,18 @@ a:focus-visible, button:focus-visible, textarea:focus-visible, .btn:focus-visibl
   .topbar, .skip, .nav-row, .restart-row, .dl-row, .collect-note, .carry-note{ display:none !important; }
   .page{ max-width:100%; padding:0 8px; }
   .screen{ animation:none; }
-  .print-head{ display:flex !important; flex-direction:column; gap:2px; border-bottom:2px solid #173c36; padding-bottom:10px; margin-bottom:14px; }
-  .print-head .ph-brand{ font-family:var(--font-head); font-weight:600; font-size:15pt; color:#173c36; }
+  .print-head{ display:flex !important; flex-direction:column; gap:2px; border-bottom:2px solid #17497D; padding-bottom:10px; margin-bottom:14px; }
+  .print-head .ph-brand{ font-family:var(--font-head); font-weight:600; font-size:15pt; color:#17497D; }
   .print-head .ph-title{ font-weight:700; font-size:11pt; }
   .print-head .ph-date{ font-size:10pt; color:#555; }
-  .eyebrow{ color:#173c36; }
+  .eyebrow{ color:#17497D; }
   .domain, .echo, .invite{ box-shadow:none !important; border:1px solid #bbb !important; break-inside:avoid; }
   .invite{ background:#fff !important; color:#000 !important; }
   .invite h2, .invite p{ color:#000 !important; }
   .invite .actions{ display:none !important; }
-  .domain-top{ border-left:5px solid #173c36; }
+  .domain-top{ border-left:5px solid #17497D; }
   .band-pill{ border:1px solid #999; color:#000 !important; background:#eee !important; }
-  .crisis{ background:#fff; border-top:2px solid #173c36; break-inside:avoid; }
+  .crisis{ background:#fff; border-top:2px solid #17497D; break-inside:avoid; }
   a[href]::after{ content:""; }
 }
 
