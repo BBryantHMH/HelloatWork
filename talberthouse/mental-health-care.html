@@ -144,6 +144,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 
 /* Clinician recommended (moved here from Mental Health Care, Sept 29) */
 .page-head .lead a{color:#FFEDC6;text-decoration:underline;text-underline-offset:3px}
+.skip-link{position:absolute;left:-999px;top:8px;z-index:200;background:#fff;color:#1F2937;padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.2)}.skip-link:focus{left:8px}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
@@ -155,6 +156,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <div class="crisis-banner"><strong>IN A CRISIS?</strong> Call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) &middot; Crisis Text Line: text HOME to <a href="sms:741741">741741</a></div>
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
@@ -173,7 +175,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
     </div>
   </nav>
 </header>
-<section class="page-head">
+<section class="page-head" id="main-content" tabindex="-1">
   <div class="container">
     <span class="eyebrow">Curated mental health care</span>
     <h1>Mental Health Care</h1>
@@ -182,6 +184,8 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 </section>
 <section class="section" style="padding-top:0">
   <div class="container">
+    <div class="callout" style="margin:28px 0 28px"><strong>Looking for ongoing therapy?</strong><p style="margin:6px 0 0">Hello Mental Health is the preferred provider for the Talbert House health plan. For anyone 18 or older on the plan, therapy with one of our psychologists has a $15 copay. <a href="https://www.hellomentalhealth.com/talbert-house-contact">Self-schedule or send us a note</a>, or call <a href="tel:5137175566">(513) 717-5566</a>. You&rsquo;re always free to choose another provider, and the therapist finders below can help.</p></div>
+    <div class="callout" style="margin:0 0 28px"><strong>Wondering about medication?</strong><p style="margin:6px 0 0">Our psychologists don&rsquo;t prescribe, but your primary care doctor can talk through options with you or refer you to a psychiatrist.</p></div>
     <div class="search-bar" role="search">
       <div><label for="resource-search">Search by name or keyword</label><input id="resource-search" type="search" placeholder="e.g. burnout, postpartum, sliding scale" autocomplete="off" /></div>
       <div><label for="resource-category">Category</label><select id="resource-category"></select></div>
@@ -194,17 +198,18 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
     <div class="callout" style="margin-top:30px"><strong>Used something that helped?</strong><p style="margin:6px 0 0">Email <a href="mailto:Welcome@HelloMentalHealth.com">Welcome@HelloMentalHealth.com</a> to suggest a resource or flag a stale link.</p></div>
   </div>
 </section>
+<button type="button" id="quickExit" onclick="window.location.replace('https://www.google.com')" style="position:fixed;right:16px;bottom:16px;z-index:60;background:#1F2937;color:#fff;border:0;border-radius:999px;padding:10px 16px;font:600 .9rem/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer" title="Leave this page right away">Quick exit</button>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p>
+        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p><p class="footer-tagline" style="margin-top:2px;opacity:.85">A Talbert House and Hello Mental Health partnership</p>
         <h4>About this library</h4>
         <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health care, Wellness On-Demand tools, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. For general education, not therapy or medical advice. In a crisis, call or text 988.</p>
       </div>
       <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/mental-health-care'>Mental Health Care</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
-      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li><li><a href="tel:988">En espa&ntilde;ol: 988, then press 2</a></li><li><a href="tel:711">Deaf or hard of hearing: 711, then 988</a></li><li><a href="tel:18007209616">Not in crisis but need to talk? Ohio CareLine, 1-800-720-9616</a></li></ul></div>
       <div><h4>Hello Mental Health</h4><ul><li><a href='/talberthouse/checkup'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
     </div>
     <div class="footer-credit">
@@ -214,13 +219,13 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
   </div>
 </footer>
 <script>
-const CATEGORY_OPTIONS=["Crisis & Hotlines","Therapy Finders","Local Cincinnati"];
-const TOPIC_OPTIONS=["Anxiety","Boundaries & Self-Care","Burnout & Compassion Fatigue","Depression","Family & Caregiver Support","Grief & Loss","LGBTQ+ Affirming","Mindfulness","Parenting & Perinatal","Recovery / Substance Use","Sleep","Suicide Prevention","Trauma / PTSD","Veterans & First Responders"];
+const CATEGORY_OPTIONS=["Crisis & Hotlines","Therapy Finders","Local Cincinnati","Recovery & Support Groups"];
+const TOPIC_OPTIONS=["Anxiety","Basic Needs","Boundaries & Self-Care","Burnout & Compassion Fatigue","Depression","Domestic Violence","Family & Caregiver Support","Grief & Loss","LGBTQ+ Affirming","Mindfulness","Parenting & Perinatal","Recovery / Substance Use","Sleep","Suicide Prevention","Trauma / PTSD","Veterans & First Responders"];
 const FORMAT_OPTIONS=["Hotline","Website"];
 const CAT_CLASS={"Crisis & Hotlines":"cat-crisis","Therapy Finders":"cat-finder","Self-Help Apps":"cat-app","Books & Reading":"cat-reading","Workbooks & Tools":"cat-workbook","Local Cincinnati":"cat-local"};
 const CAT_ICONS={"Crisis & Hotlines":"\u260E","Therapy Finders":"\uD83D\uDD0D","Self-Help Apps":"\uD83D\uDCF1","Books & Reading":"\uD83D\uDCDA","Workbooks & Tools":"\u270F","Local Cincinnati":"\uD83D\uDCCD"};
 const RESOURCES=[
-  {id:"988-lifeline",title:"988 Suicide & Crisis Lifeline",category:"Crisis & Hotlines",format:"Hotline",topics:["Suicide Prevention"],blurb:"Free, confidential 24/7 support by call, text, or chat. Routes to local networks.",cost:"Free",phone:"988",url:"https://988lifeline.org",is_crisis:true},
+  {id:"988-lifeline",title:"988 Suicide & Crisis Lifeline",category:"Crisis & Hotlines",format:"Hotline",topics:["Suicide Prevention"],blurb:"Free, confidential 24/7 support by call, text, or chat. En espa\u00f1ol: call 988 and press 2. Deaf or hard of hearing: 988 videophone, or dial 711 then 988.",cost:"Free",phone:"988",url:"https://988lifeline.org",is_crisis:true},
   {id:"crisis-text-line",title:"Crisis Text Line",category:"Crisis & Hotlines",format:"Hotline",topics:["Suicide Prevention"],blurb:"Text HOME to 741741, 24/7 text-based crisis support when a phone call isn't safe.",cost:"Free",phone:"Text HOME to 741741",url:"https://www.crisistextline.org",is_crisis:true},
   {id:"trevor-project",title:"The Trevor Project",category:"Crisis & Hotlines",format:"Hotline",topics:["LGBTQ+ Affirming","Suicide Prevention"],blurb:"24/7 crisis and suicide prevention for LGBTQ+ young people. Phone, text, and chat.",cost:"Free",phone:"1-866-488-7386",url:"https://www.thetrevorproject.org",is_crisis:true},
   {id:"veterans-crisis-line",title:"Veterans Crisis Line",category:"Crisis & Hotlines",format:"Hotline",topics:["Veterans & First Responders","Suicide Prevention","Trauma / PTSD"],blurb:"24/7 support for veterans and families. Dial 988 then press 1, or text 838255.",cost:"Free",phone:"988 then 1",url:"https://www.veteranscrisisline.net",is_crisis:true},
@@ -234,7 +239,14 @@ const RESOURCES=[
   {id:"1n5",title:"1N5",category:"Local Cincinnati",format:"Website",topics:["Anxiety","Depression","Suicide Prevention"],blurb:"Cincinnati nonprofit eliminating stigma and preventing suicide through education.",cost:"Free",url:"https://www.1n5.org"},
   {id:"lindner-center",title:"Lindner Center of HOPE",category:"Local Cincinnati",format:"Website",topics:["Depression","Anxiety","Trauma / PTSD","Recovery / Substance Use"],blurb:"Comprehensive mental health center in Mason: inpatient, residential, and outpatient.",cost:"Insurance-based",phone:"513-536-4673",url:"https://lindnercenterofhope.org"},
   {id:"best-point",title:"Best Point Behavioral Health",category:"Local Cincinnati",format:"Website",topics:["Family & Caregiver Support","Parenting & Perinatal"],blurb:"Children, teens, and families. PCIT, outpatient therapy, autism support, parent coaching.",cost:"Insurance-based",phone:"513-272-2800",url:"https://www.bestpoint.org"},
-  {id:"mha-nky-swoh",title:"Mental Health America of Northern Kentucky & Southwest Ohio",category:"Local Cincinnati",format:"Website",topics:["Family & Caregiver Support","Recovery / Substance Use"],blurb:"Free mental health screenings, peer support, and community education.",cost:"Free",phone:"513-721-2910",url:"https://www.mhankyswoh.org"}
+  {id:"mha-nky-swoh",title:"Mental Health America of Northern Kentucky & Southwest Ohio",category:"Local Cincinnati",format:"Website",topics:["Family & Caregiver Support","Recovery / Substance Use"],blurb:"Free mental health screenings, peer support, and community education.",cost:"Free",phone:"513-721-2910",url:"https://www.mhankyswoh.org"},
+{id:"ohio-careline",title:"Ohio CareLine",category:"Crisis & Hotlines",format:"Hotline",topics:["Anxiety","Depression","Boundaries & Self-Care"],blurb:"Free, confidential 24/7 emotional support line for when you\u2019re not in crisis but need someone to talk to.",cost:"Free",phone:"1-800-720-9616",url:"https://ohio.gov/residents/resources/ohio-careline"},
+{id:"dv-hotline",title:"National Domestic Violence Hotline",category:"Crisis & Hotlines",format:"Hotline",topics:["Domestic Violence","Trauma / PTSD"],blurb:"Free, confidential 24/7 support for anyone affected by relationship abuse. Call, text START to 88788, or chat online.",cost:"Free",phone:"1-800-799-7233",url:"https://www.thehotline.org",is_crisis:true},
+{id:"211-cincinnati",title:"United Way 211",category:"Local Cincinnati",format:"Hotline",topics:["Basic Needs","Family & Caregiver Support"],blurb:"Free help finding local resources for food, housing, utilities, childcare, transportation, and more. Serves Greater Cincinnati and Northern Kentucky.",cost:"Free",phone:"211",url:"https://www.uwgc.org/211"},
+{id:"smart-recovery",title:"SMART Recovery",category:"Recovery & Support Groups",format:"Website",topics:["Recovery / Substance Use"],blurb:"Free, science-based mutual support meetings for any addictive behavior, in person and online. Independent of Talbert House.",cost:"Free",url:"https://smartrecovery.org"},
+{id:"aa",title:"Alcoholics Anonymous",category:"Recovery & Support Groups",format:"Website",topics:["Recovery / Substance Use"],blurb:"Find A.A. meetings near you or online. Independent of Talbert House.",cost:"Free",url:"https://www.aa.org"},
+{id:"na",title:"Narcotics Anonymous",category:"Recovery & Support Groups",format:"Website",topics:["Recovery / Substance Use"],blurb:"Find N.A. meetings near you or online. Independent of Talbert House.",cost:"Free",url:"https://na.org"},
+{id:"al-anon",title:"Al-Anon Family Groups",category:"Recovery & Support Groups",format:"Website",topics:["Recovery / Substance Use","Family & Caregiver Support"],blurb:"Support groups for family and friends of someone with a drinking problem, in person and online.",cost:"Free",url:"https://al-anon.org"}
 ];
 (function(){
   const listEl=document.getElementById('resource-list'),countEl=document.getElementById('resource-count'),searchEl=document.getElementById('resource-search'),catEl=document.getElementById('resource-category'),topicEl=document.getElementById('resource-topic'),formatEl=document.getElementById('resource-format'),clearBtn=document.getElementById('clear-filters'),chipsEl=document.getElementById('cat-chips');

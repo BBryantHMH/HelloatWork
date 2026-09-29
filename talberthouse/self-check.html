@@ -492,6 +492,8 @@ a:focus-visible, button:focus-visible, textarea:focus-visible, .btn:focus-visibl
       <div class="crisis-line"><span class="k">Text HOME to 741741.</span> <a href="sms:741741&body=HOME">Crisis Text Line</a>, 24/7.</div>
       <!-- PLACEHOLDER: Talbert House crisis line. Set number/text in the config block, or remove this line -->
       <div class="crisis-line" id="talbertCrisisLine" hidden><span class="k" id="talbertCrisisLabel"></span> <a id="talbertCrisisLink" href="#"></a></div>
+      <div class="crisis-line"><span class="k">En espa&ntilde;ol:</span> call 988, then press 2. <span class="k">Deaf or hard of hearing:</span> dial 711, then 988, or use 988 videophone.</div>
+      <div class="crisis-line"><span class="k">Not in crisis but need to talk?</span> <a href="tel:18007209616">Ohio CareLine</a>, 1-800-720-9616, 24/7.</div>
       <div class="crisis-line"><span class="k">Call 911</span> for any immediate emergency.</div>
     </div>
     <p class="crisis-note">This tool is not a crisis service and is not monitored, and finishing it never triggers an alert. Nothing you type is ever stored or linked to you. If you're in danger or thinking about harming yourself, please use one of the options above.</p>
@@ -670,7 +672,7 @@ function renderLanding(){
   var reassureP = '<strong>Your answers stay private.</strong> We never see your name, and nothing you write is ever linked to you. To help improve the program, we do keep a de-identified tally of results (your six area scores and the date), never your name and never anything you type. Like the rest of this site, this page also counts visits without identifying you: how many people start, how many finish, and which button they pick next. Never your answers.';
   app.innerHTML =
   '<section class="screen landing-hero">'+
-    '<p class="eyebrow">A Hello Mental Health resource</p>'+
+    '<p class="eyebrow">Real Support &middot; A Talbert House and Hello Mental Health partnership</p>'+
     '<h1 class="h-hero" data-autofocus>A few minutes to check in with yourself.</h1>'+
     '<p class="lede">This isn\'t a test, and there\'s no score to pass or fail. It\'s a set of questions about how life has been feeling lately: your stress, sleep, mood, habits, relationships, and work.</p>'+
     '<div class="reassure">'+
@@ -682,7 +684,7 @@ function renderLanding(){
       '<li>'+iconCheck()+'Private and de-identified, with no name, no email, no login</li>'+
       '<li>'+iconCheck()+'Free, and it never touches insurance or your employer</li>'+
     '</ul>'+
-    '<p class="muted small">At the end you\'ll get some plain-language reflections, plus information about a 30-minute Mental Health Check-Up with a licensed psychologist. It\'s open to everyone and covered by the Talbert House health plan. If you\'re not on the plan, we can provide a superbill for possible reimbursement.</p>'+
+    '<p class="muted small">At the end you\'ll get some plain-language reflections, plus information about a 30-minute Mental Health Check-Up with a licensed psychologist. It\'s open to all Talbert House staff, and to spouses and dependents 18 and older on the Talbert House health plan, and it\'s covered by the plan. If you\'re not on the plan, we can provide a superbill for possible reimbursement.</p>'+
     '<div class="actions">'+
       '<button type="button" class="btn btn-primary btn-lg btn-full" id="startBtn">Start the check-in '+arrow()+'</button>'+
     '</div>'+
@@ -806,7 +808,7 @@ function renderResults(){
   var domains = computeDomains();
   var html =
   '<section class="screen">'+
-    '<div class="print-head" aria-hidden="true"><span class="ph-brand">Hello Mental Health</span><span class="ph-title">Your Self-Check reflections</span><span class="ph-date">'+esc(prettyDate())+'</span></div>'+
+    '<div class="print-head" aria-hidden="true"><span class="ph-brand">Real Support &middot; A Talbert House and Hello Mental Health partnership</span><span class="ph-title">Your Self-Check reflections</span><span class="ph-date">'+esc(prettyDate())+'</span></div>'+
     '<p class="eyebrow">Your reflections</p>'+
     '<h1 class="h-sec" data-autofocus>Here\'s what your answers gently point to.</h1>'+
     '<p class="lede results-intro">There\'s no score and nothing to pass. These are just plain-language reflections on how a few areas of life have been feeling lately.</p>';
@@ -838,7 +840,7 @@ function renderResults(){
     '<div class="dl-row"><button type="button" class="btn btn-secondary" id="downloadResults">'+pdfIcon()+' Download a copy (PDF)</button></div>'+
     '<div class="invite">'+
       '<h2>What now?</h2>'+
-      '<p>The Mental Health Check-Up is open to everyone. It\'s a confidential 30-minute conversation with a licensed psychologist. It\'s not therapy, and it\'s not a commitment to anything. It\'s a conversation about how you\'re doing, what might help, and what to expect if therapy ever makes sense for you.</p>'+
+      '<p>The Mental Health Check-Up is open to all Talbert House staff, and to spouses and dependents 18 and older on the Talbert House health plan. It\'s a confidential 30-minute conversation with a licensed psychologist. It\'s not therapy, and it\'s not a commitment to anything. It\'s a conversation about how you\'re doing, what might help, and what to expect if therapy ever makes sense for you.</p>'+
       '<p>If you\'re on the Talbert House health plan, the Check-Up is covered. If you\'re not on the plan, there may be a cost, but we\'re happy to provide a superbill you can submit to your own insurance or plan for possible reimbursement.</p>'+
       '<div class="actions">'+
         '<a class="btn btn-primary" href="'+esc(CONFIG.SCHEDULE_URL)+'">Schedule a Mental Health Check-Up '+arrow()+'</a>'+

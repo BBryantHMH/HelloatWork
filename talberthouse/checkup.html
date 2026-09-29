@@ -199,6 +199,7 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
 .cu-final a:not(.btn){color:#FFEDC6}
 .cu-final .btns{display:flex;flex-wrap:wrap;gap:12px}
 .cu-sub{color:var(--slate-700);max-width:62ch;line-height:1.7}
+.skip-link{position:absolute;left:-999px;top:8px;z-index:200;background:#fff;color:#1F2937;padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.2)}.skip-link:focus{left:8px}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
@@ -210,6 +211,7 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <div class="crisis-banner"><strong>IN A CRISIS?</strong> Call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) &middot; Crisis Text Line: text HOME to <a href="sms:741741">741741</a></div>
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
@@ -228,11 +230,11 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
     </div>
   </nav>
 </header>
-<section class="page-head">
+<section class="page-head" id="main-content" tabindex="-1">
   <div class="container">
     <span class="eyebrow">For Talbert House staff</span>
     <h1>Your Mental Health Check&#8209;Up</h1>
-    <p class="lead">You spend your days showing up for other people. This is a little time that&rsquo;s just for you: a private, 30-minute conversation with a licensed psychologist about how you&rsquo;re really doing.</p>
+    <p class="lead">You spend your days showing up for other people. This is a little time that&rsquo;s just for you: a private, 30-minute conversation with a licensed psychologist about how you&rsquo;re really doing. Open to all Talbert House staff, and to spouses and dependents 18 and older on the Talbert House health plan.</p>
     <div class="cu-hero-actions">
       <a class="btn btn-primary" href="https://hellomentalhealth.clientsecure.me">Schedule your Check-Up &rarr;</a>
       <a class="btn btn-ghost-light" href="/talberthouse/self-check">Take the Self-Check first</a>
@@ -245,7 +247,7 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
     <div>
       <span class="eyebrow eyebrow-hmh">What to expect</span>
       <h2 class="mt-0">A check-in, not a commitment.</h2>
-      <p>Think of it as a consultation for the curious. You&rsquo;ll sit down with one of our psychologists and talk about how things have been lately: stress, sleep, mood, work, the weight you might be carrying home. There are no wrong answers, and nothing you need to prepare to say.</p>
+      <p>Think of it as a consultation for the curious. You&rsquo;ll sit down with one of our psychologists and talk about how things have been lately: stress, sleep, mood, work, the weight you might be carrying home. There are no wrong answers, and nothing you need to prepare to say. Check-Ups are provided by Hello Mental Health&rsquo;s licensed psychologists; you can <a href="https://www.hellomentalhealth.com/team" target="_blank" rel="noopener">meet the team here</a>.</p>
       <p>It isn&rsquo;t therapy, and it doesn&rsquo;t sign you up for anything. You&rsquo;ll leave with a clearer picture of how you&rsquo;re doing, a few ideas that might help, and an honest sense of whether more support could be useful down the road.</p>
       <p>You don&rsquo;t need to be struggling to book one, and you don&rsquo;t need to take the <a href="/talberthouse/self-check">Self-Check</a> first, though it can be a nice way to warm up.</p>
     </div>
@@ -253,7 +255,7 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
       <li><span class="ic">&#9201;</span><span><strong>30 minutes</strong> with a licensed psychologist</span></li>
       <li><span class="ic">&#128274;</span><span><strong>Private and confidential</strong>. We never share your records with Talbert House</span></li>
       <li><span class="ic">&#10003;</span><span><strong>Covered at 100%</strong> by the Talbert House health plan</span></li>
-      <li><span class="ic">&#128197;</span><span><strong>Book online</strong>, anytime, in just a few minutes</span></li>
+      <li><span class="ic">&#128197;</span><span><strong>Request online</strong>, anytime, in just a few minutes</span></li>
     </ul>
   </div>
 </section>
@@ -263,8 +265,8 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
     <span class="eyebrow eyebrow-hmh">How it works</span>
     <h2 class="mt-0">Four simple steps.</h2>
     <ol class="cu-steps">
-      <li class="cu-step"><div class="n">1</div><h3>Book your time</h3><p>Choose a day and time that works for you through our <a href="https://hellomentalhealth.clientsecure.me">online scheduler</a>.</p></li>
-      <li class="cu-step key"><div class="n">2</div><h3>Complete your paperwork</h3><p>After you book, we&rsquo;ll email you a few questionnaires and intake documents. Please finish all of them before your appointment.</p><span class="tag">Required</span></li>
+      <li class="cu-step"><div class="n">1</div><h3>Request your appointment</h3><p>Request a day and time that works for you through our <a href="https://hellomentalhealth.clientsecure.me">online scheduler</a>.</p></li>
+      <li class="cu-step key"><div class="n">2</div><h3>Complete your paperwork</h3><p>Once your appointment is confirmed, we&rsquo;ll email you the consent form, questionnaires, and intake documents. Please finish all of them before your appointment. Want to read the consent form first? Just ask.</p><span class="tag">Required</span></li>
       <li class="cu-step"><div class="n">3</div><h3>Meet your psychologist</h3><p>Join your 30-minute Check-Up and simply talk about how you&rsquo;ve been doing.</p></li>
       <li class="cu-step"><div class="n">4</div><h3>Leave with next steps</h3><p>Walk away with a few practical ideas, and options for more support if you&rsquo;d like them.</p></li>
     </ol>
@@ -280,14 +282,24 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
 <section class="section">
   <div class="container">
     <span class="eyebrow eyebrow-hmh">Cost</span>
-    <h2 class="mt-0">Covered for Talbert House staff.</h2>
+    <h2 class="mt-0">Covered by the Talbert House plan.</h2>
     <p class="cu-sub">We want cost to be the last thing on your mind, so here&rsquo;s exactly how it works.</p>
     <div class="cu-cost">
-      <div class="cu-cost-card main"><p class="big">100%</p><h3>Covered by the Talbert House plan</h3><p>If you&rsquo;re on the Talbert House health plan, your Check-Up is covered in full.</p></div>
+      <div class="cu-cost-card main"><p class="big">100%</p><h3>Covered by the Talbert House plan</h3><p>If you&rsquo;re on the Talbert House health plan, as an employee, spouse, or dependent 18 or older, your Check-Up is covered in full.</p></div>
       <div class="cu-cost-card"><p class="big">$150</p><h3>If coverage is denied</h3><p>In the rare case your plan denies coverage for any reason, the fee for the Check-Up is $150. We&rsquo;ll always be upfront with you if that happens.</p></div>
       <div class="cu-cost-card"><p class="big">Superbill</p><h3>If you&rsquo;re paying on your own</h3><p>For self-pay clients, we&rsquo;ll provide a superbill you can submit to your own insurance for possible reimbursement.</p></div>
     </div>
     <p class="cu-sub" style="margin-top:22px">Like any visit billed to insurance, your health plan receives the information it needs to process the claim, such as visit dates and service codes. If you&rsquo;d rather your Check-Up not go through the plan, you can pay the $150 yourself.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <span class="eyebrow eyebrow-hmh">After your Check-Up</span>
+    <h2 class="mt-0">If you want ongoing therapy.</h2>
+    <p class="cu-sub">Some people leave the Check-Up with what they need. Others decide they&rsquo;d like regular support. Either is a good outcome.</p>
+    <p class="cu-sub">Hello Mental Health is the preferred provider for the Talbert House health plan. For anyone 18 or older on the plan, therapy with one of our psychologists has a $15 copay. To get started, you can <a href="https://www.hellomentalhealth.com/talbert-house-contact">self-schedule or send us a note</a>, or call <a href="tel:5137175566">(513) 717-5566</a>.</p>
+    <p class="cu-sub">You&rsquo;re always free to choose another provider. The <a href="/talberthouse/mental-health-care">Mental Health Care</a> page has therapist finders and local options, and your plan can tell you what they&rsquo;ll cost.</p>
   </div>
 </section>
 
@@ -310,7 +322,7 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
   <div class="container">
     <div class="cu-final">
       <h2>Ready when you are.</h2>
-      <p>Book your Check-Up online in a few minutes. Not sure yet? Try the private Self-Check, or reach out with any questions and a real person from our team will get back to you within one business day.</p>
+      <p>Request your Check-Up online in a few minutes. Not sure yet? Try the private Self-Check, or reach out with any questions and a real person from our team will get back to you within one business day.</p>
       <div class="btns">
         <a class="btn btn-primary" href="https://hellomentalhealth.clientsecure.me">Schedule your Check-Up &rarr;</a>
         <a class="btn btn-ghost-light" href="/talberthouse/self-check">Take the Self-Check</a>
@@ -323,13 +335,13 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p>
+        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p><p class="footer-tagline" style="margin-top:2px;opacity:.85">A Talbert House and Hello Mental Health partnership</p>
         <h4>About this library</h4>
         <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health care, Wellness On-Demand tools, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. For general education, not therapy or medical advice. In a crisis, call or text 988.</p>
       </div>
       <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/mental-health-care'>Mental Health Care</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
-      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li><li><a href="tel:988">En espa&ntilde;ol: 988, then press 2</a></li><li><a href="tel:711">Deaf or hard of hearing: 711, then 988</a></li><li><a href="tel:18007209616">Not in crisis but need to talk? Ohio CareLine, 1-800-720-9616</a></li></ul></div>
       <div><h4>Hello Mental Health</h4><ul><li><a href='https://hellomentalhealth.clientsecure.me'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
     </div>
     <div class="footer-credit">

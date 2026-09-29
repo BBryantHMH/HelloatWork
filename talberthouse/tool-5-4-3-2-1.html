@@ -253,6 +253,7 @@ a.tool-card:hover{text-decoration:none}
   .print-foot{font-size:.8rem;color:#555;border-top:1px solid #ccc;padding-top:8px;margin-top:22px}
 }
 .tool-disclaimer{font-size:.88rem;color:var(--slate-700);background:var(--slate-100);border-radius:var(--radius-md);padding:10px 14px;margin-top:18px}
+.skip-link{position:absolute;left:-999px;top:8px;z-index:200;background:#fff;color:#1F2937;padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.2)}.skip-link:focus{left:8px}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
@@ -264,6 +265,7 @@ a.tool-card:hover{text-decoration:none}
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <div class="crisis-banner"><strong>IN A CRISIS?</strong> Call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) &middot; Crisis Text Line: text HOME to <a href="sms:741741">741741</a></div>
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
@@ -282,7 +284,7 @@ a.tool-card:hover{text-decoration:none}
     </div>
   </nav>
 </header>
-<section class="page-head tool-head">
+<section class="page-head tool-head" id="main-content" tabindex="-1">
   <div class="container">
     <a class="back" href="/talberthouse/wellness-on-demand">&larr; All wellness tools</a><br>
     <span class="eyebrow">Workday resets</span>
@@ -292,7 +294,7 @@ a.tool-card:hover{text-decoration:none}
 </section>
 <section class="section" style="padding-top:34px">
   <div class="tool-wrap">
-    <p class="print-only print-head">Real Support &middot; Talbert House Staff Resource Library &middot; Wellness On-Demand</p>
+    <p class="print-only print-head">Real Support &middot; A Talbert House and Hello Mental Health partnership &middot; Wellness On-Demand</p>
     <p class="tool-why">When your mind is racing or you feel pulled into someone else&#x27;s story, naming what&#x27;s around you brings your attention back to the present moment and your own body.</p>
     <div class="tool-widget" id="tool-widget" aria-label="5-4-3-2-1 Grounding guide"><noscript>The step-by-step guide is below.</noscript></div>
     <div class="tool-actions"><button type="button" class="tbtn" id="tool-print">Print or save as PDF</button></div>
@@ -322,13 +324,13 @@ a.tool-card:hover{text-decoration:none}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p>
+        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p><p class="footer-tagline" style="margin-top:2px;opacity:.85">A Talbert House and Hello Mental Health partnership</p>
         <h4>About this library</h4>
         <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health care, Wellness On-Demand tools, and original content from Hello Mental Health.</p>
         <p class="muted" style="color:#98A2AD;margin:0">Internal use only. For general education, not therapy or medical advice. In a crisis, call or text 988.</p>
       </div>
       <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/mental-health-care'>Mental Health Care</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
-      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li><li><a href="tel:988">En espa&ntilde;ol: 988, then press 2</a></li><li><a href="tel:711">Deaf or hard of hearing: 711, then 988</a></li><li><a href="tel:18007209616">Not in crisis but need to talk? Ohio CareLine, 1-800-720-9616</a></li></ul></div>
       <div><h4>Hello Mental Health</h4><ul><li><a href='/talberthouse/checkup'>Schedule a Check-Up</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
     </div>
     <div class="footer-credit">
