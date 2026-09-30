@@ -196,15 +196,15 @@ a.tool-card:hover{text-decoration:none}
   <div class="container">
     <span class="eyebrow">Anytime, anywhere</span>
     <h1>Wellness On-Demand</h1>
-    <p class="lead">Day-to-day tools you can use on your own time: during the workday, between tasks, at the end of a shift, or on a hard day. Plus books and apps worth your time.</p>
+    <p class="lead">Day-to-day tools you can use on your own time: during the workday, between tasks, at the end of a shift, or on a hard day. Plus books, apps, podcasts, and videos worth your time.</p>
   </div>
 </section>
 <section class="section" style="padding-top:36px">
   <div class="container">
-    <div class="callout" style="margin:0 0 30px"><strong>About these resources.</strong><p style="margin:6px 0 0">This library is for general education and wellness. It isn&rsquo;t therapy, medical advice, or a diagnosis, and using it doesn&rsquo;t make you a client of Hello Mental Health. If a practice makes you feel worse, stop and try something else. Books and apps are suggestions from our clinicians; we aren&rsquo;t affiliated with or paid by any of them. Talbert House can&rsquo;t see what you view here. In a crisis, call or text <a href="tel:988">988</a>.</p></div>
+    <div class="callout" style="margin:0 0 30px"><strong>About these resources.</strong><p style="margin:6px 0 0">This library is for general education and wellness. It isn&rsquo;t therapy, medical advice, or a diagnosis, and using it doesn&rsquo;t make you a client of Hello Mental Health. If a practice makes you feel worse, stop and try something else. Books, apps, podcasts, and videos are suggestions from our clinicians; we aren&rsquo;t affiliated with or paid by any of them. Talbert House can&rsquo;t see what you view here. In a crisis, call or text <a href="tel:988">988</a>.</p></div>
     <span class="eyebrow">Browse everything</span>
-    <h2>Micro-practices, books &amp; apps</h2>
-    <p class="lead" style="max-width:60ch;margin-bottom:28px">Quick guided micro-practices for the workday, end of shift, team time, and hard days, plus books and apps. Pick a category or search for what you need.</p>
+    <h2>Micro-practices, books, apps, podcasts &amp; videos</h2>
+    <p class="lead" style="max-width:60ch;margin-bottom:28px">Quick guided micro-practices for the workday, end of shift, team time, and hard days, plus books, apps, podcasts, and videos. Pick a category or search for what you need.</p>
     <div class="search-bar" role="search">
       <div><label for="tool-search">Search by name or keyword</label><input id="tool-search" type="search" placeholder="e.g. breathing, sleep, burnout, meditation" autocomplete="off" /></div>
       <div><label for="tool-category">Category</label><select id="tool-category"></select></div>
@@ -237,7 +237,7 @@ a.tool-card:hover{text-decoration:none}
   </div>
 </footer>
 <script>
-const CATEGORY_OPTIONS=["Micro-practices","Books","Apps"];
+const CATEGORY_OPTIONS=["Micro-practices","Books","Apps","Podcasts & Videos"];
 const FORMAT_OPTIONS=["Exercise","Worksheet","Audio","Video","Reading","Prompt"];
 const DURATION_OPTIONS=["< 2 min","2-5 min","5-15 min","15-30 min","30+ min"];
 const TOOLS=[
@@ -276,10 +276,16 @@ const TOOLS=[
   {id:"trauma-stewardship",title:"Trauma Stewardship",category:"Books",format:"Book",author:"Laura van Dernoot Lipsky with Connie Burk",url:"https://bookshop.org/search?keywords=Trauma+Stewardship+Laura+van+Dernoot+Lipsky",blurb:"Written for people whose work keeps them close to other people’s suffering. It helps you notice the toll that work can take and find ways to keep doing it sustainably."},
   {id:"the-body-keeps-the-score",title:"The Body Keeps the Score",category:"Books",format:"Book",author:"Bessel van der Kolk, MD",url:"https://bookshop.org/search?keywords=The+Body+Keeps+the+Score+Bessel+van+der+Kolk",blurb:"Psychiatrist Bessel van der Kolk explores how trauma affects the body as well as the mind, and describes body-based approaches to healing."},
   {id:"maybe-you-should-talk-to-someone",title:"Maybe You Should Talk to Someone",category:"Books",format:"Book",author:"Lori Gottlieb",url:"https://bookshop.org/search?keywords=Maybe+You+Should+Talk+to+Someone+Lori+Gottlieb",blurb:"A therapist’s funny, warm memoir about her own time in therapy, and a look at what therapy is really like from both chairs."},
+  {id:"when-an-adult-you-love-has-adhd",title:"When an Adult You Love Has ADHD",category:"Books",format:"Book",author:"Russell A. Barkley, PhD",url:"https://bookshop.org/search?keywords=When+an+Adult+You+Love+Has+ADHD+Barkley",blurb:"Written for parents, partners, and siblings of adults with ADHD: what it is, how it affects relationships, and how to support someone without wearing yourself out. Part of the American Psychological Association’s LifeTools series."},
+  {id:"driven-to-distraction",title:"Driven to Distraction (Revised)",category:"Books",format:"Book",author:"Edward M. Hallowell, MD, and John J. Ratey, MD",url:"https://bookshop.org/search?keywords=Driven+to+Distraction+Hallowell+Ratey",blurb:"A classic, readable guide to recognizing ADHD in children and adults, with practical ideas for managing it day to day."},
   {id:"headspace",title:"Headspace",category:"Apps",format:"App",author:"",url:"https://www.headspace.com",blurb:"Beginner-friendly guided meditations for stress, sleep, and focus. A low-pressure way to start a daily practice."},
   {id:"finch",title:"Finch",category:"Apps",format:"App",author:"",url:"https://finchcare.com",blurb:"A self-care app where you look after a small virtual pet by completing little daily goals, like drinking water or stepping outside. Good if habit tracking works better for you than journaling."},
   {id:"calm",title:"Calm",category:"Apps",format:"App",author:"",url:"https://www.calm.com",blurb:"Meditation, breathing exercises, and bedtime stories, with an especially strong focus on sleep."},
   {id:"insight-timer",title:"Insight Timer",category:"Apps",format:"App",author:"",url:"https://insighttimer.com",blurb:"A free meditation app with a very large library of guided sessions from many different teachers, plus live sessions and optional paid courses."},
+  {id:"navigating-narcissism",title:"Navigating Narcissism",category:"Podcasts & Videos",format:"Podcast",author:"Ramani Durvasula, PhD",url:"https://www.iheart.com/podcast/1119-navigating-narcissism-wit-98632373",blurb:"Clinical psychologist Dr. Ramani Durvasula talks with experts and survivors about recognizing manipulation and gaslighting, and healing after difficult relationships."},
+  {id:"surviving-narcissism",title:"Surviving Narcissism",category:"Podcasts & Videos",format:"YouTube and podcast",author:"Dr. Les Carter",url:"https://www.youtube.com/@SurvivingNarcissism",blurb:"Psychotherapist Dr. Les Carter offers short, practical episodes on spotting narcissistic patterns and setting boundaries with difficult people. Also available on podcast apps."},
+  {id:"russell-barkley-adhd",title:"Dr. Russell Barkley on ADHD",category:"Podcasts & Videos",format:"YouTube",author:"Russell A. Barkley, PhD",url:"https://www.youtube.com/@russellbarkleyphd2023",blurb:"Free lectures from one of the leading researchers on ADHD, explaining what ADHD is and what actually helps, for both general and professional audiences."},
+  {id:"nothing-much-happens",title:"Nothing Much Happens",category:"Podcasts & Videos",format:"Podcast",author:"Kathryn Nicolai",url:"https://www.nothingmuchhappens.com/stories",blurb:"Calm bedtime stories where, true to the name, nothing much happens. Each story is read twice, the second time more slowly, to help you drift off to sleep. Free, with an optional paid subscription."},
 ];
 (function(){
   const listEl=document.getElementById('tool-list'),countEl=document.getElementById('tool-count'),searchEl=document.getElementById('tool-search'),catEl=document.getElementById('tool-category'),fmtEl=document.getElementById('tool-format'),durEl=document.getElementById('tool-duration'),clearBtn=document.getElementById('clear-filters'),chipsEl=document.getElementById('cat-chips');
@@ -289,7 +295,7 @@ const TOOLS=[
   buildChips();
   function syncChips(){const v=catEl.value;[...chipsEl.querySelectorAll('.cat-chip')].forEach(x=>x.classList.toggle('active',x.dataset.cat===v));}
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
-  function card(t){if(t.category!=="Micro-practices"){var cta={"Books":"Find the book","Apps":"Get the app"}[t.category]||"Learn more";return `<a class="tool-card res-card" href="${esc(t.url)}" target="_blank" rel="noopener" style="color:inherit;display:block"><div class="cat-line">${esc(t.format)}</div><h3>${esc(t.title)}</h3>${t.author?`<p class="res-author">by ${esc(t.author)}</p>`:''}<p>${esc(t.blurb)}</p><div class="tool-tags"><span class="tag open">${cta} &nearr;</span></div></a>`;}
+  function card(t){if(t.category!=="Micro-practices"){var cta={"Books":"Find the book","Apps":"Get the app","Podcasts & Videos":"Listen or watch"}[t.category]||"Learn more";return `<a class="tool-card res-card" href="${esc(t.url)}" target="_blank" rel="noopener" style="color:inherit;display:block"><div class="cat-line">${esc(t.format)}</div><h3>${esc(t.title)}</h3>${t.author?`<p class="res-author">by ${esc(t.author)}</p>`:''}<p>${esc(t.blurb)}</p><div class="tool-tags"><span class="tag open">${cta} &nearr;</span></div></a>`;}
     return `<a class="tool-card" href="/talberthouse/tool-${t.id}" style="color:inherit;display:block"><div class="cat-line">Micro-practice &middot; ${esc(t.when)}</div><h3>${esc(t.title)}</h3><p>${esc(t.blurb)}</p><div class="tool-tags"><span class="tag format">${esc(t.format)}</span><span class="tag duration">${esc(t.duration)}</span><span class="tag open">Open tool &rarr;</span></div></a>`;}
   function match(t,term,cat,fmt,dur){if(term&&![t.title,t.blurb,t.category,t.format,t.when||'',t.author||''].join(' ').toLowerCase().includes(term.toLowerCase()))return false;if(cat&&t.category!==cat)return false;if(fmt&&t.format!==fmt)return false;if(dur&&t.duration!==dur)return false;return true;}
   function render(){syncChips();var mp=!catEl.value||catEl.value==="Micro-practices";[fmtEl,durEl].forEach(function(el){el.parentNode.style.display=mp?"":"none";if(!mp)el.value="";});const term=searchEl.value.trim(),cat=catEl.value,fmt=fmtEl.value,dur=durEl.value;const filtered=TOOLS.filter(t=>match(t,term,cat,fmt,dur));listEl.innerHTML=filtered.length?filtered.map(card).join(''):`<div class="no-results" style="grid-column:1/-1"><strong>Nothing matches.</strong> Try clearing a filter.</div>`;countEl.textContent=filtered.length+(filtered.length===1?' resource':' resources')+' shown';}
