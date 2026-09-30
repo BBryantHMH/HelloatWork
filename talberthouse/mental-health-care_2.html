@@ -62,6 +62,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
 .resource-icon.cat-finder{background:var(--th-teal-light);color:var(--th-teal-dark)}
 .resource-icon.cat-app{background:#E8F1ED;color:var(--hmh-forest)}
 .resource-icon.cat-reading{background:var(--hmh-cream);color:var(--hmh-coral)}
+.resource-icon.cat-hmh{background:#E6EFEA;color:#2E5D4A}
 .resource-icon.cat-local{background:#FBF1DC;color:#8E6A1A}
 .resource-icon.cat-workbook{background:var(--slate-100);color:var(--slate-700)}
 .resource-body{min-width:0}
@@ -179,7 +180,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
   <div class="container">
     <span class="eyebrow">Curated mental health care</span>
     <h1>Mental Health Care</h1>
-    <p class="lead">Crisis lines, therapy finders, and local support, curated by the Hello Mental Health team. For yourself, a colleague, or someone you love. Looking for books, apps, podcasts, or wellness tools? Visit <a href="/talberthouse/wellness-on-demand">Wellness On-Demand</a>.</p>
+    <p class="lead">Crisis lines, therapy finders, and local support, curated by the Hello Mental Health team. For yourself, a colleague, or someone you love. Looking for books, apps, or wellness tools? Visit <a href="/talberthouse/wellness-on-demand">Wellness On-Demand</a>.</p>
   </div>
 </section>
 <section class="section" style="padding-top:0">
@@ -219,11 +220,11 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}.muted{color:var
   </div>
 </footer>
 <script>
-const CATEGORY_OPTIONS=["Crisis & Hotlines","Therapy Finders","Local Cincinnati","Recovery & Support Groups"];
+const CATEGORY_OPTIONS=["Crisis & Hotlines","Hello Mental Health","Therapy Finders","Local Cincinnati","Recovery & Support Groups"];
 const TOPIC_OPTIONS=["Anxiety","Basic Needs","Boundaries & Self-Care","Burnout & Compassion Fatigue","Depression","Domestic Violence","Family & Caregiver Support","Grief & Loss","LGBTQ+ Affirming","Mindfulness","Parenting & Perinatal","Recovery / Substance Use","Sleep","Suicide Prevention","Trauma / PTSD","Veterans & First Responders"];
-const FORMAT_OPTIONS=["Hotline","Website"];
-const CAT_CLASS={"Crisis & Hotlines":"cat-crisis","Therapy Finders":"cat-finder","Self-Help Apps":"cat-app","Books & Reading":"cat-reading","Workbooks & Tools":"cat-workbook","Local Cincinnati":"cat-local"};
-const CAT_ICONS={"Crisis & Hotlines":"\u260E","Therapy Finders":"\uD83D\uDD0D","Self-Help Apps":"\uD83D\uDCF1","Books & Reading":"\uD83D\uDCDA","Workbooks & Tools":"\u270F","Local Cincinnati":"\uD83D\uDCCD"};
+const FORMAT_OPTIONS=["Hotline","Appointment","Website"];
+const CAT_CLASS={"Crisis & Hotlines":"cat-crisis","Hello Mental Health":"cat-hmh","Therapy Finders":"cat-finder","Self-Help Apps":"cat-app","Books & Reading":"cat-reading","Workbooks & Tools":"cat-workbook","Local Cincinnati":"cat-local"};
+const CAT_ICONS={"Crisis & Hotlines":"\u260E","Hello Mental Health":"\uD83D\uDCAC","Therapy Finders":"\uD83D\uDD0D","Self-Help Apps":"\uD83D\uDCF1","Books & Reading":"\uD83D\uDCDA","Workbooks & Tools":"\u270F","Local Cincinnati":"\uD83D\uDCCD"};
 const RESOURCES=[
   {id:"988-lifeline",title:"988 Suicide & Crisis Lifeline",category:"Crisis & Hotlines",format:"Hotline",topics:["Suicide Prevention"],blurb:"Free, confidential 24/7 support by call, text, or chat. En espa\u00f1ol: call 988 and press 2. Deaf or hard of hearing: 988 videophone, or dial 711 then 988.",cost:"Free",phone:"988",url:"https://988lifeline.org",is_crisis:true},
   {id:"crisis-text-line",title:"Crisis Text Line",category:"Crisis & Hotlines",format:"Hotline",topics:["Suicide Prevention"],blurb:"Text HOME to 741741, 24/7 text-based crisis support when a phone call isn't safe.",cost:"Free",phone:"Text HOME to 741741",url:"https://www.crisistextline.org",is_crisis:true},
@@ -231,6 +232,8 @@ const RESOURCES=[
   {id:"veterans-crisis-line",title:"Veterans Crisis Line",category:"Crisis & Hotlines",format:"Hotline",topics:["Veterans & First Responders","Suicide Prevention","Trauma / PTSD"],blurb:"24/7 support for veterans and families. Dial 988 then press 1, or text 838255.",cost:"Free",phone:"988 then 1",url:"https://www.veteranscrisisline.net",is_crisis:true},
   {id:"samhsa-helpline",title:"SAMHSA National Helpline",category:"Crisis & Hotlines",format:"Hotline",topics:["Recovery / Substance Use"],blurb:"Free, confidential 24/7 referral service for mental health and substance use disorders.",cost:"Free",phone:"1-800-662-4357",url:"https://www.samhsa.gov/find-help/national-helpline",is_crisis:true},
   {id:"postpartum-support",title:"Postpartum Support International Helpline",category:"Crisis & Hotlines",format:"Hotline",topics:["Parenting & Perinatal","Depression","Anxiety"],blurb:"Support and referrals for perinatal mood and anxiety disorders.",cost:"Free",phone:"1-800-944-4773",url:"https://www.postpartum.net",is_crisis:true},
+  {id:"hmh-checkup",title:"Mental Health Check-Up",category:"Hello Mental Health",format:"Appointment",topics:["Anxiety","Depression","Burnout & Compassion Fatigue"],blurb:"A private 30-minute visit with a licensed psychologist from Hello Mental Health, covered by the Talbert House health plan.",cost:"Covered by the Talbert House plan",url:"/talberthouse/checkup",cta:"Learn more & schedule",internal:true},
+  {id:"hmh-site",title:"Hello Mental Health",category:"Hello Mental Health",format:"Website",topics:["Anxiety","Depression","Trauma / PTSD"],blurb:"The Cincinnati psychologists behind Real Support. Learn more about the team and their therapy services.",url:"https://www.hellomentalhealth.com",cta:"Visit"},
   {id:"psychology-today",title:"Psychology Today Therapist Finder",category:"Therapy Finders",format:"Website",topics:["Anxiety","Depression","Trauma / PTSD"],blurb:"A large national therapist directory. Filter by insurance, specialty, and location.",cost:"Free to search",url:"https://www.psychologytoday.com/us/therapists"},
   {id:"open-path",title:"Open Path Collective",category:"Therapy Finders",format:"Website",topics:["Anxiety","Depression"],blurb:"Therapists offering reduced-fee sessions ($40-$70 individual, $40-$80 couples and family). One-time $65 membership.",cost:"Sliding scale",url:"https://openpathcollective.org"},
   {id:"inclusive-therapists",title:"Inclusive Therapists",category:"Therapy Finders",format:"Website",topics:["LGBTQ+ Affirming","Trauma / PTSD","Anxiety"],blurb:"Directory centering BIPOC, LGBTQIA2S+, neurodivergent, and disabled communities.",cost:"Free to search",url:"https://www.inclusivetherapists.com"},
@@ -262,7 +265,7 @@ const RESOURCES=[
     const cost=r.cost?`<span class="tag">${esc(r.cost)}</span>`:'';
     const acts=[];
     if(r.phone){const cleaned=r.phone.replace(/[^0-9]/g,'');const isText=/text/i.test(r.phone);acts.push(`<a class="btn-link crisis-link" href="${isText?'sms:741741':'tel:'+cleaned}">${esc(r.phone)}</a>`);}
-    if(r.url)acts.push(`<a class="btn-link" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.cta||'Visit')}</a>`);
+    if(r.url)acts.push(`<a class="btn-link" href="${esc(r.url)}"${r.internal?'':' target="_blank" rel="noopener"'}>${esc(r.cta||'Visit')}</a>`);
     return `<article class="resource-card"><div class="resource-icon ${ic}" aria-hidden="true">${icon}</div><div class="resource-body"><div class="cat-line"><span>${esc(r.category)}</span><span class="dot"></span><span>${esc(r.format||'')}</span></div><h3>${esc(r.title)}</h3><p class="desc">${esc(r.blurb||'')}</p><div class="resource-tags">${fmt}${cost}${topics}</div><div class="resource-actions">${acts.join('')}</div></div></article>`;
   }
   function match(r,term,cat,topic,fmt){
@@ -277,75 +280,25 @@ const RESOURCES=[
 </script>
 <script>
 /* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
-   take_action            - EVERY click that leads to an action (one event, so "how many people took action" is one number).
-                            Params: action_type (what kind of action), link_text (button/link wording),
-                            link_domain (where it goes), link_location ("<page>_<spot>").
-     action_type values:
-       schedule_checkup      Check-Up booking site          view_checkup_info   Check-Up page
-       contact_form          Talbert House contact form     call_hello_mental_health  (513) 717-5566
-       call_crisis_line      988 / crisis phone numbers     text_crisis_line    Crisis Text Line
-       call_phone            any other phone number         email               any email link
-       start_self_check      link to the Self-Check         open_tool           a Wellness On-Demand micro-practice
-       open_book / open_app / open_podcast / watch_video   Wellness On-Demand books, apps, podcasts, videos
-       visit_resource        outside resource (Mental Health Care listings, blog sources)
-       visit_hello_mental_health  hellomentalhealth.com     read_blog_post      a blog post
-       print_or_download     print / PDF buttons            quick_exit          the Quick exit button
-   Older events kept so existing reports keep working:
-   checkup_schedule_click, checkup_page_click, resources_click, contact_form_click (all with link_location). */
+   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me); these now live on the Check-Up page
+   checkup_page_click     - any link to the Mental Health Check-Up page (/talberthouse/checkup)
+   resources_click        - any link to the Mental Health Care page
+   contact_form_click     - any link to the Hello Mental Health Talbert House contact form
+   All carry link_location = "<page>_<spot>", e.g. home_page, blog_menu, about_the_program_footer,
+   self_check_results, so you can see which link people use. */
 (function(){
   var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'').replace(/-/g,'_');
   if(page==='talberthouse'||page==='index') page='home';
-  var CRISIS=/^(?:988|1?8002738255|1?8006624357|1?8009444773|1?8664887386|1?8007997233|1?8882364848)$/;
-  function send(ev,p){ try{ p.transport_type='beacon'; gtag('event',ev,p); }catch(err){} }
-  function spotOf(el){ return el.closest('.nav-links, nav')?'menu':el.closest('footer')?'footer':el.closest('.crisis-banner')?'crisis_banner':(page==='self_check'?'results':'page'); }
-  function textOf(el){ var hd=el.querySelector&&el.querySelector('h3,h4'); if(!hd){ var card=el.closest('.resource-card,.tool-card,.card,.post'); hd=card&&card.querySelector('h3,h4'); } var t=hd?hd.textContent:(el.getAttribute('aria-label')||el.textContent||''); return t.replace(/\s+/g,' ').trim().slice(0,100); }
-  function actionFor(a,h){
-    var hl=h.toLowerCase(), digits=h.replace(/[^0-9]/g,'');
-    if(hl.indexOf('tel:')===0){ if(digits==='5137175566') return 'call_hello_mental_health'; return CRISIS.test(digits)?'call_crisis_line':'call_phone'; }
-    if(hl.indexOf('sms:')===0) return 'text_crisis_line';
-    if(hl.indexOf('mailto:')===0) return 'email';
-    if(hl.indexOf('hellomentalhealth.clientsecure.me')>-1) return 'schedule_checkup';
-    if(hl.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) return 'contact_form';
-    if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) return 'view_checkup_info';
-    if(/^\/talberthouse\/self-check\/?(?:[?#].*)?$/.test(h)) return 'start_self_check';
-    if(/^\/talberthouse\/tool-[a-z0-9-]+/.test(h)) return 'open_tool';
-    if(/^\/talberthouse\/post-[a-z0-9-]+/.test(h)) return 'read_blog_post';
-    if(/^https?:\/\//i.test(h)){
-      var host=''; try{ host=new URL(h).hostname.replace(/^www\./,''); }catch(e){}
-      if(host==='work.hellomentalhealth.com'||host===location.hostname) return '';
-      if(host==='hellomentalhealth.com') return 'visit_hello_mental_health';
-      if(host==='bookshop.org') return 'open_book';
-      var rc=a.closest('.res-card'), kind=rc&&rc.querySelector('.cat-line')?rc.querySelector('.cat-line').textContent.trim().toLowerCase():'';
-      if(kind.indexOf('podcast')===0||host.indexOf('podcasts.apple.com')>-1||host.indexOf('spotify.com')>-1) return 'open_podcast';
-      if(kind.indexOf('book')===0) return 'open_book';
-      if(kind.indexOf('youtube')===0||kind.indexOf('video')===0||host.indexOf('youtube.com')>-1||host==='youtu.be') return 'watch_video';
-      if(rc) return 'open_app';
-      return 'visit_resource';
-    }
-    return '';
-  }
   document.addEventListener('click',function(e){
-    if(typeof gtag!=='function'||!e.target||!e.target.closest) return;
-    var a=e.target.closest('a[href]');
-    if(a){
-      var h=a.getAttribute('href')||'', ev='', spot=spotOf(a), loc=page+'_'+spot;
-      if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
-      else if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) ev='checkup_page_click';
-      else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
-      else if(/^\/talberthouse\/(?:mental-health-care|resources)\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
-      if(ev) send(ev,{link_location:loc});
-      var act=actionFor(a,h);
-      if(act){ var dom=''; try{ dom=/^https?:/i.test(h)?new URL(h).hostname.replace(/^www\./,''):h.split(':')[0]; }catch(x){}
-        send('take_action',{action_type:act,link_text:textOf(a),link_domain:dom,link_location:loc}); }
-      return;
-    }
-    var b=e.target.closest('button, [role=button]');
-    if(b){
-      var t=textOf(b), act2='';
-      if(b.id==='quickExit'||/quick exit/i.test(t)) act2='quick_exit';
-      else if(/print|download|pdf/i.test(t)) act2='print_or_download';
-      if(act2) send('take_action',{action_type:act2,link_text:t,link_domain:'',link_location:page+'_'+spotOf(b)});
-    }
+    var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
+    var h=a.getAttribute('href')||'', ev='';
+    if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
+    else if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) ev='checkup_page_click';
+    else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
+    else if(/^\/talberthouse\/(?:mental-health-care|resources)\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
+    if(!ev) return;
+    var spot=a.closest('.nav-links, nav')?'menu':a.closest('footer')?'footer':(page==='self_check'?'results':'page');
+    try{ gtag('event',ev,{link_location:page+'_'+spot,transport_type:'beacon'}); }catch(err){}
   },true);
 })();
 </script>
