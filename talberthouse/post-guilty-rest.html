@@ -174,6 +174,65 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
   gtag('js', new Date());
   gtag('config', 'G-CH826VSFK3');
 </script>
+<style>
+/* Resource feedback (thumbs up / down) */
+.fb{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--slate-100,#F3F4F6);font-size:.88rem;color:var(--slate-500,#6B7280)}
+.fb-btn{font:inherit;font-size:1.05rem;line-height:1;padding:6px 12px;border-radius:999px;border:1.5px solid var(--slate-300,#D1D5DB);background:#fff;cursor:pointer}
+.fb-btn:hover:not(:disabled){border-color:var(--th-teal,#2060A0)}
+.fb-btn:focus-visible{outline:3px solid var(--th-orange,#F2B01E);outline-offset:2px}
+.fb-btn[aria-pressed="true"]{background:var(--th-teal-light,#E8F0F8);border-color:var(--th-teal,#2060A0);border-width:2px;opacity:1;color:inherit}
+.fb-btn:disabled:not([aria-pressed="true"]){opacity:.4;cursor:default}
+.fb-msg{color:var(--hmh-forest,#2E5D4A);font-weight:600}
+.fb-large{border:0;background:var(--th-teal-light,#E8F0F8);border-radius:var(--radius-md,12px);padding:16px 20px;margin:30px 0 0;font-size:1rem;color:var(--slate-900,#1F2937)}
+.fb-large .fb-q{font-weight:600;margin-right:4px}
+.fb-mini{position:absolute;top:10px;right:10px;margin:0;padding:0;border:0;gap:4px;z-index:2}
+.fb-mini .fb-q{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fb-mini .fb-btn{font-size:.85rem;padding:4px 7px;background:rgba(255,255,255,.92)}
+.fb-mini .fb-msg{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fb-mini .fb-btn:disabled:not([aria-pressed="true"]){display:none}
+.has-fb-mini{position:relative}.has-fb-mini .cat-line{padding-right:84px}
+@media print{.fb{display:none !important}}
+</style>
+<script>
+/* RESOURCE FEEDBACK (thumbs up / down on Wellness On-Demand resources).
+   Anonymous: sends only which resource, the vote, which page, and the date. No names, no answers, nothing typed.
+   Each vote goes to Google Analytics (event: resource_feedback) and to the "Wellness On-Demand Feedback"
+   Google Sheet through its Apps Script web app. One vote per resource per browser. */
+window.RS_FEEDBACK=(function(){
+  var ENDPOINT="https://script.google.com/macros/s/AKfycbyBHuHCKjW05Sb4Wl8lT8Wznhwy0YfCOnJiEQnZUkxxWqc3xb5EHe7DrEFxHIdtoEGIIg/exec"; /* Google Apps Script web app URL for the feedback Sheet (ends in /exec) */
+  function k(id){ return 'rs-fb-'+id; }
+  function get(id){ try{ return localStorage.getItem(k(id)); }catch(e){ return null; } }
+  function put(id,v){ try{ localStorage.setItem(k(id),v); }catch(e){} }
+  var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'');
+  function paint(box){
+    var v=get(box.getAttribute('data-fb-id'));
+    box.querySelectorAll('.fb-btn').forEach(function(b){ var on=b.getAttribute('data-vote')===v; b.setAttribute('aria-pressed',on?'true':'false'); b.disabled=!!v; });
+    var m=box.querySelector('.fb-msg'); if(m) m.textContent=v?'Thanks for the feedback!':'';
+  }
+  function vote(box,v){
+    var id=box.getAttribute('data-fb-id'); if(!id||get(id)) return;
+    put(id,v); paint(box);
+    var d={kind:'resource_feedback',resource_id:id,resource_title:box.getAttribute('data-fb-title')||'',resource_type:box.getAttribute('data-fb-type')||'',vote:v,page:page};
+    try{ if(typeof gtag==='function') gtag('event','resource_feedback',{resource_id:d.resource_id,resource_title:d.resource_title,resource_type:d.resource_type,vote:v,transport_type:'beacon'}); }catch(e){}
+    try{ if(ENDPOINT) fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d),keepalive:true}); }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target&&e.target.closest?e.target.closest('.fb-btn'):null; if(!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var box=b.closest('.fb'); if(box&&!b.disabled) vote(box,b.getAttribute('data-vote'));
+  },true);
+  function scan(root){ (root||document).querySelectorAll('.fb').forEach(paint); }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function html(id,title,type,question,mini){
+    return '<div class="fb'+(mini?' fb-mini':'')+'" data-fb-id="'+esc(id)+'" data-fb-title="'+esc(title)+'" data-fb-type="'+esc(type)+'"><span class="fb-q">'+esc(question||'Helpful?')+'</span>'+
+      '<button type="button" class="fb-btn" data-vote="up" aria-pressed="false" title="Helpful" aria-label="Helpful: '+esc(title)+'">&#128077;</button>'+
+      '<button type="button" class="fb-btn" data-vote="down" aria-pressed="false" title="Not helpful" aria-label="Not helpful: '+esc(title)+'">&#128078;</button>'+
+      '<span class="fb-msg" aria-live="polite"></span></div>';
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ scan(); }); else scan();
+  return {scan:scan,html:html};
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -224,6 +283,7 @@ p{margin:0 0 1em}.lead{font-size:1.12rem;color:var(--slate-700)}
 <p>Instead of all-or-nothing solutions, I want you to think about <strong>micro-rests</strong>.</p><p>Rest doesn’t have to be big. It doesn’t have to be perfect. It doesn’t have to be done well.</p><p>Rest can be:</p><ul><li><p>A cup of tea, sitting down, doing nothing else</p></li><li><p>A five-minute walk</p></li><li><p>Listening to one song without multitasking</p></li><li><p>Sitting in your car for five minutes before going inside</p></li><li><p>Lying on the floor and staring at the ceiling</p></li></ul><p><strong>Think of it as the minimum effective dose:</strong> the smallest amount of rest that makes you feel even slightly different.</p><p>Some days, that’s an hour. Some days, it’s five minutes. Some days, you don’t have even that, and that’s okay too.</p><p>What matters most is the interruption. Stop. Breathe. Pause. Downshift, even briefly. (If you want a place to start, try the <a href="/talberthouse/tool-micro-break">Micro-Break Practice</a>.)</p><h2><strong>Rest Comes in More Than One Form</strong></h2><p>I also want to widen your definition of rest. Besides physical rest, there’s:</p><ul><li><p><strong>Emotional rest:</strong> not having to manage other people’s feelings</p></li><li><p><strong>Mental rest:</strong> not having to make decisions or solve problems</p></li><li><p><strong>Social rest:</strong> not having to be “on” or perform</p></li><li><p><strong>Sensory rest:</strong> quiet, dim lighting, less stimulation</p></li></ul><p>Sometimes what you need most is permission to not be needed for ten minutes.</p><p><strong>And rest should not become another performance metric.</strong> You don’t have to optimize it, track it, or make sure it’s “good enough.” Rest is not another thing to fail at.</p><h2><strong>A Final Thought</strong></h2><p>Rest guilt runs deep. It’s built into our culture, our families, and our nervous systems.</p><p>But it doesn’t have to be in charge.</p><p>You can start small. You can experiment. You can notice when the guilt comes up and gently question it.</p><p>You can rest, imperfectly, briefly, without permission, and still be worthy.</p><p>Because you already are.</p><h2><strong>Questions You Might Have</strong></h2><p><strong>Is it really okay to rest when I have so much to do?<br></strong>Yes. Rest isn’t something you earn by finishing your to-do list. Your body and mind need it to keep going, and without it, everything gets harder.</p><p><strong>What if I literally don’t have time to rest?<br></strong>Micro-rests count. Five minutes. One minute. Thirty seconds. The interruption matters, even if it’s brief.</p><p><strong>What if resting makes me more anxious?<br></strong>That’s common when your body isn’t used to slowing down. Start small and build gradually. If the anxiety is intense or keeps getting in the way, that’s a good reason to talk with a provider.</p><p><strong>How do I know if I’m resting enough?<br></strong>Instead of aiming for “enough,” aim for a little more than yesterday. If you feel exhausted most days no matter what you do, that’s worth bringing to your doctor or a mental health provider. You can <a href="/talberthouse/mental-health-care">find a provider</a> through the library.</p>
 <p><em>Bailey C. Bryant, Psy.D. is the Founder and Steward of Hello Mental Health, a group therapy practice in Cincinnati, Ohio.</em></p>
 <p><em>This post is for general education only. It isn’t therapy, medical advice, or a diagnosis. For care that fits your situation, talk with a licensed provider. If you’re in crisis, call or text 988.</em></p>
+    <div class="fb fb-large" data-fb-id="guilty-rest" data-fb-title="Why You Feel Guilty When You Rest (And What to Do About It)" data-fb-type="Blog post"><span class="fb-q">Was this post helpful?</span><button type="button" class="fb-btn" data-vote="up" aria-pressed="false" title="Helpful" aria-label="Helpful: Why You Feel Guilty When You Rest (And What to Do About It)">&#128077;</button><button type="button" class="fb-btn" data-vote="down" aria-pressed="false" title="Not helpful" aria-label="Not helpful: Why You Feel Guilty When You Rest (And What to Do About It)">&#128078;</button><span class="fb-msg" aria-live="polite"></span></div>
     <aside class="post-cta">
       <h2>Ready to talk to someone?</h2>
       <p>Talbert House staff can book a private Mental Health Check-Up with a Hello Mental Health psychologist, or browse other options for care on the Mental Health Care page.</p>
