@@ -263,6 +263,66 @@ a.tool-card:hover{text-decoration:none}
   gtag('js', new Date());
   gtag('config', 'G-CH826VSFK3');
 </script>
+<style>
+/* Resource feedback (thumbs up / down) */
+.fb{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--slate-100,#F3F4F6);font-size:.88rem;color:var(--slate-500,#6B7280)}
+.fb-btn{font:inherit;font-size:1.05rem;line-height:1;padding:6px 12px;border-radius:999px;border:1.5px solid var(--slate-300,#D1D5DB);background:#fff;cursor:pointer}
+.fb-btn:hover:not(:disabled){border-color:var(--th-teal,#2060A0)}
+.fb-btn:focus-visible{outline:3px solid var(--th-orange,#F2B01E);outline-offset:2px}
+.fb-btn[aria-pressed="true"]{background:var(--th-teal-light,#E8F0F8);border-color:var(--th-teal,#2060A0);border-width:2px;opacity:1;color:inherit}
+.fb-btn:disabled:not([aria-pressed="true"]){opacity:.4;cursor:default}
+.fb-msg{color:var(--hmh-forest,#2E5D4A);font-weight:600}
+.tool-widget + .fb-large{margin:14px 0 18px}
+.fb-large{border:0;background:var(--th-teal-light,#E8F0F8);border-radius:var(--radius-md,12px);padding:16px 20px;margin:30px 0 0;font-size:1rem;color:var(--slate-900,#1F2937)}
+.fb-large .fb-q{font-weight:600;margin-right:4px}
+.fb-mini{position:absolute;top:10px;right:10px;margin:0;padding:0;border:0;gap:4px;z-index:2}
+.fb-mini .fb-q{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fb-mini .fb-btn{font-size:.85rem;padding:4px 7px;background:rgba(255,255,255,.92)}
+.fb-mini .fb-msg{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fb-mini .fb-btn:disabled:not([aria-pressed="true"]){display:none}
+.has-fb-mini{position:relative}.has-fb-mini .cat-line{padding-right:84px}
+@media print{.fb{display:none !important}}
+</style>
+<script>
+/* RESOURCE FEEDBACK (thumbs up / down on Wellness On-Demand resources).
+   Anonymous: sends only which resource, the vote, which page, and the date. No names, no answers, nothing typed.
+   Each vote goes to Google Analytics (event: resource_feedback) and to the "Wellness On-Demand Feedback"
+   Google Sheet through its Apps Script web app. One vote per resource per browser. */
+window.RS_FEEDBACK=(function(){
+  var ENDPOINT="https://script.google.com/macros/s/AKfycbyBHuHCKjW05Sb4Wl8lT8Wznhwy0YfCOnJiEQnZUkxxWqc3xb5EHe7DrEFxHIdtoEGIIg/exec"; /* Google Apps Script web app URL for the feedback Sheet (ends in /exec) */
+  function k(id){ return 'rs-fb-'+id; }
+  function get(id){ try{ return localStorage.getItem(k(id)); }catch(e){ return null; } }
+  function put(id,v){ try{ localStorage.setItem(k(id),v); }catch(e){} }
+  var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'');
+  function paint(box){
+    var v=get(box.getAttribute('data-fb-id'));
+    box.querySelectorAll('.fb-btn').forEach(function(b){ var on=b.getAttribute('data-vote')===v; b.setAttribute('aria-pressed',on?'true':'false'); b.disabled=!!v; });
+    var m=box.querySelector('.fb-msg'); if(m) m.textContent=v?'Thanks for the feedback!':'';
+  }
+  function vote(box,v){
+    var id=box.getAttribute('data-fb-id'); if(!id||get(id)) return;
+    put(id,v); paint(box);
+    var d={kind:'resource_feedback',resource_id:id,resource_title:box.getAttribute('data-fb-title')||'',resource_type:box.getAttribute('data-fb-type')||'',vote:v,page:page};
+    try{ if(typeof gtag==='function') gtag('event','resource_feedback',{resource_id:d.resource_id,resource_title:d.resource_title,resource_type:d.resource_type,vote:v,transport_type:'beacon'}); }catch(e){}
+    try{ if(ENDPOINT) fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d),keepalive:true}); }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target&&e.target.closest?e.target.closest('.fb-btn'):null; if(!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var box=b.closest('.fb'); if(box&&!b.disabled) vote(box,b.getAttribute('data-vote'));
+  },true);
+  function scan(root){ (root||document).querySelectorAll('.fb').forEach(paint); }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function html(id,title,type,question,mini){
+    return '<div class="fb'+(mini?' fb-mini':'')+'" data-fb-id="'+esc(id)+'" data-fb-title="'+esc(title)+'" data-fb-type="'+esc(type)+'"><span class="fb-q">'+esc(question||'Helpful?')+'</span>'+
+      '<button type="button" class="fb-btn" data-vote="up" aria-pressed="false" title="Helpful" aria-label="Helpful: '+esc(title)+'">&#128077;</button>'+
+      '<button type="button" class="fb-btn" data-vote="down" aria-pressed="false" title="Not helpful" aria-label="Not helpful: '+esc(title)+'">&#128078;</button>'+
+      '<span class="fb-msg" aria-live="polite"></span></div>';
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ scan(); }); else scan();
+  return {scan:scan,html:html};
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -297,6 +357,7 @@ a.tool-card:hover{text-decoration:none}
     <p class="print-only print-head">Real Support &middot; A Talbert House and Hello Mental Health partnership &middot; Wellness On-Demand</p>
     <p class="tool-why">Hearing about other people&#x27;s trauma, day after day, can change how you feel, sleep, and see the world. This is called secondary traumatic stress. It&#x27;s a normal response to this work, not a weakness.</p>
     <div class="tool-widget" id="tool-widget" aria-label="Secondary Trauma Checklist guide"><noscript>The step-by-step guide is below.</noscript></div>
+    <div class="fb fb-large" data-fb-id="secondary-trauma-checklist" data-fb-title="Secondary Trauma Checklist" data-fb-type="Micro-practice"><span class="fb-q">Was this practice helpful?</span><button type="button" class="fb-btn" data-vote="up" aria-pressed="false" aria-label="Helpful: Secondary Trauma Checklist">&#128077;</button><button type="button" class="fb-btn" data-vote="down" aria-pressed="false" aria-label="Not helpful: Secondary Trauma Checklist">&#128078;</button><span class="fb-msg" aria-live="polite"></span></div>
     <div class="tool-actions"><button type="button" class="tbtn" id="tool-print">Print or save as PDF</button></div>
     <h2>Step by step</h2>
     <ol class="tool-steps"><li>Read the list and notice which signs fit your past couple of weeks:</li><li>Unwanted thoughts or images from clients&#x27; stories; avoiding reminders of hard cases; feeling on edge; trouble sleeping; feeling numb or detached; irritability; dreading work; feeling hopeless about your work; seeing the world as more dangerous; physical exhaustion.</li><li>This is not a test or a diagnosis. It&#x27;s a way to notice what&#x27;s happening.</li><li>Whatever you notice, you have options. Take the free, private <a href="/talberthouse/self-check">Self-Check</a> for a fuller picture, browse providers on the <a href="/talberthouse/mental-health-care">Mental Health Care page</a>, talk with your own provider, or book a <a href="/talberthouse/checkup">Mental Health Check-Up</a> with a Hello Mental Health psychologist. For a research-validated self-assessment, try the Professional Quality of Life Scale (ProQOL) at <a href="https://proqol.org" target="_blank" rel="noopener">proqol.org</a>.</li></ol>
@@ -345,25 +406,75 @@ a.tool-card:hover{text-decoration:none}
 </script>
 <script>
 /* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
-   checkup_schedule_click - any link to the Check-Up booking site (hellomentalhealth.clientsecure.me); these now live on the Check-Up page
-   checkup_page_click     - any link to the Mental Health Check-Up page (/talberthouse/checkup)
-   resources_click        - any link to the Mental Health Care page
-   contact_form_click     - any link to the Hello Mental Health Talbert House contact form
-   All carry link_location = "<page>_<spot>", e.g. home_page, blog_menu, about_the_program_footer,
-   self_check_results, so you can see which link people use. */
+   take_action            - EVERY click that leads to an action (one event, so "how many people took action" is one number).
+                            Params: action_type (what kind of action), link_text (button/link wording),
+                            link_domain (where it goes), link_location ("<page>_<spot>").
+     action_type values:
+       schedule_checkup      Check-Up booking site          view_checkup_info   Check-Up page
+       contact_form          Talbert House contact form     call_hello_mental_health  (513) 717-5566
+       call_crisis_line      988 / crisis phone numbers     text_crisis_line    Crisis Text Line
+       call_phone            any other phone number         email               any email link
+       start_self_check      link to the Self-Check         open_tool           a Wellness On-Demand micro-practice
+       open_book / open_app / open_podcast / watch_video   Wellness On-Demand books, apps, podcasts, videos
+       visit_resource        outside resource (Mental Health Care listings, blog sources)
+       visit_hello_mental_health  hellomentalhealth.com     read_blog_post      a blog post
+       print_or_download     print / PDF buttons            quick_exit          the Quick exit button
+   Older events kept so existing reports keep working:
+   checkup_schedule_click, checkup_page_click, resources_click, contact_form_click (all with link_location). */
 (function(){
   var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'').replace(/-/g,'_');
   if(page==='talberthouse'||page==='index') page='home';
+  var CRISIS=/^(?:988|1?8002738255|1?8006624357|1?8009444773|1?8664887386|1?8007997233|1?8882364848)$/;
+  function send(ev,p){ try{ p.transport_type='beacon'; gtag('event',ev,p); }catch(err){} }
+  function spotOf(el){ return el.closest('.nav-links, nav')?'menu':el.closest('footer')?'footer':el.closest('.crisis-banner')?'crisis_banner':(page==='self_check'?'results':'page'); }
+  function textOf(el){ var hd=el.querySelector&&el.querySelector('h3,h4'); if(!hd){ var card=el.closest('.resource-card,.tool-card,.card,.post'); hd=card&&card.querySelector('h3,h4'); } var t=hd?hd.textContent:(el.getAttribute('aria-label')||el.textContent||''); return t.replace(/\s+/g,' ').trim().slice(0,100); }
+  function actionFor(a,h){
+    var hl=h.toLowerCase(), digits=h.replace(/[^0-9]/g,'');
+    if(hl.indexOf('tel:')===0){ if(digits==='5137175566') return 'call_hello_mental_health'; return CRISIS.test(digits)?'call_crisis_line':'call_phone'; }
+    if(hl.indexOf('sms:')===0) return 'text_crisis_line';
+    if(hl.indexOf('mailto:')===0) return 'email';
+    if(hl.indexOf('hellomentalhealth.clientsecure.me')>-1) return 'schedule_checkup';
+    if(hl.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) return 'contact_form';
+    if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) return 'view_checkup_info';
+    if(/^\/talberthouse\/self-check\/?(?:[?#].*)?$/.test(h)) return 'start_self_check';
+    if(/^\/talberthouse\/tool-[a-z0-9-]+/.test(h)) return 'open_tool';
+    if(/^\/talberthouse\/post-[a-z0-9-]+/.test(h)) return 'read_blog_post';
+    if(/^https?:\/\//i.test(h)){
+      var host=''; try{ host=new URL(h).hostname.replace(/^www\./,''); }catch(e){}
+      if(host==='work.hellomentalhealth.com'||host===location.hostname) return '';
+      if(host==='hellomentalhealth.com') return 'visit_hello_mental_health';
+      if(host==='bookshop.org') return 'open_book';
+      var rc=a.closest('.res-card'), kind=rc&&rc.querySelector('.cat-line')?rc.querySelector('.cat-line').textContent.trim().toLowerCase():'';
+      if(kind.indexOf('podcast')===0||host.indexOf('podcasts.apple.com')>-1||host.indexOf('spotify.com')>-1) return 'open_podcast';
+      if(kind.indexOf('book')===0) return 'open_book';
+      if(kind.indexOf('youtube')===0||kind.indexOf('video')===0||host.indexOf('youtube.com')>-1||host==='youtu.be') return 'watch_video';
+      if(rc) return 'open_app';
+      return 'visit_resource';
+    }
+    return '';
+  }
   document.addEventListener('click',function(e){
-    var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
-    var h=a.getAttribute('href')||'', ev='';
-    if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
-    else if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) ev='checkup_page_click';
-    else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
-    else if(/^\/talberthouse\/(?:mental-health-care|resources)\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
-    if(!ev) return;
-    var spot=a.closest('.nav-links, nav')?'menu':a.closest('footer')?'footer':(page==='self_check'?'results':'page');
-    try{ gtag('event',ev,{link_location:page+'_'+spot,transport_type:'beacon'}); }catch(err){}
+    if(typeof gtag!=='function'||!e.target||!e.target.closest) return;
+    var a=e.target.closest('a[href]');
+    if(a){
+      var h=a.getAttribute('href')||'', ev='', spot=spotOf(a), loc=page+'_'+spot;
+      if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
+      else if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) ev='checkup_page_click';
+      else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
+      else if(/^\/talberthouse\/(?:mental-health-care|resources)\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
+      if(ev) send(ev,{link_location:loc});
+      var act=actionFor(a,h);
+      if(act){ var dom=''; try{ dom=/^https?:/i.test(h)?new URL(h).hostname.replace(/^www\./,''):h.split(':')[0]; }catch(x){}
+        send('take_action',{action_type:act,link_text:textOf(a),link_domain:dom,link_location:loc}); }
+      return;
+    }
+    var b=e.target.closest('button, [role=button]');
+    if(b){
+      var t=textOf(b), act2='';
+      if(b.id==='quickExit'||/quick exit/i.test(t)) act2='quick_exit';
+      else if(/print|download|pdf/i.test(t)) act2='print_or_download';
+      if(act2) send('take_action',{action_type:act2,link_text:t,link_domain:'',link_location:page+'_'+spotOf(b)});
+    }
   },true);
 })();
 </script>
