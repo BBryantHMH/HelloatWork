@@ -15,3 +15,7 @@ Desktop.ini
 
 # Node modules in case a build step is added later.
 node_modules/
+
+# Draft / retired pages live outside the repo now (in "10 Team Site Notes/Unpublished site pages").
+# This line keeps them from being re-committed if the folder comes back.
+_unpublished/
