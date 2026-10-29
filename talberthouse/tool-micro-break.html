@@ -707,5 +707,66 @@ window.TOOL = {"id": "micro-break", "widget": {"type": "steps", "timed": true, "
 })();
 
 </script>
+<!-- RECOMMEND POP-UP (every 3 months). Asks: "Could you see yourself recommending the Real Support website to a colleague?"
+     Anonymous: sends only the answer (yes/no), the page, and the date.
+     -> Google Analytics event "site_recommend" (param: answer = yes | no); closing without answering sends "site_recommend_dismissed".
+     -> "Wellness On-Demand Feedback" Google Sheet, as a row with Resource "Would recommend Real Support to a colleague",
+        Type "Site survey", Vote up = Yes / down = No.
+     Shown once per browser every 90 days, 20 seconds after a page opens. Never shown on the Self-Check. -->
+<style>
+.rs-rec{position:fixed;left:16px;bottom:16px;z-index:70;max-width:340px;background:#fff;color:#1F2937;border-radius:14px;box-shadow:0 10px 30px rgba(31,41,55,.22);border-top:5px solid #2060A0;padding:18px 20px 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;opacity:0;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease}
+.rs-rec.show{opacity:1;transform:none}
+.rs-rec h2{font-family:Georgia,"Playfair Display",Cambria,serif;font-size:1.08rem;line-height:1.35;margin:0 26px 12px 0;color:#1F2937}
+.rs-rec .rs-btns{display:flex;gap:10px}
+.rs-rec .rs-btn{flex:1;font:inherit;font-weight:600;font-size:.98rem;padding:10px 14px;border-radius:999px;cursor:pointer;border:2px solid #2060A0}
+.rs-rec .rs-yes{background:#F2B01E;border-color:#F2B01E;color:#1F2937}
+.rs-rec .rs-no{background:#fff;color:#17497D}
+.rs-rec .rs-btn:focus-visible,.rs-rec .rs-x:focus-visible{outline:3px solid #F2B01E;outline-offset:2px}
+.rs-rec .rs-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border:0;background:transparent;font-size:1.3rem;line-height:1;color:#6B7280;cursor:pointer;border-radius:50%}
+.rs-rec .rs-x:hover{background:#F3F4F6}
+.rs-rec .rs-thanks{margin:0;font-weight:600;color:#2E5D4A}
+.rs-rec .rs-note{margin:10px 0 0;font-size:.78rem;color:#6B7280}
+@media(max-width:480px){.rs-rec{left:12px;right:12px;bottom:12px;max-width:none}}
+@media print{.rs-rec{display:none!important}}
+</style>
+<script>
+(function(){
+  var KEY='rs-recommend-asked', DAYS=90, DELAY=20000;
+  var ENDPOINT="https://script.google.com/macros/s/AKfycbyBHuHCKjW05Sb4Wl8lT8Wznhwy0YfCOnJiEQnZUkxxWqc3xb5EHe7DrEFxHIdtoEGIIg/exec";
+  var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'');
+  if(page==='talberthouse'||page==='index') page='home';
+  if(page==='self-check') return;
+  var last; try{ last=localStorage.getItem(KEY); }catch(e){ return; }   /* no storage = can't limit it, so don't show */
+  if(last && (Date.now()-Number(last)) < DAYS*864e5) return;
+  function ga(n,p){ try{ if(typeof gtag==='function'){ p=p||{}; p.transport_type='beacon'; gtag('event',n,p); } }catch(e){} }
+  function show(){
+    if(document.hidden){ document.addEventListener('visibilitychange',function v(){ if(!document.hidden){ document.removeEventListener('visibilitychange',v); show(); } }); return; }
+    try{ localStorage.setItem(KEY,String(Date.now())); }catch(e){}
+    var box=document.createElement('div');
+    box.className='rs-rec'; box.setAttribute('role','dialog'); box.setAttribute('aria-labelledby','rs-rec-q');
+    box.innerHTML='<button type="button" class="rs-x" aria-label="Close">&times;</button>'+
+      '<h2 id="rs-rec-q">Could you see yourself recommending the Real Support website to a colleague?</h2>'+
+      '<div class="rs-btns"><button type="button" class="rs-btn rs-yes" data-a="yes">Yes</button><button type="button" class="rs-btn rs-no" data-a="no">No</button></div>'+
+      '<p class="rs-note">Your answer is completely anonymous.</p>';
+    document.body.appendChild(box);
+    requestAnimationFrame(function(){ box.classList.add('show'); });
+    var done=false;
+    function close(){ box.classList.remove('show'); setTimeout(function(){ if(box.parentNode) box.parentNode.removeChild(box); },300); document.removeEventListener('keydown',esc); }
+    function esc(e){ if(e.key==='Escape'&&!done){ done=true; ga('site_recommend_dismissed',{page:page}); close(); } }
+    document.addEventListener('keydown',esc);
+    box.querySelector('.rs-x').addEventListener('click',function(){ if(!done){ done=true; ga('site_recommend_dismissed',{page:page}); } close(); });
+    box.querySelectorAll('.rs-btn').forEach(function(b){ b.addEventListener('click',function(){
+      if(done) return; done=true; var a=b.getAttribute('data-a');
+      ga('site_recommend',{answer:a,page:page});
+      try{ fetch(ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body:JSON.stringify({kind:'resource_feedback',resource_id:'recommend-real-support',resource_title:'Would recommend Real Support to a colleague',resource_type:'Site survey',vote:a==='yes'?'up':'down',page:page})}); }catch(e){}
+      box.querySelector('.rs-btns').outerHTML='<p class="rs-thanks" role="status">Thank you! That really helps.</p>';
+      var n=box.querySelector('.rs-note'); if(n) n.remove();
+      setTimeout(close,2500);
+    }); });
+  }
+  setTimeout(show,DELAY);
+})();
+</script>
 </body>
 </html>
