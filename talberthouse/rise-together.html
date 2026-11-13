@@ -86,4 +86,449 @@ a.pillar{color:inherit;text-decoration:none;transition:box-shadow .15s,transform
 .selfhelp-section{background:var(--hmh-cream);border-radius:var(--radius-md);padding:36px;margin:40px 0}
 .selfhelp-section .eyebrow{color:var(--hmh-forest)}
 .selfhelp-section h2{margin-bottom:8px}
-.selfhelp-grid{display:grid;grid-template-columns:repeat(auto-fit,
+.selfhelp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:24px}
+.selfhelp-card{background:#fff;border:1px solid rgba(46,93,74,.12);border-radius:var(--radius-md);padding:22px;position:relative;overflow:hidden;opacity:.72}
+.selfhelp-card::before{content:"Coming soon";position:absolute;top:12px;right:12px;background:var(--hmh-forest);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.selfhelp-card .sh-type{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hmh-forest);margin-bottom:8px}
+.selfhelp-card h3{font-size:1.1rem;margin:0 0 8px;color:var(--slate-700)}
+.selfhelp-card p{color:var(--slate-500);font-size:.93rem;margin:0 0 12px;font-style:italic}
+.selfhelp-card .sh-tags{display:flex;flex-wrap:wrap;gap:6px}
+.sh-tag{background:var(--hmh-cream);color:var(--hmh-forest);border:1px solid rgba(46,93,74,.2);padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:600}
+.selfhelp-submit{background:#fff;border:2px dashed rgba(46,93,74,.25);border-radius:var(--radius-md);padding:28px;text-align:center;margin-top:16px}
+.selfhelp-submit p{color:var(--slate-700);margin:0 0 12px;font-size:.95rem}
+.selfhelp-submit a{display:inline-block;background:var(--hmh-forest);color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:.92rem}
+.selfhelp-submit a:hover{background:#234a39;text-decoration:none}
+.site-footer{background:var(--slate-900);color:#CFD6DD;padding:48px 0 24px;margin-top:48px;font-size:.94rem}
+.site-footer a{color:var(--th-teal-light)}.site-footer h4{color:#fff;margin:0 0 12px;font-family:var(--font-body);font-size:.88rem;letter-spacing:.14em;text-transform:uppercase}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid ul{list-style:none;padding:0;margin:0}.footer-grid li{margin-bottom:6px}
+.footer-credit{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.86rem;color:#98A2AD}
+.footer-credit .hmh-ribbon{font-family:var(--font-display);font-style:italic;color:var(--hmh-cream)}
+.footer-credit .hmh-ribbon .dot{color:var(--hmh-coral);margin:0 4px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+
+/* Real Support logo */
+.brand-lockup{flex-direction:column;align-items:flex-start;gap:5px}
+.brand-logo{height:34px;width:auto;display:block;flex:none}
+.brand-lockup .brand-text{flex-direction:row;gap:.4em;white-space:nowrap;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-500);line-height:1}
+.brand-lockup .brand-text .top,.brand-lockup .brand-text .main{font-family:var(--font-body);font-size:inherit;font-weight:600;letter-spacing:inherit;color:inherit}
+.brand-lockup .brand-text .main::before{content:"\00B7";margin-right:.4em}
+.footer-logo{display:block;width:220px;max-width:100%;height:auto;margin:0 0 8px}
+.footer-tagline{margin:0 0 20px;color:#C1D1E3;font-size:.86rem;font-weight:600}
+@media(max-width:400px){.brand-logo{height:30px}.brand-lockup .brand-text{font-size:.55rem}}
+
+/* Site structure update (Sept 2026) */
+.nav-links a.active{color:var(--th-teal-dark);background:var(--th-teal-light)}
+.nav-cta-alt{background:#fff !important;color:var(--th-teal-dark) !important;border:1.5px solid var(--th-teal) !important;padding:7.5px 14.5px !important}
+.nav-cta-alt:hover{background:var(--th-teal-light) !important}
+.nav-links .nav-cta{margin-left:4px}
+.site-footer .footer-credit a{color:#C1D1E3}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.98rem;border:2px solid transparent;cursor:pointer;transition:transform .1s ease,background .15s ease,border .15s ease;text-align:center}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--th-orange);color:#1F2937}
+.btn-primary:hover{background:#D99C0B;color:#1F2937}
+.btn-outline{background:#fff;color:var(--th-teal-dark);border-color:var(--th-teal)}
+.btn-outline:hover{background:var(--th-teal-light);color:var(--th-teal-dark)}
+.eyebrow-hmh{color:var(--hmh-forest)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.btn-ghost-light:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav-links{gap:2px}
+.nav-links a{padding:8px 10px;font-size:.93rem}
+.nav-links a.nav-cta{padding:9px 15px !important}
+.nav-links a.nav-cta-alt{padding:7.5px 13.5px !important}
+@media(max-width:1180px){.nav-toggle{display:inline-block}
+ .nav{position:relative}
+ .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md);z-index:50}
+ .nav-links.open{display:flex}.nav-links a{padding:12px;border-radius:var(--radius-sm)}
+ .nav-links .nav-cta{margin:6px 0 0;text-align:center}}
+
+.start-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.start-card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:22px 22px 24px}
+.start-card h3{margin:0 0 6px}.start-card p{color:var(--slate-700);margin:0 0 14px}
+.start-card .btn{margin:0 6px 8px 0}
+
+/* Header fit (keeps both buttons on one line) */
+.brand-lockup .brand-text{font-size:.54rem !important;letter-spacing:.05em !important}
+.nav{gap:16px}
+.nav-links{flex-wrap:nowrap;white-space:nowrap}
+.nav-links a{padding:8px 8px}
+.nav-links a.nav-cta{padding:9px 14px !important}
+.nav-links a.nav-cta-alt{padding:7.5px 12.5px !important}
+.site-header.nav-compact .nav{position:relative}
+.site-header.nav-compact .nav-toggle{display:inline-block}
+.site-header.nav-compact .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--slate-100);box-shadow:var(--shadow-md);z-index:50;white-space:normal}
+.site-header.nav-compact .nav-links.open{display:flex}
+.site-header.nav-compact .nav-links a{padding:12px;border-radius:var(--radius-sm)}
+.site-header.nav-compact .nav-links .nav-cta{margin:6px 0 0;text-align:center}
+
+/* Header tagline (Sept 27) */
+.brand-lockup .brand-text{display:block !important;max-width:200px;white-space:normal !important;text-transform:none !important;letter-spacing:0 !important;font-size:.64rem !important;line-height:1.25 !important;color:var(--slate-500)}
+.brand-lockup .brand-text .tagline{font-family:var(--font-body);font-weight:600}
+@media(max-width:400px){.brand-lockup .brand-text{font-size:.58rem !important;max-width:170px}}
+
+/* Mental Health Check-Up page */
+.cu-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.cu-intro{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start}
+@media(max-width:820px){.cu-intro{grid-template-columns:1fr;gap:24px}}
+.cu-intro p{font-size:1.07rem;line-height:1.75;color:var(--slate-700)}
+.cu-facts{background:var(--hmh-cream);border-radius:var(--radius-md);padding:24px 26px;list-style:none;margin:0}
+.cu-facts li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(46,93,74,.12);font-size:.98rem;color:var(--slate-900)}
+.cu-facts li:last-child{border-bottom:0}
+.cu-facts .ic{flex:0 0 28px;height:28px;border-radius:50%;background:#fff;color:var(--hmh-forest);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.cu-steps{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;counter-reset:s}
+.cu-step{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:24px 22px;box-shadow:var(--shadow-sm);position:relative}
+.cu-step .n{width:36px;height:36px;border-radius:50%;background:var(--th-teal-light);color:var(--th-teal-dark);display:grid;place-items:center;font-weight:700;margin-bottom:12px}
+.cu-step.key{border:2px solid var(--th-orange);background:var(--th-orange-soft)}
+.cu-step.key .n{background:var(--th-orange);color:#1F2937}
+.cu-step h3{font-size:1.1rem;margin:0 0 6px}.cu-step p{margin:0;color:var(--slate-700);font-size:.96rem;line-height:1.6}
+.cu-step .tag{display:inline-block;margin-top:10px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8a5a00}
+.cu-important{margin-top:34px;background:var(--th-orange-soft);border-left:6px solid var(--th-orange);border-radius:var(--radius-md);padding:24px 26px}
+.cu-important h3{margin:0 0 8px;font-size:1.25rem}.cu-important p{margin:0 0 10px;color:var(--slate-900);line-height:1.65}.cu-important p:last-child{margin:0}
+.cu-cost{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:26px}
+.cu-cost-card{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:24px 22px;box-shadow:var(--shadow-sm)}
+.cu-cost-card .big{font-family:var(--font-display);font-size:2rem;color:var(--hmh-forest);line-height:1.1;margin:0 0 6px}
+.cu-cost-card h3{font-size:1.05rem;margin:0 0 6px}.cu-cost-card p{margin:0;color:var(--slate-700);font-size:.96rem;line-height:1.6}
+.cu-cost-card.main{background:var(--hmh-forest);border-color:var(--hmh-forest)}
+.cu-cost-card.main .big,.cu-cost-card.main h3,.cu-cost-card.main p{color:#fff}
+.cu-policy{background:#fff;border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:28px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+@media(max-width:600px){.cu-policy{grid-template-columns:1fr}}
+.cu-policy .clock{width:64px;height:64px;border-radius:50%;background:var(--th-teal-light);color:var(--th-teal-dark);display:grid;place-items:center;font-weight:800;font-size:1.15rem;font-family:var(--font-display)}
+.cu-policy h3{margin:0 0 8px}.cu-policy p{margin:0 0 10px;color:var(--slate-700);line-height:1.65}.cu-policy p:last-child{margin:0}
+.cu-final{background:linear-gradient(135deg,var(--hmh-forest),var(--th-teal));color:#fff;border-radius:var(--radius-md);padding:36px 32px}
+.cu-final h2{color:#fff;margin:0 0 8px}.cu-final p{color:rgba(255,255,255,.92);max-width:60ch;margin:0 0 20px;line-height:1.65}
+.cu-final a:not(.btn){color:#FFEDC6}
+.cu-final .btns{display:flex;flex-wrap:wrap;gap:12px}
+.cu-sub{color:var(--slate-700);max-width:62ch;line-height:1.7}
+
+/* Rise Together page */
+.rt-head h1{font-size:clamp(2.4rem,5vw,3.4rem);margin-bottom:4px}
+.rt-sub{font-family:var(--font-display);font-style:italic;font-size:1.3rem;color:#FFEDC6;margin:0 0 18px}
+.rt-dates{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px}
+.rt-date{background:#fff;border:1px solid rgba(46,93,74,.12);border-radius:var(--radius-md);padding:18px 14px;text-align:center;box-shadow:var(--shadow-sm)}
+.rt-date .m{display:block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--th-teal-dark)}
+.rt-date .d{display:block;font-family:var(--font-display);font-size:2.3rem;line-height:1.1;color:var(--hmh-forest)}
+.rt-date .y{display:block;font-size:.82rem;color:var(--slate-500)}
+.rt-date.first{background:var(--hmh-forest);border-color:var(--hmh-forest)}
+.rt-date.first .m,.rt-date.first .d{color:#fff}.rt-date.first .y{color:#FFEDC6;font-weight:600}
+.rt-signup{display:grid;grid-template-columns:1fr 1.25fr;gap:36px;align-items:start;background:var(--th-teal-light);border-radius:var(--radius-md);padding:36px}
+.rt-signup-intro p{color:var(--slate-700);line-height:1.7}
+.rt-form{background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:8px}
+.rt-gform{display:block;width:100%;height:1200px;border:0;border-radius:4px}
+@media(max-width:600px){.rt-gform{height:1500px}}
+@media(max-width:860px){.rt-signup{grid-template-columns:1fr;padding:22px 16px;gap:22px}}
+#sign-up,#dates{scroll-margin-top:90px}
+.skip-link{position:absolute;left:-999px;top:8px;z-index:200;background:#fff;color:#1F2937;padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.2)}.skip-link:focus{left:8px}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CH826VSFK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CH826VSFK3');
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="crisis-banner"><strong>IN A CRISIS?</strong> Call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) &middot; Crisis Text Line: text HOME to <a href="sms:741741">741741</a></div>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class='brand-lockup' href='/talberthouse/' style='color:inherit'>
+      <img class="brand-logo" src="/talberthouse/real-support-logo.png" alt="Real Support" width="185" height="34">
+      <span class="brand-text"><span class="tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">&#9776; Menu</button>
+    <div class="nav-links">
+      <a href='/talberthouse/'>Home</a>
+      <a href='/talberthouse/about-the-program'>About the Program</a>
+      <a href='/talberthouse/mental-health-care'>Mental Health Care</a>
+      <a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a>
+      <a href='/talberthouse/blog'>Blog</a>
+      <a class='nav-cta' href='/talberthouse/self-check'>Self-Check</a>
+    </div>
+  </nav>
+</header>
+<section class="page-head rt-head" id="main-content" tabindex="-1">
+  <div class="container">
+    <span class="eyebrow">For Talbert House staff in recovery</span>
+    <h1>Rise Together</h1>
+    <p class="rt-sub">A recovery support group</p>
+    <p class="lead">You spend your days helping other people find their footing. Rise Together is a place to steady your own. Once a month, Talbert House staff in recovery come together online with a licensed psychologist to share, listen, and keep going, together.</p>
+    <div class="cu-hero-actions">
+      <a class="btn btn-primary" href="#sign-up">Sign up for Rise Together &darr;</a>
+      <a class="btn btn-ghost-light" href="#dates">See the dates</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cu-intro">
+    <div>
+      <span class="eyebrow eyebrow-hmh">What it is</span>
+      <h2 class="mt-0">You don&rsquo;t have to carry it alone.</h2>
+      <p>Recovery takes daily effort, and working in human services can make it feel complicated in ways that are hard to explain to people outside the field. Rise Together is a small, supportive group made up of your Talbert House colleagues who understand both sides of that.</p>
+      <p>Each month, Dr. Rachel Thompson, a licensed psychologist with Hello Mental Health, guides the conversation. Some months you might want to talk; other months you might just want to listen. Both are welcome.</p>
+      <p>Wherever you are in your recovery, whether you&rsquo;re just starting out or you&rsquo;ve been at it for years, there&rsquo;s a place for you here.</p>
+    </div>
+    <ul class="cu-facts">
+      <li><span class="ic">&#128197;</span><span><strong>Third Friday of every month</strong> at 11:00am Eastern</span></li>
+      <li><span class="ic">&#128187;</span><span><strong>Online</strong>, so you can join from wherever you are</span></li>
+      <li><span class="ic">&#129309;</span><span><strong>Led by Dr. Rachel Thompson</strong>, a licensed psychologist</span></li>
+      <li><span class="ic">&#10003;</span><span><strong>No cost</strong> to Talbert House staff</span></li>
+      <li><span class="ic">&#128274;</span><span><strong>Confidential</strong>. Talbert House never sees who signs up or attends</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" style="background:var(--hmh-cream)" id="dates">
+  <div class="container">
+    <span class="eyebrow eyebrow-hmh">Mark your calendar</span>
+    <h2 class="mt-0">Upcoming sessions.</h2>
+    <p class="cu-sub">Every session is at 11:00am Eastern. Come to one, or come to all of them.</p>
+    <ul class="rt-dates">
+      <li class="rt-date first"><span class="m">Nov</span><span class="d">20</span><span class="y">First session</span></li>
+      <li class="rt-date"><span class="m">Dec</span><span class="d">18</span><span class="y">2026</span></li>
+      <li class="rt-date"><span class="m">Jan</span><span class="d">15</span><span class="y">2027</span></li>
+      <li class="rt-date"><span class="m">Feb</span><span class="d">19</span><span class="y">2027</span></li>
+      <li class="rt-date"><span class="m">Mar</span><span class="d">19</span><span class="y">2027</span></li>
+      <li class="rt-date"><span class="m">Apr</span><span class="d">16</span><span class="y">2027</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow eyebrow-hmh">How it works</span>
+    <h2 class="mt-0">Three simple steps.</h2>
+    <ol class="cu-steps">
+      <li class="cu-step key"><div class="n">1</div><h3>Sign up below</h3><p>Fill out the short form on this page. It only takes a minute, and it goes straight to the Hello Mental Health team.</p></li>
+      <li class="cu-step"><div class="n">2</div><h3>Get the details</h3><p>Use your @talberthouse.org email and you&rsquo;ll get the link to join by email right away. (Check your spam folder if you don&rsquo;t see it.)</p></li>
+      <li class="cu-step"><div class="n">3</div><h3>Join the group</h3><p>Log on at 11:00am Eastern on the third Friday. Share as much or as little as you like.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section rt-signup-wrap" id="sign-up" style="padding-top:0">
+  <div class="container">
+    <div class="rt-signup">
+      <div class="rt-signup-intro">
+        <span class="eyebrow eyebrow-hmh">Sign up</span>
+        <h2 class="mt-0">Save your spot.</h2>
+        <p>Questions before you sign up? <a href="https://www.hellomentalhealth.com/talbert-house-contact">Send us a note</a> or call <a href="tel:5137175566">(513) 717-5566</a>, and a real person from our team will get back to you.</p>
+        <div class="callout" style="margin-bottom:0"><strong>Private and confidential.</strong> Your sign-up goes directly to Hello Mental Health, and Talbert House never sees who signs up or attends. We ask that what&rsquo;s shared in the group stays in the group.</div>
+        <div class="callout" style="margin-bottom:0"><strong>Support, not therapy.</strong> Rise Together is a support group guided by a psychologist. It isn&rsquo;t therapy of any kind, group or individual, and it isn&rsquo;t a replacement for individual treatment or crisis care. If you&rsquo;d like more support, we&rsquo;re happy to share options, including a private <a href="/talberthouse/checkup">Mental Health Check-Up</a>.</div>
+      </div>
+      <div class="rt-form">
+        <iframe
+          class="rt-gform"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdKJhe6ZJHAJNdY9sZgYZ-FJKG3VYEWe-cxFG8pNL3cCp-eQg/viewform?embedded=true"
+          title="Rise Together Support Group Sign Up"
+          loading="lazy"
+          frameborder="0" marginheight="0" marginwidth="0">Loading&hellip;</iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cu-final">
+      <h2>Need support before the next session?</h2>
+      <p>You don&rsquo;t have to wait for the third Friday. Book a private <a href="/talberthouse/checkup">Mental Health Check-Up</a> with a licensed psychologist, or find recovery resources and support groups on the <a href="/talberthouse/mental-health-care">Mental Health Care</a> page. If you&rsquo;re in crisis, call or text 988 any time, or call the SAMHSA National Helpline at 1-800-662-4357.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#sign-up">Sign up for Rise Together &uarr;</a>
+        <a class="btn btn-ghost-light" href="/talberthouse/mental-health-care">Recovery resources</a>
+        <a class="btn btn-ghost-light" href="tel:18006624357">SAMHSA Helpline</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="/talberthouse/real-support-logo-white.png" alt="Real Support" width="220" height="41" loading="lazy"><p class="footer-tagline">Mental Health Care, Wellness Support &amp; On-Demand Resources</p><p class="footer-tagline" style="margin-top:2px;opacity:.85">A Talbert House and Hello Mental Health partnership</p>
+        <h4>About this library</h4>
+        <p style="margin:0 0 10px">An internal resource library for Talbert House staff: mental health care, Wellness On-Demand tools, and original content from Hello Mental Health.</p>
+        <p class="muted" style="color:#98A2AD;margin:0">Internal use only. For general education, not therapy or medical advice. In a crisis, call or text 988.</p>
+      </div>
+      <div><h4>Library</h4><ul><li><a href='/talberthouse/about-the-program'>About the Program</a></li><li><a href='/talberthouse/mental-health-care'>Mental Health Care</a></li><li><a href='/talberthouse/wellness-on-demand'>Wellness On-Demand</a></li><li><a href='/talberthouse/blog'>Blog</a></li><li><a href='/talberthouse/self-check'>Self-Check</a></li><li><a href='/talberthouse/notice-of-privacy-practices'>Privacy</a></li></ul></div>
+      <div><h4>Crisis lines</h4><ul><li><a href="tel:988">988 Lifeline, call or text</a></li><li><a href="sms:741741">Crisis Text Line, text HOME to 741741</a></li><li><a href="tel:988">Veterans: 988, then press 1</a></li><li><a href="tel:988">En espa&ntilde;ol: 988, then press 2</a></li><li><a href="tel:711">Deaf or hard of hearing: 711, then 988</a></li><li><a href="tel:18007209616">Not in crisis but need to talk? Ohio CareLine, 1-800-720-9616</a></li></ul></div>
+      <div><h4>Hello Mental Health</h4><ul><li><a href='https://hellomentalhealth.clientsecure.me'>Schedule a Check-Up</a></li><li><a href='/talberthouse/rise-together'>Rise Together recovery group</a></li><li><a href='https://www.hellomentalhealth.com/talbert-house-contact'>Contact form</a></li><li><a href="tel:5137175566">(513) 717-5566</a></li><li><a href='https://www.hellomentalhealth.com'>hellomentalhealth.com</a></li></ul></div>
+    </div>
+    <div class="footer-credit">
+      <div>&copy; 2026 Talbert House Staff Resource Library &middot; Internal use &middot; <a href="/talberthouse/notice-of-privacy-practices">Privacy &amp; Notice of Privacy Practices</a></div>
+      <div class="hmh-ribbon">Built with care by Hello Mental Health <span class="dot">&bull;</span> Cincinnati, OH</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle=document.querySelector('.nav-toggle');
+  var links=document.querySelector('.nav-links');
+  if(toggle&&links){toggle.addEventListener('click',function(){
+    links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',links.classList.contains('open'));
+  });}
+  var path=(window.location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){
+    if(a.dataset.page===path){a.classList.add('active');}
+  });
+})();
+</script>
+
+<script>
+/* SITE CLICK TRACKING (GA4). Counts clicks only; sends no personal information.
+   take_action            - EVERY click that leads to an action (one event, so "how many people took action" is one number).
+                            Params: action_type (what kind of action), link_text (button/link wording),
+                            link_domain (where it goes), link_location ("<page>_<spot>").
+     action_type values:
+       schedule_checkup      Check-Up booking site          view_checkup_info   Check-Up page
+       contact_form          Talbert House contact form     call_hello_mental_health  (513) 717-5566
+       call_crisis_line      988 / crisis phone numbers     text_crisis_line    Crisis Text Line
+       call_phone            any other phone number         email               any email link
+       start_self_check      link to the Self-Check         open_tool           a Wellness On-Demand micro-practice
+       open_book / open_app / open_podcast / watch_video   Wellness On-Demand books, apps, podcasts, videos
+       visit_resource        outside resource (Mental Health Care listings, blog sources)
+       visit_hello_mental_health  hellomentalhealth.com     read_blog_post      a blog post
+       print_or_download     print / PDF buttons            quick_exit          the Quick exit button
+   Older events kept so existing reports keep working:
+   checkup_schedule_click, checkup_page_click, resources_click, contact_form_click (all with link_location). */
+(function(){
+  var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'').replace(/-/g,'_');
+  if(page==='talberthouse'||page==='index') page='home';
+  var CRISIS=/^(?:988|1?8002738255|1?8006624357|1?8009444773|1?8664887386|1?8007997233|1?8882364848)$/;
+  function send(ev,p){ try{ p.transport_type='beacon'; gtag('event',ev,p); }catch(err){} }
+  function spotOf(el){ return el.closest('.nav-links, nav')?'menu':el.closest('footer')?'footer':el.closest('.crisis-banner')?'crisis_banner':(page==='self_check'?'results':'page'); }
+  function textOf(el){ var hd=el.querySelector&&el.querySelector('h3,h4'); if(!hd){ var card=el.closest('.resource-card,.tool-card,.card,.post'); hd=card&&card.querySelector('h3,h4'); } var t=hd?hd.textContent:(el.getAttribute('aria-label')||el.textContent||''); return t.replace(/\s+/g,' ').trim().slice(0,100); }
+  function actionFor(a,h){
+    var hl=h.toLowerCase(), digits=h.replace(/[^0-9]/g,'');
+    if(hl.indexOf('tel:')===0){ if(digits==='5137175566') return 'call_hello_mental_health'; return CRISIS.test(digits)?'call_crisis_line':'call_phone'; }
+    if(hl.indexOf('sms:')===0) return 'text_crisis_line';
+    if(hl.indexOf('mailto:')===0) return 'email';
+    if(hl.indexOf('hellomentalhealth.clientsecure.me')>-1) return 'schedule_checkup';
+    if(hl.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) return 'contact_form';
+    if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) return 'view_checkup_info';
+    if(/^\/talberthouse\/self-check\/?(?:[?#].*)?$/.test(h)) return 'start_self_check';
+    if(/^\/talberthouse\/tool-[a-z0-9-]+/.test(h)) return 'open_tool';
+    if(/^\/talberthouse\/post-[a-z0-9-]+/.test(h)) return 'read_blog_post';
+    if(/^https?:\/\//i.test(h)){
+      var host=''; try{ host=new URL(h).hostname.replace(/^www\./,''); }catch(e){}
+      if(host==='work.hellomentalhealth.com'||host===location.hostname) return '';
+      if(host==='hellomentalhealth.com') return 'visit_hello_mental_health';
+      if(host==='bookshop.org') return 'open_book';
+      var rc=a.closest('.res-card'), kind=rc&&rc.querySelector('.cat-line')?rc.querySelector('.cat-line').textContent.trim().toLowerCase():'';
+      if(kind.indexOf('podcast')===0||host.indexOf('podcasts.apple.com')>-1||host.indexOf('spotify.com')>-1) return 'open_podcast';
+      if(kind.indexOf('book')===0) return 'open_book';
+      if(kind.indexOf('youtube')===0||kind.indexOf('video')===0||host.indexOf('youtube.com')>-1||host==='youtu.be') return 'watch_video';
+      if(rc) return 'open_app';
+      return 'visit_resource';
+    }
+    return '';
+  }
+  document.addEventListener('click',function(e){
+    if(typeof gtag!=='function'||!e.target||!e.target.closest) return;
+    var a=e.target.closest('a[href]');
+    if(a){
+      var h=a.getAttribute('href')||'', ev='', spot=spotOf(a), loc=page+'_'+spot;
+      if(h.indexOf('hellomentalhealth.clientsecure.me')>-1) ev='checkup_schedule_click';
+      else if(/^\/talberthouse\/checkup\/?(?:[?#].*)?$/.test(h)) ev='checkup_page_click';
+      else if(h.indexOf('hellomentalhealth.com/talbert-house-contact')>-1) ev='contact_form_click';
+      else if(/^\/talberthouse\/(?:mental-health-care|resources)\/?(?:[?#].*)?$/.test(h)) ev='resources_click';
+      if(ev) send(ev,{link_location:loc});
+      var act=actionFor(a,h);
+      if(act){ var dom=''; try{ dom=/^https?:/i.test(h)?new URL(h).hostname.replace(/^www\./,''):h.split(':')[0]; }catch(x){}
+        send('take_action',{action_type:act,link_text:textOf(a),link_domain:dom,link_location:loc}); }
+      return;
+    }
+    var b=e.target.closest('button, [role=button]');
+    if(b){
+      var t=textOf(b), act2='';
+      if(b.id==='quickExit'||/quick exit/i.test(t)) act2='quick_exit';
+      else if(/print|download|pdf/i.test(t)) act2='print_or_download';
+      if(act2) send('take_action',{action_type:act2,link_text:t,link_domain:'',link_location:page+'_'+spotOf(b)});
+    }
+  },true);
+})();
+</script>
+<script>
+/* Header fit: if the full menu doesn't fit on one line (narrow screen, larger fonts),
+   switch to the compact "Menu" button instead of letting buttons wrap. */
+(function(){
+  var h=document.querySelector('.site-header'), n=h&&h.querySelector('.nav'), l=h&&h.querySelector('.nav-links'), b=h&&h.querySelector('.brand-lockup');
+  if(!h||!n||!l||!b) return;
+  function fit(){
+    if(window.innerWidth<=1180){ h.classList.remove('nav-compact'); return; } /* existing phone/tablet menu */
+    h.classList.remove('nav-compact');
+    var need=l.scrollWidth, room=n.clientWidth-b.offsetWidth-48-16;
+    if(need>room) h.classList.add('nav-compact');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener('load',fit);
+})();
+</script>
+<!-- RECOMMEND POP-UP (every 3 months). Asks: "Could you see yourself recommending the Real Support website to a colleague?"
+     Anonymous: sends only the answer (yes/no), the page, and the date.
+     -> Google Analytics event "site_recommend" (param: answer = yes | no); closing without answering sends "site_recommend_dismissed".
+     -> "Wellness On-Demand Feedback" Google Sheet, as a row with Resource "Would recommend Real Support to a colleague",
+        Type "Site survey", Vote up = Yes / down = No.
+     Shown once per browser every 90 days, 20 seconds after a page opens. Never shown on the Self-Check. -->
+<style>
+.rs-rec{position:fixed;left:16px;bottom:16px;z-index:70;max-width:340px;background:#fff;color:#1F2937;border-radius:14px;box-shadow:0 10px 30px rgba(31,41,55,.22);border-top:5px solid #2060A0;padding:18px 20px 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;opacity:0;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease}
+.rs-rec.show{opacity:1;transform:none}
+.rs-rec h2{font-family:Georgia,"Playfair Display",Cambria,serif;font-size:1.08rem;line-height:1.35;margin:0 26px 12px 0;color:#1F2937}
+.rs-rec .rs-btns{display:flex;gap:10px}
+.rs-rec .rs-btn{flex:1;font:inherit;font-weight:600;font-size:.98rem;padding:10px 14px;border-radius:999px;cursor:pointer;border:2px solid #2060A0}
+.rs-rec .rs-yes{background:#F2B01E;border-color:#F2B01E;color:#1F2937}
+.rs-rec .rs-no{background:#fff;color:#17497D}
+.rs-rec .rs-btn:focus-visible,.rs-rec .rs-x:focus-visible{outline:3px solid #F2B01E;outline-offset:2px}
+.rs-rec .rs-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border:0;background:transparent;font-size:1.3rem;line-height:1;color:#6B7280;cursor:pointer;border-radius:50%}
+.rs-rec .rs-x:hover{background:#F3F4F6}
+.rs-rec .rs-thanks{margin:0;font-weight:600;color:#2E5D4A}
+.rs-rec .rs-note{margin:10px 0 0;font-size:.78rem;color:#6B7280}
+@media(max-width:480px){.rs-rec{left:12px;right:12px;bottom:12px;max-width:none}}
+@media print{.rs-rec{display:none!important}}
+</style>
+<script>
+(function(){
+  var KEY='rs-recommend-asked', DAYS=90, DELAY=20000;
+  var ENDPOINT="https://script.google.com/macros/s/AKfycbyBHuHCKjW05Sb4Wl8lT8Wznhwy0YfCOnJiEQnZUkxxWqc3xb5EHe7DrEFxHIdtoEGIIg/exec";
+  var page=(location.pathname.replace(/\/+$/,'').split('/').pop()||'home').replace(/\.html$/,'');
+  if(page==='talberthouse'||page==='index') page='home';
+  if(page==='self-check') return;
+  var last; try{ last=localStorage.getItem(KEY); }catch(e){ return; }   /* no storage = can't limit it, so don't show */
+  if(last && (Date.now()-Number(last)) < DAYS*864e5) return;
+  function ga(n,p){ try{ if(typeof gtag==='function'){ p=p||{}; p.transport_type='beacon'; gtag('event',n,p); } }catch(e){} }
+  function show(){
+    if(document.hidden){ document.addEventListener('visibilitychange',function v(){ if(!document.hidden){ document.removeEventListener('visibilitychange',v); show(); } }); return; }
+    try{ localStorage.setItem(KEY,String(Date.now())); }catch(e){}
+    var box=document.createElement('div');
+    box.className='rs-rec'; box.setAttribute('role','dialog'); box.setAttribute('aria-labelledby','rs-rec-q');
+    box.innerHTML='<button type="button" class="rs-x" aria-label="Close">&times;</button>'+
+      '<h2 id="rs-rec-q">Could you see yourself recommending the Real Support website to a colleague?</h2>'+
+      '<div class="rs-btns"><button type="button" class="rs-btn rs-yes" data-a="yes">Yes</button><button type="button" class="rs-btn rs-no" data-a="no">No</button></div>'+
+      '<p class="rs-note">Your answer is completely anonymous.</p>';
+    document.body.appendChild(box);
+    requestAnimationFrame(function(){ box.classList.add('show'); });
+    var done=false;
+    function close(){ box.classList.remove('show'); setTimeout(function(){ if(box.parentNode) box.parentNode.removeChild(box); },300); document.removeEventListener('keydown',esc); }
+    function esc(e){ if(e.key==='Escape'&&!done){ done=true; ga('site_recommend_dismissed',{page:page}); close(); } }
+    document.addEventListener('keydown',esc);
+    box.querySelector('.rs-x').addEventListener('click',function(){ if(!done){ done=true; ga('site_recommend_dismissed',{page:page}); } close(); });
+    box.querySelectorAll('.rs-btn').forEach(function(b){ b.addEventListener('click',function(){
+      if(done) return; done=true; var a=b.getAttribute('data-a');
+      ga('site_recommend',{answer:a,page:page});
+      try{ fetch(ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body:JSON.stringify({kind:'resource_feedback',resource_id:'recommend-real-support',resource_title:'Would recommend Real Support to a colleague',resource_type:'Site survey',vote:a==='yes'?'up':'down',page:page})}); }catch(e){}
+      box.querySelector('.rs-btns').outerHTML='<p class="rs-thanks" role="status">Thank you! That really helps.</p>';
+      var n=box.querySelector('.rs-note'); if(n) n.remove();
+      setTimeout(close,2500);
+    }); });
+  }
+  setTimeout(show,DELAY);
+})();
+</script>
+</body>
+</html>
